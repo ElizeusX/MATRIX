@@ -47,6 +47,10 @@ type Product struct {
  Currency string `json:"currency"`
  Available bool `json:"available"`
  Published bool `json:"published"`
+ WidthMM *int64 `json:"width_mm"`
+ DepthMM *int64 `json:"depth_mm"`
+ SleepingWidthMM *int64 `json:"sleeping_width_mm"`
+ SleepingLengthMM *int64 `json:"sleeping_length_mm"`
 }
 
 type ErrorResponse struct { Error string `json:"error"` }
@@ -129,14 +133,14 @@ func (s *Server) secure(next http.HandlerFunc)http.HandlerFunc {
 type adminKey struct{}
 func adminID(r *http.Request)string {v,_:=r.Context().Value(adminKey{}).(string);return v}
 func (s *Server) products(w http.ResponseWriter,r *http.Request){
- rows,err:=s.DB.QueryContext(r.Context(),`SELECT p.id::text,p.slug,coalesce(c.slug,''),p.title_uk,coalesce(p.title_en,''),p.description_uk,p.description_en,p.base_price_minor,p.available,p.published,p.product_adjustment_bps,(SELECT global_adjustment_bps FROM pricing_settings LIMIT 1) FROM products p LEFT JOIN categories c ON c.id=p.category_id WHERE p.published=true ORDER BY p.created_at DESC LIMIT 100`)
+ rows,err:=s.DB.QueryContext(r.Context(),`SELECT p.id::text,p.slug,coalesce(c.slug,''),p.title_uk,coalesce(p.title_en,''),p.description_uk,p.description_en,p.base_price_minor,p.available,p.published,p.product_adjustment_bps,p.width_mm,p.depth_mm,p.sleeping_width_mm,p.sleeping_length_mm,(SELECT global_adjustment_bps FROM pricing_settings LIMIT 1) FROM products p LEFT JOIN categories c ON c.id=p.category_id WHERE p.published=true ORDER BY p.created_at DESC LIMIT 100`)
  if err!=nil{fail(w,500,"database error");return}
  defer rows.Close()
  list:=[]Product{}
  for rows.Next(){
   var p Product;var base sql.NullInt64;var adjust,global int64
   var uk,en sql.NullString
-  if err:=rows.Scan(&p.ID,&p.Slug,&p.Category,&p.TitleUK,&p.TitleEN,&uk,&en,&base,&p.Available,&p.Published,&adjust,&global);err!=nil{fail(w,500,"database error");return}
+  if err:=rows.Scan(&p.ID,&p.Slug,&p.Category,&p.TitleUK,&p.TitleEN,&uk,&en,&base,&p.Available,&p.Published,&adjust,&p.WidthMM,&p.DepthMM,&p.SleepingWidthMM,&p.SleepingLengthMM,&global);err!=nil{fail(w,500,"database error");return}
   if uk.Valid{p.DescriptionUK=&uk.String};if en.Valid{p.DescriptionEN=&en.String}
   if base.Valid{
    p.BasePriceMinor=&base.Int64
@@ -154,7 +158,7 @@ func (s *Server) product(w http.ResponseWriter,r *http.Request){
  if slug==""{fail(w,404,"not found");return}
  var p Product;var base sql.NullInt64;var global,adjust int64
  var uk,en sql.NullString
- err:=s.DB.QueryRowContext(r.Context(),`SELECT p.id::text,p.slug,coalesce(c.slug,''),p.title_uk,coalesce(p.title_en,''),p.description_uk,p.description_en,p.base_price_minor,p.available,p.published,p.product_adjustment_bps,(SELECT global_adjustment_bps FROM pricing_settings LIMIT 1) FROM products p LEFT JOIN categories c ON c.id=p.category_id WHERE p.slug=$1 AND p.published=true`,slug).Scan(&p.ID,&p.Slug,&p.Category,&p.TitleUK,&p.TitleEN,&uk,&en,&base,&p.Available,&p.Published,&adjust,&global)
+ err:=s.DB.QueryRowContext(r.Context(),`SELECT p.id::text,p.slug,coalesce(c.slug,''),p.title_uk,coalesce(p.title_en,''),p.description_uk,p.description_en,p.base_price_minor,p.available,p.published,p.product_adjustment_bps,p.width_mm,p.depth_mm,p.sleeping_width_mm,p.sleeping_length_mm,(SELECT global_adjustment_bps FROM pricing_settings LIMIT 1) FROM products p LEFT JOIN categories c ON c.id=p.category_id WHERE p.slug=$1 AND p.published=true`,slug).Scan(&p.ID,&p.Slug,&p.Category,&p.TitleUK,&p.TitleEN,&uk,&en,&base,&p.Available,&p.Published,&adjust,&p.WidthMM,&p.DepthMM,&p.SleepingWidthMM,&p.SleepingLengthMM,&global)
  if errors.Is(err,sql.ErrNoRows){fail(w,404,"not found");return}
  if err!=nil{fail(w,500,"database error");return}
  if uk.Valid{p.DescriptionUK=&uk.String};if en.Valid{p.DescriptionEN=&en.String}
@@ -312,11 +316,11 @@ func(s *Server)setGlobalPricing(w http.ResponseWriter,r *http.Request){
  jsonReply(w,200,map[string]any{"adjustment_bps":v.AdjustmentBPS})
 }
 func(s *Server)saveProduct(w http.ResponseWriter,r *http.Request){
- var v struct{Slug string `json:"slug"`;TitleUK string `json:"title_uk"`;TitleEN string `json:"title_en"`;CategorySlug string `json:"category_slug"`;BasePriceMinor *int64 `json:"base_price_minor"`;Published bool `json:"published"`;Available bool `json:"available"`}
- if decode(r,&v)!=nil||len(v.Slug)<2||len(v.Slug)>120||!regexp.MustCompile(`^[a-z0-9-]+$`).MatchString(v.Slug)||len(v.TitleUK)<2||len(v.TitleUK)>240||v.BasePriceMinor!=nil&&(*v.BasePriceMinor<=0||*v.BasePriceMinor>1_000_000_000_000)||v.Published&&v.BasePriceMinor==nil {fail(w,400,"invalid product");return}
+ var v struct{Slug string `json:"slug"`;TitleUK string `json:"title_uk"`;TitleEN string `json:"title_en"`;DescriptionUK string `json:"description_uk"`;DescriptionEN string `json:"description_en"`;CategorySlug string `json:"category_slug"`;BasePriceMinor *int64 `json:"base_price_minor"`;Published bool `json:"published"`;Available bool `json:"available"`}
+ if decode(r,&v)!=nil||len(v.Slug)<2||len(v.Slug)>120||!regexp.MustCompile(`^[a-z0-9-]+$`).MatchString(v.Slug)||len(v.TitleUK)<2||len(v.TitleUK)>240||len(v.TitleEN)>240||len(v.DescriptionUK)>12000||len(v.DescriptionEN)>12000||v.BasePriceMinor!=nil&&(*v.BasePriceMinor<=0||*v.BasePriceMinor>1_000_000_000_000)||v.Published&&v.BasePriceMinor==nil {fail(w,400,"invalid product");return}
  tx,err:=s.DB.BeginTx(r.Context(),nil);if err!=nil{fail(w,503,"database unavailable");return};defer tx.Rollback()
  var id string
- err=tx.QueryRowContext(r.Context(),`INSERT INTO products(slug,title_uk,title_en,category_id,base_price_minor,published,available) VALUES($1,$2,$3,(SELECT id FROM categories WHERE slug=$4),$5,$6,$7) ON CONFLICT(slug) DO UPDATE SET title_uk=EXCLUDED.title_uk,title_en=EXCLUDED.title_en,category_id=EXCLUDED.category_id,base_price_minor=EXCLUDED.base_price_minor,published=EXCLUDED.published,available=EXCLUDED.available,updated_at=now() RETURNING id::text`,v.Slug,v.TitleUK,v.TitleEN,v.CategorySlug,v.BasePriceMinor,v.Published,v.Available).Scan(&id)
+ err=tx.QueryRowContext(r.Context(),`INSERT INTO products(slug,title_uk,title_en,description_uk,description_en,category_id,base_price_minor,published,available) VALUES($1,$2,$3,NULLIF($4,''),NULLIF($5,''),(SELECT id FROM categories WHERE slug=$6),$7,$8,$9) ON CONFLICT(slug) DO UPDATE SET title_uk=EXCLUDED.title_uk,title_en=EXCLUDED.title_en,description_uk=EXCLUDED.description_uk,description_en=EXCLUDED.description_en,category_id=EXCLUDED.category_id,base_price_minor=EXCLUDED.base_price_minor,published=EXCLUDED.published,available=EXCLUDED.available,updated_at=now() RETURNING id::text`,v.Slug,v.TitleUK,v.TitleEN,v.DescriptionUK,v.DescriptionEN,v.CategorySlug,v.BasePriceMinor,v.Published,v.Available).Scan(&id)
  if err!=nil{fail(w,503,"product unavailable");return}
  if _,err:=tx.ExecContext(r.Context(),`INSERT INTO audit_logs(admin_id,action,entity_type,entity_id,new_value) VALUES($1::uuid,'product.upsert','product',$2,jsonb_build_object('slug',$3))`,adminID(r),id,v.Slug);err!=nil{fail(w,503,"database unavailable");return}
  if err:=tx.Commit();err!=nil{fail(w,503,"database unavailable");return}
