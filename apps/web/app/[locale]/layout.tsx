@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import "./locale.css";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
