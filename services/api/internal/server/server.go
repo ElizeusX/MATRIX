@@ -8,7 +8,6 @@ import (
  "encoding/hex"
  "encoding/json"
  "errors"
- "fmt"
  "log/slog"
  "net/http"
  "os"
@@ -127,8 +126,9 @@ func (s *Server) products(w http.ResponseWriter,r *http.Request){
   if uk.Valid{p.DescriptionUK=&uk.String};if en.Valid{p.DescriptionEN=&en.String}
   if base.Valid{
    p.BasePriceMinor=&base.Int64
-   q,err:=pricing.Calculate(pricing.Rule{BaseMinor:base.Int64,GlobalAdjustmentBPS:global,ProductAdjustmentBPS:adjust},time.Now().UTC())
-   if err==nil{p.PriceMinor=&q.FinalMinor}
+   quote,err:=s.quoteFor(r.Context(),p.ID,base.Int64,global,adjust)
+   if err!=nil{fail(w,503,"price unavailable");return}
+   p.PriceMinor=&quote.FinalMinor
   }
   list=append(list,p)
  }
@@ -138,11 +138,34 @@ func (s *Server) products(w http.ResponseWriter,r *http.Request){
 func (s *Server) product(w http.ResponseWriter,r *http.Request){
  slug:=r.PathValue("slug")
  if slug==""{fail(w,404,"not found");return}
- var title string
- err:=s.DB.QueryRowContext(r.Context(),"SELECT title_uk FROM products WHERE slug=$1 AND published=true",slug).Scan(&title)
+ var p Product;var base sql.NullInt64;var global,adjust int64
+ var uk,en sql.NullString
+ err:=s.DB.QueryRowContext(r.Context(),`SELECT p.id::text,p.slug,coalesce(c.slug,''),p.title_uk,coalesce(p.title_en,''),p.description_uk,p.description_en,p.base_price_minor,p.available,p.published,p.product_adjustment_bps,(SELECT global_adjustment_bps FROM pricing_settings LIMIT 1) FROM products p LEFT JOIN categories c ON c.id=p.category_id WHERE p.slug=$1 AND p.published=true`,slug).Scan(&p.ID,&p.Slug,&p.Category,&p.TitleUK,&p.TitleEN,&uk,&en,&base,&p.Available,&p.Published,&adjust,&global)
  if errors.Is(err,sql.ErrNoRows){fail(w,404,"not found");return}
  if err!=nil{fail(w,500,"database error");return}
- jsonReply(w,200,map[string]string{"slug":slug,"title_uk":title})
+ if uk.Valid{p.DescriptionUK=&uk.String};if en.Valid{p.DescriptionEN=&en.String}
+ if base.Valid{
+  p.BasePriceMinor=&base.Int64
+  quote,err:=s.quoteFor(r.Context(),p.ID,base.Int64,global,adjust)
+  if err!=nil{fail(w,503,"price unavailable");return}
+  p.PriceMinor=&quote.FinalMinor
+ }
+ jsonReply(w,200,p)
+}
+func (s *Server) quoteFor(ctx context.Context,id string,base,global,adjust int64)(pricing.Quote,error){
+ now:=time.Now().UTC()
+ rows,err:=s.DB.QueryContext(ctx,`SELECT product_id::text,discount_bps,starts_at,ends_at FROM promotions WHERE (product_id=$1::uuid OR product_id IS NULL) AND cancelled_at IS NULL AND starts_at<=$2 AND ends_at>$2 ORDER BY starts_at DESC`,id,now)
+ if err!=nil{return pricing.Quote{},err}
+ defer rows.Close()
+ var globalP,productP *pricing.Promotion
+ for rows.Next(){
+  var pid sql.NullString;var p pricing.Promotion
+  if err:=rows.Scan(&pid,&p.DiscountBPS,&p.StartsAt,&p.EndsAt);err!=nil{return pricing.Quote{},err}
+  if pid.Valid&&productP==nil{v:=p;productP=&v}
+  if !pid.Valid&&globalP==nil{v:=p;globalP=&v}
+ }
+ if err:=rows.Err();err!=nil{return pricing.Quote{},err}
+ return pricing.Calculate(pricing.Rule{BaseMinor:base,GlobalAdjustmentBPS:global,ProductAdjustmentBPS:adjust,GlobalPromotion:globalP,ProductPromotion:productP},now)
 }
 type orderInput struct {
  Name string `json:"name"`
@@ -282,4 +305,3 @@ func Run(db *sql.DB)error{
  s.logger.Info("MATRIX API listening","port",port)
  return srv.ListenAndServe()
 }
-var _=fmt.Sprintf
