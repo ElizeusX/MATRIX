@@ -94,6 +94,7 @@ func (s *Server) Handler() http.Handler {
  mux.HandleFunc("POST /api/v1/admin/logout",s.secure(s.logout))
  mux.HandleFunc("GET /api/v1/admin/orders",s.secure(s.adminOrders))
  mux.HandleFunc("POST /api/v1/admin/pricing",s.secure(s.setGlobalPricing))
+ mux.HandleFunc("GET /api/v1/admin/pricing/preview",s.secure(s.previewGlobalPricing))
  mux.HandleFunc("POST /api/v1/admin/products",s.secure(s.saveProduct))
  mux.HandleFunc("POST /api/v1/admin/promotions",s.secure(s.createPromotion))
  mux.HandleFunc("POST /api/v1/admin/currency",s.secure(s.setCurrency))
