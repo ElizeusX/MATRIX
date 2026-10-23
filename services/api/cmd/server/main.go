@@ -1,25 +1,23 @@
 package main
 
 import (
- "encoding/json"
+ "database/sql"
  "log"
- "net/http"
  "os"
  "time"
+
+ "github.com/ElizeusX/MATRIX/services/api/internal/server"
+ _ "github.com/lib/pq"
 )
 
 func main() {
- mux := http.NewServeMux()
- mux.HandleFunc("GET /health", func(w http.ResponseWriter, r *http.Request) {
-  w.Header().Set("Content-Type", "application/json")
-  _ = json.NewEncoder(w).Encode(map[string]string{"status":"ok","service":"matrix-api"})
- })
- mux.HandleFunc("GET /api/v1/products", func(w http.ResponseWriter, r *http.Request) {
-  w.Header().Set("Content-Type", "application/json")
-  _ = json.NewEncoder(w).Encode(map[string]any{"items":[]any{},"total":0})
- })
- port := os.Getenv("API_PORT")
- if port == "" { port = "8080" }
- log.Printf("MATRIX API listening on :%s",port)
- log.Fatal((&http.Server{Addr:":"+port,Handler:mux,ReadHeaderTimeout:5*time.Second}).ListenAndServe())
+ dsn:=os.Getenv("DATABASE_URL")
+ if dsn=="" {log.Fatal("DATABASE_URL must be set")}
+ db,err:=sql.Open("postgres",dsn)
+ if err!=nil{log.Fatal(err)}
+ defer db.Close()
+ db.SetMaxOpenConns(12)
+ db.SetMaxIdleConns(4)
+ db.SetConnMaxLifetime(15*time.Minute)
+ if err:=server.Run(db);err!=nil{log.Fatal(err)}
 }
