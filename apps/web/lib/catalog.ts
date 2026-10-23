@@ -21,6 +21,6 @@ export async function getProduct(slug:string):Promise<Product|null>{
   return await response.json() as Product;
  }catch{return null}
 }
-export function money(minor:number,locale:"uk"|"en"="uk"){
- return new Intl.NumberFormat(locale==="uk"?"uk-UA":"en-US",{style:"currency",currency:"UAH"}).format(minor/100);
+export function money(minor:number,locale:"uk"|"en"="uk",currency="UAH"){
+ return new Intl.NumberFormat(locale==="uk"?"uk-UA":"en-US",{style:"currency",currency}).format(minor/100);
 }
