@@ -4,8 +4,8 @@ INSERT INTO categories(slug,title_uk,title_en) VALUES
 ('straight-sofas','Дивани прямі','Straight sofas'),
 ('beds','Ліжка','Beds')
 ON CONFLICT(slug) DO NOTHING;
-INSERT INTO products(category_id,slug,source_url,title_uk,title_en,width_mm,depth_mm,sleeping_width_mm,sleeping_length_mm)
-SELECT id,'hilton-2','https://matrix-mebli.com/furnitures/','Кутовий диван Хілтон-2','Hilton-2 corner sofa',2800,1800,1300,2100 FROM categories WHERE slug='corner-sofas'
+INSERT INTO products(category_id,slug,title_uk,title_en,width_mm,depth_mm,sleeping_width_mm,sleeping_length_mm)
+SELECT id,'hilton-2','Кутовий диван Хілтон-2','Hilton-2 corner sofa',2800,1800,1300,2100 FROM categories WHERE slug='corner-sofas'
 ON CONFLICT(slug) DO NOTHING;
 INSERT INTO products(category_id,slug,title_uk,title_en,width_mm,depth_mm,sleeping_width_mm,sleeping_length_mm)
 SELECT id,'molly','Прямий диван Моллі','Molly straight sofa',2450,1150,1600,1950 FROM categories WHERE slug='straight-sofas'
