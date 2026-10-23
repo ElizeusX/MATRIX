@@ -1,0 +1,92 @@
+openapi: 3.0.3
+info:
+  title: MATRIX Store API
+  version: 0.2.0
+  description: Under development; admin and manual-order endpoints only.
+servers:
+  - url: /api/v1
+paths:
+  /products:
+    get:
+      summary: List published products with server-calculated UAH minor-unit prices
+      responses:
+        '200':
+          description: Product list
+  /products/{slug}:
+    get:
+      summary: Get published product
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema: {type: string}
+      responses:
+        '200': {description: Product}
+        '404': {description: Not found}
+  /orders:
+    post:
+      summary: Place guest order, manual payment only
+      description: Server validates stock/prices and persists immutable UAH item snapshots.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, phone, address, consent, payment_method, items]
+              properties:
+                name: {type: string}
+                phone: {type: string}
+                email: {type: string, format: email}
+                address: {type: string}
+                comment: {type: string}
+                consent: {type: boolean}
+                payment_method: {type: string, enum: [manual]}
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required: [product_id, quantity]
+                    properties:
+                      product_id: {type: string, format: uuid}
+                      quantity: {type: integer, minimum: 1, maximum: 99}
+      responses:
+        '201': {description: Order created, pending manual payment}
+        '409': {description: Product not available}
+  /admin/login:
+    post:
+      summary: Exchange credentials for HttpOnly session cookie
+      responses:
+        '200': {description: Logged in}
+        '401': {description: Invalid credentials}
+  /admin/logout:
+    post:
+      summary: Invalidate session
+      responses:
+        '200': {description: Logged out}
+  /admin/orders:
+    get:
+      summary: List recent orders
+      responses:
+        '200': {description: Orders}
+        '401': {description: Unauthorized}
+  /admin/pricing:
+    post:
+      summary: Set non-compounding global adjustment in basis points
+      responses:
+        '200': {description: Global adjustment updated}
+  /admin/products:
+    post:
+      summary: Insert or update product by slug
+      responses:
+        '200': {description: Product saved}
+  /admin/promotions:
+    post:
+      summary: Create UTC interval promotion
+      responses:
+        '201': {description: Promotion created}
+  /admin/currency:
+    post:
+      summary: Select storefront currency, rate required if non-UAH
+      responses:
+        '200': {description: Currency selected}
