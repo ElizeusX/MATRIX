@@ -1,86 +1,74 @@
 # MATRIX — Premium Furniture Commerce
 
-A **work-in-progress** monorepo for the Ukrainian furniture manufacturer MATRIX.
+A full-stack **work-in-progress** commerce application for MATRIX, a furniture manufacturer based in Cherkasy, Ukraine.
 
-> **Not ready for live orders.** Catalog content is unpriced and unpublished pending verified merchant data. Secure checkout, production payments, administrative CRUD and full-stack integration remain incomplete.
+**Security and readiness:** This is not yet an audited production release. The merchant must confirm catalog prices and availability, rights to photographs, legal policies, delivery methods and payment-provider credentials before the store takes real orders.
 
-## Technology
+## Stack
+- Next.js 16 App Router, React 19, TypeScript; Ukrainian and English customer-facing routes
+- Go REST API, PostgreSQL 16, exact integer-minor-unit price engine
+- Admin sessions with bcrypt password hashes and HttpOnly cookies
+- Docker Compose (web, API, database), GitHub Actions, Go unit tests
 
-- **Storefront:** Next.js App Router, React 19, TypeScript, Ukrainian + English routes.
-- **Backend:** Go 1.23+, HTTP REST scaffold and unit-tested exact-money pricing library.
-- **Database:** PostgreSQL 16 schema, SQL migrations and fact-checked draft product seed.
-- **Infrastructure:** Docker Compose development database, GitHub Actions CI.
-- **Research:** source audit, payment provider integration assessment and metadata-only auditing tool.
-
-## Prerequisites
-Node.js 22+, npm, Go 1.23+, Docker and Docker Compose.
-
-## Start from a clean checkout
-
+## Quick start — Docker
 ```bash
 git clone https://github.com/ElizeusX/MATRIX.git
 cd MATRIX
 cp .env.example .env
 docker compose up -d db
 docker compose exec -T db psql -U matrix -d matrix < database/migrations/001_init.sql
+docker compose exec -T db psql -U matrix -d matrix < database/migrations/002_operations.sql
 docker compose exec -T db psql -U matrix -d matrix < database/seeds/verified_catalog.sql
+docker compose up -d --build api web
 ```
+Visit http://localhost:3000/uk, http://localhost:3000/en and http://localhost:3000/admin.
 
-Start the API in terminal 1:
+> Important: Seed data contains **9 draft, unpublished MATRIX product records with no prices**. Nothing is offered for purchase until an authenticated admin fills the price, publishes the product and sets availability.
 
+## Create first administrator (one time)
+Do not seed a public default password. From the project root:
+The API runtime container is minimal and does not include the bootstrap utility. Run this one-time bootstrap from a Go development terminal with the database connection:
 ```bash
+set -a; . ./.env; set +a
+export ADMIN_EMAIL=you@example.com
 cd services/api
-go test ./...
-go run ./cmd/server
+go run ./cmd/bootstrap
 ```
+Type a **14–72-byte** password; it will not echo in the terminal. Then log in at http://localhost:3000/admin.
 
-Start the frontend in terminal 2:
+If you only use Docker, run `go run ./cmd/bootstrap` on a machine with Go 1.23+ and the database port available; a packaged bootstrap container is a future improvement.
 
+## Start without Docker for application processes
+Start PostgreSQL and run migrations as above. Load environment variables from the repo root:
 ```bash
-cd apps/web
-npm install
-npm run dev
+set -a; . ./.env; set +a
+(cd services/api && go mod tidy && go test ./... && go run ./cmd/server)
+```
+In another terminal:
+```bash
+cd apps/web && npm install && npm run dev
 ```
 
-- Ukrainian storefront: http://localhost:3000/uk
-- English storefront: http://localhost:3000/en
-- Go API health: http://localhost:8080/health
-- Initial product endpoint: http://localhost:8080/api/v1/products
+## Routes and implementation
+- `/uk`, `/en`: storefront; `/uk/catalog`, `/en/catalog`: localized catalog and search
+- `/uk/product/[slug]`: item detail; `/uk/cart`: persistent cart and manual checkout
+- `/admin`: bcrypt-backed session login, price adjustment with preview, products, promotions, exchange rates, order history and audit log
+- `/api/v1/products`: server-authoritative published catalog with discount/currency quotes
+- `/api/v1/orders`: validates purchasability and snapshots server-calculated unit prices
+- `/api/v1/payments/liqpay/webhook`: requires a signed callback and rechecks merchant status before marking an order paid
 
-The product API currently returns an empty list; frontend verified entries are a read-only preview, not database-connected products. Checkout and admin purchase functions are intentionally not enabled.
+Payment collection is off by default. The LiqPay hosted checkout option is enabled only with configuration; **live transactions are not verified**. For EU/USD storefront display, an admin must configure a manual rate; settlement remains UAH. Apple Pay and Google Pay depend on merchant and provider activation.
 
-## Repository structure
-
-```
-apps/web/                 Frontend and localized storefront
-services/api/             Go service and money calculations
-database/migrations/      PostgreSQL schema
-database/seeds/           Verified draft catalog seed
-scripts/import/           Metadata-only source auditing
-docs/                     Source research, architecture and operations
-.github/workflows/        CI configuration
-```
-
-## Pricing rules
-
-All canonical base prices use **UAH minor units**, never floating-point money. A global adjustment is recomputed from each base price; product-specific adjustments apply next. Active product-specific discounts override active global discounts. Promotions have UTC start/end timestamps with a half-open validity interval. See `services/api/internal/pricing` and `docs/ARCHITECTURE.md`.
-
-## Content and payments
-
-Original photos and descriptions from https://matrix-mebli.com may only be copied with documented rights. No photos have been imported. Source prices and stock status were not verified, so no fictional products are purchasable.
-
-Payment provider research: LiqPay and monobank official docs. The live integrations are **not implemented or activated**. Merchant credentials, webhook validation and idempotent payment processing are required before taking transactions.
+## Pricing contract
+Canonical product prices: UAH kopecks. Pricing uses integer arithmetic and basis points:
+base → global price adjustment → product adjustment → product-specific discount (overrides global) or global discount → currency conversion.
+A change from +10% to +15% recomputes from base, never compounds. Promotions are evaluated with server UTC time and are not browser-authoritative. Existing orders retain their price snapshot.
 
 ## Documentation
-
 - [Source audit](docs/SOURCE_AUDIT.md)
-- [Architecture and pricing contract](docs/ARCHITECTURE.md)
-- [Operations and deployment readiness](docs/RUNBOOK.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [REST API](docs/OPENAPI.yaml)
+- [Operations, deployment and release blockers](docs/RUNBOOK.md)
 
-## Security notes
-
-Do not commit secrets. Do not expose the unfinished API as an Internet-facing commerce production service. Public admin credentials are never seeded.
-
-## Remaining release blockers
-
-Database-connected API, protected admin dashboard, complete multilingual content, media rights, inventory, prices, persisted cart, checkout, provider sandbox, shipping workflow, transactional email, tests beyond the Go pricing core, and verified production builds.
+## Gaps
+Original product media **0** (rights unconfirmed); product records seeded by SQL **9**, not yet uploaded into an actual shared database by this assistant. No verified commercial prices. The UI is not fully accessible/SEO audited; there is no real photo library, fully managed shipping integration, policy pages, transactional email, automatic FX rate provider or completed E2E testing. A secure production deployment and provider test credentials are still needed.

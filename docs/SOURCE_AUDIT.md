@@ -1,33 +1,40 @@
-# Source and design audit — 2026-10-23
+# MATRIX source audit — 2026-10-23
 
-## Website A: https://matrix-mebli.com
-Public homepage and /furnitures/ catalog were readable via web retrieval.
-Confirmed categories: Дивани кутові, Дивани прямі, Ліжка.
-Catalog visibly names Хілтон-2 (2800×1800 mm, sleeper 2100×1300 mm),
-Моллі (2450×1150 mm, sleeper 1950×1600 mm),
-Ельдорадо (2460×1080 mm, sleeper 1980×1600 mm),
-Смарт (2460×1650 mm, sleeper 1980×1600 mm).
-Homepage displays Рубін (2500×1080 mm, sleeper 2000×1550 mm).
-Contact phone on source: +380 (68) 390 39 69.
+Primary website: https://matrix-mebli.com. Public homepage, catalog and eight individual product URLs were accessible. The source identifies the manufacturer as a furniture factory based in Cherkasy, Ukraine; the homepage lists +380 (68) 390 39 69 and matrix-mebli@ukr.net.
 
-### Limitations
-- No verified commercial prices, stock, lead times or detailed upholstery choices.
-- Media usage rights have NOT been confirmed: **0 source photographs copied**.
-- Category filtered URLs were not accessible to the research fetcher.
-- Product source URL fields should use individual canonical URLs once verified; avoid interpreting a category page as an individual product URL.
-- All seeded products remain unpublished, unavailable and unpriced.
+## Verified product metadata
+Nine product names have been documented in the SQL draft seed:
+1. Кутовий диван Хілтон-2 — 2800 × 1800 mm, sleeping area 2100 × 1300 mm
+2. Кутовий диван Хілтон-П — dimensions not verified
+3. Прямий диван Моллі — 2450 × 1150 mm, sleeping area 1950 × 1600 mm
+4. Ліра-2 — sleeping area 1400/1600 × 2000 mm (width depends on variant; left NULL)
+5. Прямий диван Ельдорадо-2 — 2460 × 1080 mm, sleeping area 1980 × 1600 mm
+6. Прямий диван Ельдорадо — 2460 × 1080 mm, sleeping area 1980 × 1600 mm
+7. Прямий диван Еллі — source says “238(2410)×1100” (ambiguous width; left NULL)
+8. Кутовий диван Смарт — 2460 × 1650 mm, sleeping area 1980 × 1600 mm
+9. Прямий диван Рубін — homepage lists 2500 × 1080 mm, sleeping area 2000 × 1550 mm
 
-## Design references
-- Arbore: navigation taxonomy, understated design and material-led filtering.
-- TeakPeak: warm editorial language and category storytelling.
-- Kave Home product link returned HTTP 429; detailed audit blocked.
-No reference site images or branded elements were copied.
+Categories confirmed: corner sofas, straight sofas, beds. The source's product categorization of “Ліра-2” was not unambiguously exposed by the fetched page, so the seed leaves its category NULL.
 
-## Payment documentation
+Direct product source URLs are stored in `database/seeds/verified_catalog.sql`; the source URL for the homepage-only “Рубін” remains NULL. Draft products stay unpublished, unavailable and unpriced.
+
+## Missing / uncertain
+- **0 images copied:** the user has not confirmed rights to redistribute proprietary imagery.
+- **0 product prices verified:** source pages did not provide verified publicly readable prices.
+- **0 availability promises:** stock cannot be inferred from catalog listing.
+- Full fabrics, variants, lead times, delivery, returns and warranties remain unverified.
+
+## Design audit
+- https://arbore.cz/produkty/ — restrained taxonomy/material filter hierarchy.
+- https://www.teakpeak.cz/collections/loznice — editorial composition and category storytelling.
+- Kave Home product link returned HTTP 429; detailed inspection unavailable.
+
+No reference brand assets were imported; design implementation is original and uses CSS neutral placeholders.
+
+## Payment research
 - LiqPay Checkout: https://www.liqpay.ua/en/doc/api/internet_acquiring/checkout
-- monobank: https://api.monobank.ua/docs/acquiring.html
-- WayForPay: evaluate against current official merchant integration docs before activation.
+- monobank acquiring: https://api.monobank.ua/docs/acquiring.html
+- WayForPay merchant documentation still requires dedicated review before implementation.
 
-## Rights and external dependencies
-Document written permission for migrating MATRIX photographs and descriptions before import.
-Merchant account, HTTPS domain, secrets and delivery provider credentials remain prerequisites.
+## Audit limitations
+This audit does not establish commercial rights to reuse the source site's photos or descriptions. The metadata-only script respects robots policy when run; offline environment may prevent re-fetching. Verified seed records are idempotent via ON CONFLICT; they are not a live catalog import into any running hosted database.
