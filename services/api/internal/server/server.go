@@ -10,6 +10,7 @@ import (
  "errors"
  "fmt"
  "log/slog"
+ "net"
  "net/http"
  "os"
  "regexp"
@@ -262,7 +263,7 @@ func (s *Server) createOrder(w http.ResponseWriter,r *http.Request){
 }
 func(s *Server)login(w http.ResponseWriter,r *http.Request){
  if !s.originOK(r){fail(w,403,"invalid origin");return}
- key:=r.RemoteAddr
+ key,_,parseErr:=net.SplitHostPort(r.RemoteAddr);if parseErr!=nil{key=r.RemoteAddr}
  if x,ok:=s.attempts.Load(key);ok && x.(time.Time).After(time.Now()){fail(w,429,"retry later");return}
  s.attempts.Store(key,time.Now().Add(2*time.Second))
  var v struct{Email string `json:"email"`;Password string `json:"password"`}
@@ -297,6 +298,14 @@ func(s *Server)setGlobalPricing(w http.ResponseWriter,r *http.Request){
  tx,err:=s.DB.BeginTx(r.Context(),nil);if err!=nil{fail(w,503,"database unavailable");return};defer tx.Rollback()
  var old int64
  if err:=tx.QueryRowContext(r.Context(),"SELECT global_adjustment_bps FROM pricing_settings FOR UPDATE").Scan(&old);err!=nil{fail(w,503,"database unavailable");return}
+ rows,err:=tx.QueryContext(r.Context(),"SELECT base_price_minor,product_adjustment_bps FROM products WHERE base_price_minor IS NOT NULL")
+ if err!=nil{fail(w,503,"database unavailable");return}
+ for rows.Next(){
+  var base,productAdjustment int64
+  if err:=rows.Scan(&base,&productAdjustment);err!=nil{rows.Close();fail(w,503,"database unavailable");return}
+  if _,err:=pricing.Calculate(pricing.Rule{BaseMinor:base,GlobalAdjustmentBPS:v.AdjustmentBPS,ProductAdjustmentBPS:productAdjustment},time.Now().UTC());err!=nil{rows.Close();fail(w,400,"adjustment results in invalid product price");return}
+ }
+ err=rows.Err();rows.Close();if err!=nil{fail(w,503,"database unavailable");return}
  if _,err:=tx.ExecContext(r.Context(),"UPDATE pricing_settings SET global_adjustment_bps=$1,updated_at=now()",v.AdjustmentBPS);err!=nil{fail(w,503,"database unavailable");return}
  if _,err:=tx.ExecContext(r.Context(),`INSERT INTO audit_logs(admin_id,action,entity_type,old_value,new_value) VALUES($1::uuid,'pricing.global_update','pricing_settings',jsonb_build_object('adjustment_bps',$2::bigint),jsonb_build_object('adjustment_bps',$3::bigint))`,adminID(r),old,v.AdjustmentBPS);err!=nil{fail(w,503,"database unavailable");return}
  if err:=tx.Commit();err!=nil{fail(w,503,"database unavailable");return}
