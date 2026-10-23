@@ -27,10 +27,7 @@ Visit http://localhost:3000/uk, http://localhost:3000/en and http://localhost:30
 
 ## Create first administrator (one time)
 Do not seed a public default password. From the project root:
-```bash
-docker compose run --rm -it -e ADMIN_EMAIL=you@example.com api sh
-```
-The runtime container is minimal and does not include the bootstrap binary. Instead, perform bootstrap from a Go development terminal with the database connection:
+The API runtime container is minimal and does not include the bootstrap utility. Run this one-time bootstrap from a Go development terminal with the database connection:
 ```bash
 set -a; . ./.env; set +a
 export ADMIN_EMAIL=you@example.com
