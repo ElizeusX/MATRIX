@@ -72,3 +72,9 @@ A change from +10% to +15% recomputes from base, never compounds. Promotions are
 
 ## Gaps
 Original product media **0** (rights unconfirmed); product records seeded by SQL **9**, not yet uploaded into an actual shared database by this assistant. No verified commercial prices. The UI is not fully accessible/SEO audited; there is no real photo library, fully managed shipping integration, policy pages, transactional email, automatic FX rate provider or completed E2E testing. A secure production deployment and provider test credentials are still needed.
+
+## Mobile UI preview on GitHub Pages
+
+A self-contained, static phone-friendly preview is located in [preview/](preview/README.md). It has responsive navigation, bilingual text, catalog filtering, product dialogs and locally saved favorites, using original vector artwork. It does **not** accept payments or orders, display unverified prices or include source photographs.
+
+The deployment workflow is [pages-preview.yml](.github/workflows/pages-preview.yml). After successful GitHub Pages activation, the preview URL is expected to be **https://elizeusx.github.io/MATRIX/**. Activate GitHub Actions as the Pages source in [repository Pages settings](https://github.com/ElizeusX/MATRIX/settings/pages). GitHub Pro/Team/Enterprise is required for a private repository and the published site is generally public. Do not change the repository's private visibility merely to use the preview.
