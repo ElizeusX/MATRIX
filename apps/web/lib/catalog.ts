@@ -2,6 +2,7 @@ export type Product={
  id:string;slug:string;category:string;
  title_uk:string;title_en:string;description_uk:string|null;description_en:string|null;
  base_price_minor:number|null;price_minor:number|null;
+ original_minor:number|null;settlement_price_minor:number|null;discount_bps:number;currency:string;
  available:boolean;published:boolean
 };
 export async function getProducts():Promise<Product[]>{
