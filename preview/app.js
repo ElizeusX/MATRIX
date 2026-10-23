@@ -1,0 +1,294 @@
+"use strict";
+
+/**
+ * MATRIX static design preview.
+ * No live catalog API, payments, prices, inventory or checkout.
+ * The data below is editorial-only metadata from the audited public MATRIX site.
+ */
+const products = Object.freeze([
+  { id:"hilton-2", uk:"Кутовий диван Хілтон-2", en:"Hilton-2 corner sofa", category:"corner-sofas", width:2800, depth:1800, sleepLength:2100, sleepWidth:1300 },
+  { id:"hilton-p", uk:"Кутовий диван Хілтон-П", en:"Hilton-P corner sofa", category:"corner-sofas" },
+  { id:"molly", uk:"Прямий диван Моллі", en:"Molly straight sofa", category:"straight-sofas", width:2450, depth:1150, sleepLength:1950, sleepWidth:1600 },
+  { id:"lira-2", uk:"Ліра-2", en:"Lira-2", category:"unspecified" },
+  { id:"eldorado-2", uk:"Прямий диван Ельдорадо-2", en:"Eldorado-2 straight sofa", category:"straight-sofas", width:2460, depth:1080, sleepLength:1980, sleepWidth:1600 },
+  { id:"eldorado", uk:"Прямий диван Ельдорадо", en:"Eldorado straight sofa", category:"straight-sofas", width:2460, depth:1080, sleepLength:1980, sleepWidth:1600 },
+  { id:"elli", uk:"Прямий диван Еллі", en:"Elli straight sofa", category:"straight-sofas", depth:1100, sleepLength:1980, sleepWidth:1600 },
+  { id:"smart", uk:"Кутовий диван Смарт", en:"Smart corner sofa", category:"corner-sofas", width:2460, depth:1650, sleepLength:1980, sleepWidth:1600 },
+  { id:"rubin", uk:"Прямий диван Рубін", en:"Rubin straight sofa", category:"straight-sofas", width:2500, depth:1080, sleepLength:2000, sleepWidth:1550 },
+]);
+
+const translations = {
+  uk: {
+    skip:"До основного вмісту", preview:"Дизайн-превʼю • Ціни та замовлення вимкнено",
+    navCollection:"Колекції",navStory:"Філософія",navContact:"Контакти",
+    heroEyebrow:"МЕБЛІ З ХАРАКТЕРОМ",heroLine1:"Простір,",heroLine2:"де ти — вдома.",
+    heroDescription:"М’які меблі MATRIX для моментів, до яких хочеться повертатися. Знайомтеся з колекціями, створеними для вашого простору.",
+    explore:"Дивитися колекції",heroAside:"Дизайн-превʼю",artNote:"Ілюстрація інтер’єру · не фото товару",
+    tickerOne:"СПОКІЙНА ЕСТЕТИКА",tickerTwo:"СТВОРЕНО ДЛЯ ЖИТТЯ",
+    collectionTitle:"Знайдіть своє.",collectionIntro:"Ознайомтеся з моделями в каталозі. Фотографії, ціни та доступність будуть додані після підтвердження.",
+    catCorner:"Кутові дивани",catStraight:"Прямі дивани",catBeds:"Ліжка",catUnspecified:"Категорія уточнюється",
+    productsTitle:"Каталог моделей",productsIntro:"Реальні назви моделей із сайту виробника. Зображення — лише декоративні ілюстрації.",
+    all:"Усі моделі",empty:"Нічого не знайдено. Спробуйте інший запит.",
+    catalogFootnote:"Всі товари без підтвердженої ціни. Замовлення не приймаються.",
+    storyTitle:"Місце для ваших історій.",
+    storyText:"Предмети, з якими проживають щоденні моменти. У цьому превʼю ми показуємо напрям дизайну майбутнього магазину MATRIX — без вигаданих цін і характеристик.",
+    storyCTA:"Зв’язатися з нами",contactTitle:"Ваш дім. Ваш MATRIX.",
+    contactText:"Потрібна консультація? Зв’яжіться з виробником. Демоверсія не приймає замовлень.",
+    footerLine:"Дизайн-превʼю майбутнього магазину",backTop:"Нагору ↑",
+    missing:"Ціна й наявність уточнюються. Онлайн-замовлення недоступне.",
+    toFavorites:"Додати в обране ♡",removeFavorites:"Прибрати з обраного ♥",
+    consult:"Запитати про модель ↗",favoritesTitle:"Обрані моделі",
+    favoritesNote:"Список зберігається лише на цьому пристрої. Це не кошик і не замовлення.",
+    favoriteEmpty:"Ви ще не додали жодної моделі.",category:"Категорія",
+    dimensions:"Габарити",sleepArea:"Спальне місце",mm:"мм",pending:"Уточнюється",
+    photoDemo:"Концепт · не фото виробу",details:"Переглянути модель",
+    search:"Пошук моделі",menuOpen:"Відкрити меню",menuClose:"Закрити меню",
+    close:"Закрити",heart:"Додати в обране",count:"моделей"
+  },
+  en: {
+    skip:"Skip to main content",preview:"Design preview • Prices & ordering disabled",
+    navCollection:"Collections",navStory:"Our approach",navContact:"Contact",
+    heroEyebrow:"FURNITURE WITH CHARACTER",heroLine1:"A place",heroLine2:"to call home.",
+    heroDescription:"Explore MATRIX upholstered furniture and collections made for everyday moments and spaces that feel like your own.",
+    explore:"Explore collections",heroAside:"Design preview",artNote:"Interior illustration · not a product photo",
+    tickerOne:"QUIET AESTHETICS",tickerTwo:"MADE FOR LIVING",
+    collectionTitle:"Find your own.",collectionIntro:"Explore verified models in the catalog. Photos, prices and availability will be added after confirmation.",
+    catCorner:"Corner sofas",catStraight:"Straight sofas",catBeds:"Beds",catUnspecified:"Category unconfirmed",
+    productsTitle:"Product collection",productsIntro:"Authentic model names from the manufacturer. Visuals are decorative illustrations only.",
+    all:"All models",empty:"Nothing found. Try a different search.",
+    catalogFootnote:"Prices have not been confirmed. Orders are not accepted.",
+    storyTitle:"Room for your stories.",
+    storyText:"Furniture accompanies everyday moments. This preview shows the direction of MATRIX's future online store, without invented prices or specifications.",
+    storyCTA:"Contact us",contactTitle:"Your home. Your MATRIX.",
+    contactText:"Need advice? Contact the manufacturer. This demonstration does not accept orders.",
+    footerLine:"Preview of the upcoming online store",backTop:"Back to top ↑",
+    missing:"Price and availability are pending. Online ordering is disabled.",
+    toFavorites:"Add to favorites ♡",removeFavorites:"Remove from favorites ♥",
+    consult:"Ask about this model ↗",favoritesTitle:"Saved models",
+    favoritesNote:"This list is saved on this device only. It is not a cart or an order.",
+    favoriteEmpty:"No saved models yet.",category:"Category",
+    dimensions:"Overall dimensions",sleepArea:"Sleeping area",mm:"mm",pending:"Unconfirmed",
+    photoDemo:"Concept · not a product photo",details:"View product",
+    search:"Search models",menuOpen:"Open menu",menuClose:"Close menu",
+    close:"Close",heart:"Add to favorites",count:"models"
+  }
+};
+
+const $ = (selector) => document.querySelector(selector);
+const grid = $("#product-grid");
+const search = $("#catalog-search");
+const dialog = $("#product-dialog");
+const savedDialog = $("#favorites-dialog");
+const STORAGE_KEY = "matrix-static-preview-favorites-v1";
+
+const state = { locale:"uk", filter:"all", query:"", favorites:new Set(), activeProduct:null };
+try {
+  const value = JSON.parse(window.localStorage.getItem(STORAGE_KEY)||"[]");
+  if(Array.isArray(value))for(const id of value)if(products.some(p=>p.id===id))state.favorites.add(id);
+  if(window.localStorage.getItem("matrix-static-preview-locale")==="en")state.locale="en";
+} catch { /* private browsing or disabled storage; the preview still works */ }
+
+function t(key){return translations[state.locale][key]||key}
+function getCategory(category){
+  return category==="corner-sofas"?t("catCorner"):category==="straight-sofas"?t("catStraight"):category==="beds"?t("catBeds"):t("catUnspecified");
+}
+function elementsForProduct(p,index){
+  const fragment=document.createElement("article");
+  fragment.className="product-card";
+  const visual=document.createElement("div");
+  visual.className="product-visual-wrap";
+  const visualButton=document.createElement("button");
+  visualButton.type="button";
+  visualButton.className="product-art";
+  visualButton.dataset.open=p.id;
+  visualButton.dataset.tone=String(index%9);
+  visualButton.setAttribute("aria-label",t("details")+": "+p[state.locale]);
+  const silhouette=document.createElement("span");
+  silhouette.className="product-silhouette "+(p.category==="beds"?"silhouette-bed":p.category==="corner-sofas"?"silhouette-corner":"");
+  silhouette.append(document.createElement("span"));
+  const caption=document.createElement("span");
+  caption.className="product-illustration-caption";
+  caption.textContent=t("photoDemo");
+  visualButton.append(silhouette,caption);
+  const overlay=document.createElement("div");
+  overlay.className="product-topline";
+  const tag=document.createElement("span");
+  tag.className="product-tag";
+  tag.textContent="MATRIX / "+String(index+1).padStart(2,"0");
+  const fav=document.createElement("button");
+  fav.type="button";fav.className="favorite-btn";
+  fav.dataset.favorite=p.id;
+  fav.setAttribute("aria-label",t("heart")+": "+p[state.locale]);
+  fav.setAttribute("aria-pressed",String(state.favorites.has(p.id)));
+  if(state.favorites.has(p.id))fav.classList.add("selected");
+  fav.innerHTML='<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" aria-hidden="true"><path d="M20.6 8.1c0 5-8.6 11-8.6 11s-8.6-6-8.6-11a4.6 4.6 0 0 1 8.6-2.2 4.6 4.6 0 0 1 8.6 2.2Z"/></svg>';
+  overlay.append(tag,fav);visual.append(visualButton,overlay);
+  const info=document.createElement("div");info.className="product-meta";
+  const category=document.createElement("span");category.textContent=getCategory(p.category);
+  const headingRow=document.createElement("div");headingRow.className="product-title-row";
+  const name=document.createElement("h3");name.textContent=p[state.locale];
+  const open=document.createElement("button");open.className="product-open";open.type="button";
+  open.dataset.open=p.id;open.setAttribute("aria-label",t("details")+": "+p[state.locale]);
+  open.textContent="↗";headingRow.append(name,open);
+  const price=document.createElement("p");price.textContent=t("missing");
+  info.append(category,headingRow,price);fragment.append(visual,info);
+  return fragment;
+}
+function drawProducts(){
+ const q=state.query.trim().toLocaleLowerCase();
+ const filtered=products.filter(p=>{
+  const categoryMatch=state.filter==="all"||p.category===state.filter;
+  return categoryMatch&&(p.uk.toLocaleLowerCase().includes(q)||p.en.toLocaleLowerCase().includes(q));
+ });
+ grid.replaceChildren(...filtered.map((p,i)=>elementsForProduct(p,i)));
+ $("#empty-message").hidden=filtered.length!==0;
+ $("#catalog-count").textContent=String(filtered.length).padStart(2,"0")+" "+t("count").toUpperCase();
+ for(const filter of document.querySelectorAll("[data-filter]")){
+  const active=filter.dataset.filter===state.filter;
+  filter.classList.toggle("active",active);
+  filter.setAttribute("aria-pressed",String(active));
+ }
+ updateFavoritesCount();
+}
+function updateFavoritesCount(){
+ const count=$("#favorite-count");
+ count.hidden=state.favorites.size===0;
+ count.textContent=String(state.favorites.size);
+}
+function saveFavorites(){
+ try{window.localStorage.setItem(STORAGE_KEY,JSON.stringify([...state.favorites]))}catch{}
+}
+function toggleFavorite(id){
+ if(!products.some(p=>p.id===id))return;
+ if(state.favorites.has(id))state.favorites.delete(id);
+ else state.favorites.add(id);
+ saveFavorites();
+ drawProducts();
+ if(state.activeProduct===id)updateModalFavorite();
+ if(savedDialog.open)drawSaved();
+}
+function updateModalFavorite(){
+ const button=$("#dialog-favorite");
+ const selected=state.favorites.has(state.activeProduct);
+ button.textContent=selected?t("removeFavorites"):t("toFavorites");
+ button.setAttribute("aria-pressed",String(selected));
+}
+function specRow(label,value){
+ const row=document.createElement("div");row.className="spec-row";
+ const left=document.createElement("span");left.textContent=label;
+ const right=document.createElement("strong");right.textContent=value;
+ row.append(left,right);
+ return row;
+}
+function openProduct(id){
+ const p=products.find(x=>x.id===id);
+ if(!p)return;
+ state.activeProduct=id;
+ $("#dialog-title").textContent=p[state.locale];
+ $("#dialog-category").textContent=getCategory(p.category);
+ $("#dialog-specs").replaceChildren(
+  specRow(t("category"),getCategory(p.category)),
+  specRow(t("dimensions"),p.width&&p.depth?`${p.width} × ${p.depth} ${t("mm")}`:t("pending")),
+  specRow(t("sleepArea"),p.sleepLength&&p.sleepWidth?`${p.sleepLength} × ${p.sleepWidth} ${t("mm")}`:t("pending"))
+ );
+ $("#dialog-contact").href="mailto:matrix-mebli@ukr.net?subject="+encodeURIComponent("MATRIX: "+p.uk);
+ updateModalFavorite();
+ dialog.showModal();
+ document.body.classList.add("dialog-open");
+}
+function drawSaved(){
+ const list=$("#favorites-list");list.replaceChildren();
+ const items=products.filter(p=>state.favorites.has(p.id));
+ if(items.length===0){
+  const empty=document.createElement("p");empty.className="favorite-note";empty.textContent=t("favoriteEmpty");
+  list.append(empty);return;
+ }
+ for(const p of items){
+  const row=document.createElement("div");row.className="favorite-item";
+  const name=document.createElement("span");name.textContent=p[state.locale];
+  const open=document.createElement("button");open.type="button";open.textContent="↗";open.dataset.savedOpen=p.id;
+  const remove=document.createElement("button");remove.type="button";remove.textContent="×";
+  remove.dataset.savedRemove=p.id;remove.setAttribute("aria-label",t("removeFavorites")+": "+p[state.locale]);
+  row.append(name,open,remove);list.append(row);
+ }
+}
+function updateLanguage(){
+ document.documentElement.lang=state.locale;
+ const current=$("#language-current");const other=$("#language-other");
+ current.textContent=state.locale==="uk"?"UA":"EN";
+ other.textContent=state.locale==="uk"?"EN":"UA";
+ for(const el of document.querySelectorAll("[data-i18n]")){
+  const key=el.dataset.i18n;
+  if(key==="storyTitle"||key==="contactTitle"){
+   const text=t(key).split(" ");
+   if(key==="contactTitle"){
+    el.replaceChildren(document.createTextNode(state.locale==="uk"?"Ваш дім.":"Your home."),document.createElement("br"));
+    const em=document.createElement("em");em.textContent=state.locale==="uk"?"Ваш MATRIX.":"Your MATRIX.";el.append(em);
+   }else {
+    el.replaceChildren(document.createTextNode(state.locale==="uk"?"Місце для ":"Room for "));
+    const em=document.createElement("em");em.textContent=state.locale==="uk"?"ваших історій.":"your stories.";el.append(em);
+   }
+  }else el.textContent=t(key);
+ }
+ search.placeholder=t("search");search.setAttribute("aria-label",t("search"));
+ $("#menu-toggle").setAttribute("aria-label",t($("#main-nav").classList.contains("open")?"menuClose":"menuOpen"));
+ $("#favorites-trigger").setAttribute("aria-label",t("favoritesTitle"));
+ $("#dialog-close").setAttribute("aria-label",t("close"));
+ $("#favorites-close").setAttribute("aria-label",t("close"));
+ $(".hero-visual").setAttribute("aria-label",state.locale==="uk"?"Абстрактна ілюстрація вітальні. Це не товарне фото MATRIX.":"Decorative living room illustration. Not a MATRIX product photograph.");
+ drawProducts();drawSaved();
+ if(dialog.open&&state.activeProduct)openProductContents(state.activeProduct);
+}
+function openProductContents(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ $("#dialog-title").textContent=p[state.locale];
+ $("#dialog-category").textContent=getCategory(p.category);
+ $("#dialog-specs").replaceChildren(
+  specRow(t("category"),getCategory(p.category)),
+  specRow(t("dimensions"),p.width&&p.depth?`${p.width} × ${p.depth} ${t("mm")}`:t("pending")),
+  specRow(t("sleepArea"),p.sleepLength&&p.sleepWidth?`${p.sleepLength} × ${p.sleepWidth} ${t("mm")}`:t("pending"))
+ );
+ updateModalFavorite();
+}
+function setFilter(value,scroll=false){
+ state.filter=value;
+ drawProducts();
+ if(scroll)$("#products").scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});
+}
+function setMenu(isOpen){
+ $("#main-nav").classList.toggle("open",isOpen);
+ $("#menu-toggle").setAttribute("aria-expanded",String(isOpen));
+ $("#menu-toggle").setAttribute("aria-label",t(isOpen?"menuClose":"menuOpen"));
+}
+$("#menu-toggle").addEventListener("click",()=>setMenu(!$("#main-nav").classList.contains("open")));
+for(const link of document.querySelectorAll(".main-nav a"))link.addEventListener("click",()=>setMenu(false));
+$("#lang-switch").addEventListener("click",()=>{
+ state.locale=state.locale==="uk"?"en":"uk";
+ try{window.localStorage.setItem("matrix-static-preview-locale",state.locale)}catch{}
+ updateLanguage();
+});
+search.addEventListener("input",()=>{state.query=search.value;drawProducts()});
+for(const filter of document.querySelectorAll("[data-filter]"))filter.addEventListener("click",()=>setFilter(filter.dataset.filter));
+for(const tile of document.querySelectorAll("[data-category]"))tile.addEventListener("click",()=>setFilter(tile.dataset.category,true));
+grid.addEventListener("click",e=>{
+ const clicked=e.target.closest("button");
+ if(!clicked)return;
+ if(clicked.dataset.favorite)toggleFavorite(clicked.dataset.favorite);
+ if(clicked.dataset.open)openProduct(clicked.dataset.open);
+});
+$("#dialog-favorite").addEventListener("click",()=>{if(state.activeProduct)toggleFavorite(state.activeProduct)});
+$("#favorites-trigger").addEventListener("click",()=>{drawSaved();savedDialog.showModal();document.body.classList.add("dialog-open")});
+$("#favorites-list").addEventListener("click",e=>{
+ const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.savedRemove)toggleFavorite(b.dataset.savedRemove);
+ if(b.dataset.savedOpen){savedDialog.close();openProduct(b.dataset.savedOpen)}
+});
+$("#dialog-close").addEventListener("click",()=>dialog.close());
+$("#favorites-close").addEventListener("click",()=>savedDialog.close());
+for(const d of [dialog,savedDialog]){
+ d.addEventListener("close",()=>{
+   if(!dialog.open&&!savedDialog.open)document.body.classList.remove("dialog-open");
+ });
+ d.addEventListener("click",e=>{if(e.target===d)d.close()});
+}
+updateLanguage();
