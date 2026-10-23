@@ -15,7 +15,7 @@ export default function CartCheckout({locale}:{locale:"uk"|"en"}){
  const [confirmation,setConfirmation]=useState("");
  useEffect(()=>{
   setCart(readCart());
-  fetch("/api/v1/config").then(r=>r.ok?r.json():{}).then(d=>setLiqpayEnabled(!!d.liqpay_enabled)).catch(()=>{});
+  fetch("/api/v1/config").then(r=>r.ok?r.json():{}).then(d=>setLiqpayEnabled(!!(d as {liqpay_enabled?:boolean}).liqpay_enabled)).catch(()=>{});
   fetch("/api/v1/products",{cache:"no-store"}).then(r=>r.ok?r.json():{items:[]}).then(data=>setProducts(data.items||[])).catch(()=>setError(locale==="uk"?"Каталог тимчасово недоступний":"Catalog is unavailable"));
  },[locale]);
  const lines=useMemo(()=>cart.map(x=>({item:products.find(p=>p.id===x.id),quantity:x.quantity})).filter((x):x is CartProduct=>!!x.item),[cart,products]);
