@@ -2,16 +2,15 @@ package server
 
 import (
  "crypto/sha256"
+ "encoding/base64"
  "database/sql"
  "encoding/hex"
  "encoding/json"
  "errors"
- "io"
  "math/big"
  "net/http"
  "os"
  "strings"
- "time"
 
  "github.com/ElizeusX/MATRIX/services/api/internal/payments"
 )
@@ -41,10 +40,9 @@ func(s *Server)liqpayWebhook(w http.ResponseWriter,r *http.Request){
  signature:=r.PostForm.Get("signature")
  provider:=liqpay()
  if data==""||signature==""||!provider.Verify(data,signature){fail(w,401,"invalid payment signature");return}
- raw,err:=io.ReadAll(strings.NewReader(data))
- if err!=nil||len(raw)>16000{fail(w,400,"invalid callback");return}
+ if len(data)>16000{fail(w,400,"invalid callback");return}
  // Only use callback data to locate the order; independently requery merchant status.
- decoded,err:=decodeBase64Payload(raw)
+ decoded,err:=base64.StdEncoding.DecodeString(data)
  if err!=nil{fail(w,400,"invalid callback data");return}
  var callback struct{OrderID string `json:"order_id"`}
  if err:=json.Unmarshal(decoded,&callback);err!=nil||!strings.HasPrefix(callback.OrderID,"MX-")||len(callback.OrderID)>80{fail(w,400,"invalid order reference");return}
@@ -71,8 +69,3 @@ func(s *Server)liqpayWebhook(w http.ResponseWriter,r *http.Request){
  if err:=tx.Commit();err!=nil{fail(w,503,"payment unavailable");return}
  jsonReply(w,200,map[string]string{"status":"acknowledged"})
 }
-func decodeBase64Payload(raw []byte)([]byte,error){
- return decodeBase64(raw)
-}
-// compiler guard
-var _=time.Now
