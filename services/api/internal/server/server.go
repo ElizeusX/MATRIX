@@ -8,6 +8,7 @@ import (
  "encoding/hex"
  "encoding/json"
  "errors"
+ "fmt"
  "log/slog"
  "net/http"
  "os"
@@ -17,6 +18,7 @@ import (
  "time"
 
  "github.com/ElizeusX/MATRIX/services/api/internal/pricing"
+ "github.com/ElizeusX/MATRIX/services/api/internal/payments"
  "golang.org/x/crypto/bcrypt"
 )
 
@@ -80,6 +82,8 @@ func (s *Server) Handler() http.Handler {
   jsonReply(w,200,map[string]string{"status":"ok","service":"matrix-api"})
  })
  mux.HandleFunc("GET /api/v1/products",s.products)
+ mux.HandleFunc("GET /api/v1/config",func(w http.ResponseWriter,r *http.Request){jsonReply(w,200,map[string]bool{"liqpay_enabled":liqpayConfigured()})})
+ mux.HandleFunc("POST /api/v1/payments/liqpay/webhook",s.liqpayWebhook)
  mux.HandleFunc("GET /api/v1/products/{slug}",s.product)
  mux.HandleFunc("POST /api/v1/orders",s.createOrder)
  mux.HandleFunc("POST /api/v1/admin/login",s.login)
@@ -181,7 +185,7 @@ var emailPattern=regexp.MustCompile(`^[^@\s]+@[^@\s]+\.[^@\s]+$`)
 func (s *Server) createOrder(w http.ResponseWriter,r *http.Request){
  var input orderInput
  if err:=decode(r,&input);err!=nil{fail(w,400,"invalid json");return}
- if len(strings.TrimSpace(input.Name))<2||len(input.Name)>160||len(input.Phone)<8||len(input.Phone)>32||len(input.Address)<5||len(input.Address)>1000||len(input.Comment)>2000||!input.Consent||len(input.Items)==0||len(input.Items)>40||input.PaymentMethod!="manual"||(input.Email!=""&&!emailPattern.MatchString(input.Email)){
+ if len(strings.TrimSpace(input.Name))<2||len(input.Name)>160||len(input.Phone)<8||len(input.Phone)>32||len(input.Address)<5||len(input.Address)>1000||len(input.Comment)>2000||!input.Consent||len(input.Items)==0||len(input.Items)>40||(input.PaymentMethod!="manual"&&(input.PaymentMethod!="liqpay"||!liqpayConfigured()))||(input.Email!=""&&!emailPattern.MatchString(input.Email)){
   fail(w,400,"invalid order");return
  }
  tx,err:=s.DB.BeginTx(r.Context(),&sql.TxOptions{Isolation:sql.LevelSerializable})
@@ -218,13 +222,20 @@ func (s *Server) createOrder(w http.ResponseWriter,r *http.Request){
  token,err:=randomToken();if err!=nil{fail(w,503,"order unavailable");return}
  number:="MX-"+strings.ToUpper(token[:16])
  var orderID string
- err=tx.QueryRowContext(r.Context(),`INSERT INTO orders(order_number,customer_name,customer_email,customer_phone,delivery_details,comments,status,payment_method,total_minor,currency) VALUES ($1,$2,$3,$4,jsonb_build_object('address',$5),$6,'pending','manual',$7,'UAH') RETURNING id::text`,number,input.Name,input.Email,input.Phone,input.Address,input.Comment,total).Scan(&orderID)
+ orderStatus:="pending";if input.PaymentMethod=="liqpay"{orderStatus="awaiting_payment"}
+ err=tx.QueryRowContext(r.Context(),`INSERT INTO orders(order_number,customer_name,customer_email,customer_phone,delivery_details,comments,status,payment_method,total_minor,currency) VALUES ($1,$2,$3,$4,jsonb_build_object('address',$5),$6,$7,$8,$9,'UAH') RETURNING id::text`,number,input.Name,input.Email,input.Phone,input.Address,input.Comment,orderStatus,input.PaymentMethod,total).Scan(&orderID)
  if err!=nil{fail(w,503,"order unavailable");return}
  for _,item:=range lineItems {
   if _,err:=tx.ExecContext(r.Context(),`INSERT INTO order_items(order_id,product_id,title_snapshot,quantity,unit_price_minor,currency) VALUES($1::uuid,$2::uuid,$3,$4,$5,'UAH')`,orderID,item.id,item.title,item.qty,item.price);err!=nil{fail(w,503,"order unavailable");return}
  }
  if err:=tx.Commit();err!=nil{fail(w,503,"order unavailable");return}
- jsonReply(w,201,map[string]any{"order_number":number,"status":"pending","total_minor":total,"currency":"UAH","message":"Order received; payment not verified"})
+ reply:=map[string]any{"order_number":number,"status":orderStatus,"total_minor":total,"currency":"UAH","message":"Order received; payment not verified"}
+ if input.PaymentMethod=="liqpay"{
+  provider:=liqpay()
+  form,err:=provider.CreateCheckout(payments.Checkout{OrderID:number,Amount:fmt.Sprintf("%d.%02d",total/100,total%100),Currency:"UAH",Description:"MATRIX furniture "+number,ServerURL:os.Getenv("LIQPAY_SERVER_URL"),ResultURL:os.Getenv("LIQPAY_RESULT_URL")})
+  if err==nil{reply["payment_url"]="https://www.liqpay.ua/api/3/checkout";reply["payment_data"]=form.Get("data");reply["payment_signature"]=form.Get("signature")}
+ }
+ jsonReply(w,201,reply)
 }
 func(s *Server)login(w http.ResponseWriter,r *http.Request){
  if !s.originOK(r){fail(w,403,"invalid origin");return}
