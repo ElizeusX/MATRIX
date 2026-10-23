@@ -1,13 +1,49 @@
 services:
   db:
     image: postgres:16-alpine
+    restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-matrix}
       POSTGRES_USER: ${POSTGRES_USER:-matrix}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local-dev-only}
     ports:
-      - '127.0.0.1:5432:5432'
+      - "127.0.0.1:5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-matrix}"]
+      interval: 5s
+      retries: 10
+  api:
+    build: ./services/api
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-matrix}:${POSTGRES_PASSWORD:-local-dev-only}@db:5432/${POSTGRES_DB:-matrix}?sslmode=disable
+      API_PORT: "8080"
+      SITE_ORIGIN: ${SITE_ORIGIN:-http://localhost:3000}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      LIQPAY_PUBLIC_KEY: ${LIQPAY_PUBLIC_KEY:-}
+      LIQPAY_PRIVATE_KEY: ${LIQPAY_PRIVATE_KEY:-}
+      LIQPAY_SERVER_URL: ${LIQPAY_SERVER_URL:-}
+      LIQPAY_RESULT_URL: ${LIQPAY_RESULT_URL:-}
+      LIQPAY_SANDBOX: ${LIQPAY_SANDBOX:-false}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8080:8080"
+  web:
+    build:
+      context: ./apps/web
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+    restart: unless-stopped
+    environment:
+      MATRIX_API_INTERNAL_URL: http://api:8080
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-http://localhost:3000}
+    depends_on:
+      - api
+    ports:
+      - "127.0.0.1:3000:3000"
 volumes:
   pgdata:
