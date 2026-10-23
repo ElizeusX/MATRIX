@@ -97,6 +97,7 @@ func (s *Server) Handler() http.Handler {
  mux.HandleFunc("POST /api/v1/admin/products",s.secure(s.saveProduct))
  mux.HandleFunc("POST /api/v1/admin/promotions",s.secure(s.createPromotion))
  mux.HandleFunc("POST /api/v1/admin/currency",s.secure(s.setCurrency))
+ mux.HandleFunc("POST /api/v1/admin/rates",s.secure(s.setRate))
  return http.HandlerFunc(func(w http.ResponseWriter,r *http.Request){
   w.Header().Set("X-Content-Type-Options","nosniff")
   w.Header().Set("X-Frame-Options","DENY")
