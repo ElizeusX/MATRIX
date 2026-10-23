@@ -238,7 +238,7 @@ func (s *Server) createOrder(w http.ResponseWriter,r *http.Request){
   var globalP,productP *pricing.Promotion
   for promos.Next(){
    var pid sql.NullString;var p pricing.Promotion
-   if err:=promos.Scan(&pid,&p.DiscountBPS,&p.StartsAt,&p.EndsAt);err!=nil{break}
+   if err:=promos.Scan(&pid,&p.DiscountBPS,&p.StartsAt,&p.EndsAt);err!=nil{promos.Close();fail(w,503,"promotion unavailable");return}
    if pid.Valid && productP==nil{v:=p;productP=&v}
    if !pid.Valid && globalP==nil{v:=p;globalP=&v}
   }
