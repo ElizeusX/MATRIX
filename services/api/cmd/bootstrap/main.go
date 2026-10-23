@@ -1,10 +1,9 @@
 package main
 
 import (
- "bufio"
  "database/sql"
- "errors"
  "fmt"
+ "golang.org/x/term"
  "log"
  "os"
  "strings"
@@ -19,10 +18,10 @@ func main(){
  email:=strings.ToLower(strings.TrimSpace(os.Getenv("ADMIN_EMAIL")))
  if len(email)<5||!strings.Contains(email,"@"){log.Fatal("set ADMIN_EMAIL to a valid owner email")}
  fmt.Fprint(os.Stderr,"Initial owner password (minimum 14 characters): ")
- reader:=bufio.NewReader(os.Stdin)
- password,err:=reader.ReadString('\n')
- if err!=nil && !errors.Is(err,os.ErrClosed){log.Fatal(err)}
- password=strings.TrimRight(password,"\r\n")
+ raw,err:=term.ReadPassword(int(os.Stdin.Fd()))
+ fmt.Fprintln(os.Stderr)
+ if err!=nil{log.Fatal(err)}
+ password:=string(raw)
  if len(password)<14||len(password)>72{log.Fatal("password length must be 14 to 72 bytes")}
  hashed,err:=bcrypt.GenerateFromPassword([]byte(password),bcrypt.DefaultCost)
  if err!=nil{log.Fatal(err)}
