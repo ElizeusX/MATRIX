@@ -40,6 +40,10 @@ type Product struct {
  DescriptionEN *string `json:"description_en"`
  BasePriceMinor *int64 `json:"base_price_minor"`
  PriceMinor *int64 `json:"price_minor"`
+ OriginalMinor *int64 `json:"original_minor"`
+ SettlementPriceMinor *int64 `json:"settlement_price_minor"`
+ DiscountBPS int64 `json:"discount_bps"`
+ Currency string `json:"currency"`
  Available bool `json:"available"`
  Published bool `json:"published"`
 }
@@ -132,7 +136,7 @@ func (s *Server) products(w http.ResponseWriter,r *http.Request){
    p.BasePriceMinor=&base.Int64
    quote,err:=s.quoteFor(r.Context(),p.ID,base.Int64,global,adjust)
    if err!=nil{fail(w,503,"price unavailable");return}
-   p.PriceMinor=&quote.FinalMinor
+   if err:=s.applyCurrency(r.Context(),&p,quote);err!=nil{fail(w,503,"exchange rate unavailable");return}
   }
   list=append(list,p)
  }
@@ -152,9 +156,23 @@ func (s *Server) product(w http.ResponseWriter,r *http.Request){
   p.BasePriceMinor=&base.Int64
   quote,err:=s.quoteFor(r.Context(),p.ID,base.Int64,global,adjust)
   if err!=nil{fail(w,503,"price unavailable");return}
-  p.PriceMinor=&quote.FinalMinor
+  if err:=s.applyCurrency(r.Context(),&p,quote);err!=nil{fail(w,503,"exchange rate unavailable");return}
  }
  jsonReply(w,200,p)
+}
+func (s *Server) applyCurrency(ctx context.Context,p *Product,quote pricing.Quote)error{
+ p.SettlementPriceMinor=&quote.FinalMinor
+ p.DiscountBPS=quote.DiscountBPS
+ var currency string
+ if err:=s.DB.QueryRowContext(ctx,"SELECT storefront_currency FROM pricing_settings").Scan(&currency);err!=nil{return err}
+ p.Currency=currency
+ if currency=="UAH"{p.PriceMinor=&quote.FinalMinor;p.OriginalMinor=&quote.OriginalMinor;return nil}
+ var n,d int64
+ if err:=s.DB.QueryRowContext(ctx,"SELECT numerator,denominator FROM exchange_rates WHERE currency=$1",currency).Scan(&n,&d);err!=nil{return err}
+ current,err:=pricing.ConvertMinor(quote.FinalMinor,n,d);if err!=nil{return err}
+ regular,err:=pricing.ConvertMinor(quote.OriginalMinor,n,d);if err!=nil{return err}
+ p.PriceMinor=&current;p.OriginalMinor=&regular
+ return nil
 }
 func (s *Server) quoteFor(ctx context.Context,id string,base,global,adjust int64)(pricing.Quote,error){
  now:=time.Now().UTC()
