@@ -5,7 +5,7 @@ A full-stack **work-in-progress** commerce application for MATRIX, a furniture m
 **Security and readiness:** This is not yet an audited production release. The merchant must confirm catalog prices and availability, rights to photographs, legal policies, delivery methods and payment-provider credentials before the store takes real orders.
 
 ## Stack
-- Next.js 15 App Router, React 19, TypeScript; Ukrainian and English customer-facing routes
+- Next.js 16 App Router, React 19, TypeScript; Ukrainian and English customer-facing routes
 - Go REST API, PostgreSQL 16, exact integer-minor-unit price engine
 - Admin sessions with bcrypt password hashes and HttpOnly cookies
 - Docker Compose (web, API, database), GitHub Actions, Go unit tests
