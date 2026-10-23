@@ -10,6 +10,7 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: services/api/go.mod
+      - run: cd services/api && go mod tidy
       - run: cd services/api && go test ./...
       - run: cd services/api && go vet ./...
   web:
