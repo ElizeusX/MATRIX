@@ -1,0 +1,49 @@
+name: MATRIX Mobile Preview
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'preview/**'
+      - '.github/workflows/pages-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: matrix-pages-preview
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    name: Publish static mobile preview
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate JavaScript
+        run: node --check preview/app.js
+      - name: Validate required static assets
+        shell: bash
+        run: |
+          test -s preview/index.html
+          test -s preview/style.css
+          test -s preview/app.js
+          test -s preview/favicon.svg
+          grep -q 'id="product-dialog"' preview/index.html
+          grep -q 'id="dialog-contact"' preview/index.html
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: preview
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
