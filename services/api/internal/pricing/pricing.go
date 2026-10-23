@@ -49,6 +49,7 @@ func Calculate(r Rule, at time.Time) (Quote,error) {
  if err!=nil{return Quote{},err}
  base,err=mulRound(base,10000+r.ProductAdjustmentBPS,10000)
  if err!=nil{return Quote{},err}
+ if r.BaseMinor>0&&base==0{return Quote{},errors.New("adjustments would erase positive base price")}
  discount:=int64(0)
  if r.GlobalPromotion!=nil && r.GlobalPromotion.Active(at){discount=r.GlobalPromotion.DiscountBPS}
  // Product discounts override global discounts, including an explicit zero.
