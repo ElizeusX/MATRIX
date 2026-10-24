@@ -154,7 +154,7 @@ func(s *Server) uploadModel(w http.ResponseWriter,r *http.Request){
  }
  if err!=nil{if created{_ =os.Remove(path)};fail(w,503,"database unavailable");return}
  if _,err:=tx.ExecContext(r.Context(),`INSERT INTO audit_logs(admin_id,action,entity_type,entity_id,new_value)
- VALUES($1::uuid,'3d.upload','product_3d_model',$2,jsonb_build_object('format',$3,'sha256',$4))`,adminID(r),id,kind,digest);err!=nil{if created{_ =os.Remove(path)};fail(w,503,"database unavailable");return}
+ VALUES($1::uuid,'3d.upload','product_3d_model',$2,jsonb_build_object('format',$3::text,'sha256',$4::text))`,adminID(r),id,kind,digest);err!=nil{if created{_ =os.Remove(path)};fail(w,503,"database unavailable");return}
  if err:=tx.Commit();err!=nil{if created{_ =os.Remove(path)};fail(w,503,"database unavailable");return}
  jsonReply(w,201,map[string]any{"id":id,"format":kind,"sha256":digest,"measured_bounds":measured,"status":"needs_review"})
 }
@@ -214,7 +214,7 @@ func(s *Server) reviewModel(w http.ResponseWriter,r *http.Request){
  }
  if err!=nil{fail(w,503,"database unavailable");return}
  if _,err:=tx.ExecContext(r.Context(),`INSERT INTO audit_logs(admin_id,action,entity_type,entity_id,new_value)
- VALUES($1::uuid,$2,'product_3d_model',$3,jsonb_build_object('notes',$4))`,adminID(r),"3d."+input.Action,id,input.Notes);err!=nil{fail(w,503,"database unavailable");return}
+ VALUES($1::uuid,$2,'product_3d_model',$3,jsonb_build_object('notes',$4::text))`,adminID(r),"3d."+input.Action,id,input.Notes);err!=nil{fail(w,503,"database unavailable");return}
  if err:=tx.Commit();err!=nil{fail(w,503,"database unavailable");return}
  jsonReply(w,200,map[string]string{"id":id,"status":input.Action})
 }
