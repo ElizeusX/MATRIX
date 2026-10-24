@@ -104,7 +104,7 @@ Authenticated admin (requires secure session):
 - `POST /api/v1/admin/models/{uuid}/photos` multipart `photo`, `source_notes`,
    `rights_confirmed=true`. Photos remain private.
 - `GET /api/v1/admin/models/{uuid}/photos`: photo metadata.
-- `GET /api/v1/admin/models/photos/{photoUUID}`: authorized photo preview.
+- `GET /api/v1/admin/model-photos/{photoUUID}`: authorized photo preview.
 - `POST /api/v1/admin/models/{uuid}/review` JSON with `action` approve/reject/disable,
   `rights_confirmed`, `geometry_confirmed`, `enable_ar`, `usdz_scale_confirmed`, `notes`.
 
