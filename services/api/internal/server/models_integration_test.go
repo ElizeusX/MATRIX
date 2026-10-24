@@ -62,6 +62,13 @@ func TestModelLifecyclePostgres(t *testing.T){
   body,err:=json.Marshal(v);if err!=nil{t.Fatal(err)}
   return send("POST",path,body,"application/json",true)
  }
+ // CSRF defense: an authenticated cookie without the allowed Origin cannot mutate drafts.
+ unsignedBody:=[]byte(`{"slug":"ci-sofa","notes":"missing origin"}`)
+ missingOriginReq:=httptest.NewRequest("POST","/api/v1/admin/models",bytes.NewReader(unsignedBody))
+ missingOriginReq.Header.Set("Content-Type","application/json")
+ missingOriginReq.AddCookie(&http.Cookie{Name:"matrix_admin",Value:token})
+ missingOrigin:=httptest.NewRecorder();handler.ServeHTTP(missingOrigin,missingOriginReq)
+ if missingOrigin.Code!=403{t.Fatalf("CSRF origin check: %d",missingOrigin.Code)}
  creation:=post("/api/v1/admin/models",map[string]string{"slug":"ci-sofa","notes":"synthetic CI geometry, not a real product"})
  if creation.Code!=201{t.Fatalf("create draft: %d %s",creation.Code,creation.Body.String())}
  var info struct{ID string `json:"id"`}
@@ -118,4 +125,11 @@ func TestModelLifecyclePostgres(t *testing.T){
  if usdFile.Code!=200||usdFile.Header().Get("Content-Type")!="model/vnd.usdz+zip"{t.Fatalf("public USDZ response: %d",usdFile.Code)}
  if got:=approve("disable",false);got.Code!=200{t.Fatalf("disabling model: %d %s",got.Code,got.Body.String())}
  if got:=send("GET","/api/v1/models/ci-sofa",nil,"",false);got.Code!=404{t.Fatalf("disabled model publicly accessible: %d",got.Code)}
+ // Only unpublished draft versions may be deleted.
+ if got:=send("DELETE","/api/v1/admin/models/"+info.ID,nil,"",true);got.Code!=409{t.Fatalf("approved model deleted: %d",got.Code)}
+ extra:=post("/api/v1/admin/models",map[string]string{"slug":"ci-sofa","notes":"unpublished throwaway CI draft"})
+ if extra.Code!=201{t.Fatalf("new draft: %d",extra.Code)}
+ var trash struct{ID string `json:"id"`}
+ if err:=json.Unmarshal(extra.Body.Bytes(),&trash);err!=nil{t.Fatal(err)}
+ if got:=send("DELETE","/api/v1/admin/models/"+trash.ID,nil,"",true);got.Code!=200{t.Fatalf("delete unpublished draft: %d %s",got.Code,got.Body.String())}
 }
