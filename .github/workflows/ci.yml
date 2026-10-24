@@ -5,16 +5,32 @@ on:
 jobs:
   go:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: matrix
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: matrix_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U matrix -d matrix_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      MATRIX_TEST_DATABASE_URL: postgres://matrix:ci-only-password@localhost:5432/matrix_ci?sslmode=disable
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
           go-version-file: services/api/go.mod
       - run: cd services/api && go mod tidy
-      - run: cd services/api && go test ./...
-      - run: cd services/api && go vet ./...
       - run: python3 scripts/3d/generate_hilton2_concept.py
       - run: python3 scripts/3d/check_glb_header.py preview/models/hilton-2-concept.glb
+      - run: cd services/api && go test ./...
+      - run: cd services/api && go vet ./...
   web:
     runs-on: ubuntu-latest
     steps:
