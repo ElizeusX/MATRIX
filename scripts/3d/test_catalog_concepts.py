@@ -33,9 +33,17 @@ def inspect(path: pathlib.Path, product):
     bin_len, bin_type = struct.unpack_from("<II", data, offset_bin)
     assert bin_type == 0x004E4942 and len(data) == offset_bin + 8 + bin_len
     binary = data[offset_bin + 8:]
-    for accessor in meta["accessors"]:
+    # POSITION accessors only. Normal vectors are directions, not vertices,
+    # and would incorrectly extend the bounding box to +/-1 meter.
+    position_indices = {
+        primitive["attributes"]["POSITION"]
+        for mesh in meta["meshes"]
+        for primitive in mesh["primitives"]
+    }
+    for index in position_indices:
+        accessor = meta["accessors"][index]
         if accessor.get("type") != "VEC3" or accessor.get("componentType") != 5126:
-            continue
+            raise AssertionError("Unsupported POSITION accessor")
         view = meta["bufferViews"][accessor["bufferView"]]
         start = view["byteOffset"] + accessor.get("byteOffset", 0)
         for i in range(accessor["count"]):
