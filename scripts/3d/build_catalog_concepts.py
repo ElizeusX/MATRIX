@@ -57,7 +57,7 @@ def synthesize(p):
     chaise_on_right = (seed[1] % 2) == 0
 
     # Studio upholstered base. The real upholstery layout is NOT known.
-    writer.box("concept_frame", (-half, 0.15, front + 0.055),
+    writer.box("concept_frame", (-half, 0.15, front),
                (half, 0.37, rear - 0.08), 0)
     for pos in (-half + 0.095, half - 0.095):
         for z in (front + 0.11, rear - 0.13):
