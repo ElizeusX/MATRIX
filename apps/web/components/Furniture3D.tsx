@@ -8,6 +8,7 @@ type ViewerElement = HTMLElement & {
  getDimensions?:()=>{x:number;y:number;z:number};
  activateAR?:()=>Promise<void>;
  canActivateAR?:boolean;
+ updateComplete?:Promise<boolean>;
 };
 
 const copy={
@@ -75,12 +76,19 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
    setARSupport(matches && Boolean(node.canActivateAR));
   };
   const arStatus=()=>setARSupport(Boolean(node.canActivateAR));
-  const failed=()=>setError(t.failure);
+  const failed=()=>{setReady(false);setARSupport(false);setError(t.failure)};
   node.addEventListener("load",loaded);
   node.addEventListener("ar-status",arStatus);
   node.addEventListener("error",failed);
   return ()=>{node.removeEventListener("load",loaded);node.removeEventListener("ar-status",arStatus);node.removeEventListener("error",failed)};
  },[open,registered,model.width_mm,model.depth_mm,model.height_mm,t.badScale,t.failure]);
+ const arEligible=ready&&!badScale&&model.enabled_ar&&!!model.usdz_url;
+ useEffect(()=>{
+  const node=viewer.current;let alive=true;
+  if(!node||!arEligible){setARSupport(false);return;}
+  void Promise.resolve(node.updateComplete).then(()=>{if(alive)setARSupport(Boolean(node.canActivateAR))});
+  return ()=>{alive=false};
+ },[arEligible]);
  const close=()=>{setOpen(false);setRegistered(false);setReady(false);setARSupport(false);setBadScale(false);setFull(false);setError("")};
  function launchAR(){
   if(!ready||badScale||!model.enabled_ar||!model.usdz_url||!arSupport){
@@ -103,8 +111,8 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
       src={model.glb_url}
       ios-src={model.enabled_ar?model.usdz_url:undefined}
       alt={locale==="uk"?"Тривимірна модель меблів MATRIX":"3D MATRIX furniture model"}
-      ar={model.enabled_ar&&!!model.usdz_url}
-      ar-modes="webxr scene-viewer quick-look"
+      ar={arEligible}
+      ar-modes="scene-viewer quick-look"
       ar-scale="fixed"
       ar-placement="floor"
       camera-controls={true}
@@ -113,7 +121,7 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
       shadow-intensity="0.75"
       exposure="1"
       loading="eager"
-   />}
+   ><button slot="ar-button" hidden aria-hidden="true" tabIndex={-1} /></model-viewer>}
    {ready&&showDimensions&&<div className="matrix3d-measures" aria-label={t.dimensions}>
     <span>↔ {round(model.width_mm)} cm</span><span>↗ {round(model.depth_mm)} cm</span><span>↕ {round(model.height_mm)} cm</span>
    </div>}

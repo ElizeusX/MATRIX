@@ -53,7 +53,12 @@ const i18n={
   titleFallback:"Concept"
  }
 };
-const text = key => i18n[lang][key];
+const pilot = chosen?.slug === "hilton-2";
+const pilotCopy = {
+ uk: {pre:"ХІЛТОН-2 · ЧЕРНЕТКА ЗА ФОТО · AR ВИМКНЕНО",description:"Обертайте диван і наближайте деталі. Форма опрацьована за фотографіями виробника, але пропорції ще не перевірені за кресленнями.",warning:"Чернетка за фото: ширина 280 см, глибина 180 см. Висота виробу невідома; вертикальні пропорції моделі умовні. Тканина — візуальна імітація. Не використовуйте для замірів або замовлення обивки.",unverified:"НЕ ПІДТВЕРДЖЕНА",reference:"Фото виробника · синя конфігурація з оттоманкою ліворуч. Порівняйте з чернеткою.",arButton:"Переглянути у своїй кімнаті",footer:"Хілтон-2 · чернетка за фото · AR вимкнено"},
+ en: {pre:"HILTON-2 · PHOTO-GUIDED DRAFT · AR OFF",description:"Rotate the sofa and zoom into details. Shapes follow manufacturer photographs; proportions still need drawing-based review.",warning:"Photo-guided draft: width 280 cm, depth 180 cm. Product height is unknown; vertical proportions are provisional. Fabric is an appearance study. Do not use for measuring or selecting upholstery.",unverified:"UNCONFIRMED",reference:"Manufacturer photo · blue left-chaise configuration. Compare with the draft.",arButton:"View in your room",footer:"Hilton-2 · photo-guided draft · AR off"}
+};
+const text = key => (pilot && pilotCopy[lang][key]) || i18n[lang][key];
 const name = () => chosen ? (lang==="uk"?chosen.uk:(chosen.en||chosen.uk)) : text("headingUnavailable");
 
 function setContent(){
@@ -83,6 +88,7 @@ function setContent(){
   $("measure-depth").textContent=(chosen.depth/10).toLocaleString(lang==="uk"?"uk-UA":"en-US");
   $("reference-photo").src=chosen.image;
   $("reference-photo").alt=name()+" — MATRIX";
+  $("measure-height").textContent=pilot?"—":"85";
  }
 }
 $("switch-lang").addEventListener("click",()=>{
@@ -91,7 +97,7 @@ $("switch-lang").addEventListener("click",()=>{
  setContent();
 });
 
-const modelPath = chosen ? "models/"+encodeURIComponent(chosen.slug)+"-concept.glb" : null;
+const modelPath = pilot ? "models/hilton-2-draft.glb" : chosen ? "models/"+encodeURIComponent(chosen.slug)+"-concept.glb" : null;
 let modelNode = null;
 let libraryLoad = null;
 let ready = false;
@@ -140,14 +146,15 @@ async function openViewer(){
   if(sequence!==loadSequence)return;
   const viewer=document.createElement("model-viewer");
   viewer.setAttribute("src",modelPath);
-  viewer.setAttribute("alt","Concept-only 3D model for "+chosen.uk+"; dimensions unverified for AR");
+  viewer.setAttribute("alt",(pilot?"Photo-guided draft of ":"Concept of ")+chosen.uk+"; height unverified; no AR");
   viewer.setAttribute("camera-controls","");
   viewer.setAttribute("interaction-prompt","auto");
   viewer.setAttribute("shadow-intensity","0.8");
   viewer.setAttribute("exposure","1");
-  viewer.setAttribute("camera-orbit","32deg 75deg auto");
+  viewer.setAttribute("camera-orbit","-25deg 75deg auto");
   viewer.setAttribute("field-of-view","32deg");
-  viewer.setAttribute("ar-modes","none");
+  viewer.setAttribute("ar-modes","scene-viewer quick-look");
+  // No ar attribute: compatible phones cannot launch this draft.
   // AR, Quick Look, WebXR are intentionally NOT activated for these drafts.
   viewer.addEventListener("load",()=>{
    if(sequence!==loadSequence)return;
@@ -160,16 +167,19 @@ async function openViewer(){
 }
 $("reset-view").addEventListener("click",()=>{
  if(!ready||!modelNode)return;
- modelNode.setAttribute("camera-orbit","32deg 75deg auto");
+ modelNode.setAttribute("camera-orbit","-25deg 75deg auto");
  modelNode.setAttribute("field-of-view","32deg");
 });
 $("fullscreen-view").addEventListener("click",()=>{
  if(!ready)return;
  const panel=$("viewer");
  if(document.fullscreenElement)void document.exitFullscreen().catch(()=>{});
- else if(panel.requestFullscreen)void panel.requestFullscreen().catch(()=>{});
+ else if(panel.classList.contains("fullscreen-fallback")){panel.classList.remove("fullscreen-fallback");$("fullscreen-label").textContent=text("fullscreen");}
+ else if(panel.requestFullscreen)void panel.requestFullscreen().catch(()=>{panel.classList.add("fullscreen-fallback");$("fullscreen-label").textContent=text("exitFull")});
+ else {panel.classList.add("fullscreen-fallback");$("fullscreen-label").textContent=text("exitFull");}
 });
 document.addEventListener("fullscreenchange",()=>{$("fullscreen-label").textContent=document.fullscreenElement?text("exitFull"):text("fullscreen")});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){$("viewer").classList.remove("fullscreen-fallback");$("fullscreen-label").textContent=text("fullscreen")}});
 setContent();
 if(chosen)void openViewer();
 else failViewer();

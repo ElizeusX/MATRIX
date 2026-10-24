@@ -11,3 +11,8 @@ model-data/
 *.usdz
 !preview/models/*.glb
 !preview/models/*.usdz
+
+*.tsbuildinfo
+!artifacts/3d/*.usdz
+
+__pycache__/

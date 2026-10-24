@@ -128,7 +128,7 @@ function elementsForProduct(p,index){
     link.href="3d.html?product="+encodeURIComponent(p.slug);
     link.setAttribute("aria-label",t("open3D")+": "+p[state.locale]);
     const label=document.createElement("span");
-    label.textContent=t("open3D");
+    label.textContent=p.slug==="hilton-2"?(state.locale==="uk"?"Переглянути в 3D · чернетка":"View in 3D · draft"):t("open3D");
     const arrow=document.createElement("span");arrow.textContent="↗";arrow.setAttribute("aria-hidden","true");
     link.append(label,arrow);
     info.append(link);
@@ -246,7 +246,7 @@ function openProductContents(id){
  conceptLink.hidden=!hasConceptDimensions(p);
  if(hasConceptDimensions(p)){
   conceptLink.href="3d.html?product="+encodeURIComponent(p.slug);
-  conceptLink.textContent=t("open3D")+" ↗";
+  conceptLink.textContent=(p.slug==="hilton-2"?(state.locale==="uk"?"Переглянути в 3D · чернетка":"View in 3D · draft"):t("open3D"))+" ↗";
  }
  const description=$("#dialog-description");description.textContent=p.description;description.lang="uk";description.hidden=!p.description;
  const note=$("#dialog-source-note");note.hidden=!p.flags.length;

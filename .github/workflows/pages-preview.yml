@@ -44,6 +44,7 @@ jobs:
           test -s preview/3d.html
           test -s preview/3d.css
           test -s preview/3d-page.js
+          test -s preview/models/hilton-2-draft.glb
           grep -q 'id="product-dialog"' preview/index.html
           grep -q 'id="dialog-contact"' preview/index.html
       - name: Build distinct concept GLBs for catalog items with dimensions (no AR)

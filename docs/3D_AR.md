@@ -1,5 +1,10 @@
 # MATRIX 3D & AR — deployment, quality and operator guide
 
+> Pilot update 2026-10-24: Hilton-2 Pages now uses a photo-guided **unapproved draft**,
+> with a matching review-only USDZ. See [HILTON2_PILOT.md](HILTON2_PILOT.md).
+> The legacy concept generator remains for other catalog items and synthetic tests.
+> No product height or AR approval was inferred from this draft.
+
 ## Current implementation status
 **Implemented:** secure draft and version storage; private rights-attested JPG/PNG reference uploads;
 self-contained GLB + USDZ upload; checks of source file contents and geometry; admin review

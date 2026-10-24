@@ -1,0 +1,41 @@
+{
+  "product_slug": "hilton-2",
+  "approval": "DRAFT_ONLY",
+  "accurate_AR": false,
+  "room_measurement_allowed": false,
+  "verified_width_m": 2.8,
+  "verified_depth_m": 1.8,
+  "height_m_UNVERIFIED": 0.98,
+  "geometry_verified": false,
+  "method": "Authored photo-guided upholstery surface study; not photogrammetry",
+  "rights": "User confirmed photo-use rights on 2026-10-24",
+  "limitations": "Unmeasured proportions, procedural fabric; underside and concealed hardware omitted.",
+  "bounds_m": {
+    "width": 2.8,
+    "depth": 1.8,
+    "study_height_not_product_height": 0.98
+  },
+  "triangles": 58368,
+  "glb_bytes": 2542800,
+  "parts": [
+    "chaise_upholstered_plinth",
+    "main_upholstered_plinth",
+    "chaise_seat",
+    "seat_1",
+    "seat_2",
+    "arm_body_left",
+    "arm_crown_left",
+    "arm_body_right",
+    "arm_crown_right",
+    "rear_lower_panel_0",
+    "rear_upper_panel_0",
+    "rear_lower_panel_1",
+    "rear_upper_panel_1",
+    "backrest_1",
+    "headrest_1",
+    "backrest_2",
+    "headrest_2",
+    "backrest_3",
+    "headrest_3"
+  ]
+}

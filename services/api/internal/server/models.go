@@ -231,7 +231,12 @@ func (s *Server) serveModelFile(w http.ResponseWriter,r *http.Request,private bo
  if !private{
   query+=` JOIN products p ON p.id=m.product_id
   WHERE m.id=$1::uuid AND p.published AND m.status='approved' AND m.rights_confirmed AND m.geometry_verified
-  AND m.enabled_3d AND `
+  AND m.enabled_3d
+  AND p.width_mm IS NOT NULL AND p.depth_mm IS NOT NULL AND p.height_mm IS NOT NULL
+  AND abs(m.measured_width_mm-p.width_mm)<=greatest(5,ceil(p.width_mm::numeric/100))
+  AND abs(m.measured_depth_mm-p.depth_mm)<=greatest(5,ceil(p.depth_mm::numeric/100))
+  AND abs(m.measured_height_mm-p.height_mm)<=greatest(5,ceil(p.height_mm::numeric/100))
+  AND `
   if name=="model.usdz"{query+=`m.enabled_ar AND `}
   query+=field+` IS NOT NULL`
  }else{query+=` WHERE m.id=$1::uuid`}
@@ -249,7 +254,7 @@ func (s *Server) serveModelFile(w http.ResponseWriter,r *http.Request,private bo
  w.Header().Set("Content-Type",mime)
  w.Header().Set("X-Content-Type-Options","nosniff")
  w.Header().Set("Content-Disposition","inline; filename=\""+name+"\"")
- if private{w.Header().Set("Cache-Control","private, no-store")}else{w.Header().Set("Cache-Control","public, max-age=3600")}
+ if private{w.Header().Set("Cache-Control","private, no-store")}else{w.Header().Set("Cache-Control","no-store")}
  http.ServeContent(w,r,name,info.ModTime(),file)
 }
 

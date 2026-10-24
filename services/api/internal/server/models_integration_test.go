@@ -123,6 +123,14 @@ func TestModelLifecyclePostgres(t *testing.T){
  if modelFile.Code!=200||modelFile.Body.Len()==0||modelFile.Header().Get("Content-Type")!="model/gltf-binary"{t.Fatalf("public GLB response: %d %s",modelFile.Code,modelFile.Header().Get("Content-Type"))}
  usdFile:=send("GET",fmt.Sprintf("/api/v1/models/assets/%s/model.usdz",info.ID),nil,"",false)
  if usdFile.Code!=200||usdFile.Header().Get("Content-Type")!="model/vnd.usdz+zip"{t.Fatalf("public USDZ response: %d",usdFile.Code)}
+ // Direct catalog edits must not bypass asset eligibility checks.
+ if _,err:=db.Exec("UPDATE products SET height_mm=NULL WHERE slug='ci-sofa'");err!=nil{t.Fatal(err)}
+ for _,format:=range []string{"glb","usdz"}{
+  got:=send("GET",fmt.Sprintf("/api/v1/models/assets/%s/model.%s",info.ID,format),nil,"",false)
+  if got.Code!=404{t.Fatalf("asset accessible without confirmed height: %s %d",format,got.Code)}
+ }
+ if _,err:=db.Exec("UPDATE products SET height_mm=850 WHERE slug='ci-sofa'");err!=nil{t.Fatal(err)}
+ if modelFile.Header().Get("Cache-Control")!="no-store"{t.Fatal("revocable model assets must not remain cached")}
  if got:=approve("disable",false);got.Code!=200{t.Fatalf("disabling model: %d %s",got.Code,got.Body.String())}
  if got:=send("GET","/api/v1/models/ci-sofa",nil,"",false);got.Code!=404{t.Fatalf("disabled model publicly accessible: %d",got.Code)}
  // Only unpublished draft versions may be deleted.
