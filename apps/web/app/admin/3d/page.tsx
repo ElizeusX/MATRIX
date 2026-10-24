@@ -131,6 +131,7 @@ export default function ModelManager(){
      <label>Модель<input type="file" accept={format==="glb"?".glb,model/gltf-binary":".usdz,model/vnd.usdz+zip"} onChange={e=>setFile(e.target.files?.[0]||null)}/></label>
      <button disabled={busy||!file} onClick={()=>void action(()=>upload(m.id),"Модель завантажено для перевірки.")}>Завантажити {format.toUpperCase()}</button>
     </div>}
+    {m.status!=="approved"&&<button className="secondary" disabled={busy} onClick={()=>{if(window.confirm("Видалити чернетку та всі її приватні 3D-файли й фото?"))void action(()=>api("models/"+m.id,{method:"DELETE"}),"Чернетку видалено.")}}>Видалити чернетку</button>}
     {m.status==="needs_review"&&<div className="modelReview"><h3>Контрольна перевірка</h3>
      <label>Примітки перевіряючого<textarea rows={2} value={reviewNotes} onChange={e=>setReviewNotes(e.target.value)} placeholder="Фактичні заміри, джерело, тестування…"/></label>
      <label className="modelCheck"><input type="checkbox" checked={rights} onChange={e=>setRights(e.target.checked)}/> Підтверджую права на фото, геометрію й текстури</label>
