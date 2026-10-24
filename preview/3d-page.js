@@ -26,7 +26,7 @@ const i18n={
   arButton:"Після перевірки моделі",gesture:"↻ Обертайте одним пальцем · Масштабуйте двома",
   reset:"Скинути",fullscreen:"На весь екран",exitFull:"Згорнути",
   loading:"Завантаження 3D-моделі",loadingSmall:"Підготовка моделі вибраного товару…",
-  failTitle:"Не вдалося відкрити 3D",failDesc:"Перевірте підключення до інтернету або спробуйте пізніше.",
+  failTitle:"Не вдалося відкрити 3D",failDesc:"Потрібен браузер із WebGL 2 та доступ до інтернету. Спробуйте Safari або Chrome з увімкненим апаратним прискоренням.",
   retry:"Повторити завантаження",nextTitle:"Ваш простір —",nextTitleEm:"наступний крок.",
   nextText:"Ми поступово готуємо точні 3D-моделі MATRIX для AR на iPhone й Android. Навіть після запуску AR-розміри залишатимуться приблизними — перед покупкою виміряйте кімнату рулеткою.",
   browse:"Повернутися до каталогу",footer:"3D-концепти · без замовлень та AR",
@@ -44,7 +44,7 @@ const i18n={
   arButton:"Available after model verification",gesture:"↻ Drag to rotate · Pinch to zoom",
   reset:"Reset",fullscreen:"Full screen",exitFull:"Exit full screen",
   loading:"Loading 3D model",loadingSmall:"Preparing your selected product concept…",
-  failTitle:"Could not open 3D",failDesc:"Check your connection and try again.",
+  failTitle:"Could not open 3D",failDesc:"A browser with WebGL 2 and an internet connection are required. Try Safari or Chrome with hardware acceleration enabled.",
   retry:"Try again",nextTitle:"Your room —",nextTitleEm:"the next step.",
   nextText:"We are preparing accurate 3D furniture models for compatible iPhones and Android devices. Even with AR, measurements are approximate; use a tape measure before buying.",
   browse:"Back to catalog",footer:"3D concepts · no purchases or AR",
@@ -94,11 +94,14 @@ function setContent(){
 $("switch-lang").addEventListener("click",()=>{
  lang=lang==="uk"?"en":"uk";
  try{localStorage.setItem("matrix-static-preview-locale",lang)}catch{}
- setContent();
+ setContent();renderApproval();
 });
 
 const modelPath = pilot ? "models/hilton-2-draft.glb" : chosen ? "models/"+encodeURIComponent(chosen.slug)+"-concept.glb" : null;
 let modelNode = null;
+let manifest=null;
+let measuredSize=null;
+const policy=window.MATRIX_AR_POLICY;
 let libraryLoad = null;
 let ready = false;
 let isLoading = false;
@@ -119,6 +122,7 @@ function ensureLibrary(){
  return libraryLoad;
 }
 function failViewer(){
+ measuredSize=null;$("ar-disabled").disabled=true;
  isLoading=false;ready=false;modelNode=null;
  $("reset-view").disabled=true;
  $("fullscreen-view").disabled=true;
@@ -129,8 +133,17 @@ function failViewer(){
  retry.addEventListener("click",()=>{libraryLoad=null;void openViewer()});
  box.append(title,note,retry);$("model-slot").replaceChildren(box);
 }
+function supports3D(){
+ try {
+  const gl=document.createElement("canvas").getContext("webgl2");
+  if(!gl)return false;
+  gl.getExtension("WEBGL_lose_context")?.loseContext();
+  return true;
+ }catch{return false}
+}
 async function openViewer(){
  if(!chosen || isLoading)return;
+ if(!supports3D()){failViewer();return;}
  isLoading=true;ready=false;
  const sequence=++loadSequence;
  const loading=$("loading-message");
@@ -142,10 +155,15 @@ async function openViewer(){
   box.append(spin,title);$("model-slot").replaceChildren(box);
  }
  try{
+  try {
+   const response=await fetch("model-manifests/"+encodeURIComponent(chosen.slug)+".json",{cache:"no-store"});
+   const candidate=response.ok?await response.json():null;
+   manifest=candidate?.slug===chosen.slug?candidate:null;
+  }catch{manifest=null;}
   await ensureLibrary();
   if(sequence!==loadSequence)return;
   const viewer=document.createElement("model-viewer");
-  viewer.setAttribute("src",modelPath);
+  viewer.setAttribute("src",policy.approved(manifest)?manifest.glb_url:modelPath);
   viewer.setAttribute("alt",(pilot?"Photo-guided draft of ":"Concept of ")+chosen.uk+"; height unverified; no AR");
   viewer.setAttribute("camera-controls","");
   viewer.setAttribute("interaction-prompt","auto");
@@ -156,15 +174,53 @@ async function openViewer(){
   viewer.setAttribute("ar-modes","scene-viewer quick-look");
   // No ar attribute: compatible phones cannot launch this draft.
   // AR, Quick Look, WebXR are intentionally NOT activated for these drafts.
-  viewer.addEventListener("load",()=>{
+  const hiddenAR=document.createElement("button");hiddenAR.slot="ar-button";hiddenAR.hidden=true;viewer.append(hiddenAR);
+  viewer.addEventListener("ar-status",event=>{
+   if(event.detail?.status==="failed"){
+    $("ar-description").textContent=lang==="uk"?"AR недоступне на цьому пристрої. Продовжуйте перегляд у 3D.":"AR unavailable on this device. Continue in 3D.";
+   }
+  });
+  viewer.addEventListener("load",async()=>{
    if(sequence!==loadSequence)return;
    isLoading=false;ready=true;modelNode=viewer;
    $("reset-view").disabled=false;$("fullscreen-view").disabled=false;
+   measuredSize=viewer.getDimensions();
+   if(policy.approved(manifest)&&!policy.matches(manifest,measuredSize)){
+    $("warning-description").textContent=lang==="uk"?"Габарити файлу не відповідають затвердженим даним. AR заблоковано.":"File dimensions differ from approved data. AR blocked.";
+    return;
+   }
+   if(policy.eligible(manifest,measuredSize)){
+    viewer.setAttribute("ios-src",manifest.usdz_url);
+    viewer.setAttribute("ar-scale","fixed");viewer.setAttribute("ar-placement","floor");
+    viewer.setAttribute("ar","");
+    await viewer.updateComplete;
+    $("ar-disabled").disabled=!viewer.canActivateAR;
+    renderApproval();
+   }
   },{once:true});
   viewer.addEventListener("error",()=>{if(sequence===loadSequence)failViewer()},{once:true});
   $("model-slot").replaceChildren(viewer);
  }catch{if(sequence===loadSequence)failViewer()}
 }
+function renderApproval(){
+ if(!policy.eligible(manifest,measuredSize))return;
+ $("measure-height").textContent=(manifest.height_mm/10).toLocaleString();
+ $("measure-width").textContent=(manifest.width_mm/10).toLocaleString();
+ $("measure-depth").textContent=(manifest.depth_mm/10).toLocaleString();
+ $("unverified-height").textContent=text("verified");
+ $("viewer-tag").textContent=lang==="uk"?"МОДЕЛЬ ЗАТВЕРДЖЕНО":"APPROVED MODEL";
+ $("announcement").textContent="MATRIX / 3D & AR";
+ $("ar-title").textContent=lang==="uk"?"Переглянути у своїй кімнаті":"View in your room";
+ $("ar-description").textContent=modelNode?.canActivateAR?(lang==="uk"?"Наведіть камеру на підлогу. Переміщуйте та повертайте диван жестами.":"Aim at the floor. Move and rotate the sofa with gestures."):(lang==="uk"?"AR не підтримується цим пристроєм. 3D-перегляд доступний.":"This device does not support AR. 3D remains available.");
+ $("warning-description").textContent=lang==="uk"?"AR може мати похибки розміщення та масштабу. Перед покупкою перевірте простір рулеткою.":"AR placement and scale can be inaccurate. Measure your room before buying.";
+}
+$("ar-disabled").addEventListener("click",()=>{
+ if(!ready||!modelNode||!policy.eligible(manifest,measuredSize)||!modelNode.canActivateAR)return;
+ // Keep native launch within the user's click gesture (Quick Look / Scene Viewer).
+ void modelNode.activateAR().catch(()=>{
+  $("ar-description").textContent=lang==="uk"?"Не вдалося запустити AR. Продовжуйте перегляд у 3D.":"Could not launch AR. Continue in 3D.";
+ });
+});
 $("reset-view").addEventListener("click",()=>{
  if(!ready||!modelNode)return;
  modelNode.setAttribute("camera-orbit","-25deg 75deg auto");

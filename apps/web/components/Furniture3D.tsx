@@ -20,7 +20,7 @@ const copy={
   ar:"Переглянути у своїй кімнаті",unavailableAR:"AR недоступне в цьому браузері або на пристрої. 3D-перегляд працює окремо.",
   placement:"У AR наведіть камеру на підлогу та розмістіть меблі. Розміри перевірено за даними виробника.",
   disclaimer:"AR — приблизна візуалізація. Перед покупкою виміряйте кімнату рулеткою. Виявлення зіткнень зі стінами не гарантується.",
-  failure:"Не вдалося завантажити модель. Спробуйте пізніше.",
+  failure:"Не вдалося відкрити 3D. Перевірте інтернет і підтримку WebGL 2 у браузері.",
   badScale:"3D-модель не відповідає підтвердженим габаритам. AR заблоковано до перевірки.",
   status:"Модель має підтверджені габарити."
  },
@@ -32,7 +32,7 @@ const copy={
   ar:"View in your room",unavailableAR:"AR isn't supported by this device or browser. The 3D viewer is still available.",
   placement:"In AR, aim your camera at the floor and position the furniture. Dimensions were verified against manufacturer measurements.",
   disclaimer:"AR positioning is approximate. Check the room with a tape measure before purchasing. Collision detection is not guaranteed.",
-  failure:"The 3D model could not be loaded. Please try later.",
+  failure:"Could not open 3D. Check your connection and browser WebGL 2 support.",
   badScale:"Rendered model dimensions differ from the verified product data. AR is disabled pending review.",
   status:"The model has confirmed dimensions."
  }
@@ -43,6 +43,7 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
  const [open,setOpen]=useState(false);
  const [registered,setRegistered]=useState(false);
  const [ready,setReady]=useState(false);
+ const [validatedSource,setValidatedSource]=useState("");
  const [error,setError]=useState("");
  const [badScale,setBadScale]=useState(false);
  const [arSupport,setARSupport]=useState(false);
@@ -53,6 +54,11 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
  useEffect(()=>{
   if(!open)return;
   let alive=true;
+  try {
+   const gl=document.createElement("canvas").getContext("webgl2");
+   if(!gl){setError(t.failure);return;}
+   gl.getExtension("WEBGL_lose_context")?.loseContext();
+  }catch{setError(t.failure);return;}
   void import("@google/model-viewer")
    .then(()=>{if(alive)setRegistered(true)})
    .catch(()=>{if(alive)setError(t.failure)});
@@ -72,6 +78,7 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
    const matches=values.every((v,i)=>Math.abs(v-expected[i])<=Math.max(5,expected[i]*0.01));
    setBadScale(!matches);
    setError(matches?"":t.badScale);
+   setValidatedSource(model.glb_url);
    setReady(true);
    setARSupport(matches && Boolean(node.canActivateAR));
   };
@@ -81,8 +88,8 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
   node.addEventListener("ar-status",arStatus);
   node.addEventListener("error",failed);
   return ()=>{node.removeEventListener("load",loaded);node.removeEventListener("ar-status",arStatus);node.removeEventListener("error",failed)};
- },[open,registered,model.width_mm,model.depth_mm,model.height_mm,t.badScale,t.failure]);
- const arEligible=ready&&!badScale&&model.enabled_ar&&!!model.usdz_url;
+ },[open,registered,model.glb_url,model.width_mm,model.depth_mm,model.height_mm,t.badScale,t.failure]);
+ const arEligible=ready&&validatedSource===model.glb_url&&!badScale&&model.enabled_ar&&!!model.usdz_url;
  useEffect(()=>{
   const node=viewer.current;let alive=true;
   if(!node||!arEligible){setARSupport(false);return;}
@@ -91,7 +98,7 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
  },[arEligible]);
  const close=()=>{setOpen(false);setRegistered(false);setReady(false);setARSupport(false);setBadScale(false);setFull(false);setError("")};
  function launchAR(){
-  if(!ready||badScale||!model.enabled_ar||!model.usdz_url||!arSupport){
+  if(!arEligible||!ready||badScale||!model.enabled_ar||!model.usdz_url||!arSupport){
    setError(t.unavailableAR);return;
   }
   // Activation must happen synchronously within the original click gesture.
@@ -133,7 +140,7 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
     <button type="button" onClick={()=>setFull(v=>!v)}>{full?t.exitFullscreen:t.fullscreen}</button>
    </div>
    {model.enabled_ar&&model.usdz_url&&<div className="matrix3d-arbar">
-    <button type="button" className="matrix3d-arbutton" disabled={!ready||badScale||!arSupport} onClick={launchAR}>{t.ar} ↗</button>
+    <button type="button" className="matrix3d-arbutton" disabled={!arEligible||!arSupport} onClick={launchAR}>{t.ar} ↗</button>
     {!arSupport&&ready&&<small>{t.unavailableAR}</small>}
    </div>}
   </div>}

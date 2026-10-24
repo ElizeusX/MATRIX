@@ -1,0 +1,13 @@
+{
+  "slug": "hilton-2",
+  "status": "draft",
+  "enabled_3d": true,
+  "enabled_ar": false,
+  "geometry_verified": false,
+  "rights_confirmed": true,
+  "width_mm": 2800,
+  "depth_mm": 1800,
+  "height_mm": null,
+  "glb_url": "models/hilton-2-draft.glb",
+  "blockers": ["manufacturer_height", "geometry_approval", "device_ar_review"]
+}
