@@ -1,0 +1,19 @@
+name: Imported catalog
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python scripts/import/check_catalog.py
+      - run: node --check preview/catalog.js && node --check preview/app.js

@@ -3,19 +3,9 @@
 /**
  * MATRIX static design preview.
  * No live catalog API, payments, prices, inventory or checkout.
- * The data below is editorial-only metadata from the audited public MATRIX site.
+ * Catalog data and photographs are imported from the public MATRIX site.
  */
-const products = Object.freeze([
-  { id:"hilton-2", uk:"Кутовий диван Хілтон-2", en:"Hilton-2 corner sofa", category:"corner-sofas", width:2800, depth:1800, sleepLength:2100, sleepWidth:1300 },
-  { id:"hilton-p", uk:"Кутовий диван Хілтон-П", en:"Hilton-P corner sofa", category:"corner-sofas" },
-  { id:"molly", uk:"Прямий диван Моллі", en:"Molly straight sofa", category:"straight-sofas", width:2450, depth:1150, sleepLength:1950, sleepWidth:1600 },
-  { id:"lira-2", uk:"Ліра-2", en:"Lira-2", category:"unspecified" },
-  { id:"eldorado-2", uk:"Прямий диван Ельдорадо-2", en:"Eldorado-2 straight sofa", category:"straight-sofas", width:2460, depth:1080, sleepLength:1980, sleepWidth:1600 },
-  { id:"eldorado", uk:"Прямий диван Ельдорадо", en:"Eldorado straight sofa", category:"straight-sofas", width:2460, depth:1080, sleepLength:1980, sleepWidth:1600 },
-  { id:"elli", uk:"Прямий диван Еллі", en:"Elli straight sofa", category:"straight-sofas", depth:1100, sleepLength:1980, sleepWidth:1600 },
-  { id:"smart", uk:"Кутовий диван Смарт", en:"Smart corner sofa", category:"corner-sofas", width:2460, depth:1650, sleepLength:1980, sleepWidth:1600 },
-  { id:"rubin", uk:"Прямий диван Рубін", en:"Rubin straight sofa", category:"straight-sofas", width:2500, depth:1080, sleepLength:2000, sleepWidth:1550 },
-]);
+const products = Object.freeze(window.MATRIX_CATALOG);
 
 const translations = {
   uk: {
@@ -25,9 +15,9 @@ const translations = {
     heroDescription:"М’які меблі MATRIX для моментів, до яких хочеться повертатися. Знайомтеся з колекціями, створеними для вашого простору.",
     explore:"Дивитися колекції",heroAside:"Дизайн-превʼю",artNote:"Ілюстрація інтер’єру · не фото товару",
     tickerOne:"СПОКІЙНА ЕСТЕТИКА",tickerTwo:"СТВОРЕНО ДЛЯ ЖИТТЯ",
-    collectionTitle:"Знайдіть своє.",collectionIntro:"Ознайомтеся з моделями в каталозі. Фотографії, ціни та доступність будуть додані після підтвердження.",
+    collectionTitle:"Знайдіть своє.",collectionIntro:"Дивани та ліжка MATRIX: фотографії, розміри й деталі кожної моделі.",
     catCorner:"Кутові дивани",catStraight:"Прямі дивани",catBeds:"Ліжка",catUnspecified:"Категорія уточнюється",
-    productsTitle:"Каталог моделей",productsIntro:"Реальні назви моделей із сайту виробника. Зображення — лише декоративні ілюстрації.",
+    productsTitle:"Каталог моделей",productsIntro:"Фотографії та характеристики моделей із каталогу виробника.",
     all:"Усі моделі",empty:"Нічого не знайдено. Спробуйте інший запит.",
     catalogFootnote:"Всі товари без підтвердженої ціни. Замовлення не приймаються.",
     storyTitle:"Місце для ваших історій.",
@@ -52,9 +42,9 @@ const translations = {
     heroDescription:"Explore MATRIX upholstered furniture and collections made for everyday moments and spaces that feel like your own.",
     explore:"Explore collections",heroAside:"Design preview",artNote:"Interior illustration · not a product photo",
     tickerOne:"QUIET AESTHETICS",tickerTwo:"MADE FOR LIVING",
-    collectionTitle:"Find your own.",collectionIntro:"Explore verified models in the catalog. Photos, prices and availability will be added after confirmation.",
+    collectionTitle:"Find your own.",collectionIntro:"Explore MATRIX sofas and beds with product photographs, dimensions and details.",
     catCorner:"Corner sofas",catStraight:"Straight sofas",catBeds:"Beds",catUnspecified:"Category unconfirmed",
-    productsTitle:"Product collection",productsIntro:"Authentic model names from the manufacturer. Visuals are decorative illustrations only.",
+    productsTitle:"Product collection",productsIntro:"Product photographs and specifications from the manufacturer’s catalog.",
     all:"All models",empty:"Nothing found. Try a different search.",
     catalogFootnote:"Prices have not been confirmed. Orders are not accepted.",
     storyTitle:"Room for your stories.",
@@ -103,13 +93,10 @@ function elementsForProduct(p,index){
   visualButton.dataset.open=p.id;
   visualButton.dataset.tone=String(index%9);
   visualButton.setAttribute("aria-label",t("details")+": "+p[state.locale]);
-  const silhouette=document.createElement("span");
-  silhouette.className="product-silhouette "+(p.category==="beds"?"silhouette-bed":p.category==="corner-sofas"?"silhouette-corner":"");
-  silhouette.append(document.createElement("span"));
-  const caption=document.createElement("span");
-  caption.className="product-illustration-caption";
-  caption.textContent=t("photoDemo");
-  visualButton.append(silhouette,caption);
+  const photo=document.createElement("img");
+  photo.className="product-photo";
+  photo.src=p.image;photo.alt=p[state.locale];photo.loading="lazy";photo.decoding="async";
+  visualButton.append(photo);
   const overlay=document.createElement("div");
   overlay.className="product-topline";
   const tag=document.createElement("span");
@@ -184,15 +171,7 @@ function openProduct(id){
  const p=products.find(x=>x.id===id);
  if(!p)return;
  state.activeProduct=id;
- $("#dialog-title").textContent=p[state.locale];
- $("#dialog-category").textContent=getCategory(p.category);
- $("#dialog-specs").replaceChildren(
-  specRow(t("category"),getCategory(p.category)),
-  specRow(t("dimensions"),p.width&&p.depth?`${p.width} × ${p.depth} ${t("mm")}`:t("pending")),
-  specRow(t("sleepArea"),p.sleepLength&&p.sleepWidth?`${p.sleepLength} × ${p.sleepWidth} ${t("mm")}`:t("pending"))
- );
- $("#dialog-contact").href="mailto:matrix-mebli@ukr.net?subject="+encodeURIComponent("MATRIX: "+p.uk);
- updateModalFavorite();
+ openProductContents(id);
  dialog.showModal();
  document.body.classList.add("dialog-open");
 }
@@ -245,9 +224,25 @@ function openProductContents(id){
  $("#dialog-category").textContent=getCategory(p.category);
  $("#dialog-specs").replaceChildren(
   specRow(t("category"),getCategory(p.category)),
-  specRow(t("dimensions"),p.width&&p.depth?`${p.width} × ${p.depth} ${t("mm")}`:t("pending")),
-  specRow(t("sleepArea"),p.sleepLength&&p.sleepWidth?`${p.sleepLength} × ${p.sleepWidth} ${t("mm")}`:t("pending"))
+  specRow(t("dimensions"),p.dimensions?`${p.dimensions} ${t("mm")}`:t("pending")),
+  specRow(t("sleepArea"),p.sleepingArea?`${p.sleepingArea} ${t("mm")}`:t("pending"))
  );
+ const description=$("#dialog-description");description.textContent=p.description;description.lang="uk";description.hidden=!p.description;
+ const note=$("#dialog-source-note");note.hidden=!p.flags.length;
+ note.textContent=state.locale==="uk"?"Варіанти та неоднозначні дані наведено як у джерелі. Уточніть характеристики у виробника.":"Variants and ambiguous specifications are shown as supplied. Confirm details with the manufacturer.";
+ const gallery=$("#dialog-gallery");gallery.replaceChildren();
+ const photo=document.createElement("img");photo.src=p.image;photo.alt=p[state.locale];photo.className="dialog-main-photo";
+ gallery.append(photo);
+ const thumbs=document.createElement("div");thumbs.className="gallery-thumbs";
+ for(const [index,url] of [p.image,...p.images].entries()){
+  const button=document.createElement("button");button.type="button";
+  button.setAttribute("aria-label",(state.locale==="uk"?"Фото ":"Photo ")+(index+1));
+  const img=document.createElement("img");img.src=url;img.alt="";img.loading="lazy";
+  button.append(img);button.addEventListener("click",()=>{photo.src=url});thumbs.append(button);
+ }
+ gallery.append(thumbs);
+ $("#dialog-source").href=p.sourceUrl;$("#dialog-source").textContent=state.locale==="uk"?"Модель на сайті виробника ↗":"View manufacturer’s page ↗";
+ $("#dialog-contact").href="mailto:matrix-mebli@ukr.net?subject="+encodeURIComponent("MATRIX: "+p.uk);
  updateModalFavorite();
 }
 function setFilter(value,scroll=false){
@@ -292,3 +287,4 @@ for(const d of [dialog,savedDialog]){
  d.addEventListener("click",e=>{if(e.target===d)d.close()});
 }
 updateLanguage();
+

@@ -28,13 +28,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Validate JavaScript
-        run: node --check preview/app.js
+        run: |
+          node --check preview/app.js
+          node --check preview/catalog.js
       - name: Validate required static assets
         shell: bash
         run: |
           test -s preview/index.html
           test -s preview/style.css
           test -s preview/app.js
+          test -s preview/catalog.js
           test -s preview/favicon.svg
           grep -q 'id="product-dialog"' preview/index.html
           grep -q 'id="dialog-contact"' preview/index.html
@@ -47,3 +50,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+

@@ -1,34 +1,13 @@
-# MATRIX Mobile Preview for GitHub Pages
+# MATRIX static preview
 
-An original, dependency-free, static design prototype for testing **mobile layout** at `https://elizeusx.github.io/MATRIX/` after GitHub Pages is enabled and deployment succeeds.
+Open `index.html` locally or serve this directory with `python -m http.server 8000`.
+The preview includes all 76 imported models, local primary photos, gallery links,
+source descriptions and exact dimensions, search, category filters and favorites.
+`catalog.js` must load before `app.js`; both work without a catalog API.
 
-## What this preview does
-- Ukrainian/English language toggle.
-- Responsive mobile menu and page navigation.
-- Three collection tiles, text search and category filters.
-- Nine catalog names sourced from the approved factual audit, clearly unpriced.
-- Product detail dialogs with verified dimensions only, where available.
-- Locally persisted favorites for UX testing.
-- Contact links for the brand.
+Additional gallery photos use the source website and require an Internet connection.
+Prices and checkout are disabled. The hero/category artwork remains decorative.
+Product names and descriptions retain the original Ukrainian text in both UI languages.
 
-## What it DOES NOT do
-No real MATRIX photos have been copied (rights not confirmed). All graphics are original CSS/SVG illustrations, **not product images**. Prices and inventory are unavailable. There is no functional backend, shopping cart, payments, order capture or admin access on Pages.
-
-The preview contains no sensitive credentials or private data. Nevertheless, a GitHub Pages deployment is generally publicly viewable, even when the source repository is private.
-
-## Deployment
-The `.github/workflows/pages-preview.yml` workflow packages this directory only, not the monorepo backend.
-If deployment fails because Pages is disabled, go to:
-`https://github.com/ElizeusX/MATRIX/settings/pages`
-Then under **Build and deployment → Source**, choose **GitHub Actions**.
-
-For a private repository, GitHub Pro or Team/Enterprise is required; GitHub Free may require a separate public preview repository instead. **Do not make MATRIX public merely to publish the demo.**
-
-## Local test
-```sh
-cd preview
-python3 -m http.server 8089
-```
-Open http://localhost:8089 in a browser.
-
-Content is an independent UI demonstration, not a static export of the Next.js and Go application.
+See [source audit](../docs/SOURCE_AUDIT.md) for the import and validation workflow.
+Merging changes to master can trigger the existing GitHub Pages workflow.
