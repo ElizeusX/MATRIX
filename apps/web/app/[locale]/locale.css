@@ -6,3 +6,14 @@
 
 
 .catalogPhoto{width:100%;aspect-ratio:1.25;object-fit:contain;background:#eeeae2}.detailMedia{display:flex;flex-direction:column;min-width:0;justify-content:flex-start}.detailPhoto{width:100%;height:auto;object-fit:contain}.sourceGallery{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.sourceGallery img{width:90px;height:70px;object-fit:contain}.sourceDescription{white-space:pre-line}
+
+
+/* Clean white photo presentation across the full storefront. */
+.localeHeader,.localeHero,.catalog,.productDetail,.cartPage,.productCard{background:#fff}
+.localeHeader{border-color:#e8ebe6}
+.localeHero{border-bottom:1px solid #eeefeb}
+.productCard .noPhoto,.detailMedia{background:#fff;border:1px solid #edf0eb}
+.productCard:hover .noPhoto{background:#fcfcfb;border-color:#d9ded6}
+.catalogPhoto{background:#fff;padding:12px;border:1px solid #eef0ec}
+.detailPhoto{background:#fff;object-fit:contain}
+.sourceGallery img{background:#fff;border:1px solid #eef0ec}
