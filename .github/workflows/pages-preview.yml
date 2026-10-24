@@ -32,6 +32,7 @@ jobs:
         run: |
           node --check preview/app.js
           node --check preview/catalog.js
+          node --check preview/3d-page.js
       - name: Validate required static assets
         shell: bash
         run: |
@@ -40,12 +41,15 @@ jobs:
           test -s preview/app.js
           test -s preview/catalog.js
           test -s preview/favicon.svg
+          test -s preview/3d.html
+          test -s preview/3d.css
+          test -s preview/3d-page.js
           grep -q 'id="product-dialog"' preview/index.html
           grep -q 'id="dialog-contact"' preview/index.html
-      - name: Build concept-only pilot GLB (never enabled for AR)
+      - name: Build distinct concept GLBs for catalog items with dimensions (no AR)
         run: |
-          python3 scripts/3d/generate_hilton2_concept.py
-          python3 scripts/3d/check_glb_header.py preview/models/hilton-2-concept.glb
+          python3 scripts/3d/build_catalog_concepts.py
+          python3 scripts/3d/test_catalog_concepts.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
