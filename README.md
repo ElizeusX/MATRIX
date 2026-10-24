@@ -96,14 +96,29 @@ geometric scale checks, admin review and mobile viewers. See the dedicated
 - Docker Compose: `models3d` private persistent volume.
 
 **Pilot limitations:** MATRIX Hilton-2 has publicly confirmed width and depth
-but no verified product height. A real GLB *concept* is generated for the
-GitHub Pages mobile preview by `scripts/3d/generate_hilton2_concept.py`.
+but no verified product height. A procedurally illustrated GLB *concept* is generated for the
+GitHub Pages mobile preview. All eligible dimensioned products now have separate preview files.
 It is clearly labelled **approximate and non-AR**, with its illustrative
 height never presented as a manufacturer fact. This is **not** full
 multi-view reconstruction or a production-ready photorealistic replica.
 
 To verify the mobile preview after deployment, open
-[GitHub Pages MATRIX](https://elizeusx.github.io/MATRIX/), select Hilton-2
-and choose "3D (draft)" in its detail view. For a true 1:1 AR sofa,
+[GitHub Pages MATRIX](https://elizeusx.github.io/MATRIX/), select any dimensioned product
+and choose "Дивитися у 3D" under its card. For a true 1:1 AR sofa,
 please provide factory-confirmed height, licensed multi-angle photographs,
 a reviewed GLB/USDZ pair, and real iOS/Android hardware test results.
+
+## Mobile Pages: 3D button under every dimensioned product
+
+The GitHub Pages catalog (`preview/`) now has product-specific **3D**
+buttons under every product with usable recorded width and depth. It generates
+individual **conceptual** GLBs at build time (currently 53 of 76 catalog
+items) and opens `3d.html?product=<slug>` with the corresponding model,
+original product photograph and known dimensions.
+
+**Do not confuse the conceptual demos with reconstructed production models:**
+shape/fabric and 850mm height are unverified artistic assumptions. No concept
+is enabled for 1:1 AR. The actual Next.js production AR module only displays
+human-approved, rights-cleared models with verified width/depth/height.
+
+[View the mobile Pages catalog](https://elizeusx.github.io/MATRIX/#products).

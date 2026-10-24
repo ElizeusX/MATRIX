@@ -112,7 +112,7 @@ class Writer:
                 indices.extend([a,b,a+1,a+1,b,b+1])
         self.mesh(name,vertices,normals,indices,material)
 
-    def output(self, destination: pathlib.Path):
+    def output(self, destination: pathlib.Path, extras: dict | None = None):
         materials=[
             ("illustrative_olive_upholstery",[0.43,0.48,0.43,1]),
             ("illustrative_seat_cushions",[0.54,0.59,0.52,1]),
@@ -123,7 +123,7 @@ class Writer:
             "asset":{
                 "version":"2.0",
                 "generator":"MATRIX conceptual sofa draft (not photo reconstruction)",
-                "extras":{"approval":"DRAFT_ONLY","accurate_AR":False,"verified_width_m":WIDTH_M,
+                "extras":extras if extras is not None else {"approval":"DRAFT_ONLY","accurate_AR":False,"verified_width_m":WIDTH_M,
                           "verified_depth_m":DEPTH_M,"height_m_UNVERIFIED":CONCEPT_HEIGHT_M,
                           "construction":"illustrative, NOT verified product geometry"}
             },

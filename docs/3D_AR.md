@@ -133,3 +133,16 @@ Authenticated admin (requires secure session):
 - Record known error tolerance and approximate floor-detection accuracy.
 - Confirm that private drafts never resolve via public links.
 - Run full HTTPS staging QA and mobile accessibility tests.
+
+## All-size product concept previews on GitHub Pages
+
+The static Pages preview builds separate, per-slug GLB concepts for every
+catalog record with a numeric usable width and depth (currently 53/76).
+Run `python3 scripts/3d/build_catalog_concepts.py` to generate and
+`python3 scripts/3d/test_catalog_concepts.py` to verify the 53 distinct
+files. On Pages, the 3D link is under the relevant card and in the product
+details; `3d.html?product=<slug>` selects the same product's GLB.
+
+The procedural silhouette is a **placeholder** rather than a photo-derived
+replica. All concept models assume an **unverified** height of 850mm; AR is
+completely disabled and these files must never be approved as authentic.
