@@ -8,9 +8,9 @@
   <meta name="description" content="MATRIX — mobile design preview. Demo only; no live prices, stock, checkout.">
   <title>MATRIX — Furniture, thoughtfully designed • Preview</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
-  <script src="catalog.js" defer></script>
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=photos-2">
+  <script src="catalog.js?v=photos-2" defer></script>
+  <script src="app.js?v=photos-2" defer></script>
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">До основного вмісту</a>
@@ -39,37 +39,9 @@
         <a href="#collection" class="underlined-link"><span data-i18n="explore">Дивитися колекції</span><span aria-hidden="true">↗</span></a>
         <div class="hero-index"><span data-i18n="heroAside">Дизайн-превʼю</span><span>01 — 03</span></div>
       </div>
-      <div class="hero-visual" aria-label="Абстрактна ілюстрація вітальні з диваном. Це не фото продукції MATRIX." role="img">
-        <svg class="room-art" viewBox="0 0 860 870" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-          <rect width="860" height="870" fill="#d7d5ca"/>
-          <rect x="0" y="0" width="860" height="570" fill="#deddd3"/>
-          <path d="M0 562H860V870H0Z" fill="#c2bfb2"/>
-          <path d="M0 568 860 536" stroke="#a7a99c" stroke-width="4"/>
-          <rect x="505" y="70" width="280" height="370" fill="#b9baaa"/>
-          <rect x="520" y="85" width="250" height="340" fill="#c7cabb"/>
-          <path d="M646 85v340" stroke="#e1dfd5" stroke-width="12"/>
-          <path d="M520 270h250" stroke="#e1dfd5" stroke-width="12"/>
-          <path d="M0 0h500v60H0Z" fill="#e3e1d7" opacity=".6"/>
-          <ellipse cx="450" cy="735" rx="390" ry="88" fill="#b4b2a5" opacity=".55"/>
-          <path d="M112 610Q122 480 220 480H575Q690 480 715 600L722 710H105Z" fill="#7d8276"/>
-          <path d="M130 510Q170 442 232 452L365 455Q392 465 398 493L412 618H117Z" fill="#939a88"/>
-          <path d="M413 492Q432 445 481 453L620 453Q686 463 698 521L715 623H411Z" fill="#878d7e"/>
-          <path d="M110 616Q91 589 65 617L65 708Q80 752 122 752H692Q745 743 746 711L746 614Q730 587 700 613L692 678H119Z" fill="#667267"/>
-          <path d="M126 645Q180 628 280 637L400 647V702H115Z" fill="#9ba193"/>
-          <path d="M415 647Q532 624 691 648L699 705H415Z" fill="#979e90"/>
-          <path d="M140 750v39M670 750v39" stroke="#525950" stroke-width="24" stroke-linecap="round"/>
-          <path d="M380 650V715" stroke="#6f796e" stroke-width="4"/>
-          <ellipse cx="633" cy="805" rx="185" ry="36" fill="#a7a89b" opacity=".8"/>
-          <path d="M512 739H758L721 780H536Z" fill="#625c51"/>
-          <path d="M537 777v50M724 777v50" stroke="#625c51" stroke-width="11"/>
-          <ellipse cx="632" cy="736" rx="130" ry="27" fill="#b5ac9e"/>
-          <path d="M603 706Q623 677 640 708V739H603Z" fill="#8c7869"/>
-          <ellipse cx="622" cy="704" rx="28" ry="8" fill="#a38e7e"/>
-          <path d="M605 705Q588 671 593 628Q606 645 623 702" fill="#697d67"/>
-          <path d="M621 705Q641 666 666 644Q654 686 631 707" fill="#788c72"/>
-          <path d="M0 0H860V870H0Z" fill="#bcb7a8" opacity=".065"/>
-        </svg>
-        <span class="art-credit" data-i18n="artNote">Ілюстрація інтер’єру · не фото товару</span>
+      <div class="hero-visual">
+        <img class="hero-product-photo" src="media/products/hilton-p.jpg" alt="Кутовий диван Хілтон-П — MATRIX" width="1200" height="800" fetchpriority="high">
+        <span class="art-credit" data-i18n="artNote">Хілтон-П · фото з каталогу MATRIX</span>
       </div>
       <div class="hero-side-note">MATRIX / DESIGN PREVIEW <span>2026</span></div>
     </section>
@@ -77,9 +49,9 @@
     <section class="section collections" id="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow"><span class="mini-line"></span>OUR COLLECTION</p><h2 id="collection-title" data-i18n="collectionTitle">Знайдіть своє.</h2></div><p class="section-intro" data-i18n="collectionIntro">Ознайомтеся з моделями в каталозі. Фотографії та характеристики — з каталогу виробника.</p></div>
       <div class="category-tiles">
-        <button class="category-tile corner-tile" data-category="corner-sofas" type="button"><span class="tile-index">01 / 03</span><span class="tile-illustration tile-sofa"><i></i></span><span class="tile-bottom"><strong data-i18n="catCorner">Кутові дивани</strong><span aria-hidden="true">↗</span></span></button>
-        <button class="category-tile straight-tile" data-category="straight-sofas" type="button"><span class="tile-index">02 / 03</span><span class="tile-illustration tile-straight"><i></i></span><span class="tile-bottom"><strong data-i18n="catStraight">Прямі дивани</strong><span aria-hidden="true">↗</span></span></button>
-        <button class="category-tile beds-tile" data-category="beds" type="button"><span class="tile-index">03 / 03</span><span class="tile-illustration tile-bed"><i></i></span><span class="tile-bottom"><strong data-i18n="catBeds">Ліжка</strong><span aria-hidden="true">↗</span></span></button>
+        <button class="category-tile corner-tile" data-category="corner-sofas" type="button"><span class="tile-index">01 / 03</span><img class="category-photo" src="media/products/hilton-2.jpg" alt="Кутовий диван Хілтон-2" width="1200" height="800" loading="lazy"><span class="tile-bottom"><strong data-i18n="catCorner">Кутові дивани</strong><span aria-hidden="true">↗</span></span></button>
+        <button class="category-tile straight-tile" data-category="straight-sofas" type="button"><span class="tile-index">02 / 03</span><img class="category-photo" src="media/products/molly.jpg" alt="Прямий диван Моллі" width="1200" height="800" loading="lazy"><span class="tile-bottom"><strong data-i18n="catStraight">Прямі дивани</strong><span aria-hidden="true">↗</span></span></button>
+        <button class="category-tile beds-tile" data-category="beds" type="button"><span class="tile-index">03 / 03</span><img class="category-photo" src="media/products/lizhko-faro.jpg" alt="Ліжко Фаро" width="1200" height="800" loading="lazy"><span class="tile-bottom"><strong data-i18n="catBeds">Ліжка</strong><span aria-hidden="true">↗</span></span></button>
       </div>
     </section>
     <section class="section inventory" id="products" aria-labelledby="products-title">

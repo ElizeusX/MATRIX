@@ -13,7 +13,7 @@ const translations = {
     navCollection:"Колекції",navStory:"Філософія",navContact:"Контакти",
     heroEyebrow:"МЕБЛІ З ХАРАКТЕРОМ",heroLine1:"Простір,",heroLine2:"де ти — вдома.",
     heroDescription:"М’які меблі MATRIX для моментів, до яких хочеться повертатися. Знайомтеся з колекціями, створеними для вашого простору.",
-    explore:"Дивитися колекції",heroAside:"Дизайн-превʼю",artNote:"Ілюстрація інтер’єру · не фото товару",
+    explore:"Дивитися колекції",heroAside:"Дизайн-превʼю",artNote:"Хілтон-П · фото з каталогу MATRIX",
     tickerOne:"СПОКІЙНА ЕСТЕТИКА",tickerTwo:"СТВОРЕНО ДЛЯ ЖИТТЯ",
     collectionTitle:"Знайдіть своє.",collectionIntro:"Дивани та ліжка MATRIX: фотографії, розміри й деталі кожної моделі.",
     catCorner:"Кутові дивани",catStraight:"Прямі дивани",catBeds:"Ліжка",catUnspecified:"Категорія уточнюється",
@@ -40,7 +40,7 @@ const translations = {
     navCollection:"Collections",navStory:"Our approach",navContact:"Contact",
     heroEyebrow:"FURNITURE WITH CHARACTER",heroLine1:"A place",heroLine2:"to call home.",
     heroDescription:"Explore MATRIX upholstered furniture and collections made for everyday moments and spaces that feel like your own.",
-    explore:"Explore collections",heroAside:"Design preview",artNote:"Interior illustration · not a product photo",
+    explore:"Explore collections",heroAside:"Design preview",artNote:"Hilton-P · MATRIX catalog photograph",
     tickerOne:"QUIET AESTHETICS",tickerTwo:"MADE FOR LIVING",
     collectionTitle:"Find your own.",collectionIntro:"Explore MATRIX sofas and beds with product photographs, dimensions and details.",
     catCorner:"Corner sofas",catStraight:"Straight sofas",catBeds:"Beds",catUnspecified:"Category unconfirmed",
@@ -214,7 +214,6 @@ function updateLanguage(){
  $("#favorites-trigger").setAttribute("aria-label",t("favoritesTitle"));
  $("#dialog-close").setAttribute("aria-label",t("close"));
  $("#favorites-close").setAttribute("aria-label",t("close"));
- $(".hero-visual").setAttribute("aria-label",state.locale==="uk"?"Абстрактна ілюстрація вітальні. Це не товарне фото MATRIX.":"Decorative living room illustration. Not a MATRIX product photograph.");
  drawProducts();drawSaved();
  if(dialog.open&&state.activeProduct)openProductContents(state.activeProduct);
 }
