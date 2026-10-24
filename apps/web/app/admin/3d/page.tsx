@@ -124,7 +124,7 @@ export default function ModelManager(){
      <label className="modelCheck"><input type="checkbox" checked={photoRights} onChange={e=>setPhotoRights(e.target.checked)}/> Є дозвіл використовувати це фото для 3D-моделювання</label>
      <div className="modelRow"><button disabled={busy||!photoFile||!photoRights||photoNote.length<5} onClick={()=>void action(()=>uploadPhoto(m.id),"Фото збережене у приватному сховищі.")}>Завантажити приватне фото</button>
       <button className="secondary" onClick={()=>void action(()=>showPhotos(m.id),"Список фото завантажено.")}>Показати фото</button></div>
-     {photoModelID===m.id&&<div className="modelPhotoList">{photoList.length===0&&<p>Фото ще немає.</p>}{photoList.map(item=><figure key={item.id}><img src={"/api/v1/admin/models/photos/"+item.id} alt={item.notes} loading="lazy"/><figcaption>{item.width}×{item.height}px · {item.notes}</figcaption></figure>)}</div>}
+     {photoModelID===m.id&&<div className="modelPhotoList">{photoList.length===0&&<p>Фото ще немає.</p>}{photoList.map(item=><figure key={item.id}><img src={"/api/v1/admin/model-photos/"+item.id} alt={item.notes} loading="lazy"/><figcaption>{item.width}×{item.height}px · {item.notes}</figcaption></figure>)}</div>}
     </div>}
 {m.status!=="approved"&&<div className="modelUpload">
      <label>Формат<select value={format} onChange={e=>setFormat(e.target.value as "glb"|"usdz")}><option value="glb">GLB / 3D</option><option value="usdz">USDZ / iPhone</option></select></label>
