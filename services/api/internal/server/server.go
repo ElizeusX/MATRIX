@@ -102,7 +102,7 @@ func (s *Server) Handler() http.Handler {
  mux.HandleFunc("POST /api/v1/admin/models/{id}/files/{format}",s.secure(s.uploadModel))
  mux.HandleFunc("POST /api/v1/admin/models/{id}/photos",s.secure(s.uploadSourcePhoto))
  mux.HandleFunc("GET /api/v1/admin/models/{id}/photos",s.secure(s.listSourcePhotos))
- mux.HandleFunc("GET /api/v1/admin/models/photos/{photoID}",s.secure(s.sourcePhotoFile))
+ mux.HandleFunc("GET /api/v1/admin/model-photos/{photoID}",s.secure(s.sourcePhotoFile))
  mux.HandleFunc("POST /api/v1/admin/models/{id}/review",s.secure(s.reviewModel))
  mux.HandleFunc("GET /api/v1/admin/models/{id}/file/{filename}",s.secure(s.servePrivateModelFile))
  mux.HandleFunc("POST /api/v1/admin/products/{slug}/dimensions",s.secure(s.updateProductDimensions))
