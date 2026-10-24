@@ -80,3 +80,17 @@ html,body{background:#fff}
 #draft3d-viewer[hidden]{display:none}
 #draft3d-viewer model-viewer{width:100%;height:380px;display:block;background:#fff}
 @media(max-width:580px){.draft3d-section{padding:14px}#draft3d-viewer model-viewer{height:300px}}
+
+
+/* Visible individual 3D links for all products with numeric overall dimensions. */
+.product-meta .product-3d-link{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:17px;padding:13px 15px;text-decoration:none;background:#fff;border:1px solid #d7e2d6;color:#37563b;font-weight:600;font-size:12px;letter-spacing:.01em;transition:background .18s,border-color .18s}
+.product-meta .product-3d-link:hover{background:#f5f8f4;border-color:#9cb29d}
+.product-meta .product-3d-link>span:last-child{font-size:19px;line-height:1}
+.dialog-3d-link{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:17px 18px;margin:22px 0;background:#354b3b;color:white;text-decoration:none;font-size:13px;font-weight:600}
+.dialog-3d-link[hidden]{display:none!important}
+.dialog-3d-link:hover{background:#45694b}
+.catalog-3d-note{display:flex;align-items:center;gap:17px;background:#f8faf7;border:1px solid #e7efe6;padding:18px 21px;margin:0 0 32px;line-height:1.6;color:#607261;font-size:12px}
+.catalog-3d-note .catalog-3d-icon{font-size:26px;color:#607e62;flex:none}
+.catalog-3d-note>span:nth-child(2){flex:1}
+.catalog-3d-note a{display:inline-flex;gap:6px;white-space:nowrap;border-bottom:1px solid #779276;padding:6px 0;color:#3e6444;font-size:12px;font-weight:600}
+@media(max-width:580px){.product-meta .product-3d-link{font-size:11px;padding:12px 9px;margin-top:15px}.catalog-3d-note{display:grid;grid-template-columns:auto 1fr;gap:9px 13px;padding:15px}.catalog-3d-note a{grid-column:2;justify-self:start}.product-meta .product-3d-link>span:last-child{font-size:15px}}
