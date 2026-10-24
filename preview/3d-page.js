@@ -10,7 +10,7 @@ const product = products.find(p => p.slug === requested &&
   Number.isInteger(p.width) && Number.isInteger(p.depth) &&
   p.width >= 300 && p.depth >= 300 && p.width <= 8000 && p.depth <= 6000);
 const fallback = products.find(p => p.slug === "hilton-2" && p.width && p.depth);
-const chosen = product || fallback || null;
+const chosen = product || (params.has("product") ? null : fallback) || null;
 const $ = id => document.getElementById(id);
 let lang = "uk";
 try { if(localStorage.getItem("matrix-static-preview-locale")==="en")lang="en" }catch{}
