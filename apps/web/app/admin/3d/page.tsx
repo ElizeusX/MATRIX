@@ -30,6 +30,11 @@ export default function ModelManager(){
  const [height,setHeight]=useState("");
  const [confirmedDimensions,setConfirmedDimensions]=useState(false);
  const [file,setFile]=useState<File|null>(null);
+ const [photoFile,setPhotoFile]=useState<File|null>(null);
+ const [photoNote,setPhotoNote]=useState("");
+ const [photoRights,setPhotoRights]=useState(false);
+ const [photoList,setPhotoList]=useState<{id:string;notes:string;width:number;height:number}[]>([]);
+ const [photoModelID,setPhotoModelID]=useState<string|null>(null);
  const [format,setFormat]=useState<"glb"|"usdz">("glb");
  const [preview,setPreview]=useState<string|null>(null);
  const api=async(path:string,options:RequestInit={})=>{
@@ -66,6 +71,18 @@ export default function ModelManager(){
   const form=new FormData();form.set("model",file);
   return api("models/"+id+"/files/"+format,{method:"POST",body:form});
  }
+ async function uploadPhoto(id:string){
+  if(!photoFile||!photoRights)throw Error("Оберіть фото та підтвердіть права.");
+  const form=new FormData();
+  form.set("photo",photoFile);form.set("source_notes",photoNote);form.set("rights_confirmed","true");
+  await api("models/"+id+"/photos",{method:"POST",body:form});
+  const result=await api("models/"+id+"/photos");
+  setPhotoList(result.items||[]);setPhotoModelID(id);setPhotoFile(null);
+ }
+ async function showPhotos(id:string){
+  const result=await api("models/"+id+"/photos");
+  setPhotoList(result.items||[]);setPhotoModelID(id);
+ }
  async function review(id:string,decision:"approve"|"reject"|"disable"){
   await api("models/"+id+"/review",{method:"POST",body:JSON.stringify({
    action:decision,rights_confirmed:rights,geometry_confirmed:geometry,
@@ -98,7 +115,18 @@ export default function ModelManager(){
     <div className="modelMetrics"><span>GLB: {m.has_glb?"✓":"—"}</span><span>USDZ: {m.has_usdz?"✓":"—"}</span><span>{m.width_mm??"?"} × {m.depth_mm??"?"} × {m.height_mm??"?"} мм</span><span>AR: {m.enabled_ar?"активне":"вимкнено"}</span></div>
     {m.has_glb&&<div className="modelPreviewControls"><button onClick={()=>setPreview(preview===m.id?null:m.id)}> {preview===m.id?"Закрити прев'ю":"Переглянути GLB"}</button></div>}
     {preview===m.id&&m.glb_url&&<DraftViewer url={m.glb_url}/>}
-    {m.status!=="approved"&&<div className="modelUpload">
+    
+    {m.status!=="approved"&&<div className="modelUploadPhotos">
+     <h3>Фотографії для подальшої реконструкції</h3>
+     <p>Оригінали залишаються приватними. Для обробки у photogrammetry потрібні ракурси з різних боків і зовнішнє GPU-середовище.</p>
+     <label>Походження фото та підтвердження прав<textarea rows={2} maxLength={1000} value={photoNote} onChange={e=>setPhotoNote(e.target.value)} placeholder="Автор/виробник, згода, ракурс"/></label>
+     <label>Фото JPG або PNG<input type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" onChange={e=>setPhotoFile(e.target.files?.[0]||null)}/></label>
+     <label className="modelCheck"><input type="checkbox" checked={photoRights} onChange={e=>setPhotoRights(e.target.checked)}/> Є дозвіл використовувати це фото для 3D-моделювання</label>
+     <div className="modelRow"><button disabled={busy||!photoFile||!photoRights||photoNote.length<5} onClick={()=>void action(()=>uploadPhoto(m.id),"Фото збережене у приватному сховищі.")}>Завантажити приватне фото</button>
+      <button className="secondary" onClick={()=>void action(()=>showPhotos(m.id),"Список фото завантажено.")}>Показати фото</button></div>
+     {photoModelID===m.id&&<div className="modelPhotoList">{photoList.length===0&&<p>Фото ще немає.</p>}{photoList.map(item=><figure key={item.id}><img src={"/api/v1/admin/models/photos/"+item.id} alt={item.notes} loading="lazy"/><figcaption>{item.width}×{item.height}px · {item.notes}</figcaption></figure>)}</div>}
+    </div>}
+{m.status!=="approved"&&<div className="modelUpload">
      <label>Формат<select value={format} onChange={e=>setFormat(e.target.value as "glb"|"usdz")}><option value="glb">GLB / 3D</option><option value="usdz">USDZ / iPhone</option></select></label>
      <label>Модель<input type="file" accept={format==="glb"?".glb,model/gltf-binary":".usdz,model/vnd.usdz+zip"} onChange={e=>setFile(e.target.files?.[0]||null)}/></label>
      <button disabled={busy||!file} onClick={()=>void action(()=>upload(m.id),"Модель завантажено для перевірки.")}>Завантажити {format.toUpperCase()}</button>
