@@ -101,6 +101,7 @@ Authenticated admin (requires secure session):
 - `POST /api/v1/admin/models/{uuid}/files/glb` multipart file `model`.
 - `POST /api/v1/admin/models/{uuid}/files/usdz` multipart file `model`.
 - `GET /api/v1/admin/models/{uuid}/file/model.glb` draft/approved preview.
+- `DELETE /api/v1/admin/models/{uuid}`: remove unpublished drafts and private files.
 - `POST /api/v1/admin/models/{uuid}/photos` multipart `photo`, `source_notes`,
    `rights_confirmed=true`. Photos remain private.
 - `GET /api/v1/admin/models/{uuid}/photos`: photo metadata.
