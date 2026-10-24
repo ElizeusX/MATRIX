@@ -1,40 +1,64 @@
-# MATRIX source audit — 2026-10-23
+# MATRIX catalog import — 2026-10-24
 
-Primary website: https://matrix-mebli.com. Public homepage, catalog and eight individual product URLs were accessible. The source identifies the manufacturer as a furniture factory based in Cherkasy, Ukraine; the homepage lists +380 (68) 390 39 69 and matrix-mebli@ukr.net.
+Source: https://matrix-mebli.com/furnitures/
 
-## Verified product metadata
-Nine product names have been documented in the SQL draft seed:
-1. Кутовий диван Хілтон-2 — 2800 × 1800 mm, sleeping area 2100 × 1300 mm
-2. Кутовий диван Хілтон-П — dimensions not verified
-3. Прямий диван Моллі — 2450 × 1150 mm, sleeping area 1950 × 1600 mm
-4. Ліра-2 — sleeping area 1400/1600 × 2000 mm (width depends on variant; left NULL)
-5. Прямий диван Ельдорадо-2 — 2460 × 1080 mm, sleeping area 1980 × 1600 mm
-6. Прямий диван Ельдорадо — 2460 × 1080 mm, sleeping area 1980 × 1600 mm
-7. Прямий диван Еллі — source says “238(2410)×1100” (ambiguous width; left NULL)
-8. Кутовий диван Смарт — 2460 × 1650 mm, sleeping area 1980 × 1600 mm
-9. Прямий диван Рубін — homepage lists 2500 × 1080 mm, sleeping area 2000 × 1550 mm
+All **10 catalog pages / 76 unique products** were fetched and compared with
+https://matrix-mebli.com/wp-sitemap-posts-furniture-1.xml. Both sets contain the
+same 76 product URLs. Individual product pages were fetched for every record.
 
-Categories confirmed: corner sofas, straight sofas, beds. The source's product categorization of “Ліра-2” was not unambiguously exposed by the fetched page, so the seed leaves its category NULL.
+## Imported data
 
-Direct product source URLs are stored in `database/seeds/verified_catalog.sql`; the source URL for the homepage-only “Рубін” remains NULL. Draft products stay unpublished, unavailable and unpriced.
+- 76 original Ukrainian product names, source URLs and source dimension strings.
+- 19 nonempty product descriptions (materials, filling, frame or mechanisms).
+- 76 downloaded primary photographs, using the site's WordPress image CDN at
+  width 1200, stored in `preview/media/products/` and `apps/web/public/media/products/`.
+- 387 deduplicated gallery image references across product pages. These additional
+  images are loaded from the original website; only the primary photos are local.
+- Every primary photo has its original URL, download URL and SHA-256 checksum.
+- No public prices were found in product price blocks. Availability is unknown.
 
-## Missing / uncertain
-- **0 images copied:** the user has not confirmed rights to redistribute proprietary imagery.
-- **0 product prices verified:** source pages did not provide verified publicly readable prices.
-- **0 availability promises:** stock cannot be inferred from catalog listing.
-- Full fabrics, variants, lead times, delivery, returns and warranties remain unverified.
+The complete snapshot is `data/catalog.json`. `preview/catalog.js` and
+`apps/web/lib/source-catalog.json` are generated copies for the two frontends.
+Names and descriptions remain in their source language, including in the English
+interface, until editorial translations are supplied.
 
-## Design audit
-- https://arbore.cz/produkty/ — restrained taxonomy/material filter hierarchy.
-- https://www.teakpeak.cz/collections/loznice — editorial composition and category storytelling.
-- Kave Home product link returned HTTP 429; detailed inspection unavailable.
+## Source quality
 
-No reference brand assets were imported; design implementation is original and uses CSS neutral placeholders.
+32 records have flags for ambiguous dimensions, variants or unconfirmed category.
+For example, Еллі has `238(2410)х1100`; Ліра-2 has sleeping widths `1400/1600`;
+some older products list implausible values such as `15000` or `26200`.
+The exact strings are retained. Numeric fields are populated only for simple,
+plausible two-dimensional values; variants are not silently reduced to one size.
+Category is assigned only when the product name explicitly identifies it. Other
+models remain `unspecified` and are visible under All models.
 
-## Payment research
-- LiqPay Checkout: https://www.liqpay.ua/en/doc/api/internet_acquiring/checkout
-- monobank acquiring: https://api.monobank.ua/docs/acquiring.html
-- WayForPay merchant documentation still requires dedicated review before implementation.
+## Integration
 
-## Audit limitations
-This audit does not establish commercial rights to reuse the source site's photos or descriptions. The metadata-only script respects robots policy when run; offline environment may prevent re-fetching. Verified seed records are idempotent via ON CONFLICT; they are not a live catalog import into any running hosted database.
+The static preview uses all 76 models, local primary photos, remote gallery
+thumbnails, original descriptions, dimensions and a manufacturer-page link.
+The Next.js catalog/detail pages use the same snapshot when no live catalog is
+returned, and match photos to live products by slug. Live API prices and order
+eligibility continue to be authoritative.
+
+The SQL seed adds all 76 draft products and primary-media records. On existing
+products it only fills missing source URLs and descriptions; it does not overwrite
+merchant prices, publication, availability or existing descriptions. Existing
+nine slugs are preserved. Running the SQL twice does not duplicate records.
+No hosted database has been modified by this import.
+
+## Reproduce
+
+Use a fresh cache directory to fetch a new snapshot:
+
+```sh
+python -m pip install -r scripts/import/requirements.txt
+python scripts/import/crawl_catalog.py --cache /tmp/matrix-catalog-2026-10-24
+python scripts/import/check_catalog.py
+node --check preview/catalog.js
+node --check preview/app.js
+```
+
+The crawler fails if catalog pagination and the furniture sitemap differ. Review
+source changes, new categories, image formats and record-count assertions before
+replacing this snapshot. The source material was imported at the user's request;
+this audit records provenance, not ownership of the photographs.
