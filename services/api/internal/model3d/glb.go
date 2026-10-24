@@ -54,6 +54,7 @@ type glTF struct {
   ByteStride int `json:"byteStride"`
  } `json:"bufferViews"`
  Buffers []struct{ByteLength int `json:"byteLength"`;URI string `json:"uri"`} `json:"buffers"`
+ Images []struct{URI string `json:"uri"`;BufferView *int `json:"bufferView"`} `json:"images"`
  Animations []json.RawMessage `json:"animations"`
  Skins []json.RawMessage `json:"skins"`
  ExtensionsRequired []string `json:"extensionsRequired"`
@@ -73,6 +74,7 @@ func nodeMatrix(n struct{Mesh *int `json:"mesh"`;Children []int `json:"children"
   if len(n.Matrix)!=16||len(n.Translation)>0||len(n.Rotation)>0||len(n.Scale)>0{return matrix{},errors.New("invalid node matrix")}
   var m matrix;copy(m[:],n.Matrix)
   for _,v:=range m{if math.IsNaN(v)||math.IsInf(v,0){return matrix{},errors.New("invalid transform")}}
+  if math.Abs(m[3])>1e-7||math.Abs(m[7])>1e-7||math.Abs(m[11])>1e-7||math.Abs(m[15]-1)>1e-7{return matrix{},errors.New("projective transforms are unsupported")}
   return m,nil
  }
  t:=[3]float64{};s:=[3]float64{1,1,1};q:=[4]float64{0,0,0,1}
@@ -112,6 +114,9 @@ func InspectGLB(data []byte)(Bounds,error){
  if err:=json.Unmarshal(data[offset:offset+jsonLen],&asset);err!=nil{return Bounds{},err}
  offset+=jsonLen
  if asset.Asset.Version!="2.0"||len(asset.Animations)>0||len(asset.Skins)>0||len(asset.ExtensionsRequired)>0{return Bounds{},errors.New("unsupported or animated glTF")}
+ for _,image:=range asset.Images{
+  if image.URI!=""||image.BufferView==nil{return Bounds{},errors.New("external image URI is not permitted; embed textures in GLB")}
+ }
  if offset+8>len(data){return Bounds{},errors.New("GLB must contain an embedded BIN chunk")}
  binaryLen:=int(binary.LittleEndian.Uint32(data[offset:offset+4]))
  if binary.LittleEndian.Uint32(data[offset+4:offset+8])!=0x004E4942||binaryLen%4!=0||binaryLen<12||offset+8+binaryLen!=len(data){return Bounds{},errors.New("invalid GLB BIN chunk")}
