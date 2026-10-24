@@ -1,0 +1,28 @@
+.matrix3d{margin-top:76px;padding:65px 0 70px;border-top:1px solid #e9ebe7;background:#fff;color:#263029}
+.matrix3d-heading{display:flex;justify-content:space-between;gap:30px;align-items:flex-end}
+.matrix3d-overline{letter-spacing:.2em;color:#718073;font-weight:700;font-size:10px}
+.matrix3d h2{font-size:clamp(36px,5vw,62px);font-weight:400;line-height:1.1;letter-spacing:-.06em;margin:16px 0}
+.matrix3d-heading p{font-size:14px;line-height:1.75;color:#737b73;max-width:440px}
+.matrix3d-verified{font-size:11px;color:#657b67;line-height:1.5}
+.matrix3d-primary{margin-top:28px;display:inline-flex;gap:90px;justify-content:space-between;align-items:center;padding:18px 25px;background:#303c35;color:white;border:0;cursor:pointer;transition:background .2s}
+.matrix3d-primary:hover,.matrix3d-arbutton:hover{background:#405e45}
+.matrix3d-stage{position:relative;border:1px solid #e9eee7;background:#fff;margin-top:30px;min-height:420px;overflow:hidden}
+.matrix3d-stage model-viewer{display:block;width:100%;height:500px;background:#fff;--progress-bar-color:#6a826d;--poster-color:#fff}
+.matrix3d-topbar{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-bottom:1px solid #edf0eb}
+.matrix3d-topbar button{border:0;background:transparent;font-size:13px;cursor:pointer}
+.matrix3d-loading{min-height:380px;display:grid;place-items:center;font-size:14px;color:#6e766d}
+.matrix3d-measures{position:absolute;top:80px;left:16px;z-index:2;display:flex;flex-wrap:wrap;gap:7px;pointer-events:none}
+.matrix3d-measures span{background:rgba(255,255,255,.94);border:1px solid #e6eee5;padding:8px 10px;font-size:12px;color:#465b48}
+.matrix3d-error{color:#9c3434;font-size:13px;margin:14px 20px}
+.matrix3d-toolbar{display:flex;flex-wrap:wrap;gap:8px;padding:16px 19px;border-top:1px solid #edf0eb}
+.matrix3d-toolbar button{border:1px solid #dce3db;background:#fff;color:#344536;padding:10px 12px;font-size:12px;cursor:pointer}
+.matrix3d-toolbar button:disabled{opacity:.45;cursor:not-allowed}
+.matrix3d-arbar{padding:0 19px 20px;display:grid;gap:8px}
+.matrix3d-arbutton{border:0;background:#303c35;color:white;padding:17px 22px;cursor:pointer;text-align:center}
+.matrix3d-arbutton:disabled{opacity:.45;cursor:not-allowed}
+.matrix3d-arbar small{color:#738173;font-size:11px;line-height:1.65}
+.matrix3d-disclaimer{font-size:12px;line-height:1.85;color:#81877f;max-width:650px;margin:22px 0}
+.matrix3d-full{position:fixed;inset:0;z-index:120;margin:0;display:flex;flex-direction:column;background:white;overflow:auto}
+.matrix3d-full model-viewer{height:calc(100dvh - 210px);min-height:300px;flex:1}
+.matrix3d-full .matrix3d-toolbar{margin-top:auto}
+@media(max-width:680px){.matrix3d{padding-top:46px;margin-top:55px}.matrix3d-heading{display:block}.matrix3d-primary{width:100%}.matrix3d-stage model-viewer{height:375px}.matrix3d-measures{top:75px;left:10px}.matrix3d-measures span{font-size:10px;padding:7px}.matrix3d-toolbar{padding:12px;gap:5px}.matrix3d-toolbar button{flex:1;padding:11px 8px}.matrix3d-full model-viewer{height:calc(100dvh - 260px)}}@media(prefers-reduced-motion:reduce){.matrix3d *{transition:none!important}}
