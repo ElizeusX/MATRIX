@@ -55,7 +55,7 @@ func(s *Server) uploadSourcePhoto(w http.ResponseWriter,r *http.Request){
  VALUES($1::uuid,$2,$3,$4,$5,$6,$7,true,$8::uuid)
  ON CONFLICT(model_id,sha256) DO UPDATE SET source_notes=EXCLUDED.source_notes RETURNING id::text`,id,fileName,digest,mime,cfg.Width,cfg.Height,notes,adminID(r)).Scan(&photoID)
  if err!=nil{if created{os.Remove(filepath.Join(dir,fileName))};fail(w,503,"photo database unavailable");return}
- if _,err:=tx.ExecContext(r.Context(),`INSERT INTO audit_logs(admin_id,action,entity_type,entity_id,new_value) VALUES($1::uuid,'3d.photo_upload','product_3d_source_photo',$2,jsonb_build_object('sha256',$3))`,adminID(r),photoID,digest);err!=nil{if created{os.Remove(filepath.Join(dir,fileName))};fail(w,503,"database unavailable");return}
+ if _,err:=tx.ExecContext(r.Context(),`INSERT INTO audit_logs(admin_id,action,entity_type,entity_id,new_value) VALUES($1::uuid,'3d.photo_upload','product_3d_source_photo',$2,jsonb_build_object('sha256',$3::text))`,adminID(r),photoID,digest);err!=nil{if created{os.Remove(filepath.Join(dir,fileName))};fail(w,503,"database unavailable");return}
  if err:=tx.Commit();err!=nil{if created{os.Remove(filepath.Join(dir,fileName))};fail(w,503,"database unavailable");return}
  jsonReply(w,201,map[string]any{"id":photoID,"size_px":[]int{cfg.Width,cfg.Height},"status":"private_source_photo"})
 }
