@@ -170,7 +170,7 @@ func InspectGLB(data []byte)(Bounds,error){
  for _,root:=range asset.Scenes[scene].Nodes{if err:=walk(root,identity(),0);err!=nil{return Bounds{},err}}
  if vertices==0{return Bounds{},errors.New("scene has no positions")}
  for j:=0;j<3;j++{if max[j]-min[j]<0.01||max[j]-min[j]>15{return Bounds{},fmt.Errorf("axis %d outside furniture dimensions",j)}}
- if min[1]<-0.015||min[1]>0.015{return Bounds{},errors.New("model must rest on Y=0 floor; re-export with floor origin")}
+ if min[1] < -0.015||min[1]>0.015{return Bounds{},errors.New("model must rest on Y=0 floor; re-export with floor origin")}
  return Bounds{
   WidthMM:int64(math.Round(1000*(max[0]-min[0]))),
   DepthMM:int64(math.Round(1000*(max[2]-min[2]))),
