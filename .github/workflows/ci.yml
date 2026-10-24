@@ -13,6 +13,8 @@ jobs:
       - run: cd services/api && go mod tidy
       - run: cd services/api && go test ./...
       - run: cd services/api && go vet ./...
+      - run: python3 scripts/3d/generate_hilton2_concept.py
+      - run: python3 scripts/3d/check_glb_header.py preview/models/hilton-2-concept.glb
   web:
     runs-on: ubuntu-latest
     steps:
