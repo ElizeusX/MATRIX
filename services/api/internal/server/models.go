@@ -140,7 +140,8 @@ func(s *Server) uploadModel(w http.ResponseWriter,r *http.Request){
  var status string
  if err:=tx.QueryRowContext(r.Context(),"SELECT status FROM product_3d_models WHERE id=$1::uuid FOR UPDATE",id).Scan(&status);err!=nil{fail(w,404,"model draft not found");return}
  if status=="approved"{fail(w,409,"create a new version before replacing an approved model");return}
- if err:=storeModel(path,data);err!=nil{fail(w,503,"model storage unavailable");return}
+ created,err:=storeModel(path,data)
+ if err!=nil{fail(w,503,"model storage unavailable");return}
  if kind=="glb"{
   _,err=tx.ExecContext(r.Context(),`UPDATE product_3d_models
   SET glb_file=$2,glb_sha256=$3,measured_width_mm=$4,measured_depth_mm=$5,measured_height_mm=$6,
@@ -151,20 +152,20 @@ func(s *Server) uploadModel(w http.ResponseWriter,r *http.Request){
   status='needs_review',geometry_verified=false,rights_confirmed=false,enabled_3d=false,enabled_ar=false,updated_at=now()
   WHERE id=$1::uuid`,id,fileName,digest)
  }
- if err!=nil{_ =os.Remove(path);fail(w,503,"database unavailable");return}
+ if err!=nil{if created{_ =os.Remove(path)};fail(w,503,"database unavailable");return}
  if _,err:=tx.ExecContext(r.Context(),`INSERT INTO audit_logs(admin_id,action,entity_type,entity_id,new_value)
- VALUES($1::uuid,'3d.upload','product_3d_model',$2,jsonb_build_object('format',$3,'sha256',$4))`,adminID(r),id,kind,digest);err!=nil{_ =os.Remove(path);fail(w,503,"database unavailable");return}
- if err:=tx.Commit();err!=nil{_ =os.Remove(path);fail(w,503,"database unavailable");return}
+ VALUES($1::uuid,'3d.upload','product_3d_model',$2,jsonb_build_object('format',$3,'sha256',$4))`,adminID(r),id,kind,digest);err!=nil{if created{_ =os.Remove(path)};fail(w,503,"database unavailable");return}
+ if err:=tx.Commit();err!=nil{if created{_ =os.Remove(path)};fail(w,503,"database unavailable");return}
  jsonReply(w,201,map[string]any{"id":id,"format":kind,"sha256":digest,"measured_bounds":measured,"status":"needs_review"})
 }
-func storeModel(path string,data []byte)error{
- // Content addressed filename makes repeated uploads idempotent and safe.
+func storeModel(path string,data []byte)(bool,error){
+ // Content-addressed filename makes repeated uploads idempotent and safe.
  f,err:=os.OpenFile(path,os.O_WRONLY|os.O_CREATE|os.O_EXCL,0600)
- if errors.Is(err,os.ErrExist){return nil}
- if err!=nil{return err}
- if _,err=f.Write(data);err!=nil{f.Close();os.Remove(path);return err}
- if err=f.Close();err!=nil{os.Remove(path);return err}
- return nil
+ if errors.Is(err,os.ErrExist){return false,nil}
+ if err!=nil{return false,err}
+ if _,err=f.Write(data);err!=nil{f.Close();os.Remove(path);return false,err}
+ if err=f.Close();err!=nil{os.Remove(path);return false,err}
+ return true,nil
 }
 
 func(s *Server) reviewModel(w http.ResponseWriter,r *http.Request){
