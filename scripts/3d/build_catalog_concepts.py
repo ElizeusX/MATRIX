@@ -129,7 +129,16 @@ def main():
         seen.add(p["slug"])
         writer = synthesize(p)
         dest = folder / (p["slug"] + "-concept.glb")
-        writer.output(dest)
+        writer.output(dest, extras={
+            "product_slug": p["slug"],
+            "approval": "DRAFT_ONLY",
+            "accurate_AR": False,
+            "source_catalog_width_mm": p["width"],
+            "source_catalog_depth_mm": p["depth"],
+            "height_m_UNVERIFIED": CONCEPT_HEIGHT_M,
+            "construction": "individualized procedural concept; NOT photogrammetry",
+            "room_measurement_allowed": False,
+        })
     print(f"Concept-only GLB models generated: {len(records)}. AR disabled for all; height not verified.")
     if len(records) < 10:
         raise SystemExit("Unexpectedly small catalog: check imports")
