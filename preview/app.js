@@ -167,10 +167,64 @@ function specRow(label,value){
  row.append(left,right);
  return row;
 }
+
+const draftConcept = {id:"hilton-2",url:"models/hilton-2-concept.glb"};
+let threeDModulePromise;
+function loadModelViewer(){
+ if(!threeDModulePromise){
+  threeDModulePromise=new Promise((resolve,reject)=>{
+   if(customElements.get("model-viewer")){resolve();return}
+   const script=document.createElement("script");
+   script.type="module";
+   script.src="https://unpkg.com/@google/model-viewer@4.4.0/dist/model-viewer.min.js";
+   script.onload=()=>customElements.whenDefined("model-viewer").then(resolve,reject);
+   script.onerror=()=>reject(new Error("3D library unavailable"));
+   document.head.append(script);
+  });
+ }
+ return threeDModulePromise;
+}
+function localizeDraft(){
+ const uk=state.locale==="uk";
+ $("#draft3d-tag").textContent=uk?"Чернетка · без AR":"Draft · AR disabled";
+ $("#draft3d-warning").textContent=uk?
+  "Це приблизна 3D-концепція, а не реконструкція товару за фото. Ширина 280 см та глибина 180 см наведені у виробника; висота 85 см є УМОВНОЮ. Не використовуйте 3D для замірів кімнати.":
+  "This is an approximate 3D concept, not a photo reconstruction. Width 280cm and depth 180cm are sourced; height 85cm is AN UNVERIFIED DESIGN ASSUMPTION. Do not use it to measure your room.";
+ $("#draft3d-toggle").textContent=uk?"Переглянути 3D (чернетка) ↗":"View 3D concept (draft) ↗";
+}
+function clearDraftViewer(){
+ $("#draft3d-viewer").replaceChildren();
+ $("#draft3d-viewer").hidden=true;
+}
+$("#draft3d-toggle").addEventListener("click",async()=>{
+ const target=$("#draft3d-viewer");
+ if(!target.hidden){clearDraftViewer();return}
+ target.hidden=false;
+ target.textContent=state.locale==="uk"?"Завантаження 3D…":"Loading 3D…";
+ try{
+  await loadModelViewer();
+  if(!dialog.open||state.activeProduct!==draftConcept.id){clearDraftViewer();return}
+  const viewer=document.createElement("model-viewer");
+  viewer.setAttribute("src",draftConcept.url);
+  viewer.setAttribute("camera-controls","");
+  viewer.setAttribute("shadow-intensity","0.8");
+  viewer.setAttribute("alt","Unverified conceptual Hilton-2 inspired sofa, not a product replica");
+  viewer.setAttribute("ar-modes","none");
+  viewer.setAttribute("camera-orbit","35deg 75deg auto");
+  viewer.addEventListener("error",()=>{
+   target.textContent=state.locale==="uk"?"3D-модель недоступна. Перевірте публікацію Pages.":"3D preview unavailable. Check the Pages deployment.";
+  });
+  target.replaceChildren(viewer);
+ }catch{
+  target.textContent=state.locale==="uk"?"Помилка завантаження бібліотеки 3D.":"Failed to load 3D viewer.";
+ }
+});
+
 function openProduct(id){
  const p=products.find(x=>x.id===id);
  if(!p)return;
  state.activeProduct=id;
+ clearDraftViewer();
  openProductContents(id);
  dialog.showModal();
  document.body.classList.add("dialog-open");
@@ -219,6 +273,8 @@ function updateLanguage(){
 }
 function openProductContents(id){
  const p=products.find(x=>x.id===id);if(!p)return;
+ $("#draft-3d-section").hidden=id!==draftConcept.id;
+ localizeDraft();
  $("#dialog-title").textContent=p[state.locale];
  $("#dialog-category").textContent=getCategory(p.category);
  $("#dialog-specs").replaceChildren(

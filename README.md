@@ -79,3 +79,31 @@ A self-contained, static phone-friendly preview is located in [preview/](preview
 
 The deployment workflow is [pages-preview.yml](.github/workflows/pages-preview.yml). After successful GitHub Pages activation, the preview URL is expected to be **https://elizeusx.github.io/MATRIX/**. Activate GitHub Actions as the Pages source in [repository Pages settings](https://github.com/ElizeusX/MATRIX/settings/pages). GitHub Pro/Team/Enterprise is required for a private repository and the published site is generally public. Do not change the repository's private visibility merely to use the preview.
 
+
+
+## 3D furniture and mobile AR — new optional module
+
+The repository now includes a **real 3D/AR asset workflow** with manual model upload,
+geometric scale checks, admin review and mobile viewers. See the dedicated
+[3D/AR operator guide](docs/3D_AR.md).
+
+- `/admin/3d`: rights-attested private image sources, GLB/USDZ uploads,
+  model versions, manufacturer dimensions in millimetres, review and publication.
+- Product page: 360° model view and compatible iPhone/Android room placement **only
+  for approved assets with verified width/depth/height and rights**.
+- `GET /api/v1/models/{slug}`: returns 404 for drafts or missing dimensions.
+- Database migrations: `003_product_3d.sql` and `004_3d_photo_sources.sql`.
+- Docker Compose: `models3d` private persistent volume.
+
+**Pilot limitations:** MATRIX Hilton-2 has publicly confirmed width and depth
+but no verified product height. A real GLB *concept* is generated for the
+GitHub Pages mobile preview by `scripts/3d/generate_hilton2_concept.py`.
+It is clearly labelled **approximate and non-AR**, with its illustrative
+height never presented as a manufacturer fact. This is **not** full
+multi-view reconstruction or a production-ready photorealistic replica.
+
+To verify the mobile preview after deployment, open
+[GitHub Pages MATRIX](https://elizeusx.github.io/MATRIX/), select Hilton-2
+and choose "3D (draft)" in its detail view. For a true 1:1 AR sofa,
+please provide factory-confirmed height, licensed multi-angle photographs,
+a reviewed GLB/USDZ pair, and real iOS/Android hardware test results.

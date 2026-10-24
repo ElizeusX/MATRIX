@@ -8,9 +8,9 @@
   <meta name="description" content="MATRIX — mobile design preview. Demo only; no live prices, stock, checkout.">
   <title>MATRIX — Furniture, thoughtfully designed • Preview</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=white-1">
+  <link rel="stylesheet" href="style.css?v=3d-concept-1">
   <script src="catalog.js?v=photos-2" defer></script>
-  <script src="app.js?v=photos-2" defer></script>
+  <script src="app.js?v=3d-concept-1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">До основного вмісту</a>
@@ -68,7 +68,12 @@
     <section class="section contact" id="contact"><p class="eyebrow"><span class="mini-line"></span>LET'S TALK</p><div class="contact-layout"><h2 data-i18n="contactTitle">Ваш дім.<br><em>Ваш MATRIX.</em></h2><div class="contact-aside"><p data-i18n="contactText">Потрібна консультація? Зв’яжіться з виробником. Демоверсія не приймає замовлень.</p><a class="contact-mail" href="mailto:matrix-mebli@ukr.net">matrix-mebli@ukr.net <span aria-hidden="true">↗</span></a><a class="contact-phone" href="tel:+380683903969">+380 (68) 390 39 69</a></div></div></section>
   </main>
   <footer class="footer"><div><a class="footer-logo" href="#top">MATRIX<span>.</span></a><small data-i18n="footerLine">Дизайн-превʼю майбутнього магазину</small></div><div class="footer-right"><span>© MATRIX 2026</span><a href="#top" data-i18n="backTop">Нагору ↑</a></div></footer>
-  <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title"><button class="dialog-close" id="dialog-close" type="button" aria-label="Закрити">×</button><div class="dialog-photo" id="dialog-gallery"></div><div class="dialog-copy"><p class="eyebrow">MATRIX / PRODUCT INFO</p><h2 id="dialog-title"></h2><p id="dialog-category"></p><div class="spec-table" id="dialog-specs"></div><p id="dialog-description" lang="uk"></p><p id="dialog-source-note"></p><a id="dialog-source" target="_blank" rel="noopener noreferrer"></a><p class="demo-notice" data-i18n="missing">Ціна й наявність уточнюються. Онлайн-замовлення недоступне.</p><button class="modal-heart" type="button" id="dialog-favorite" data-i18n="toFavorites">Додати в обране ♡</button><a href="mailto:matrix-mebli@ukr.net?subject=MATRIX%20consultation" class="dialog-contact" id="dialog-contact" data-i18n="consult">Запитати про модель ↗</a></div></dialog>
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title"><button class="dialog-close" id="dialog-close" type="button" aria-label="Закрити">×</button><div class="dialog-photo" id="dialog-gallery"></div><div class="dialog-copy"><p class="eyebrow">MATRIX / PRODUCT INFO</p><h2 id="dialog-title"></h2><p id="dialog-category"></p><div class="spec-table" id="dialog-specs"></div><div id="draft-3d-section" class="draft3d-section" hidden>
+  <div class="draft3d-header"><strong>3D · CONCEPT ONLY</strong><span id="draft3d-tag">Чернетка · без AR</span></div>
+  <p id="draft3d-warning">Приблизна 3D-модель для тестування інтерфейсу. Висота 85 см є умовною, а не підтвердженою виробником. Не використовуйте цю модель для вимірювань у кімнаті.</p>
+  <button type="button" id="draft3d-toggle">Переглянути 3D (чернетка) ↗</button>
+  <div id="draft3d-viewer" hidden></div>
+ </div><p id="dialog-description" lang="uk"></p><p id="dialog-source-note"></p><a id="dialog-source" target="_blank" rel="noopener noreferrer"></a><p class="demo-notice" data-i18n="missing">Ціна й наявність уточнюються. Онлайн-замовлення недоступне.</p><button class="modal-heart" type="button" id="dialog-favorite" data-i18n="toFavorites">Додати в обране ♡</button><a href="mailto:matrix-mebli@ukr.net?subject=MATRIX%20consultation" class="dialog-contact" id="dialog-contact" data-i18n="consult">Запитати про модель ↗</a></div></dialog>
   <dialog class="favorites-dialog" id="favorites-dialog" aria-labelledby="favorites-heading"><div class="favorite-heading"><h2 id="favorites-heading" data-i18n="favoritesTitle">Обрані моделі</h2><button type="button" class="dialog-close static" id="favorites-close" aria-label="Закрити">×</button></div><div id="favorites-list"></div><p class="favorite-note" data-i18n="favoritesNote">Список зберігається лише на цьому пристрої. Це не кошик і не замовлення.</p></dialog>
   <noscript><p class="noscript">Увімкніть JavaScript для перегляду каталогу. / Enable JavaScript to browse the demo catalog.</p></noscript>
 </body>

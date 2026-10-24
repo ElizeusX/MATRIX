@@ -5,3 +5,9 @@ node_modules/
 .next/
 dist/
 *.log
+
+model-data/
+*.glb
+*.usdz
+!preview/models/*.glb
+!preview/models/*.usdz

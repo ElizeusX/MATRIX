@@ -27,6 +27,9 @@ services:
       LIQPAY_SERVER_URL: ${LIQPAY_SERVER_URL:-}
       LIQPAY_RESULT_URL: ${LIQPAY_RESULT_URL:-}
       LIQPAY_SANDBOX: ${LIQPAY_SANDBOX:-false}
+      MODEL_STORAGE_DIR: /data/3d
+    volumes:
+      - models3d:/data/3d
     depends_on:
       db:
         condition: service_healthy
@@ -47,3 +50,4 @@ services:
       - "127.0.0.1:3000:3000"
 volumes:
   pgdata:
+  models3d:
