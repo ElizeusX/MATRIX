@@ -31,7 +31,7 @@ const translations = {
     favoritesNote:"Список зберігається лише на цьому пристрої. Це не кошик і не замовлення.",
     favoriteEmpty:"Ви ще не додали жодної моделі.",category:"Категорія",
     dimensions:"Габарити",sleepArea:"Спальне місце",mm:"мм",pending:"Уточнюється",
-    photoDemo:"Концепт · не фото виробу",details:"Переглянути модель",
+    photoDemo:"Концепт · не фото виробу",details:"Переглянути модель",open3D:"Дивитися у 3D · концепт",
     search:"Пошук моделі",menuOpen:"Відкрити меню",menuClose:"Закрити меню",
     close:"Закрити",heart:"Додати в обране",count:"моделей"
   },
@@ -58,7 +58,7 @@ const translations = {
     favoritesNote:"This list is saved on this device only. It is not a cart or an order.",
     favoriteEmpty:"No saved models yet.",category:"Category",
     dimensions:"Overall dimensions",sleepArea:"Sleeping area",mm:"mm",pending:"Unconfirmed",
-    photoDemo:"Concept · not a product photo",details:"View product",
+    photoDemo:"Concept · not a product photo",details:"View product",open3D:"View in 3D · concept",
     search:"Search models",menuOpen:"Open menu",menuClose:"Close menu",
     close:"Close",heart:"Add to favorites",count:"models"
   }
@@ -79,6 +79,9 @@ try {
 } catch { /* private browsing or disabled storage; the preview still works */ }
 
 function t(key){return translations[state.locale][key]||key}
+function hasConceptDimensions(p){
+ return Number.isInteger(p.width)&&Number.isInteger(p.depth)&&p.width>=300&&p.depth>=300&&p.width<=8000&&p.depth<=6000;
+}
 function getCategory(category){
   return category==="corner-sofas"?t("catCorner"):category==="straight-sofas"?t("catStraight"):category==="beds"?t("catBeds"):t("catUnspecified");
 }
@@ -118,7 +121,19 @@ function elementsForProduct(p,index){
   open.dataset.open=p.id;open.setAttribute("aria-label",t("details")+": "+p[state.locale]);
   open.textContent="↗";headingRow.append(name,open);
   const price=document.createElement("p");price.textContent=t("missing");
-  info.append(category,headingRow,price);fragment.append(visual,info);
+  info.append(category,headingRow,price);
+  if(hasConceptDimensions(p)){
+    const link=document.createElement("a");
+    link.className="product-3d-link";
+    link.href="3d.html?product="+encodeURIComponent(p.slug);
+    link.setAttribute("aria-label",t("open3D")+": "+p[state.locale]);
+    const label=document.createElement("span");
+    label.textContent=t("open3D");
+    const arrow=document.createElement("span");arrow.textContent="↗";arrow.setAttribute("aria-hidden","true");
+    link.append(label,arrow);
+    info.append(link);
+  }
+  fragment.append(visual,info);
   return fragment;
 }
 function drawProducts(){
@@ -168,63 +183,10 @@ function specRow(label,value){
  return row;
 }
 
-const draftConcept = {id:"hilton-2",url:"models/hilton-2-concept.glb"};
-let threeDModulePromise;
-function loadModelViewer(){
- if(!threeDModulePromise){
-  threeDModulePromise=new Promise((resolve,reject)=>{
-   if(customElements.get("model-viewer")){resolve();return}
-   const script=document.createElement("script");
-   script.type="module";
-   script.src="https://unpkg.com/@google/model-viewer@4.4.0/dist/model-viewer.min.js";
-   script.onload=()=>customElements.whenDefined("model-viewer").then(resolve,reject);
-   script.onerror=()=>reject(new Error("3D library unavailable"));
-   document.head.append(script);
-  });
- }
- return threeDModulePromise;
-}
-function localizeDraft(){
- const uk=state.locale==="uk";
- $("#draft3d-tag").textContent=uk?"Чернетка · без AR":"Draft · AR disabled";
- $("#draft3d-warning").textContent=uk?
-  "Це приблизна 3D-концепція, а не реконструкція товару за фото. Ширина 280 см та глибина 180 см наведені у виробника; висота 85 см є УМОВНОЮ. Не використовуйте 3D для замірів кімнати.":
-  "This is an approximate 3D concept, not a photo reconstruction. Width 280cm and depth 180cm are sourced; height 85cm is AN UNVERIFIED DESIGN ASSUMPTION. Do not use it to measure your room.";
- $("#draft3d-toggle").textContent=uk?"Переглянути 3D (чернетка) ↗":"View 3D concept (draft) ↗";
-}
-function clearDraftViewer(){
- $("#draft3d-viewer").replaceChildren();
- $("#draft3d-viewer").hidden=true;
-}
-$("#draft3d-toggle").addEventListener("click",async()=>{
- const target=$("#draft3d-viewer");
- if(!target.hidden){clearDraftViewer();return}
- target.hidden=false;
- target.textContent=state.locale==="uk"?"Завантаження 3D…":"Loading 3D…";
- try{
-  await loadModelViewer();
-  if(!dialog.open||state.activeProduct!==draftConcept.id){clearDraftViewer();return}
-  const viewer=document.createElement("model-viewer");
-  viewer.setAttribute("src",draftConcept.url);
-  viewer.setAttribute("camera-controls","");
-  viewer.setAttribute("shadow-intensity","0.8");
-  viewer.setAttribute("alt","Unverified conceptual Hilton-2 inspired sofa, not a product replica");
-  viewer.setAttribute("ar-modes","none");
-  viewer.setAttribute("camera-orbit","35deg 75deg auto");
-  viewer.addEventListener("error",()=>{
-   target.textContent=state.locale==="uk"?"3D-модель недоступна. Перевірте публікацію Pages.":"3D preview unavailable. Check the Pages deployment.";
-  });
-  target.replaceChildren(viewer);
- }catch{
-  target.textContent=state.locale==="uk"?"Помилка завантаження бібліотеки 3D.":"Failed to load 3D viewer.";
- }
-});
-
 function openProduct(id){
  const p=products.find(x=>x.id===id);
  if(!p)return;
  state.activeProduct=id;
- clearDraftViewer();
  openProductContents(id);
  dialog.showModal();
  document.body.classList.add("dialog-open");
@@ -273,8 +235,6 @@ function updateLanguage(){
 }
 function openProductContents(id){
  const p=products.find(x=>x.id===id);if(!p)return;
- $("#draft-3d-section").hidden=id!==draftConcept.id;
- localizeDraft();
  $("#dialog-title").textContent=p[state.locale];
  $("#dialog-category").textContent=getCategory(p.category);
  $("#dialog-specs").replaceChildren(
@@ -282,6 +242,12 @@ function openProductContents(id){
   specRow(t("dimensions"),p.dimensions?`${p.dimensions} ${t("mm")}`:t("pending")),
   specRow(t("sleepArea"),p.sleepingArea?`${p.sleepingArea} ${t("mm")}`:t("pending"))
  );
+ const conceptLink=$("#dialog-3d-link");
+ conceptLink.hidden=!hasConceptDimensions(p);
+ if(hasConceptDimensions(p)){
+  conceptLink.href="3d.html?product="+encodeURIComponent(p.slug);
+  conceptLink.textContent=t("open3D")+" ↗";
+ }
  const description=$("#dialog-description");description.textContent=p.description;description.lang="uk";description.hidden=!p.description;
  const note=$("#dialog-source-note");note.hidden=!p.flags.length;
  note.textContent=state.locale==="uk"?"Варіанти та неоднозначні дані наведено як у джерелі. Уточніть характеристики у виробника.":"Variants and ambiguous specifications are shown as supplied. Confirm details with the manufacturer.";
