@@ -10,7 +10,7 @@ const products = Object.freeze(window.MATRIX_CATALOG);
 const translations = {
   uk: {
     skip:"До основного вмісту", preview:"Дизайн-превʼю • Ціни та замовлення вимкнено",
-    navCollection:"Колекції",navStory:"Філософія",navContact:"Контакти",
+    navCollection:"Колекції",nav3D:"3D / AR",catalog3DInfo:"Під кожною моделлю з габаритами є кнопка 3D. Це окремі концепти для огляду, не точна реконструкція. AR поки вимкнено.",catalog3DDemo:"Спробувати 3D ↗",navStory:"Філософія",navContact:"Контакти",
     heroEyebrow:"МЕБЛІ З ХАРАКТЕРОМ",heroLine1:"Простір,",heroLine2:"де ти — вдома.",
     heroDescription:"М’які меблі MATRIX для моментів, до яких хочеться повертатися. Знайомтеся з колекціями, створеними для вашого простору.",
     explore:"Дивитися колекції",heroAside:"Дизайн-превʼю",artNote:"Хілтон-П · фото з каталогу MATRIX",
@@ -37,7 +37,7 @@ const translations = {
   },
   en: {
     skip:"Skip to main content",preview:"Design preview • Prices & ordering disabled",
-    navCollection:"Collections",navStory:"Our approach",navContact:"Contact",
+    navCollection:"Collections",nav3D:"3D / AR",catalog3DInfo:"Every product with usable dimensions has its own 3D concept. These are visual previews, not accurate reconstructions. AR is disabled.",catalog3DDemo:"Try 3D ↗",navStory:"Our approach",navContact:"Contact",
     heroEyebrow:"FURNITURE WITH CHARACTER",heroLine1:"A place",heroLine2:"to call home.",
     heroDescription:"Explore MATRIX upholstered furniture and collections made for everyday moments and spaces that feel like your own.",
     explore:"Explore collections",heroAside:"Design preview",artNote:"Hilton-P · MATRIX catalog photograph",
