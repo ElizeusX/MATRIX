@@ -10,14 +10,14 @@ const products = Object.freeze(window.MATRIX_CATALOG);
 const translations = {
   uk: {
     skip:"До основного вмісту", preview:"Дизайн-превʼю • Ціни та замовлення вимкнено",
-    navCollection:"Колекції",nav3D:"3D / AR",catalog3DInfo:"Під кожною моделлю з габаритами є кнопка 3D. Це окремі концепти для огляду, не точна реконструкція. Для Хілтон-2 доступне приблизне AR з непідтвердженою висотою.",catalog3DDemo:"Спробувати 3D ↗",navStory:"Філософія",navContact:"Контакти",
-    heroEyebrow:"МЕБЛІ З ХАРАКТЕРОМ",heroLine1:"Простір,",heroLine2:"де ти — вдома.",
-    heroDescription:"М’які меблі MATRIX для моментів, до яких хочеться повертатися. Знайомтеся з колекціями, створеними для вашого простору.",
-    explore:"Дивитися колекції",heroAside:"Дизайн-превʼю",artNote:"Хілтон-П · фото з каталогу MATRIX",
+    navCollection:"Каталог",nav3D:"3D / AR",catalog3DInfo:"Під кожною моделлю з габаритами є кнопка 3D. Це окремі концепти для огляду, не точна реконструкція. Для Хілтон-2 доступне приблизне AR з непідтвердженою висотою.",catalog3DDemo:"Спробувати 3D ↗",navStory:"Філософія",navContact:"Контакти",
+    heroEyebrow:"МЕБЛІ З ХАРАКТЕРОМ",heroLine1:"Меблі, що",heroLine2:"пасують вашому стилю",
+    heroDescription:"Створюємо простір для комфортного та впевненого життя",
+    explore:"Переглянути каталог",heroAside:"Дизайн-превʼю",artNote:"Інтер’єрна візуалізація",
     tickerOne:"СПОКІЙНА ЕСТЕТИКА",tickerTwo:"СТВОРЕНО ДЛЯ ЖИТТЯ",
     collectionTitle:"Знайдіть своє.",collectionIntro:"Дивани та ліжка MATRIX: фотографії, розміри й деталі кожної моделі.",
     catCorner:"Кутові дивани",catStraight:"Прямі дивани",catBeds:"Ліжка",catUnspecified:"Категорія уточнюється",
-    productsTitle:"Каталог моделей",productsIntro:"Фотографії та характеристики моделей із каталогу виробника.",
+    productsTitle:"Колекція MATRIX",productsIntro:"Фотографії та характеристики моделей із каталогу виробника.",
     all:"Усі моделі",empty:"Нічого не знайдено. Спробуйте інший запит.",
     catalogFootnote:"Всі товари без підтвердженої ціни. Замовлення не приймаються.",
     storyTitle:"Місце для ваших історій.",
@@ -37,10 +37,10 @@ const translations = {
   },
   en: {
     skip:"Skip to main content",preview:"Design preview • Prices & ordering disabled",
-    navCollection:"Collections",nav3D:"3D / AR",catalog3DInfo:"Every product with usable dimensions has its own 3D concept. These are visual previews, not accurate reconstructions. Hilton-2 offers estimated AR with an unconfirmed height.",catalog3DDemo:"Try 3D ↗",navStory:"Our approach",navContact:"Contact",
-    heroEyebrow:"FURNITURE WITH CHARACTER",heroLine1:"A place",heroLine2:"to call home.",
-    heroDescription:"Explore MATRIX upholstered furniture and collections made for everyday moments and spaces that feel like your own.",
-    explore:"Explore collections",heroAside:"Design preview",artNote:"Hilton-P · MATRIX catalog photograph",
+    navCollection:"Catalog",nav3D:"3D / AR",catalog3DInfo:"Every product with usable dimensions has its own 3D concept. These are visual previews, not accurate reconstructions. Hilton-2 offers estimated AR with an unconfirmed height.",catalog3DDemo:"Try 3D ↗",navStory:"Our approach",navContact:"Contact",
+    heroEyebrow:"FURNITURE WITH CHARACTER",heroLine1:"Furniture that",heroLine2:"fits your style",
+    heroDescription:"Creating space for a comfortable, confident life.",
+    explore:"Explore catalog",heroAside:"Design preview",artNote:"Illustrative showroom interior",
     tickerOne:"QUIET AESTHETICS",tickerTwo:"MADE FOR LIVING",
     collectionTitle:"Find your own.",collectionIntro:"Explore MATRIX sofas and beds with product photographs, dimensions and details.",
     catCorner:"Corner sofas",catStraight:"Straight sofas",catBeds:"Beds",catUnspecified:"Category unconfirmed",
@@ -137,6 +137,7 @@ function elementsForProduct(p,index){
   return fragment;
 }
 function drawProducts(){
+ for(const tile of document.querySelectorAll("[data-category]")){const active=tile.dataset.category===state.filter;tile.classList.toggle("active",active);tile.setAttribute("aria-pressed",String(active));}
  const q=state.query.trim().toLocaleLowerCase();
  const filtered=products.filter(p=>{
   const categoryMatch=state.filter==="all"||p.category===state.filter;

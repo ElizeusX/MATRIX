@@ -1,0 +1,633 @@
+/* Reference-led MATRIX showroom, shared by the shop and static preview. */
+:root {
+  --ink: #24211c;
+  --muted: #7a756e;
+  --gold: #b59461;
+  --line: #eee9e1;
+  --title: Arial, Helvetica, sans-serif;
+}
+body {
+  background: #e9e2d8;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.brand-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 43px;
+  height: 40px;
+  font:
+    italic 900 44px Georgia,
+    serif;
+  letter-spacing: -9px;
+  padding-right: 8px;
+  color: #ad834e;
+  background: linear-gradient(
+    120deg,
+    #e9d7b0,
+    #8d632f 46%,
+    #e6c897 52%,
+    #9c733e
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.brand-type {
+  display: flex;
+  flex-direction: column;
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  line-height: 1.2;
+  color: #201f1b;
+}
+.brand-type small {
+  font-size: 5px;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+.matrixBrand,
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.matrixBrand svg,
+.storeTools svg {
+  width: 22px;
+  height: 22px;
+}
+.storefront {
+  max-width: 1440px;
+  margin: 36px auto;
+  background: #fff;
+  border: 5px solid #fff;
+  border-radius: 32px;
+  overflow: clip;
+  box-shadow: 0 24px 70px #4e3b2520;
+}
+.localeHeader {
+  height: 98px;
+  padding: 0 5%;
+  border: 0;
+  background: #fff;
+  gap: 30px;
+}
+.localeHeader nav {
+  gap: 32px;
+  font-size: 13px;
+}
+.storeTools {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.storeTools a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.storeLanguage {
+  font-size: 11px;
+}
+.storeSkip {
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  background: white;
+  padding: 12px;
+  z-index: 99;
+}
+.storeSkip:focus {
+  top: 10px;
+}
+.showroomHero {
+  position: relative;
+  min-height: 510px;
+  background: #eee7dc url("/media/showroom-hero.webp") center 61% / cover
+    no-repeat;
+  isolation: isolate;
+}
+.showroomHero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #fffcf8f7 0%,
+    #fffcf8bd 28%,
+    #fff9f000 64%
+  );
+  z-index: -1;
+}
+.showroomText {
+  padding: 48px 5% 85px;
+  max-width: 540px;
+}
+.heroPagination,
+.hero-pagination {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  color: #716b60;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin: 0 0 28px;
+}
+.heroPagination span,
+.hero-pagination span {
+  width: 30px;
+  height: 1px;
+  background: #a89d8d;
+}
+.showroomText h1 {
+  font-size: clamp(42px, 4.9vw, 66px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -2.8px;
+  margin: 0 0 20px;
+  max-width: 440px;
+}
+.showroomText > p:not(.heroPagination) {
+  max-width: 325px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #77716a;
+  margin: 0;
+}
+.showroomCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 25px;
+  padding: 16px 24px;
+  color: #fff;
+  background: linear-gradient(110deg, #5e5140, #28231d);
+  border-radius: 40px;
+  font-size: 13px;
+  box-shadow: 0 5px 12px #40301d15;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.showroomCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px #40301d30;
+}
+.showroomAr {
+  position: absolute;
+  right: 10%;
+  top: 36%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 96px;
+  height: 110px;
+  border: 1px solid #ffffffa6;
+  border-radius: 60px;
+  background: #e7dac5d9;
+  backdrop-filter: blur(6px);
+  font-size: 10px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.showroomAr:hover {
+  transform: scale(1.04);
+}
+.showroomAr svg {
+  width: 26px;
+  height: 26px;
+}
+.showroomCaption {
+  position: absolute;
+  right: 22px;
+  bottom: 52px;
+  color: #71675b;
+  font-size: 9px;
+  background: #ffffffc7;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+.showroomCategories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: -40px 3.5% 0;
+  padding: 16px;
+  position: relative;
+  z-index: 2;
+  border: 1px solid #fff;
+  background: #f4f1ecef;
+  backdrop-filter: blur(15px);
+  border-radius: 35px;
+  box-shadow: 0 8px 22px #40301d06;
+}
+.showroomCategories > a {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border-radius: 30px;
+  background: #fff;
+  padding: 17px 25px;
+  font-size: 15px;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.showroomCategories > a:first-child {
+  background: linear-gradient(110deg, #c6ac7f, #ae8b57);
+  color: #fff;
+}
+.showroomCategories > a:hover {
+  transform: translateY(-2px);
+  background: #e9ddc9;
+}
+.showroomCategories svg {
+  width: 32px;
+  height: 28px;
+}
+.categoryArrow {
+  margin-left: auto;
+}
+.homeCollection {
+  padding: 28px 5% 45px;
+}
+.homeSectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.homeSectionHeading h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+.homeSectionHeading > a {
+  font-size: 12px;
+}
+.homeSectionHeading > a span {
+  margin-left: 15px;
+}
+.homeProducts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.homeProduct {
+  position: relative;
+  border: 1px solid #f4f0ea;
+  background: linear-gradient(#f6f3ef, #fff);
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 7px 18px #40301d05;
+  transition: transform 0.25s;
+}
+.homeProduct:hover {
+  transform: translateY(-4px);
+}
+.homeProductPhoto {
+  padding: 20px 9px 0;
+  aspect-ratio: 1.38;
+  display: flex;
+  align-items: center;
+}
+.homeProductPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.homeProduct h3 {
+  font-weight: 400;
+  font-size: 14px;
+  margin: 18px 16px 8px;
+}
+.homeProduct p {
+  font-size: 12px;
+  margin: 0 16px 18px;
+  color: #6d675f;
+}
+.home3d {
+  position: absolute;
+  right: 12px;
+  top: 45%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: #fff;
+  border: 1px solid #ece4d7;
+  border-radius: 50%;
+  font-size: 9px;
+  box-shadow: 0 3px 10px #3c291810;
+}
+.home3d svg {
+  width: 19px;
+  height: 19px;
+}
+.homeStory {
+  padding: 70px 7%;
+  background: #f7f3ed;
+}
+.homeStory h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  max-width: 680px;
+  letter-spacing: -2px;
+  margin: 28px 0;
+}
+.homeStory p {
+  max-width: 510px;
+  line-height: 1.8;
+  color: #787067;
+}
+.homeStory > a {
+  display: inline-block;
+  font-size: 13px;
+  border-bottom: 1px solid #b59461;
+  padding: 12px 0;
+}
+.storeFooter {
+  padding: 35px 5%;
+  font-size: 12px;
+  background: #fff;
+  color: #736b60;
+}
+.catalog h1,
+.productDetail h1,
+.cartPage h1 {
+  letter-spacing: -2px;
+}
+.productCard {
+  padding: 12px;
+  border: 1px solid #eee9e1;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.catalogPhoto {
+  border: 0;
+  background: #f8f5f0;
+  border-radius: 12px;
+}
+.filters a,
+.search input,
+.search button,
+.buyActions button,
+.checkoutForm button {
+  border-radius: 24px;
+}
+.filters a:hover,
+.search button,
+.buyActions button,
+.checkoutForm button {
+  background: #44392c;
+}
+.filters a:hover {
+  color: #fff;
+}
+@media (min-width: 1500px) {
+  .storefront {
+    margin: 45px auto;
+  }
+}
+@media (max-width: 900px) {
+  .storefront {
+    margin: 15px;
+    border-radius: 26px;
+  }
+  .showroomHero {
+    min-height: 500px;
+    background-position: 57% center;
+  }
+  .showroomText {
+    max-width: 430px;
+  }
+  .showroomText h1 {
+    font-size: 50px;
+  }
+  .homeProducts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .showroomCategories > a {
+    gap: 12px;
+    padding: 15px;
+  }
+  .categoryArrow {
+    display: none;
+  }
+  .localeHeader nav {
+    gap: 16px;
+  }
+  .localeHeader {
+    gap: 16px;
+  }
+  .storeTools {
+    gap: 13px;
+  }
+}
+@media (max-width: 580px) {
+  body {
+    background: #fff;
+  }
+  .storefront {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .localeHeader {
+    height: 80px;
+    padding: 0 5%;
+    gap: 12px;
+  }
+  .brand-type {
+    font-size: 21px;
+    letter-spacing: 3px;
+  }
+  .brand-type small {
+    font-size: 4px;
+    letter-spacing: 1.2px;
+  }
+  .brand-symbol {
+    flex-basis: 30px;
+    font-size: 36px;
+    height: 34px;
+  }
+  .matrixBrand,
+  .wordmark {
+    gap: 6px;
+  }
+  .localeHeader nav {
+    display: none;
+  }
+  .storeTools {
+    gap: 16px;
+  }
+  .storeSearch {
+    display: none !important;
+  }
+  .storeLanguage {
+    font-size: 10px;
+  }
+  .showroomHero {
+    min-height: 590px;
+    background-size: auto 420px;
+    background-position: 63% bottom;
+    background-repeat: no-repeat;
+    background-color: #faf7f1;
+  }
+  .showroomHero:before {
+    background: linear-gradient(
+      #faf7f1 0%,
+      #faf7f1f2 19%,
+      #faf7f159 44%,
+      transparent 65%
+    );
+  }
+  .showroomText {
+    padding: 25px 7% 0;
+    max-width: 360px;
+  }
+  .heroPagination {
+    font-size: 8px;
+    margin-bottom: 18px;
+  }
+  .showroomText h1 {
+    font-size: 42px;
+    line-height: 1.02;
+    letter-spacing: -2px;
+    max-width: 310px;
+    margin-bottom: 14px;
+  }
+  .showroomText > p:not(.heroPagination) {
+    font-size: 13px;
+    max-width: 265px;
+  }
+  .showroomCta {
+    position: absolute;
+    bottom: 47px;
+    left: 7%;
+    right: 7%;
+    justify-content: space-between;
+    margin: 0;
+    padding: 16px 22px;
+  }
+  .showroomAr {
+    width: 70px;
+    height: 83px;
+    right: 7%;
+    top: 58%;
+    font-size: 8px;
+  }
+  .showroomAr svg {
+    width: 20px;
+    height: 20px;
+  }
+  .showroomCaption {
+    bottom: 103px;
+    right: 7%;
+    font-size: 8px;
+  }
+  .showroomCategories {
+    margin: -22px 3% 0;
+    padding: 10px;
+    gap: 7px;
+    border-radius: 28px;
+  }
+  .showroomCategories > a {
+    font-size: 11px;
+    padding: 12px 8px;
+    gap: 7px;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .showroomCategories svg {
+    width: 24px;
+    height: 23px;
+    flex-shrink: 0;
+  }
+  .homeCollection {
+    padding: 26px 5% 35px;
+  }
+  .homeSectionHeading {
+    gap: 10px;
+  }
+  .homeSectionHeading h2 {
+    font-size: 20px;
+  }
+  .homeSectionHeading > a {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .homeProducts {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .homeProduct > a:first-child {
+    display: grid;
+    grid-template-columns: 52% 48%;
+    grid-template-rows: 1fr 1fr;
+    min-height: 160px;
+  }
+  .homeProductPhoto {
+    grid-row: 1/3;
+    aspect-ratio: auto;
+    padding: 12px 6px;
+  }
+  .homeProduct h3 {
+    align-self: end;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 20px 12px 8px;
+  }
+  .homeProduct p {
+    margin: 0 12px 24px;
+    font-size: 11px;
+  }
+  .home3d {
+    right: auto;
+    left: calc(52% - 39px);
+    top: auto;
+    bottom: 10px;
+    width: 32px;
+    height: 32px;
+  }
+  .home3d svg {
+    width: 15px;
+  }
+  .home3d span {
+    display: none;
+  }
+  .homeStory {
+    padding: 55px 7%;
+  }
+  .homeStory h2 {
+    font-size: 40px;
+  }
+  .storeFooter {
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .storeFooter .brand-type {
+    font-size: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
