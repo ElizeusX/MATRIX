@@ -40,6 +40,14 @@ jobs:
           node-version: '22'
       - run: cd apps/web && npm ci
       - run: cd apps/web && npm run lint && npm run build
+      - run: npm install --prefix /tmp/matrix-browser playwright@1.56.1
+      - run: /tmp/matrix-browser/node_modules/.bin/playwright install --with-deps chromium
+      - run: NODE_PATH=/tmp/matrix-browser/node_modules node scripts/test_storefront.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: storefront-browser-review
+          path: artifacts/3d/storefront-*.png
 
   pilot:
     runs-on: ubuntu-latest
