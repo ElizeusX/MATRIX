@@ -34,7 +34,7 @@ def add_back(m,name,x,w,z,h,style):
                 m.panel(f'{name}_pad_{i}_{j}',(cx,cy,z),(cw,ch,.205),.045,.01,tilt=.16)
     else:
         m.panel(name,center,(w,height,.21),.05,.012,tilt=.14)
-        m.seam(name+'_welt',center,(w,height,.21),'front')
+        m.seam(name+'_welt',center,(w,height,.21),'front',tilt=.14)
         if style in ('tuft','diamond'):
             # Tuft seam channels and small upholstered buttons, not flat textures.
             if style=='tuft':

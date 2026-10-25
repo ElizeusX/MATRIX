@@ -35,15 +35,16 @@ class SurfaceModel(Model):
                     faces.extend([(k-6,k,q),(k-6,q,q-6)])
         self.parts.append([name,np.array(verts),np.array(faces,dtype=np.uint32),np.array(uv),material])
 
-    def seam(self,name,c,size,plane='top'):
+    def seam(self,name,c,size,plane='top',tilt=0):
         # Rounded rectangular piping in the seat top or cushion front plane.
         x,y,z=c;w,h,d=size
-        a,b=(w/2-.016,d/2-.016) if plane=='top' else (w/2-.016,h/2-.016)
+        inset=min(.065,w*.15,(d if plane=='top' else h)*.18)
+        a,b=(w/2-inset,d/2-inset) if plane=='top' else (w/2-inset,h/2-inset)
         r=min(.035,a*.25,b*.25);pts=[]
         for sx,sy,start in [(1,1,0),(-1,1,90),(-1,-1,180),(1,-1,270)]:
             for angle in np.linspace(start,start+90,6):
                 t=math.radians(angle);u=sx*(a-r)+r*math.cos(t);v=sy*(b-r)+r*math.sin(t)
-                pts.append((x+u,y+h/2+.001,z+v) if plane=='top' else (x+u,y+v,z+d/2+.001))
+                pts.append((x+u,y+h/2+.001,z+v) if plane=='top' else (x+u,y+v,z+d/2+.001-tilt*v))
         pts.append(pts[0]);self.line(name,pts)
 
     def finish(self, target):
@@ -65,7 +66,14 @@ def fabric():
     rng=np.random.default_rng(20261025);s=256;y,x=np.mgrid[:s,:s]
     # Seamless original woven fabric, neutral so each photo profile can tint it.
     h=.035*np.cos(x*math.tau/4)+.035*np.cos(y*math.tau/4)+rng.normal(0,.02,(s,s))
-    color=np.uint8(np.clip(235+70*h+rng.normal(0,2,(s,s)),0,255))
+    cloud=np.zeros((s,s))
+    for cells in (4,8,16,32):
+        # Periodic broad nap variation makes close upholstery reads less uniform.
+        small=Image.fromarray(rng.integers(0,255,(cells,cells),dtype=np.uint8))
+        tiled=Image.fromarray(np.tile(np.asarray(small),(3,3)))
+        cloud+=np.asarray(tiled.resize((s*3,s*3),Image.Resampling.BICUBIC),dtype=float)[s:s*2,s:s*2]/255/cells**.3
+    cloud=(cloud-cloud.mean())/cloud.std()
+    color=np.uint8(np.clip(229+7*cloud+70*h+rng.normal(0,2,(s,s)),0,255))
     dx=np.roll(h,-1,1)-np.roll(h,1,1);dy=np.roll(h,-1,0)-np.roll(h,1,0)
     normal=np.dstack((-dx,-dy,np.ones_like(h)));normal/=np.linalg.norm(normal,axis=2)[:,:,None]
     out=[]
