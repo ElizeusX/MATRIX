@@ -59,23 +59,25 @@ export default async function LocalHome({
             <FurnitureIcon kind="arrow" />
           </Link>
         </div>
-        {hiltonModel && (
-          <Link
-            className="showroomAr"
-            href={`/${locale}/product/hilton-2#matrix3d-title`}
-            aria-label="Хілтон-2: 3D / AR"
-          >
-            <span>3D</span>
-            <FurnitureIcon kind="cube" />
-            <span>
-              Хілтон-2
-              <br />
-              3D / AR
-            </span>
-            <span aria-hidden="true">+</span>
-          </Link>
-        )}
-        <span className="showroomCaption">{t.art}</span>
+        <div className="showroomVisual">
+          {hiltonModel && (
+            <Link
+              className="showroomAr"
+              href={`/${locale}/product/hilton-2#matrix3d-title`}
+              aria-label="Хілтон-2: 3D / AR"
+            >
+              <span>3D</span>
+              <FurnitureIcon kind="cube" />
+              <span>
+                Хілтон-2
+                <br />
+                3D / AR
+              </span>
+              <span aria-hidden="true">+</span>
+            </Link>
+          )}
+          <span className="showroomCaption">{t.art}</span>
+        </div>
       </section>
       <section
         className="showroomCategories"

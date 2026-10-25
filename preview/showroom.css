@@ -513,7 +513,7 @@ body {
     font-size: 13px;
     max-width: 265px;
   }
-  .underlined-link {
+  .showroom-hero .underlined-link {
     position: absolute;
     bottom: 47px;
     left: 7%;
@@ -1124,4 +1124,125 @@ html {
   .product-card { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .product-meta, .product-visual-wrap, .product-title-row { min-width: 0; }
   .product-title-row h3 { overflow-wrap: anywhere; }
+}
+
+/* Mobile uses document flow so translated or enlarged text cannot collide with imagery. */
+.showroom-visual { display: contents; }
+@media (max-width: 580px) {
+  .hero.showroom-hero {
+    min-height: 0;
+    background: #f8f6f1;
+    padding-bottom: 20px;
+  }
+  .showroom-hero::before { display: none; }
+  .showroom-hero .hero-text {
+    position: static;
+    max-width: none;
+    padding: 28px 24px 24px;
+  }
+  .hero-pagination { font-size: 9px; letter-spacing: 2.4px; margin-bottom: 18px; }
+  .showroom-hero .hero-text h1 {
+    max-width: 100%;
+    font-size: clamp(34px, 10vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -1.6px;
+    margin: 0 0 16px;
+    overflow-wrap: break-word;
+  }
+  .showroom-hero .hero-description {
+    max-width: 30em;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6c655b;
+  }
+  .showroom-hero .underlined-link {
+    position: static;
+    display: flex;
+    width: 100%;
+    min-height: 50px;
+    margin: 22px 0 0;
+    padding: 14px 20px;
+    gap: 16px;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #fff;
+  }
+  .showroom-visual {
+    display: block;
+    position: relative;
+    width: calc(100% - 32px);
+    aspect-ratio: 4 / 3;
+    min-height: 230px;
+    margin: 0 16px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #e6dccd url("media/showroom-hero.webp") 65% 70% / cover no-repeat;
+  }
+  .hero-ar {
+    top: 12px;
+    right: 12px;
+    bottom: auto;
+    width: auto;
+    height: auto;
+    min-height: 48px;
+    padding: 9px 14px;
+    flex-direction: row;
+    gap: 9px;
+    border-radius: 14px;
+    background: #fffcf5ed;
+    color: #28231d;
+    font-size: 11px;
+    line-height: 1.35;
+    text-align: left;
+    box-shadow: 0 4px 16px #40301d12;
+  }
+  .hero-ar > span:first-child, .hero-ar > span:last-child { display: none; }
+  .hero-ar svg { width: 25px; height: 25px; }
+  .showroom-caption {
+    left: 12px;
+    right: auto;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    padding: 6px 10px;
+    font-size: 9px;
+    line-height: 1.4;
+    color: #51483b;
+    background: #fffcf5e8;
+  }
+  .showroom-categories {
+    margin: 0;
+    padding: 16px 16px 0;
+    gap: 8px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  .showroom-categories .showroom-category {
+    flex-direction: column;
+    gap: 8px;
+    min-height: 92px;
+    padding: 14px 5px;
+    border: 1px solid #ece7de;
+    border-radius: 16px;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: center;
+    white-space: normal;
+  }
+  .showroom-category svg { width: 28px; height: 28px; }
+  .showroom-category .category-arrow { display: none; }
+  .story .underlined-link { position: static; width: auto; margin-top: 24px; }
+  .inventory { padding-top: 30px; }
+  .filter, .product-3d-link, .favorite-btn { min-height: 44px; }
+  .favorite-btn { min-width: 44px; }
+  .catalog-search { min-height: 48px; }
+  .header-inner { height: 68px; }
+  .showroom-hero a:focus-visible, .showroom-category:focus-visible {
+    outline: 2px solid #846332;
+    outline-offset: 3px;
+  }
 }
