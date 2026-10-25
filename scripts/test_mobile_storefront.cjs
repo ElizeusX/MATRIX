@@ -32,6 +32,50 @@ async function assertMobileFlow(page, width) {
   }
 }
 
+async function assertProductCards(page, width, locale) {
+  const card = page.locator('.product-card').first();
+  const button = card.locator('.product-details-button');
+  const title = await card.locator('h3').textContent();
+  assert.equal(await page.locator('.product-card .product-open, .product-card .product-3d-link').count(), 0);
+  assert.equal(await card.locator('button').count(), 2, 'one details target and one independent favorite');
+  assert.equal(await button.getAttribute('aria-haspopup'), 'dialog');
+  assert((await button.getAttribute('aria-label')).includes(title));
+  await card.scrollIntoViewIfNeeded();
+  const outer = await card.boundingBox();
+  const target = await button.boundingBox();
+  assert(Math.abs(outer.width - target.width) <= 2 && Math.abs(outer.height - target.height) <= 2, 'details target covers the whole card');
+  for (const selector of ['.product-photo', 'h3', '.product-meta p']) {
+    await card.scrollIntoViewIfNeeded();
+    const b = await card.locator(selector).boundingBox();
+    await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2);
+    assert(await page.locator('#product-dialog').isVisible(), `${selector} opens details at ${width}/${locale}`);
+    assert.equal(await page.locator('#dialog-title').textContent(), title);
+    assert(await page.locator('#dialog-3d-link').isVisible(), '3D remains in product details');
+    assert.equal(await page.locator('#dialog-3d-link').getAttribute('href'), '3d.html?product=hilton-2');
+    await page.keyboard.press('Escape');
+  }
+  // Padding also belongs to the details target.
+  await button.click({ position: { x: target.width / 2, y: target.height - 10 } });
+  assert(await page.locator('#product-dialog').isVisible());
+  await page.keyboard.press('Escape');
+  for (const key of ['Enter', 'Space']) {
+    await button.focus();
+    await page.keyboard.press(key);
+    assert(await page.locator('#product-dialog').isVisible(), `${key} opens details`);
+    await page.keyboard.press('Escape');
+  }
+  const favorite = card.locator('.favorite-btn');
+  await favorite.click();
+  assert.equal(await favorite.getAttribute('aria-pressed'), 'true');
+  assert(!(await page.locator('#product-dialog').isVisible()), 'favorite does not open details');
+  await favorite.click();
+  assert.equal(await favorite.getAttribute('aria-pressed'), 'false');
+  assert(!(await page.locator('#product-dialog').isVisible()));
+  await card.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: `artifacts/mobile/catalog-${width}-${locale}.png`, fullPage: false });
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+}
+
 (async () => {
   const browser = await chromium.launch({ headless: true });
   fs.mkdirSync('artifacts/mobile', { recursive: true });
@@ -55,6 +99,7 @@ async function assertMobileFlow(page, width) {
         }));
         assert(overflow.width <= width, `page overflow at ${width}/${locale}: ${JSON.stringify(overflow)}`);
         if (width <= 580) await assertMobileFlow(page, width);
+        if ([320, 390, 1440].includes(width)) await assertProductCards(page, width, locale);
         await page.screenshot({ path: `artifacts/mobile/storefront-${width}-${locale}.png`, fullPage: false });
       }
       if (width <= 580) {
@@ -71,7 +116,7 @@ async function assertMobileFlow(page, width) {
       assert.deepEqual(errors, []);
       await page.close();
     }
-    console.log('PASS: responsive layout, UA/EN, enlarged text, hero/story separation, touch targets, menu, category filters and AR link');
+    console.log('PASS: responsive layout, UA/EN, enlarged text, hero/story separation, touch targets, menu, category filters, full-card details, keyboard access, independent favorites and AR link');
   } finally {
     await browser.close();
   }

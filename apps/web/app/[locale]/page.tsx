@@ -125,16 +125,6 @@ export default async function LocalHome({
                       : t.price}
                   </p>
                 </Link>
-                {p.slug === "hilton-2" && hiltonModel && (
-                  <Link
-                    className="home3d"
-                    href={`/${locale}/product/${p.slug}#matrix3d-title`}
-                    aria-label={`${locale === "uk" ? p.uk : p.en}: 3D`}
-                  >
-                    <FurnitureIcon kind="cube" />
-                    <span>3D</span>
-                  </Link>
-                )}
               </article>
             );
           })}

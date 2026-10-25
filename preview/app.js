@@ -90,16 +90,13 @@ function elementsForProduct(p,index){
   fragment.className="product-card";
   const visual=document.createElement("div");
   visual.className="product-visual-wrap";
-  const visualButton=document.createElement("button");
-  visualButton.type="button";
-  visualButton.className="product-art";
-  visualButton.dataset.open=p.id;
-  visualButton.dataset.tone=String(index%9);
-  visualButton.setAttribute("aria-label",t("details")+": "+p[state.locale]);
+  const artwork=document.createElement("div");
+  artwork.className="product-art";
+  artwork.dataset.tone=String(index%9);
   const photo=document.createElement("img");
   photo.className="product-photo";
   photo.src=p.image;photo.alt=p[state.locale];photo.loading="lazy";photo.decoding="async";
-  visualButton.append(photo);
+  artwork.append(photo);
   const overlay=document.createElement("div");
   overlay.className="product-topline";
   const tag=document.createElement("span");
@@ -112,28 +109,22 @@ function elementsForProduct(p,index){
   fav.setAttribute("aria-pressed",String(state.favorites.has(p.id)));
   if(state.favorites.has(p.id))fav.classList.add("selected");
   fav.innerHTML=window.matrixIcon('heart');
-  overlay.append(tag,fav);visual.append(visualButton,overlay);
+  overlay.append(tag,fav);visual.append(artwork,overlay);
   const info=document.createElement("div");info.className="product-meta";
   const category=document.createElement("span");category.textContent=getCategory(p.category);
   const headingRow=document.createElement("div");headingRow.className="product-title-row";
   const name=document.createElement("h3");name.textContent=p[state.locale];
-  const open=document.createElement("button");open.className="product-open";open.type="button";
-  open.dataset.open=p.id;open.setAttribute("aria-label",t("details")+": "+p[state.locale]);
-  open.innerHTML=window.matrixIcon("arrow");headingRow.append(name,open);
+  headingRow.append(name);
   const price=document.createElement("p");price.textContent=t("missing");
   info.append(category,headingRow,price);
-  if(hasModelPreview(p)){
-    const link=document.createElement("a");
-    link.className="product-3d-link";
-    link.href="3d.html?product="+encodeURIComponent(p.slug);
-    link.setAttribute("aria-label",t("open3D")+": "+p[state.locale]);
-    const label=document.createElement("span");
-    label.textContent=p.slug==="hilton-2"?(state.locale==="uk"?"Переглянути в 3D":"View in 3D"):t("open3D");
-    const arrow=document.createElement("span");arrow.innerHTML=window.matrixIcon("cube");arrow.setAttribute("aria-hidden","true");
-    link.append(label,arrow);
-    info.append(link);
-  }
-  fragment.append(visual,info);
+  const details=document.createElement("button");
+  details.type="button";
+  details.className="product-details-button";
+  details.dataset.open=p.id;
+  details.setAttribute("aria-label",t("details")+": "+p[state.locale]);
+  details.setAttribute("aria-haspopup","dialog");
+  details.setAttribute("aria-controls","product-dialog");
+  fragment.append(visual,info,details);
   return fragment;
 }
 function drawProducts(){
