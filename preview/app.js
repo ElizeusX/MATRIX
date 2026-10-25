@@ -111,7 +111,7 @@ function elementsForProduct(p,index){
   fav.setAttribute("aria-label",t("heart")+": "+p[state.locale]);
   fav.setAttribute("aria-pressed",String(state.favorites.has(p.id)));
   if(state.favorites.has(p.id))fav.classList.add("selected");
-  fav.innerHTML='<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" aria-hidden="true"><path d="M20.6 8.1c0 5-8.6 11-8.6 11s-8.6-6-8.6-11a4.6 4.6 0 0 1 8.6-2.2 4.6 4.6 0 0 1 8.6 2.2Z"/></svg>';
+  fav.innerHTML=window.matrixIcon('heart');
   overlay.append(tag,fav);visual.append(visualButton,overlay);
   const info=document.createElement("div");info.className="product-meta";
   const category=document.createElement("span");category.textContent=getCategory(p.category);
@@ -119,7 +119,7 @@ function elementsForProduct(p,index){
   const name=document.createElement("h3");name.textContent=p[state.locale];
   const open=document.createElement("button");open.className="product-open";open.type="button";
   open.dataset.open=p.id;open.setAttribute("aria-label",t("details")+": "+p[state.locale]);
-  open.textContent="↗";headingRow.append(name,open);
+  open.innerHTML=window.matrixIcon("arrow");headingRow.append(name,open);
   const price=document.createElement("p");price.textContent=t("missing");
   info.append(category,headingRow,price);
   if(hasConceptDimensions(p)){
@@ -129,7 +129,7 @@ function elementsForProduct(p,index){
     link.setAttribute("aria-label",t("open3D")+": "+p[state.locale]);
     const label=document.createElement("span");
     label.textContent=p.slug==="hilton-2"?(state.locale==="uk"?"Переглянути в 3D":"View in 3D"):t("open3D");
-    const arrow=document.createElement("span");arrow.textContent="↗";arrow.setAttribute("aria-hidden","true");
+    const arrow=document.createElement("span");arrow.innerHTML=window.matrixIcon("cube");arrow.setAttribute("aria-hidden","true");
     link.append(label,arrow);
     info.append(link);
   }
@@ -173,7 +173,7 @@ function toggleFavorite(id){
 function updateModalFavorite(){
  const button=$("#dialog-favorite");
  const selected=state.favorites.has(state.activeProduct);
- button.textContent=selected?t("removeFavorites"):t("toFavorites");
+ button.replaceChildren(document.createTextNode((selected?t("removeFavorites"):t("toFavorites")).replace(/[♡♥]/g,"")));button.insertAdjacentHTML("beforeend",window.matrixIcon("heart"));
  button.setAttribute("aria-pressed",String(selected));
 }
 function specRow(label,value){
@@ -202,8 +202,8 @@ function drawSaved(){
  for(const p of items){
   const row=document.createElement("div");row.className="favorite-item";
   const name=document.createElement("span");name.textContent=p[state.locale];
-  const open=document.createElement("button");open.type="button";open.textContent="↗";open.dataset.savedOpen=p.id;
-  const remove=document.createElement("button");remove.type="button";remove.textContent="×";
+  const open=document.createElement("button");open.type="button";open.innerHTML=window.matrixIcon("arrow");open.dataset.savedOpen=p.id;
+  const remove=document.createElement("button");remove.type="button";remove.innerHTML=window.matrixIcon("close");
   remove.dataset.savedRemove=p.id;remove.setAttribute("aria-label",t("removeFavorites")+": "+p[state.locale]);
   row.append(name,open,remove);list.append(row);
  }
@@ -224,7 +224,7 @@ function updateLanguage(){
     el.replaceChildren(document.createTextNode(state.locale==="uk"?"Місце для ":"Room for "));
     const em=document.createElement("em");em.textContent=state.locale==="uk"?"ваших історій.":"your stories.";el.append(em);
    }
-  }else el.textContent=t(key);
+  }else {el.textContent=t(key).replace(/[↗♡♥]/g,"").trim();if(["consult","toFavorites","catalog3DDemo"].includes(key))el.insertAdjacentHTML("beforeend",window.matrixIcon(key==="toFavorites"?"heart":key==="catalog3DDemo"?"cube":"arrow"));}
  }
  search.placeholder=t("search");search.setAttribute("aria-label",t("search"));
  $("#menu-toggle").setAttribute("aria-label",t($("#main-nav").classList.contains("open")?"menuClose":"menuOpen"));
@@ -247,7 +247,7 @@ function openProductContents(id){
  conceptLink.hidden=!hasConceptDimensions(p);
  if(hasConceptDimensions(p)){
   conceptLink.href="3d.html?product="+encodeURIComponent(p.slug);
-  conceptLink.textContent=(p.slug==="hilton-2"?(state.locale==="uk"?"Переглянути в 3D":"View in 3D"):t("open3D"))+" ↗";
+  conceptLink.textContent=(p.slug==="hilton-2"?(state.locale==="uk"?"Переглянути в 3D":"View in 3D"):t("open3D"));conceptLink.insertAdjacentHTML("beforeend",window.matrixIcon("cube"));
  }
  const ar=$("#dialog-ar");const arReason=$("#dialog-ar-reason");
  ar.hidden=arReason.hidden=p.slug!=="hilton-2";

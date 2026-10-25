@@ -12,13 +12,14 @@
 <script src="catalog.js?v=photos-2" defer></script>
 <script src="ar-policy.js?v=2" defer></script>
 <script src="3d-page.js?v=estimated-ar-3" defer></script>
+<style>.matrix-icon{width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0}.back .matrix-icon{transform:rotate(180deg)}</style>
 </head>
 <body>
 <a class="skip" href="#viewer">До 3D-перегляду</a>
 <div class="announcement"><span class="indicator"></span><span id="announcement">3D-ПРЕВʼЮ · КОНЦЕПТУАЛЬНА МОДЕЛЬ · AR ЩЕ НЕ ДОСТУПНЕ</span></div>
 <header class="topbar">
   <a class="brand" href="./" aria-label="MATRIX — повернутися до каталогу">MATRIX<span>.</span></a>
-  <div class="headlinks"><a class="back" href="./"><span aria-hidden="true">←</span> <span id="back-label">Каталог</span></a><button id="switch-lang" aria-label="Switch language" type="button">UA <span>/ EN</span></button></div>
+  <div class="headlinks"><a class="back" href="./"><svg class="matrix-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 16h25M21 8l8 8-8 8M6 12v8"/></svg> <span id="back-label">Каталог</span></a><button id="switch-lang" aria-label="Switch language" type="button">UA <span>/ EN</span></button></div>
 </header>
 <main>
   <div class="crumb"><a href="./" id="crumb-home">Головна</a><span aria-hidden="true">/</span><span>3D LAB</span><span aria-hidden="true">/</span><span id="crumb-product">Хілтон-2</span></div>
@@ -41,7 +42,7 @@
       </div>
       <div class="viewer-toolbar">
         <span class="hint" id="gesture-hint">↻ Обертайте пальцем · Розводьте пальці для наближення</span>
-        <div class="controls"><button type="button" id="reset-view" disabled><span aria-hidden="true">↺</span> <span id="reset-label">Скинути</span></button><button type="button" id="fullscreen-view" disabled><span aria-hidden="true">⛶</span> <span id="fullscreen-label">На весь екран</span></button></div>
+        <div class="controls"><button type="button" id="reset-view" disabled><svg class="matrix-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 12a11 11 0 1 1 1 12M6 4v8h8M16 10v7l5 3"/></svg> <span id="reset-label">Скинути</span></button><button type="button" id="fullscreen-view" disabled><svg class="matrix-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12V4h8m8 0h8v8M4 20v8h8m8 0h8v-8M12 16h8m-4-4v8"/></svg> <span id="fullscreen-label">На весь екран</span></button></div>
       </div>
     </section>
     <aside class="specs">
@@ -50,12 +51,12 @@
       <div class="measurement"><div><span class="measure-name" id="depth-label">Глибина</span><strong><span id="measure-depth">180</span> <span>см</span></strong></div><span class="verified" id="verified-depth">ЗА КАТАЛОГОМ</span></div>
       <div class="measurement"><div><span class="measure-name" id="height-label">Висота</span><strong><span id="measure-height">—</span> <span>см</span></strong></div><span class="unverified" id="unverified-height">УМОВНА</span></div>
       <div class="warning"><span aria-hidden="true">ⓘ</span><p id="warning-description">Висота 85 см та форма дивана є умовними. Модель створена для тестування 3D-інтерфейсу, а не за точними кресленнями або 3D-скануванням.</p></div>
-      <div class="ar-block"><div class="ar-status"><span aria-hidden="true">◎</span><div><strong id="ar-title">Режим AR поки недоступний</strong><p id="ar-description">Щоб розміщувати диван у своїй кімнаті у масштабі 1:1, потрібні підтверджена висота та перевірена 3D-модель.</p></div></div><button disabled type="button" class="ar-button" id="ar-disabled">AR / <span id="ar-button-label">Після підтвердження розмірів</span> <span aria-hidden="true">↗</span></button></div>
+      <div class="ar-block"><div class="ar-status"><span aria-hidden="true">◎</span><div><strong id="ar-title">Режим AR поки недоступний</strong><p id="ar-description">Щоб розміщувати диван у своїй кімнаті у масштабі 1:1, потрібні підтверджена висота та перевірена 3D-модель.</p></div></div><button disabled type="button" class="ar-button" id="ar-disabled">AR / <span id="ar-button-label">Після підтвердження розмірів</span> <svg class="matrix-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 16h25M21 8l8 8-8 8M6 12v8"/></svg></button></div>
     </aside>
   </div>
   <section class="details">
     <div><p class="eyebrow">THE MATRIX EXPERIENCE</p><h2 id="details-heading">Меблі у вашому просторі —<br><em>наступний крок.</em></h2></div>
-    <div><p id="details-text">Ми готуємо функцію AR для сумісних iPhone та Android. Вона дозволить розмістити затверджену модель у кімнаті. Навіть після запуску AR-замірювання залишатимуться приблизними: перед покупкою користуйтеся рулеткою.</p><a href="./" class="text-link"><span id="browse-label">Повернутися до каталогу</span><span aria-hidden="true">↗</span></a></div>
+    <div><p id="details-text">Ми готуємо функцію AR для сумісних iPhone та Android. Вона дозволить розмістити затверджену модель у кімнаті. Навіть після запуску AR-замірювання залишатимуться приблизними: перед покупкою користуйтеся рулеткою.</p><a href="./" class="text-link"><span id="browse-label">Повернутися до каталогу</span><svg class="matrix-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 16h25M21 8l8 8-8 8M6 12v8"/></svg></a></div>
   </section>
 </main>
 <footer><a class="brand" href="./">MATRIX<span>.</span></a><span id="footer-note">3D-концепт · без замовлень та AR</span><span>© 2026 MATRIX</span></footer>

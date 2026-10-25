@@ -56,7 +56,7 @@ export default async function LocalHome({
           <p>{t.description}</p>
           <Link className="showroomCta" href={`/${locale}/catalog`}>
             {t.cta}
-            <span aria-hidden="true">→</span>
+            <FurnitureIcon kind="arrow" />
           </Link>
         </div>
         {hiltonModel && (
@@ -98,7 +98,7 @@ export default async function LocalHome({
         <div className="homeSectionHeading">
           <h2>{t.collection}</h2>
           <Link href={`/${locale}/catalog`}>
-            {t.all} <span aria-hidden="true">→</span>
+            {t.all} <FurnitureIcon kind="arrow" />
           </Link>
         </div>
         <div className="homeProducts">
