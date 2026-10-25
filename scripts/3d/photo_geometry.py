@@ -177,13 +177,30 @@ def bed(profile,s,w,d,h):
     if pattern=='diamond':
         # Dark sewn channels follow the actual depressed headboard surface.
         period=min(.45,w/2);hy=board_height/2;hx=w/2
+        shell=m.parts[-1];triangles=shell[1][shell[2]]
+        normals=np.cross(triangles[:,1]-triangles[:,0],triangles[:,2]-triangles[:,0])
+        triangles=triangles[normals[:,2]>1e-10]
+        a,b,c=triangles[:,0],triangles[:,1],triangles[:,2]
+        denominator=(b[:,1]-c[:,1])*(a[:,0]-c[:,0])+(c[:,0]-b[:,0])*(a[:,1]-c[:,1])
+        valid=abs(denominator)>1e-12
+        a,b,c,denominator=a[valid],b[valid],c[valid],denominator[valid]
+        def on_rendered_surface(points):
+            # Stitch centres follow the tessellated face, so seams remain visible
+            # instead of falling below its linearly interpolated triangles.
+            result=shell_map(np.asarray(points))
+            for point in result:
+                u=((b[:,1]-c[:,1])*(point[0]-c[:,0])+(c[:,0]-b[:,0])*(point[1]-c[:,1]))/denominator
+                v=((c[:,1]-a[:,1])*(point[0]-c[:,0])+(a[:,0]-c[:,0])*(point[1]-c[:,1]))/denominator
+                inside=(u>=-1e-6)&(v>=-1e-6)&(u+v<=1+1e-6)
+                if inside.any():point[2]=np.max(u[inside]*a[inside,2]+v[inside]*b[inside,2]+(1-u[inside]-v[inside])*c[inside,2])+.0007
+            return result
         for direction in (-1,1):
             for k in range(-4,5):
                 points=[]
                 for yy in np.linspace(-hy+.025,hy-.025,120):
                     xx=direction*yy+k*period*math.sqrt(2)
                     if -hx+.025<=xx<=hx-.025:points.append((xx,yy,.065))
-                if len(points)>1:m.line(f'headboard_diagonal_stitch_{direction}_{k}',shell_map(np.asarray(points)),.0018,1)
+                if len(points)>1:m.line(f'headboard_diagonal_stitch_{direction}_{k}',on_rendered_surface(points),.0018,1)
     # The photographed daybed return is at the right end, with matching padding.
     if daybed:
         before=len(m.parts)
@@ -220,8 +237,8 @@ def delta(profile,s,w,d,h):
     m.curved_back('low_lavender_sweep',[-w/2,-w*.28,0],[.45,.65,.61],rear,.07,material=0)
     m.curved_back('high_violet_sweep',[0,w*.18,w*.40,w/2],[.61,h,.77,.49],rear,.07,material=6)
     # A continuous rounded right-end return, not a row of raised blocks.
-    m.curved_back('right_end_sweep',[-d/2,d*.05,d/2],[.49,.48,.47],0,.07,material=6)
-    p=m.parts[-1][1].copy();m.parts[-1][1][:,0]=w/2-.035-p[:,2];m.parts[-1][1][:,2]=p[:,0]
+    m.curved_back('right_end_sweep',[-d/2,d*.05,d/2],[.49,.46,.43],0,.07,material=6)
+    p=m.parts[-1][1].copy();m.parts[-1][1][:,0]=w/2-.060-p[:,2]-.035*((p[:,0]+d/2)/d)**2;m.parts[-1][1][:,2]=p[:,0]
     m.upholstery('loose_lavender_pillow',(w*.27,.62,rear+.11),(.38,.34,.13),.020,.028,
         pillow=True,roll=.08,piping=True,material=4,segments=24)
     return m
