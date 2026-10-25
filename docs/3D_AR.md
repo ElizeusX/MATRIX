@@ -1,5 +1,10 @@
 # MATRIX 3D & AR — deployment, quality and operator guide
 
+> 2026-10-25: the owner explicitly enabled **estimated draft AR** for Hilton-2
+> on Pages. Product height remains null; the separate 980mm mesh estimate is
+> prominently disclosed. This does not approve geometry or change production DB
+> rules. See the latest section in [HILTON2_PILOT.md](HILTON2_PILOT.md).
+
 > Pilot update 2026-10-24: Hilton-2 Pages now uses a photo-guided **unapproved draft**,
 > with a matching review-only USDZ. See [HILTON2_PILOT.md](HILTON2_PILOT.md).
 > The legacy concept generator remains for other catalog items and synthetic tests.

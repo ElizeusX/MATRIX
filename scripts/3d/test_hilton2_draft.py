@@ -37,5 +37,7 @@ assert np.allclose(bounds.GetSize(),size,atol=1e-5)
 # Also compare vertices, not just equal bounding boxes.
 usdpoints=np.concatenate([np.array(UsdGeom.Mesh(p).GetPointsAttr().Get()) for p in stage.Traverse() if p.IsA(UsdGeom.Mesh)])
 assert np.allclose(usdpoints,points,atol=1e-6)
-assert not (root/'preview/models/hilton-2-draft.usdz').exists(), 'Draft USDZ must not be a Pages AR target'
+assert (root/'preview/models/hilton-2-estimated.usdz').read_bytes()==usdz.read_bytes(), 'Estimated AR must use the same validated USDZ geometry'
+manifest=json.loads((root/'preview/model-manifests/hilton-2.json').read_text())
+assert manifest['height_mm'] is None and abs(manifest['estimated_height_mm']/1000-size[1])<1e-5
 print(f'PASS: GLB/USDZ vertices, metres/Y-up, floor, PBR, package alignment, draft status. Bounds {size}; {len(data)} bytes')

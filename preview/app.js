@@ -10,7 +10,7 @@ const products = Object.freeze(window.MATRIX_CATALOG);
 const translations = {
   uk: {
     skip:"До основного вмісту", preview:"Дизайн-превʼю • Ціни та замовлення вимкнено",
-    navCollection:"Колекції",nav3D:"3D / AR",catalog3DInfo:"Під кожною моделлю з габаритами є кнопка 3D. Це окремі концепти для огляду, не точна реконструкція. AR поки вимкнено.",catalog3DDemo:"Спробувати 3D ↗",navStory:"Філософія",navContact:"Контакти",
+    navCollection:"Колекції",nav3D:"3D / AR",catalog3DInfo:"Під кожною моделлю з габаритами є кнопка 3D. Це окремі концепти для огляду, не точна реконструкція. Для Хілтон-2 доступне приблизне AR з непідтвердженою висотою.",catalog3DDemo:"Спробувати 3D ↗",navStory:"Філософія",navContact:"Контакти",
     heroEyebrow:"МЕБЛІ З ХАРАКТЕРОМ",heroLine1:"Простір,",heroLine2:"де ти — вдома.",
     heroDescription:"М’які меблі MATRIX для моментів, до яких хочеться повертатися. Знайомтеся з колекціями, створеними для вашого простору.",
     explore:"Дивитися колекції",heroAside:"Дизайн-превʼю",artNote:"Хілтон-П · фото з каталогу MATRIX",
@@ -37,7 +37,7 @@ const translations = {
   },
   en: {
     skip:"Skip to main content",preview:"Design preview • Prices & ordering disabled",
-    navCollection:"Collections",nav3D:"3D / AR",catalog3DInfo:"Every product with usable dimensions has its own 3D concept. These are visual previews, not accurate reconstructions. AR is disabled.",catalog3DDemo:"Try 3D ↗",navStory:"Our approach",navContact:"Contact",
+    navCollection:"Collections",nav3D:"3D / AR",catalog3DInfo:"Every product with usable dimensions has its own 3D concept. These are visual previews, not accurate reconstructions. Hilton-2 offers estimated AR with an unconfirmed height.",catalog3DDemo:"Try 3D ↗",navStory:"Our approach",navContact:"Contact",
     heroEyebrow:"FURNITURE WITH CHARACTER",heroLine1:"A place",heroLine2:"to call home.",
     heroDescription:"Explore MATRIX upholstered furniture and collections made for everyday moments and spaces that feel like your own.",
     explore:"Explore collections",heroAside:"Design preview",artNote:"Hilton-P · MATRIX catalog photograph",
@@ -250,8 +250,10 @@ function openProductContents(id){
  }
  const ar=$("#dialog-ar");const arReason=$("#dialog-ar-reason");
  ar.hidden=arReason.hidden=p.slug!=="hilton-2";
+ ar.disabled=false;
+ ar.onclick=()=>{location.href="3d.html?product="+encodeURIComponent(p.slug)+"#viewer"};
  ar.textContent=state.locale==="uk"?"Переглянути у своїй кімнаті":"View in your room";
- arReason.textContent=state.locale==="uk"?"AR вимкнено: висота та геометрія ще не підтверджені.":"AR disabled: height and geometry have not been verified.";
+ arReason.textContent=state.locale==="uk"?"AR-превʼю: висота приблизно 98 см, не підтверджена. Не для точних замірів.":"AR preview: estimated height 98 cm, unconfirmed. Not for accurate measurements.";
  const description=$("#dialog-description");description.textContent=p.description;description.lang="uk";description.hidden=!p.description;
  const note=$("#dialog-source-note");note.hidden=!p.flags.length;
  note.textContent=state.locale==="uk"?"Варіанти та неоднозначні дані наведено як у джерелі. Уточніть характеристики у виробника.":"Variants and ambiguous specifications are shown as supplied. Confirm details with the manufacturer.";

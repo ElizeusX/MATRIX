@@ -55,8 +55,8 @@ const i18n={
 };
 const pilot = chosen?.slug === "hilton-2";
 const pilotCopy = {
- uk: {pre:"ХІЛТОН-2 · ЧЕРНЕТКА ЗА ФОТО · AR ВИМКНЕНО",description:"Обертайте диван і наближайте деталі. Форма опрацьована за фотографіями виробника, але пропорції ще не перевірені за кресленнями.",warning:"Чернетка за фото: ширина 280 см, глибина 180 см. Висота виробу невідома; вертикальні пропорції моделі умовні. Тканина — візуальна імітація. Не використовуйте для замірів або замовлення обивки.",unverified:"НЕ ПІДТВЕРДЖЕНА",reference:"Фото виробника · синя конфігурація з оттоманкою ліворуч. Порівняйте з чернеткою.",arButton:"Переглянути у своїй кімнаті",footer:"Хілтон-2 · чернетка за фото · AR вимкнено"},
- en: {pre:"HILTON-2 · PHOTO-GUIDED DRAFT · AR OFF",description:"Rotate the sofa and zoom into details. Shapes follow manufacturer photographs; proportions still need drawing-based review.",warning:"Photo-guided draft: width 280 cm, depth 180 cm. Product height is unknown; vertical proportions are provisional. Fabric is an appearance study. Do not use for measuring or selecting upholstery.",unverified:"UNCONFIRMED",reference:"Manufacturer photo · blue left-chaise configuration. Compare with the draft.",arButton:"View in your room",footer:"Hilton-2 · photo-guided draft · AR off"}
+ uk: {pre:"ХІЛТОН-2 · ПРИБЛИЗНЕ AR · ВИСОТА НЕ ПІДТВЕРДЖЕНА",description:"Обертайте диван і наближайте деталі. Форма опрацьована за фотографіями виробника, але пропорції ще не перевірені за кресленнями.",warning:"Чернетка за фото: ширина 280 см, глибина 180 см. Висота виробу невідома; вертикальні пропорції моделі умовні. Тканина — візуальна імітація. Не використовуйте для замірів або замовлення обивки.",unverified:"НЕ ПІДТВЕРДЖЕНА",reference:"Фото виробника · синя конфігурація з оттоманкою ліворуч. Порівняйте з чернеткою.",arButton:"Переглянути у своїй кімнаті",footer:"Хілтон-2 · приблизне AR · висота не підтверджена"},
+ en: {pre:"HILTON-2 · ESTIMATED AR · HEIGHT UNCONFIRMED",description:"Rotate the sofa and zoom into details. Shapes follow manufacturer photographs; proportions still need drawing-based review.",warning:"Photo-guided draft: width 280 cm, depth 180 cm. Product height is unknown; vertical proportions are provisional. Fabric is an appearance study. Do not use for measuring or selecting upholstery.",unverified:"UNCONFIRMED",reference:"Manufacturer photo · blue left-chaise configuration. Compare with the draft.",arButton:"View in your room",footer:"Hilton-2 · estimated AR · height unconfirmed"}
 };
 const text = key => (pilot && pilotCopy[lang][key]) || i18n[lang][key];
 const name = () => chosen ? (lang==="uk"?chosen.uk:(chosen.en||chosen.uk)) : text("headingUnavailable");
@@ -163,8 +163,8 @@ async function openViewer(){
   await ensureLibrary();
   if(sequence!==loadSequence)return;
   const viewer=document.createElement("model-viewer");
-  viewer.setAttribute("src",policy.approved(manifest)?manifest.glb_url:modelPath);
-  viewer.setAttribute("alt",(pilot?"Photo-guided draft of ":"Concept of ")+chosen.uk+"; height unverified; no AR");
+  viewer.setAttribute("src",(policy.approved(manifest)||policy.estimated(manifest))?manifest.glb_url:modelPath);
+  viewer.setAttribute("alt",(pilot?"Photo-guided draft of ":"Concept of ")+chosen.uk+"; height unverified; estimated AR preview only");
   viewer.setAttribute("camera-controls","");
   viewer.setAttribute("interaction-prompt","auto");
   viewer.setAttribute("shadow-intensity","0.8");
@@ -172,8 +172,7 @@ async function openViewer(){
   viewer.setAttribute("camera-orbit","-25deg 75deg auto");
   viewer.setAttribute("field-of-view","32deg");
   viewer.setAttribute("ar-modes","scene-viewer quick-look");
-  // No ar attribute: compatible phones cannot launch this draft.
-  // AR, Quick Look, WebXR are intentionally NOT activated for these drafts.
+  // Enable AR only after the actual mesh matches approved OR explicitly estimated dimensions.
   const hiddenAR=document.createElement("button");hiddenAR.slot="ar-button";hiddenAR.hidden=true;viewer.append(hiddenAR);
   viewer.addEventListener("ar-status",event=>{
    if(event.detail?.status==="failed"){
@@ -185,7 +184,7 @@ async function openViewer(){
    isLoading=false;ready=true;modelNode=viewer;
    $("reset-view").disabled=false;$("fullscreen-view").disabled=false;
    measuredSize=viewer.getDimensions();
-   if(policy.approved(manifest)&&!policy.matches(manifest,measuredSize)){
+   if((policy.approved(manifest)||policy.estimated(manifest))&&!policy.matches(manifest,measuredSize)){
     $("warning-description").textContent=lang==="uk"?"Габарити файлу не відповідають затвердженим даним. AR заблоковано.":"File dimensions differ from approved data. AR blocked.";
     return;
    }
@@ -196,6 +195,13 @@ async function openViewer(){
     await viewer.updateComplete;
     $("ar-disabled").disabled=!viewer.canActivateAR;
     renderApproval();
+    // Device capability selection may finish after Lit's updateComplete.
+    let attempts=0;
+    const refresh=setInterval(()=>{
+     if(sequence!==loadSequence||!ready){clearInterval(refresh);return;}
+     $("ar-disabled").disabled=!viewer.canActivateAR;
+     if(viewer.canActivateAR||++attempts>=20){renderApproval();clearInterval(refresh);}
+    },250);
    }
   },{once:true});
   viewer.addEventListener("error",()=>{if(sequence===loadSequence)failViewer()},{once:true});
@@ -204,15 +210,21 @@ async function openViewer(){
 }
 function renderApproval(){
  if(!policy.eligible(manifest,measuredSize))return;
- $("measure-height").textContent=(manifest.height_mm/10).toLocaleString();
+ const approximate=policy.estimated(manifest);
+ $("measure-height").textContent=(approximate?"≈ ":"")+((approximate?manifest.estimated_height_mm:manifest.height_mm)/10).toLocaleString();
  $("measure-width").textContent=(manifest.width_mm/10).toLocaleString();
  $("measure-depth").textContent=(manifest.depth_mm/10).toLocaleString();
- $("unverified-height").textContent=text("verified");
- $("viewer-tag").textContent=lang==="uk"?"МОДЕЛЬ ЗАТВЕРДЖЕНО":"APPROVED MODEL";
- $("announcement").textContent="MATRIX / 3D & AR";
+ $("unverified-height").textContent=approximate?(lang==="uk"?"ОЦІНКА · НЕ ПІДТВЕРДЖЕНО":"ESTIMATE · UNCONFIRMED"):text("verified");
+ $("viewer-tag").textContent=approximate?(lang==="uk"?"ЧЕРНЕТКА · ПРИБЛИЗНЕ AR":"DRAFT · ESTIMATED AR"):(lang==="uk"?"МОДЕЛЬ ЗАТВЕРДЖЕНО":"APPROVED MODEL");
+ $("announcement").textContent=approximate?(lang==="uk"?"AR-ПРЕВʼЮ · ВИСОТА НЕ ПІДТВЕРДЖЕНА":"AR PREVIEW · HEIGHT UNCONFIRMED"):"MATRIX / 3D & AR";
+ $("footer-note").textContent=$("announcement").textContent;
  $("ar-title").textContent=lang==="uk"?"Переглянути у своїй кімнаті":"View in your room";
  $("ar-description").textContent=modelNode?.canActivateAR?(lang==="uk"?"Наведіть камеру на підлогу. Переміщуйте та повертайте диван жестами.":"Aim at the floor. Move and rotate the sofa with gestures."):(lang==="uk"?"AR не підтримується цим пристроєм. 3D-перегляд доступний.":"This device does not support AR. 3D remains available.");
- $("warning-description").textContent=lang==="uk"?"AR може мати похибки розміщення та масштабу. Перед покупкою перевірте простір рулеткою.":"AR placement and scale can be inaccurate. Measure your room before buying.";
+ $("warning-description").textContent=approximate?(lang==="uk"?
+  "Висота виробу відсутня: у цьому AR-превʼю використано приблизно "+manifest.estimated_height_mm/10+" см за чернеткою моделі. Геометрія не затверджена. Не використовуйте AR для точних замірів або перевірки, чи поміститься диван. Перед покупкою уточніть розміри у виробника.":
+  "Product height is unknown: this AR preview uses an estimated "+manifest.estimated_height_mm/10+" cm from the draft mesh. Geometry is unverified. Do not use AR for accurate measurements or to confirm the sofa will fit. Confirm dimensions with the manufacturer before buying."):
+  (lang==="uk"?"AR може мати похибки розміщення та масштабу. Перед покупкою перевірте простір рулеткою.":"AR placement and scale can be inaccurate. Measure your room before buying.");
+ $("ar-disabled").setAttribute("aria-describedby","warning-description ar-description");
 }
 $("ar-disabled").addEventListener("click",()=>{
  if(!ready||!modelNode||!policy.eligible(manifest,measuredSize)||!modelNode.canActivateAR)return;

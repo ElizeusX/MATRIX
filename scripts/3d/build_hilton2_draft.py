@@ -103,8 +103,8 @@ def export(model):
     j=json.dumps(doc,separators=(',',':')).encode();j+=b' '*((-len(j))%4);buf+=b'\0'*((-len(buf))%4)
     glb=struct.pack('<III',0x46546c67,2,28+len(j)+len(buf))+struct.pack('<II',len(j),0x4e4f534a)+j+struct.pack('<II',len(buf),0x004e4942)+buf
     (OUT/'hilton-2-draft.glb').write_bytes(glb)
-    # USDZ retained as a REVIEW asset outside Pages; there is deliberately no rel=ar link.
-    usd=['#usda 1.0\n( defaultPrim = "Hilton2"\n metersPerUnit = 1\n upAxis = "Y"\n)\ndef Xform "Hilton2" {', 'custom string reviewStatus = "DRAFT_ONLY_NOT_FOR_AR"']
+    # USDZ remains a draft. Explicit estimated-preview opt-in may publish a matching copy.
+    usd=['#usda 1.0\n( defaultPrim = "Hilton2"\n metersPerUnit = 1\n upAxis = "Y"\n)\ndef Xform "Hilton2" {', 'custom string reviewStatus = "DRAFT_UNVERIFIED_HEIGHT_ESTIMATED_PREVIEW_ONLY"']
     for index,material in enumerate(materials):
         factor=1 if index==0 else .68
         usd.append(f'''def Material "Fabric{index}" {{
@@ -153,6 +153,9 @@ def export(model):
             info=zipfile.ZipInfo(name);padding=(-(z.fp.tell()+30+len(name)+4))%64
             info.extra=struct.pack('<HH',0x1986,padding)+b'\0'*padding
             z.writestr(info,data)
+    manifest_path=ROOT/'preview/model-manifests/hilton-2.json'
+    if manifest_path.exists() and json.loads(manifest_path.read_text()).get('preview_ar') is True:
+        (OUT/'hilton-2-estimated.usdz').write_bytes((review/'hilton-2-draft.usdz').read_bytes())
     report={**extras,'bounds_m':{'width':2.8,'depth':1.8,'study_height_not_product_height':.98},'triangles':sum(len(p[2]) for p in model.parts),'glb_bytes':len(glb),'parts':[p[0] for p in model.parts]}
     (OUT/'hilton-2-draft.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))

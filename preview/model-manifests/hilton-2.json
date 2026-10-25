@@ -2,12 +2,20 @@
   "slug": "hilton-2",
   "status": "draft",
   "enabled_3d": true,
-  "enabled_ar": false,
+  "enabled_ar": true,
   "geometry_verified": false,
   "rights_confirmed": true,
   "width_mm": 2800,
   "depth_mm": 1800,
   "height_mm": null,
   "glb_url": "models/hilton-2-draft.glb",
-  "blockers": ["manufacturer_height", "geometry_approval", "device_ar_review"]
+  "blockers": [
+    "manufacturer_height",
+    "geometry_approval",
+    "device_ar_review"
+  ],
+  "preview_ar": true,
+  "estimated_height_mm": 980,
+  "height_estimate_source": "Existing photo-guided mesh height; provisional estimate, not a manufacturer measurement",
+  "usdz_url": "models/hilton-2-estimated.usdz"
 }
