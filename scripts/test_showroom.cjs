@@ -12,6 +12,7 @@ const assert = require('node:assert/strict');
    await page.locator('.product-card').first().waitFor();
    assert(await page.locator('.matrix-brand').first().evaluate(img => img.complete && img.naturalWidth > 0));
    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+   await page.locator('main').evaluate(el => Promise.all(el.getAnimations().map(a => a.finished)));
    await page.screenshot({path:`artifacts/3d/showroom-${width}.png`,fullPage:true});
    await page.locator('[data-filter="beds"]').click();
    const bedCount = await page.locator('.product-card').count();

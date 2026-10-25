@@ -33,7 +33,8 @@ const api = createServer((req,res)=>{
     await page.goto('http://127.0.0.1:3000'+route);
     await page.locator('main').waitFor();
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),route+' overflow');
-    await page.screenshot({path:`artifacts/3d/storefront-${width}-${route.replaceAll('/','-')}.png`,fullPage:true});
+    await page.locator('main').evaluate(el => Promise.all(el.getAnimations().map(a => a.finished)));
+   await page.screenshot({path:`artifacts/3d/storefront-${width}-${route.replaceAll('/','-')}.png`,fullPage:true});
    }
    await page.goto('http://127.0.0.1:3000/en/catalog?category=beds');
    await page.getByRole('searchbox').fill('Faro');await page.getByRole('button',{name:'Search',exact:true}).click();
