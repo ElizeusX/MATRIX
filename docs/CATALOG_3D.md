@@ -17,7 +17,7 @@ hidden hardware are not modeled. Fabrics are procedural approximations.
 `catalog_surfaces.py` builds crowned rounded panels with smooth welded normals,
 seam piping and embedded base-color/normal maps. GLB has optional sheen with PBR
 fallback. USDZ uses the same baked vertices, metre units, Y up, floor origin,
-uncompressed USDC/texture entries and 64-byte alignment. GLB files are under 2 MiB
+uncompressed USDC/texture entries and 64-byte alignment. GLB files are under 3 MiB
 for the added models. USD uses woven diffuse texture; glTF also has normal/sheen.
 
 ## Dimensions and publication
@@ -45,3 +45,34 @@ USD mesh vertices. They verify product identity, source W/D, estimated H, bounds
 floor placement, texture embedding and USDZ package alignment. Browser tests cover
 two viewports and five distinct furniture forms. Device-native AR placement and
 manufacturer geometry/size review remain outstanding.
+
+## Shape revision 2
+
+The first catalog pass shared too much construction geometry. Revision 2 replaces
+that assembly with explicit photo-specific families and independent seat-module,
+back-pillow and stitch-channel counts in `shape_profiles.py`.
+
+- Neo/Molly: continuous upholstered seat/front shells and full back cushions with
+  depressed stitch channels. No separate narrow strip seats or floating headrests.
+- Venera: two deep cushions on one low base, thin rounded arms, loose back pillows,
+  actual shell-following top welts and tapered raised feet.
+- Loft/Bliss/Hit: tall boxed front modules, narrow arms, sewn edges and loose pillows.
+- Monako: full rear pillows plus a separate row of low lumbar pillows.
+- Hilton-P: left chaise and shorter right corner return with inward-facing back
+  cushions; no symmetric pair of full-depth ottomans.
+- Delta: continuous asymmetric swept back and one seat; no generic sofa arms or
+  row of raised backrest blocks.
+- Beds: continuous padded headboards, two half-width banks of slats for doubles,
+  and a right-side padded return with correctly oriented slats for daybeds.
+
+`upholstery_shapes.py` sculpts channels, tuft depressions and local compression into
+continuous fabric meshes. `photo_shape_review.json` records independent visual
+observations for seven representative products. `test_photo_shapes.py` checks those
+module counts/proportions and the asymmetric/curved construction. Browser CI captures
+the actual model-viewer canvas and `build_photo_review.py` pairs it with each source
+photograph for visual review. These checks supplement human photo comparison; they
+are not a manufacturer accuracy certification.
+
+New asset names contain `-v2-` so an existing browser/AR cache cannot display the old
+geometry after deployment. The manifest selects the matching GLB and USDZ revision.
+Dimensions and AR approval status are unchanged.

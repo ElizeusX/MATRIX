@@ -1,0 +1,43 @@
+{
+  "basis": "Visual proportions and construction read from the named primary catalog photographs; not measured manufacturer dimensions.",
+  "products": {
+    "pryamyy-dyvan-venera": {
+      "photo": "media/products/pryamyy-dyvan-venera.jpg",
+      "counts": {"seat_shell_": 2, "back_shell_": 2, "arm_shell_": 2, "continuous_underframe": 1},
+      "ratios": [{"mesh": "arm_shell_-1", "axis": 0, "total_axis": 0, "min": 0.045, "max": 0.095}, {"mesh": "seat_shell_0", "axis": 1, "total_axis": 1, "min": 0.20, "max": 0.29}],
+      "observation": "Two thick seat cushions on one slim base, slender rounded arms, two full loose back pillows and raised tapered feet."
+    },
+    "kutovyy-dyvan-neo-2": {
+      "photo": "media/products/kutovyy-dyvan-neo-2.jpg",
+      "counts": {"seat_shell_": 2, "back_shell_": 2, "arm_shell_": 2},
+      "ratios": [{"mesh": "seat_shell_0", "axis": 1, "total_axis": 1, "min": 0.40, "max": 0.56}],
+      "observation": "Two uninterrupted upholstered seat/front shells. Stitching compresses each shell; there are no separate narrow strip cushions or detached headrests."
+    },
+    "hilton-p": {
+      "photo": "media/products/hilton-p.jpg",
+      "counts": {"seat_shell_": 3, "back_shell_": 4, "return_back_shell_": 2},
+      "observation": "Long chaise on the left and a shorter right-hand seating return with inward-facing back cushions; the two ends are not equal ottomans."
+    },
+    "pryamyy-dyvan-loft": {
+      "photo": "media/products/pryamyy-dyvan-loft.jpg",
+      "counts": {"seat_shell_": 2, "back_shell_": 2, "arm_shell_": 2, "accent_pillow_": 2},
+      "ratios": [{"mesh": "seat_shell_0", "axis": 1, "total_axis": 1, "min": 0.40, "max": 0.52}],
+      "observation": "Two tall upholstered front modules with edge welts, not thin cushions above a second plinth. Two large loose back pillows and two yellow throws."
+    },
+    "kutovyy-dyvan-monako-2": {
+      "photo": "media/products/kutovyy-dyvan-monako-2.jpg",
+      "counts": {"seat_shell_": 2, "back_shell_": 2, "lumbar_pillow_": 4},
+      "observation": "Two full-height rear pillows plus four low lumbar pillows. The shallow lower pillows do not replace the tall rear pillows."
+    },
+    "lizhko-faro": {
+      "photo": "media/products/lizhko-faro.jpg",
+      "counts": {"headboard_shell": 1, "bowed_slat_": 36},
+      "observation": "One upholstered patterned headboard and two half-width banks of timber slats divided by a centre support."
+    },
+    "delta": {
+      "photo": "media/products/delta.jpg",
+      "counts": {"continuous_chaise_seat": 1, "low_lavender_sweep": 1, "high_violet_sweep": 1, "right_end_sweep": 1, "loose_lavender_pillow": 1},
+      "observation": "One continuous seat over a dark base; two-tone asymmetric swept back and one loose pillow. No conventional sofa arms or multiple back cushions."
+    }
+  }
+}

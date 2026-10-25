@@ -94,7 +94,7 @@ $("switch-lang").addEventListener("click",()=>{
  setContent();renderApproval();
 });
 
-const modelPath = chosen ? "models/"+encodeURIComponent(chosen.slug)+"-draft.glb" : null;
+const modelPath = chosen ? "models/"+encodeURIComponent(chosen.slug)+(pilot?"":"-v2")+"-draft.glb" : null;
 let modelNode = null;
 let manifest=null;
 let measuredSize=null;
@@ -105,6 +105,10 @@ let ready = false;
 let isLoading = false;
 let loadSequence = 0;
 
+function cameraOrbit(){
+ const orbit=manifest?.camera_orbit;
+ return typeof orbit==="string"&&/^-?\d+deg \d+deg auto$/.test(orbit)?orbit:"-25deg 75deg auto";
+}
 function ensureLibrary(){
  if(customElements.get("model-viewer"))return Promise.resolve();
  if(!libraryLoad){
@@ -168,7 +172,7 @@ async function openViewer(){
   viewer.setAttribute("interaction-prompt","auto");
   viewer.setAttribute("shadow-intensity","0.8");
   viewer.setAttribute("exposure","1");
-  viewer.setAttribute("camera-orbit","-25deg 75deg auto");
+  viewer.setAttribute("camera-orbit",cameraOrbit());
   viewer.setAttribute("field-of-view","32deg");
   viewer.setAttribute("ar-modes","scene-viewer quick-look");
   // Enable AR only after the actual mesh matches approved OR explicitly estimated dimensions.
@@ -245,7 +249,7 @@ $("ar-disabled").addEventListener("click",()=>{
 });
 $("reset-view").addEventListener("click",()=>{
  if(!ready||!modelNode)return;
- modelNode.setAttribute("camera-orbit","-25deg 75deg auto");
+ modelNode.setAttribute("camera-orbit",cameraOrbit());
  modelNode.setAttribute("field-of-view","32deg");
 });
 $("fullscreen-view").addEventListener("click",()=>{

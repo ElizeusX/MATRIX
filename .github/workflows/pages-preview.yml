@@ -57,6 +57,7 @@ jobs:
           pip install -r scripts/3d/requirements.txt
           python scripts/3d/build_catalog_models.py
           python scripts/3d/test_catalog_models.py
+          python scripts/3d/test_photo_shapes.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site

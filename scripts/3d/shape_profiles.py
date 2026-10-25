@@ -1,0 +1,158 @@
+"""Construction/silhouette observations from each primary source photo.
+
+These controls describe the pictured configuration; they are not manufacturer CAD.
+Counts distinguish back pillows, continuous seat modules, and stitch channels.
+All 75 slugs select a family explicitly; there is no automatic generic sofa fallback.
+"""
+FAMILIES={
+ # arm width / height, feet, seat top/thickness, regular depth, back type, radius
+ 'neo':dict(arm=.22,arm_h=.66,feet=.025,seat=.49,thickness=.43,depth=1.08,back='stitched',radius=.055,grid=(3,2,.012),seat_channels=3,arm_grid=True),
+ 'molly':dict(arm=.24,arm_h=.64,feet=.015,seat=.50,thickness=.46,depth=1.15,back='stitched',radius=.12,grid=(3,2,.016),seat_channels=3,arm_grid=True),
+ 'malibu':dict(arm=.26,arm_h=.59,feet=.015,seat=.45,thickness=.42,depth=1.35,back='pillow',radius=.13,seat_channels=6,loose_front=2),
+ 'loft':dict(arm=.19,arm_h=.64,feet=.025,seat=.46,thickness=.42,depth=1.06,back='pillow',radius=.018,welt=True),
+ 'lili':dict(arm=.21,arm_h=.66,feet=.03,seat=.47,thickness=.42,depth=1.08,back='pillow',radius=.055,accent=2),
+ 'venera':dict(arm=.18,arm_h=.64,feet=.12,seat=.49,thickness=.23,depth=1.00,back='pillow',radius=.095,seat_radius=.038,welt=True,continuous_base=True,splayed=True),
+ 'eldorado':dict(arm=.22,arm_h=.67,feet=.02,seat=.50,thickness=.21,depth=1.08,back='stitched',radius=.025,grid=(2,2,.012),wood=True,continuous_base=True),
+ 'eldorado2':dict(arm=.24,arm_h=.64,feet=.025,seat=.50,thickness=.21,depth=1.08,back='stitched',radius=.025,grid=(2,2,.012),wood=True,continuous_base=True,taper=.06),
+ 'elegant':dict(arm=.24,arm_h=.65,feet=.035,seat=.49,thickness=.20,depth=1.09,back='straps',radius=.02,grid=(3,2,.008),wood=True,trim=True,continuous_base=True),
+ 'rubin':dict(arm=.16,arm_h=.61,feet=.025,seat=.46,thickness=.42,depth=1.08,back='diamond',radius=.025,diamond=True),
+ 'prestizh':dict(arm=.20,arm_h=.65,feet=.02,seat=.49,thickness=.20,depth=1.00,back='tuft',radius=.025,wood=True,continuous_base=True),
+ 'leonlux':dict(arm=.25,arm_h=.65,feet=.025,seat=.48,thickness=.21,depth=1.00,back='stitched',radius=.025,grid=(2,2,.010),wood=True,continuous_base=True),
+ 'fellini':dict(arm=.26,arm_h=.65,feet=.055,seat=.49,thickness=.20,depth=1.08,back='tuft',radius=.025,stepped=True,continuous_base=True),
+ 'jazz':dict(arm=.045,arm_h=.52,feet=.025,seat=.47,thickness=.20,depth=.97,back='tuft',radius=.025,continuous_base=True),
+ 'texas':dict(arm=.15,arm_h=.57,feet=.035,seat=.47,thickness=.42,depth=1.43,back='stitched',radius=.018,grid=(2,2,.012)),
+ 'verado':dict(arm=.22,arm_h=.63,feet=.055,seat=.47,thickness=.21,depth=1.06,back='stitched',radius=.028,grid=(2,2,.009),continuous_base=True),
+ 'verado3':dict(arm=.22,arm_h=.57,feet=.02,seat=.46,thickness=.42,depth=1.06,back='pillow',radius=.02),
+ 'boston':dict(arm=.25,arm_h=.69,feet=.02,seat=.49,thickness=.20,depth=1.,back='pillow',radius=.02,wood=True,shelves=True,continuous_base=True),
+ 'london':dict(arm=.29,arm_h=.68,feet=.015,seat=.48,thickness=.20,depth=1.,back='tuft',radius=.018,wood=True,drawers=True,continuous_base=True),
+ 'atlanta':dict(arm=.22,arm_h=.64,feet=.02,seat=.49,thickness=.20,depth=1.,back='stitched',radius=.025,grid=(2,2,.012),trim=True,continuous_base=True),
+ 'round-prestizh':dict(arm=.18,arm_h=.65,feet=.025,seat=.48,thickness=.21,depth=1.,back='stitched',radius=.075,grid=(2,2,.010),continuous_base=True,round_chaise=True),
+ 'rotating':dict(arm=.055,arm_h=.56,feet=.018,seat=.48,thickness=.43,depth=1.,back='stitched',radius=.022,grid=(2,2,.012),platform=True),
+ 'barcelona':dict(arm=.22,arm_h=.63,feet=.015,seat=.48,thickness=.43,depth=1.,back='stitched',radius=.025,grid=(2,2,.012),wood=True,shelves=True,platform=True,accent=1),
+ 'berlin':dict(arm=.10,arm_h=.62,feet=.045,seat=.48,thickness=.22,depth=1.,back='stitched',radius=.025,grid=(2,2,.013),continuous_base=True,seat_channels=4,seat_rows=3,return_back=True),
+ 'prado':dict(arm=.055,arm_h=.57,feet=.02,seat=.47,thickness=.23,depth=1.,back='stitched',radius=.025,grid=(2,2,.013),continuous_base=True,seat_channels=3,seat_rows=3,return_back=True),
+ 'monako':dict(arm=.29,arm_h=.70,feet=.02,seat=.49,thickness=.22,depth=1.2,back='lumbar',radius=.065,continuous_base=True),
+ 'sigma':dict(arm=.17,arm_h=.60,feet=.025,seat=.47,thickness=.20,depth=.92,back='stitched',radius=.075,grid=(2,2,.01),continuous_base=True),
+ 'leon':dict(arm=.12,arm_h=.62,feet=.02,seat=.48,thickness=.20,depth=.93,back='stitched',radius=.02,grid=(2,2,.01),continuous_base=True),
+ 'leont':dict(arm=.20,arm_h=.64,feet=.02,seat=.48,thickness=.21,depth=.93,back='stitched',radius=.015,grid=(2,2,.01),wood=True,continuous_base=True),
+ 'hilton-return':dict(arm=.22,arm_h=.64,feet=.015,seat=.47,thickness=.19,depth=1.12,back='fold',radius=.06,continuous_base=True,return_back=True),
+ 'delta':dict(arm=0,arm_h=0,feet=0,seat=.47,thickness=.23,depth=.79,back='curve',radius=.035),
+ 'bed':dict(arm=0,arm_h=0,feet=.055,seat=.44,thickness=.15,depth=2.15,back='headboard',radius=.02),
+}
+
+# slug | family | continuous seat modules | back pillows | chaise widths (m) or 0
+ROWS='''
+hilton-p|hilton-return|3|4|.94
+molly|molly|1|2|0
+lira-2|bed|1|0|0
+eldorado-2|eldorado2|1|2|0
+eldorado|eldorado|1|2|0
+elli|eldorado|1|2|0
+smart|elegant|2|2|.96
+pryamyy-dyvan-malibu-2|malibu|1|3|0
+pryamyy-dyvan-malibu|malibu|1|3|0
+pryamyy-dyvan-neo-230|neo|1|2|0
+pryamyy-dyvan-rubin-3|rubin|3|3|0
+lizhko-soft-2|bed|1|0|0
+kutovyy-dyvan-neapol|neo|2|2|1.12
+pryamyy-dyvan-lili|lili|2|2|0
+rubin|rubin|2|2|0
+pryamyy-dyvan-neo|neo|2|2|0
+kutovyy-dyvan-neo-2|neo|2|2|1.02
+kutovyy-dyvan-neo-3|neo|3|3|1.02
+pryamyy-dyvan-neo-3|neo|3|3|0
+kutovyy-dyvan-elehant|elegant|2|2|.90
+pryamyy-dyvan-elehant|elegant|1|2|0
+pryamyy-dyvan-loft|loft|2|2|0
+kutovyy-dyvan-loft-2|loft|2|2|.98
+kutovyy-dyvan-loft|loft|3|3|1.02
+pryamyy-dyvan-loft-3|loft|3|3|0
+kutovyy-dyvan-bliss|loft|2|3|1.02
+dyvan-pryamyy-khit|loft|1|2|0
+lizhko-faro|bed|1|0|0
+lizhko-bali|bed|1|0|0
+lizhko-milana|bed|1|0|0
+lizhko-lira|bed|1|0|0
+lizhko-soft|bed|1|0|0
+lizhko-skay|bed|1|0|0
+lizhko-skay-z-pidyomnym-mekhanizmom|bed|1|0|0
+terri|bed|1|0|0
+pryamyy-dyvan-verado-3|verado3|3|3|0
+kutovyy-dyvan-leon-lyuks-2|leonlux|2|3|1.00
+pryamyy-dyvan-tekhas|texas|1|2|0
+kutovyy-dyvan-fellini|fellini|2|3|1.00
+pryamyy-dyvan-fellini|fellini|1|2|0
+kutovyy-dyvan-venera|venera|2|2|.94
+pryamyy-dyvan-venera|venera|2|2|0
+kutovyy-dyvan-prestizh-200|prestizh|2|4|1.00
+dyvan-pryamyy-prestizh|prestizh|1|3|0
+pryamyy-dyvan-dzhaz|jazz|1|2|0
+dyvan-pryamyy-leon-lyuks|leonlux|1|3|0
+kutovyy-dyvan-leon-lyuks-200|prestizh|2|4|.98
+kutovyy-dyvan-london-5|london|2|3|.96
+kutovyy-dyvan-prestizh-200m|round-prestizh|2|3|1.05
+kutovyy-pryamyy-boston-4|boston|1|2|0
+kutovyy-dyvan-atlanta-t|atlanta|2|4|.96
+kutovyy-dyvan-vehas-t|prestizh|2|3|.94
+pryamyy-kutovyy-prestizh-b-4|prestizh|2|2|.94
+kutovyy-dyvan-prestizh-p|prestizh|3|3|.96
+pryamyy-kutovyy-prestizh-p-b4|prestizh|2|3|1.00
+prestizh-pm|prestizh|3|3|.96
+kutovyy-dyvan-prestizh-m-b4|round-prestizh|2|3|.98
+dyvan-lizhko-real-2|rotating|1|2|0
+dyvan-povorotnyy-real-t|rotating|1|2|0
+dyvan-povorotnyy-real|rotating|1|2|0
+povorotnyy-dyvan-barselona|barcelona|2|2|.95
+dyvan-povorotnyy-bond|rotating|2|2|.95
+povorotnyy-dyvan-berlin|berlin|2|3|1.10
+povorotnyy-dyvan-berlin-2|berlin|2|3|1.10
+kutovyy-dyvan-prado|prado|2|2|.90
+pryamyy-dyvan-monako|monako|2|2|0
+kutovyy-dyvan-monako-2|monako|2|2|1.02
+kutovyy-dyvan-monako-3|monako|3|3|1.02
+pryamyy-dyvan-verado|verado|2|2|0
+kutovyy-dyvan-prestizh-140|prestizh|2|3|.96
+kutovyy-dyvan-leon-lyuks-140|prestizh|2|2|.96
+pryamyy-dyvan-sihma|sigma|1|3|0
+pryamyy-dyvan-leon-t|leont|1|3|0
+pryamyy-dyvan-leon|leon|1|3|0
+delta|delta|1|0|0
+'''
+
+OVERRIDES={
+ 'elli':dict(trim=True,cap_color='#dedacb'),
+ 'smart':dict(shelves=True,cap_color='#cac4af'),
+ 'pryamyy-dyvan-loft':dict(accent=2),
+ 'dyvan-pryamyy-khit':dict(arm=.20),
+ 'kutovyy-dyvan-fellini':dict(accent=2,palette={'secondary':'#d0c7b5','back':'#d1cab9'},cap_color='#c5c5bd'),
+ 'pryamyy-dyvan-fellini':dict(palette={'body':'#8d9aac','secondary':'#b7b4a6','back':'#d6d6c8'},cap_color='#c1c1ba'),
+ 'kutovyy-pryamyy-boston-4':dict(palette={'secondary':'#b3b3ab','back':'#c8c7be'}),
+ 'pryamyy-dyvan-verado':dict(wood=False),
+ 'dyvan-lizhko-real-2':dict(tall_back=True,back_span=.70),
+ 'dyvan-povorotnyy-real-t':dict(back_span=.68),
+ 'dyvan-povorotnyy-real':dict(back_span=.68),
+ 'dyvan-povorotnyy-bond':dict(back_span=.72,arm=0,back_align=.12),
+ 'povorotnyy-dyvan-berlin':dict(accent=2),
+ 'povorotnyy-dyvan-berlin-2':dict(accent=1),
+ 'kutovyy-dyvan-prado':dict(arm=0),
+ 'lizhko-faro':dict(bed_pattern='diamond',bed_cols=2,bed_rows=2),
+ 'lizhko-bali':dict(bed_pattern='horizontal',bed_cols=1,bed_rows=4),
+ 'lizhko-soft-2':dict(bed_pattern='horizontal',bed_cols=1,bed_rows=4),
+ 'lizhko-milana':dict(bed_pattern='vertical',bed_cols=11,bed_rows=1),
+ 'lira-2':dict(bed_pattern='vertical',bed_cols=8,bed_rows=1),
+ 'lizhko-lira':dict(bed_pattern='grid',bed_cols=6,bed_rows=3),
+ 'lizhko-soft':dict(bed_pattern='grid',bed_cols=7,bed_rows=3,rail_channels=True),
+ 'lizhko-skay':dict(bed_pattern='vertical',bed_cols=11,bed_rows=1,daybed=True),
+ 'lizhko-skay-z-pidyomnym-mekhanizmom':dict(bed_pattern='vertical',bed_cols=11,bed_rows=1,daybed=True),
+ 'terri':dict(bed_pattern='grid',bed_cols=6,bed_rows=2,daybed=True),
+ 'delta':dict(palette={'body':'#a77f9e','secondary':'#4b3563','back':'#4d3565'},accent=1),
+}
+
+def shapes():
+    result={}
+    for row in ROWS.strip().splitlines():
+        slug,family,seats,backs,chaise=row.split('|')
+        assert slug not in result
+        result[slug]={**FAMILIES[family],**OVERRIDES.get(slug,{}),'family':family,
+                      'seat_modules':int(seats),'back_count':int(backs),'chaise_width':float(chaise)}
+    return result
