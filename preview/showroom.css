@@ -1171,6 +1171,7 @@ html {
   .showroom-visual {
     display: block;
     position: relative;
+    width: calc(100% - 32px);
     aspect-ratio: 4 / 3;
     min-height: 230px;
     margin: 0 16px;
