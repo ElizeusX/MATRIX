@@ -640,3 +640,18 @@ body {
 .showroomCategories > a:first-child,
 .filters a, .storeTools a { color: #000; }
 .showroomCategories > a:first-child { background: #fff; }
+
+@media (max-width: 580px) {
+  .localeHeader { gap: 8px; padding-inline: 4%; }
+  .matrixBrand { min-width: 0; }
+  .storeTools { gap: 12px; flex-shrink: 0; }
+  .showroomHero { min-height: 620px; }
+  .showroomText { max-width: none; }
+  .showroomText h1 { font-size: clamp(35px, 10.6vw, 44px); }
+  .showroomCta { margin: 0; min-height: 48px; bottom: 50px; }
+  .showroomAr { top: auto; bottom: 125px; }
+  .showroomCategories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .showroomCategories > a { min-width: 0; min-height: 48px; white-space: normal; line-height: 1.25; padding: 9px 5px; }
+  .showroomCategories .categoryArrow { display: none; }
+  .homeProduct, .homeProductPhoto, .homeProduct h3 { min-width: 0; overflow-wrap: anywhere; }
+}
