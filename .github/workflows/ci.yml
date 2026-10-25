@@ -61,8 +61,11 @@ jobs:
         run: |
           python -m http.server 8765 --bind 127.0.0.1 > /tmp/matrix-preview.log 2>&1 &
           NODE_PATH=/tmp/matrix-browser/node_modules node scripts/3d/test_preview.cjs
+          NODE_PATH=/tmp/matrix-browser/node_modules node scripts/test_showroom.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: hilton2-browser-review
-          path: artifacts/3d/browser-*.png
+          path: |
+            artifacts/3d/browser-*.png
+            artifacts/3d/showroom-*.png
