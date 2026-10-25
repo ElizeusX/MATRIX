@@ -49,10 +49,14 @@ jobs:
           test -s preview/models/hilton-2-draft.glb
           grep -q 'id="product-dialog"' preview/index.html
           grep -q 'id="dialog-contact"' preview/index.html
-      - name: Build distinct concept GLBs for catalog items with dimensions (no AR)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build and validate photo-guided catalog models
         run: |
-          python3 scripts/3d/build_catalog_concepts.py
-          python3 scripts/3d/test_catalog_concepts.py
+          pip install -r scripts/3d/requirements.txt
+          python scripts/3d/build_catalog_models.py
+          python scripts/3d/test_catalog_models.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
@@ -62,4 +66,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
 

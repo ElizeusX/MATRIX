@@ -1,7 +1,7 @@
 "use client";
 
 import {useEffect,useRef,useState} from "react";
-import type {ApprovedModel} from "../lib/ar-models";
+import type {FurnitureModel} from "../lib/ar-models";
 import "./furniture-3d.css";
 
 type ViewerElement = HTMLElement & {
@@ -38,8 +38,21 @@ const copy={
  }
 };
 const round=(n:number)=>Math.round(n/10);
-export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"uk"|"en"}){
- const t=copy[locale];
+export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:"uk"|"en"}){
+ const draft=model.status==="draft";
+ const unknown=draft&&model.dimensions_estimated===true;
+ const width=model.width_mm??(draft?model.estimated_width_mm:0);
+ const depth=model.depth_mm??(draft?model.estimated_depth_mm:0);
+ const height=model.height_mm??(draft?model.estimated_height_mm:0);
+ const t={...copy[locale],...(draft?(locale==="uk"?{
+  status:"Чернетка за фото · розміри не підтверджено",
+  placement:"Приблизне AR: висота оцінена за пропорціями фото. Геометрія і тканина не затверджені.",
+  disclaimer:unknown?"Ширина, глибина та висота невідомі або неоднозначні. Усі розміри моделі приблизні. AR вимкнено.":`Висота виробу невідома: використано приблизно ${Math.round(height/10)} см. Форма і тканина опрацьовані за фото. Не використовуйте AR для точних замірів; уточніть розміри у виробника.`
+ }:{
+  status:"Photo-guided draft · dimensions unverified",
+  placement:"Estimated AR: height follows photo proportions. Geometry and fabric are unverified.",
+  disclaimer:unknown?"Width, depth and height are missing or ambiguous. All model dimensions are estimates. AR is disabled.":`Product height is unknown: this preview uses approximately ${Math.round(height/10)} cm. Shape and fabric follow photos. Do not use AR for accurate measurements; confirm dimensions with the manufacturer.`
+ }):{})};
  const [open,setOpen]=useState(false);
  const [registered,setRegistered]=useState(false);
  const [ready,setReady]=useState(false);
@@ -74,7 +87,7 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
     setBadScale(true);setError(t.badScale);return;
    }
    const values=[size.x*1000,size.z*1000,size.y*1000];
-   const expected=[model.width_mm,model.depth_mm,model.height_mm];
+   const expected=[width,depth,height];
    const matches=values.every((v,i)=>Math.abs(v-expected[i])<=Math.max(5,expected[i]*0.01));
    setBadScale(!matches);
    setError(matches?"":t.badScale);
@@ -88,8 +101,8 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
   node.addEventListener("ar-status",arStatus);
   node.addEventListener("error",failed);
   return ()=>{node.removeEventListener("load",loaded);node.removeEventListener("ar-status",arStatus);node.removeEventListener("error",failed)};
- },[open,registered,model.glb_url,model.width_mm,model.depth_mm,model.height_mm,t.badScale,t.failure]);
- const arEligible=ready&&validatedSource===model.glb_url&&!badScale&&model.enabled_ar&&!!model.usdz_url;
+ },[open,registered,model.glb_url,width,depth,height,t.badScale,t.failure]);
+ const arEligible=ready&&validatedSource===model.glb_url&&!badScale&&model.enabled_ar&&!!model.usdz_url&&(!draft||(model.preview_ar&&!unknown&&!!model.height_estimate_source));
  useEffect(()=>{
   const node=viewer.current;let alive=true;
   if(!node||!arEligible){setARSupport(false);return;}
@@ -130,7 +143,7 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
       loading="eager"
    ><button slot="ar-button" hidden aria-hidden="true" tabIndex={-1} /></model-viewer>}
    {ready&&showDimensions&&<div className="matrix3d-measures" aria-label={t.dimensions}>
-    <span>↔ {round(model.width_mm)} cm</span><span>↗ {round(model.depth_mm)} cm</span><span>↕ {round(model.height_mm)} cm</span>
+    <span>↔ {unknown?"≈ ":""}{round(width)} cm</span><span>↗ {unknown?"≈ ":""}{round(depth)} cm</span><span>↕ {draft?"≈ ":""}{round(height)} cm</span>
    </div>}
    {error&&<p className="matrix3d-error" role="alert">{error}</p>}
    <div className="matrix3d-toolbar">
@@ -147,3 +160,4 @@ export default function Furniture3D({model,locale}:{model:ApprovedModel;locale:"
   <p className="matrix3d-disclaimer">{t.disclaimer}</p>
  </section>;
 }
+

@@ -1,14 +1,11 @@
 "use strict";
 
-// MATRIX mobile concept preview: each known-size product gets a SEPARATE
-// original GLB file generated from recorded width and depth. Shapes / height
-// are illustrative, not reconstructed from photos. AR intentionally disabled.
+// Product-specific photo-guided drafts. Missing dimensions remain estimates;
+// native AR uses matching GLB/USDZ pairs and explicit estimated-preview policy.
 const params = new URLSearchParams(location.search);
 const requested = params.get("product") || "hilton-2";
 const products = Array.isArray(window.MATRIX_CATALOG) ? window.MATRIX_CATALOG : [];
-const product = products.find(p => p.slug === requested &&
-  Number.isInteger(p.width) && Number.isInteger(p.depth) &&
-  p.width >= 300 && p.depth >= 300 && p.width <= 8000 && p.depth <= 6000);
+const product = products.find(p => p.slug === requested);
 const fallback = products.find(p => p.slug === "hilton-2" && p.width && p.depth);
 const chosen = product || (params.has("product") ? null : fallback) || null;
 const $ = id => document.getElementById(id);
@@ -17,11 +14,11 @@ try { if(localStorage.getItem("matrix-static-preview-locale")==="en")lang="en" }
 
 const i18n={
  uk:{
-  back:"Каталог",home:"Головна",pre:"3D-ПРЕВʼЮ · ОКРЕМІ КОНЦЕПТИ ТОВАРІВ · AR ВИМКНЕНО",
-  secondary:"Подивіться в 3D.",description:"Обертайте модель пальцем, наближайте двома та розглядайте її з різних сторін. Це персональна концептуальна модель вибраного товару, а не точна 3D-реконструкція.",
+  back:"Каталог",home:"Головна",pre:"3D ЗА ФОТО · МОДЕЛЬ ДЛЯ ОГЛЯДУ",
+  secondary:"Подивіться в 3D.",description:"Обертайте модель пальцем, наближайте двома та розглядайте її з різних сторін. Форма, подушки та деталі опрацьовані за фото вибраного товару. Пропорції потребують перевірки.",
   specs:"Розміри за каталогом",width:"Ширина",depth:"Глибина",height:"Висота",
   verified:"ЗА КАТАЛОГОМ",unverified:"УМОВНА",
-  warning:"Це спрощений 3D-концепт конкретної моделі. Ширина та глибина відповідають запису в каталозі, але конструкція, тканини, подушки та висота 85 см НЕ підтверджені виробником. Не використовуйте для точних замірів.",
+  warning:"Це спрощений 3D-концепт конкретної моделі. Ширина та глибина відповідають запису в каталозі, але конструкція, тканини, подушки та висота НЕ підтверджені виробником. Не використовуйте для точних замірів.",
   arTitle:"AR поки недоступне",arDesc:"Потрібні підтверджена висота, реальна 3D-реконструкція і перевірені GLB/USDZ. Не використовуйте чернетку для вимірювання кімнати.",
   arButton:"Після перевірки моделі",gesture:"↻ Обертайте одним пальцем · Масштабуйте двома",
   reset:"Скинути",fullscreen:"На весь екран",exitFull:"Згорнути",
@@ -30,16 +27,16 @@ const i18n={
   retry:"Повторити завантаження",nextTitle:"Ваш простір —",nextTitleEm:"наступний крок.",
   nextText:"Ми поступово готуємо точні 3D-моделі MATRIX для AR на iPhone й Android. Навіть після запуску AR-розміри залишатимуться приблизними — перед покупкою виміряйте кімнату рулеткою.",
   browse:"Повернутися до каталогу",footer:"3D-концепти · без замовлень та AR",
-  reference:"Фото з каталогу виробника · 3D-форма не реконструйована з фото",
+  reference:"Фото виробника · порівняйте з 3D-чернеткою",
   headingUnavailable:"Товар із підтвердженими габаритами не знайдено",
   titleFallback:"Концепт"
  },
  en:{
-  back:"Catalog",home:"Home",pre:"3D PREVIEW · INDIVIDUAL PRODUCT CONCEPTS · AR OFF",
-  secondary:"Explore it in 3D.",description:"Rotate with one finger and zoom with two. Each product with usable dimensions has its own concept model, but this is not an accurate photogrammetry reconstruction.",
+  back:"Catalog",home:"Home",pre:"PHOTO-GUIDED 3D · PRODUCT DRAFT",
+  secondary:"Explore it in 3D.",description:"Rotate with one finger and zoom with two. Each product has its own photo-guided surfaces, cushions and detailing. Proportions still need review.",
   specs:"Catalog dimensions",width:"Width",depth:"Depth",height:"Height",
   verified:"CATALOG VALUE",unverified:"ASSUMED",
-  warning:"This is a simplified 3D concept for the selected model. Width and depth follow the catalog, but construction, fabric, cushions and 85cm height are NOT manufacturer-verified. Not suitable for precise room measuring.",
+  warning:"This is a simplified 3D concept for the selected model. Width and depth follow the catalog, but construction, fabric, cushions and height are NOT manufacturer-verified. Not suitable for precise room measuring.",
   arTitle:"AR is not available yet",arDesc:"AR requires a verified height, an authentic reconstruction and reviewed GLB/USDZ assets. Do not use this draft to measure your room.",
   arButton:"Available after model verification",gesture:"↻ Drag to rotate · Pinch to zoom",
   reset:"Reset",fullscreen:"Full screen",exitFull:"Exit full screen",
@@ -48,7 +45,7 @@ const i18n={
   retry:"Try again",nextTitle:"Your room —",nextTitleEm:"the next step.",
   nextText:"We are preparing accurate 3D furniture models for compatible iPhones and Android devices. Even with AR, measurements are approximate; use a tape measure before buying.",
   browse:"Back to catalog",footer:"3D concepts · no purchases or AR",
-  reference:"Photo from manufacturer catalog · 3D geometry is not photo-reconstructed",
+  reference:"Manufacturer photo · compare with the 3D draft",
   headingUnavailable:"No suitable product dimensions found",
   titleFallback:"Concept"
  }
@@ -84,11 +81,11 @@ function setContent(){
  $("details-text").textContent=text("nextText");
  $("switch-lang").innerHTML=lang==="uk"?"UA <span>/ EN</span>":"EN <span>/ UA</span>";
  if(chosen){
-  $("measure-width").textContent=(chosen.width/10).toLocaleString(lang==="uk"?"uk-UA":"en-US");
-  $("measure-depth").textContent=(chosen.depth/10).toLocaleString(lang==="uk"?"uk-UA":"en-US");
+  $("measure-width").textContent=chosen.width?(chosen.width/10).toLocaleString(lang==="uk"?"uk-UA":"en-US"):"—";
+  $("measure-depth").textContent=chosen.depth?(chosen.depth/10).toLocaleString(lang==="uk"?"uk-UA":"en-US"):"—";
   $("reference-photo").src=chosen.image;
   $("reference-photo").alt=name()+" — MATRIX";
-  $("measure-height").textContent=pilot?"—":"85";
+  $("measure-height").textContent="—";
  }
 }
 $("switch-lang").addEventListener("click",()=>{
@@ -97,10 +94,11 @@ $("switch-lang").addEventListener("click",()=>{
  setContent();renderApproval();
 });
 
-const modelPath = pilot ? "models/hilton-2-draft.glb" : chosen ? "models/"+encodeURIComponent(chosen.slug)+"-concept.glb" : null;
+const modelPath = chosen ? "models/"+encodeURIComponent(chosen.slug)+"-draft.glb" : null;
 let modelNode = null;
 let manifest=null;
 let measuredSize=null;
+let scaleMismatch=false;
 const policy=window.MATRIX_AR_POLICY;
 let libraryLoad = null;
 let ready = false;
@@ -158,13 +156,14 @@ async function openViewer(){
   try {
    const response=await fetch("model-manifests/"+encodeURIComponent(chosen.slug)+".json",{cache:"no-store"});
    const candidate=response.ok?await response.json():null;
-   manifest=candidate?.slug===chosen.slug?candidate:null;
+   manifest=candidate?.slug===chosen.slug&&policy.viewable(candidate)?candidate:null;
+   renderApproval();
   }catch{manifest=null;}
   await ensureLibrary();
   if(sequence!==loadSequence)return;
   const viewer=document.createElement("model-viewer");
-  viewer.setAttribute("src",(policy.approved(manifest)||policy.estimated(manifest))?manifest.glb_url:modelPath);
-  viewer.setAttribute("alt",(pilot?"Photo-guided draft of ":"Concept of ")+chosen.uk+"; height unverified; estimated AR preview only");
+  viewer.setAttribute("src",policy.viewable(manifest)?manifest.glb_url:modelPath);
+  viewer.setAttribute("alt","Photo-guided draft of "+chosen.uk+"; height unverified; estimated AR preview only");
   viewer.setAttribute("camera-controls","");
   viewer.setAttribute("interaction-prompt","auto");
   viewer.setAttribute("shadow-intensity","0.8");
@@ -184,7 +183,9 @@ async function openViewer(){
    isLoading=false;ready=true;modelNode=viewer;
    $("reset-view").disabled=false;$("fullscreen-view").disabled=false;
    measuredSize=viewer.getDimensions();
+   scaleMismatch=false;
    if((policy.approved(manifest)||policy.estimated(manifest))&&!policy.matches(manifest,measuredSize)){
+    scaleMismatch=true;
     $("warning-description").textContent=lang==="uk"?"Габарити файлу не відповідають затвердженим даним. AR заблоковано.":"File dimensions differ from approved data. AR blocked.";
     return;
    }
@@ -209,21 +210,30 @@ async function openViewer(){
  }catch{if(sequence===loadSequence)failViewer()}
 }
 function renderApproval(){
- if(!policy.eligible(manifest,measuredSize))return;
- const approximate=policy.estimated(manifest);
- $("measure-height").textContent=(approximate?"≈ ":"")+((approximate?manifest.estimated_height_mm:manifest.height_mm)/10).toLocaleString();
- $("measure-width").textContent=(manifest.width_mm/10).toLocaleString();
- $("measure-depth").textContent=(manifest.depth_mm/10).toLocaleString();
- $("unverified-height").textContent=approximate?(lang==="uk"?"ОЦІНКА · НЕ ПІДТВЕРДЖЕНО":"ESTIMATE · UNCONFIRMED"):text("verified");
- $("viewer-tag").textContent=approximate?(lang==="uk"?"ЧЕРНЕТКА · ПРИБЛИЗНЕ AR":"DRAFT · ESTIMATED AR"):(lang==="uk"?"МОДЕЛЬ ЗАТВЕРДЖЕНО":"APPROVED MODEL");
- $("announcement").textContent=approximate?(lang==="uk"?"AR-ПРЕВʼЮ · ВИСОТА НЕ ПІДТВЕРДЖЕНА":"AR PREVIEW · HEIGHT UNCONFIRMED"):"MATRIX / 3D & AR";
+ if(!policy.viewable(manifest))return;
+ const approved=policy.approved(manifest),missing=manifest.dimensions_estimated===true;
+ const estimate=lang==="uk"?"ОЦІНКА · НЕ ПІДТВЕРДЖЕНО":"ESTIMATE · UNCONFIRMED";
+ const format=n=>(n/10).toLocaleString(lang==="uk"?"uk-UA":"en-US");
+ $("measure-height").textContent=(approved?"":"≈ ")+format(manifest.height_mm??manifest.estimated_height_mm);
+ $("measure-width").textContent=(missing?"≈ ":"")+format(manifest.width_mm??manifest.estimated_width_mm);
+ $("measure-depth").textContent=(missing?"≈ ":"")+format(manifest.depth_mm??manifest.estimated_depth_mm);
+ $("unverified-height").textContent=approved?text("verified"):estimate;
+ for(const id of ["verified-width","verified-depth"]){$(id).textContent=missing?estimate:text("verified");$(id).classList.toggle("unverified",missing);}
+ const ar=policy.eligible(manifest,measuredSize)&&!scaleMismatch;
+ $("viewer-tag").textContent=approved?(lang==="uk"?"МОДЕЛЬ ЗАТВЕРДЖЕНО":"APPROVED MODEL"):
+  (lang==="uk"?"ЧЕРНЕТКА · "+(ar?"ПРИБЛИЗНЕ AR":"3D ЗА ФОТО"):"DRAFT · "+(ar?"ESTIMATED AR":"PHOTO-GUIDED 3D"));
+ $("announcement").textContent=approved?"MATRIX / 3D & AR":(lang==="uk"?"3D ЗА ФОТО · РОЗМІРИ ПОТРЕБУЮТЬ ПЕРЕВІРКИ":"PHOTO-GUIDED 3D · DIMENSIONS NEED REVIEW");
  $("footer-note").textContent=$("announcement").textContent;
- $("ar-title").textContent=lang==="uk"?"Переглянути у своїй кімнаті":"View in your room";
- $("ar-description").textContent=modelNode?.canActivateAR?(lang==="uk"?"Наведіть камеру на підлогу. Переміщуйте та повертайте диван жестами.":"Aim at the floor. Move and rotate the sofa with gestures."):(lang==="uk"?"AR не підтримується цим пристроєм. 3D-перегляд доступний.":"This device does not support AR. 3D remains available.");
- $("warning-description").textContent=approximate?(lang==="uk"?
-  "Висота виробу відсутня: у цьому AR-превʼю використано приблизно "+manifest.estimated_height_mm/10+" см за чернеткою моделі. Геометрія не затверджена. Не використовуйте AR для точних замірів або перевірки, чи поміститься диван. Перед покупкою уточніть розміри у виробника.":
-  "Product height is unknown: this AR preview uses an estimated "+manifest.estimated_height_mm/10+" cm from the draft mesh. Geometry is unverified. Do not use AR for accurate measurements or to confirm the sofa will fit. Confirm dimensions with the manufacturer before buying."):
-  (lang==="uk"?"AR може мати похибки розміщення та масштабу. Перед покупкою перевірте простір рулеткою.":"AR placement and scale can be inaccurate. Measure your room before buying.");
+ $("ar-title").textContent=ar?(lang==="uk"?"Переглянути у своїй кімнаті":"View in your room"):(lang==="uk"?"AR потребує розмірів":"AR needs dimensions");
+ $("ar-button-label").textContent=lang==="uk"?"Переглянути у своїй кімнаті":"View in your room";
+ $("ar-description").textContent=missing?(lang==="uk"?"Ширина та глибина невідомі або неоднозначні. Доступний тільки 3D-перегляд.":"Width and depth are missing or ambiguous. 3D viewing is available."):
+  modelNode?.canActivateAR?(lang==="uk"?"Наведіть камеру на підлогу. Переміщуйте та повертайте меблі жестами.":"Aim at the floor. Move and rotate the furniture with gestures."):
+  (lang==="uk"?"AR не підтримується цим пристроєм. 3D-перегляд доступний.":"This device does not support AR. 3D remains available.");
+ const h=format(manifest.estimated_height_mm??manifest.height_mm);
+ $("warning-description").textContent=scaleMismatch?(lang==="uk"?"Габарити файлу не відповідають даним. AR заблоковано.":"File dimensions do not match the manifest. AR blocked."):
+  approved?(lang==="uk"?"AR може мати похибки. Перед покупкою перевірте простір рулеткою.":"AR can be inaccurate. Measure your room before buying."):
+  missing?(lang==="uk"?"Розміри виробу відсутні або неоднозначні: усі габарити цієї 3D-моделі приблизні. Конфігурацію обрано за фото. Тканина і конструкція не підтверджені виробником. AR вимкнено.":"Product dimensions are missing or ambiguous: all dimensions of this 3D model are estimates. Configuration follows the photo. Fabric and construction are unverified. AR is disabled."):
+  (lang==="uk"?"Висота виробу відсутня: використано приблизно "+h+" см за пропорціями фото. Геометрія і тканина не затверджені. Не використовуйте AR для точних замірів. Перед покупкою уточніть розміри у виробника.":"Product height is unknown: this preview uses an estimated "+h+" cm from photo proportions. Geometry and fabric are unverified. Do not use AR for accurate measurements. Confirm dimensions with the manufacturer before buying.");
  $("ar-disabled").setAttribute("aria-describedby","warning-description ar-description");
 }
 $("ar-disabled").addEventListener("click",()=>{
@@ -251,3 +261,4 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"){$("viewer").classLi
 setContent();
 if(chosen)void openViewer();
 else failViewer();
+

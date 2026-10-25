@@ -16,3 +16,17 @@ model-data/
 !artifacts/3d/*.usdz
 
 __pycache__/
+
+
+# Reproducible catalog 3D deployment outputs (retain committed Hilton pilot).
+preview/models/*-draft.glb
+preview/models/*-estimated.usdz
+!preview/models/hilton-2-draft.glb
+!preview/models/hilton-2-estimated.usdz
+preview/model-manifests/*.json
+!preview/model-manifests/hilton-2.json
+apps/web/public/models/
+apps/web/public/model-manifests/
+artifacts/3d/catalog-*.png
+
+preview/models/*-concept.glb

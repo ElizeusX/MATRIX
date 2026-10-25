@@ -39,6 +39,11 @@ jobs:
         with:
           node-version: '22'
       - run: cd apps/web && npm ci
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r scripts/3d/requirements.txt
+      - run: python scripts/3d/build_catalog_models.py --sync-web
       - run: cd apps/web && npm run lint && npm run build
 
   pilot:
@@ -51,8 +56,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: pip install numpy Pillow usd-core
+      - run: pip install -r scripts/3d/requirements.txt
       - run: python scripts/3d/test_hilton2_draft.py
+      - run: python scripts/3d/build_catalog_models.py --sync-web
+      - run: python scripts/3d/test_catalog_models.py
       - run: node scripts/3d/test_ar_policy.cjs
       - run: npm ci --prefix apps/web
       - run: npm install --prefix /tmp/matrix-browser playwright@1.56.1
@@ -62,10 +69,13 @@ jobs:
           python -m http.server 8765 --bind 127.0.0.1 > /tmp/matrix-preview.log 2>&1 &
           NODE_PATH=/tmp/matrix-browser/node_modules node scripts/test_mobile_storefront.cjs
           NODE_PATH=/tmp/matrix-browser/node_modules node scripts/3d/test_preview.cjs
+          NODE_PATH=/tmp/matrix-browser/node_modules node scripts/3d/test_catalog_viewers.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: hilton2-browser-review
+          name: catalog-3d-browser-review
           path: |
             artifacts/3d/browser-*.png
+            artifacts/3d/catalog-*.png
             artifacts/mobile/*.png
+

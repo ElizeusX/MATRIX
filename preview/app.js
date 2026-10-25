@@ -10,7 +10,7 @@ const products = Object.freeze(window.MATRIX_CATALOG);
 const translations = {
   uk: {
     skip:"До основного вмісту", preview:"Дизайн-превʼю • Ціни та замовлення вимкнено",
-    navCollection:"Каталог",nav3D:"3D / AR",catalog3DInfo:"Під кожною моделлю з габаритами є кнопка 3D. Це окремі концепти для огляду, не точна реконструкція. Для Хілтон-2 доступне приблизне AR з непідтвердженою висотою.",catalog3DDemo:"Спробувати 3D ↗",navStory:"Філософія",navContact:"Контакти",
+    navCollection:"Каталог",nav3D:"3D / AR",catalog3DInfo:"Для кожної моделі доступна 3D-чернетка за фото. Для моделей з шириною та глибиною є приблизне AR. Висоту не підтверджено; пропорції і тканини потребують перевірки.",catalog3DDemo:"Спробувати 3D ↗",navStory:"Філософія",navContact:"Контакти",
     heroEyebrow:"МЕБЛІ З ХАРАКТЕРОМ",heroLine1:"Меблі, що",heroLine2:"пасують вашому стилю",
     heroDescription:"Створюємо простір для комфортного та впевненого життя",
     explore:"Переглянути каталог",heroAside:"Дизайн-превʼю",artNote:"Інтер’єрна візуалізація",
@@ -31,13 +31,13 @@ const translations = {
     favoritesNote:"Список зберігається лише на цьому пристрої. Це не кошик і не замовлення.",
     favoriteEmpty:"Ви ще не додали жодної моделі.",category:"Категорія",
     dimensions:"Габарити",sleepArea:"Спальне місце",mm:"мм",pending:"Уточнюється",
-    photoDemo:"Концепт · не фото виробу",details:"Переглянути модель",open3D:"Дивитися у 3D · концепт",
+    photoDemo:"Концепт · не фото виробу",details:"Переглянути модель",open3D:"Переглянути в 3D",
     search:"Пошук моделі",menuOpen:"Відкрити меню",menuClose:"Закрити меню",
     close:"Закрити",heart:"Додати в обране",count:"моделей"
   },
   en: {
     skip:"Skip to main content",preview:"Design preview • Prices & ordering disabled",
-    navCollection:"Catalog",nav3D:"3D / AR",catalog3DInfo:"Every product with usable dimensions has its own 3D concept. These are visual previews, not accurate reconstructions. Hilton-2 offers estimated AR with an unconfirmed height.",catalog3DDemo:"Try 3D ↗",navStory:"Our approach",navContact:"Contact",
+    navCollection:"Catalog",nav3D:"3D / AR",catalog3DInfo:"Every product has a photo-guided 3D draft. Products with catalog width and depth offer estimated AR. Heights are unconfirmed; proportions and fabrics need review.",catalog3DDemo:"Try 3D ↗",navStory:"Our approach",navContact:"Contact",
     heroEyebrow:"FURNITURE WITH CHARACTER",heroLine1:"Furniture that",heroLine2:"fits your style",
     heroDescription:"Creating space for a comfortable, confident life.",
     explore:"Explore catalog",heroAside:"Design preview",artNote:"Illustrative showroom interior",
@@ -58,7 +58,7 @@ const translations = {
     favoritesNote:"This list is saved on this device only. It is not a cart or an order.",
     favoriteEmpty:"No saved models yet.",category:"Category",
     dimensions:"Overall dimensions",sleepArea:"Sleeping area",mm:"mm",pending:"Unconfirmed",
-    photoDemo:"Concept · not a product photo",details:"View product",open3D:"View in 3D · concept",
+    photoDemo:"Concept · not a product photo",details:"View product",open3D:"View in 3D",
     search:"Search models",menuOpen:"Open menu",menuClose:"Close menu",
     close:"Close",heart:"Add to favorites",count:"models"
   }
@@ -79,8 +79,8 @@ try {
 } catch { /* private browsing or disabled storage; the preview still works */ }
 
 function t(key){return translations[state.locale][key]||key}
-function hasConceptDimensions(p){
- return Number.isInteger(p.width)&&Number.isInteger(p.depth)&&p.width>=300&&p.depth>=300&&p.width<=8000&&p.depth<=6000;
+function hasModelPreview(p){
+ return typeof p.slug==="string"&&/^[a-z0-9-]+$/.test(p.slug);
 }
 function getCategory(category){
   return category==="corner-sofas"?t("catCorner"):category==="straight-sofas"?t("catStraight"):category==="beds"?t("catBeds"):t("catUnspecified");
@@ -122,7 +122,7 @@ function elementsForProduct(p,index){
   open.innerHTML=window.matrixIcon("arrow");headingRow.append(name,open);
   const price=document.createElement("p");price.textContent=t("missing");
   info.append(category,headingRow,price);
-  if(hasConceptDimensions(p)){
+  if(hasModelPreview(p)){
     const link=document.createElement("a");
     link.className="product-3d-link";
     link.href="3d.html?product="+encodeURIComponent(p.slug);
@@ -244,17 +244,18 @@ function openProductContents(id){
   specRow(t("sleepArea"),p.sleepingArea?`${p.sleepingArea} ${t("mm")}`:t("pending"))
  );
  const conceptLink=$("#dialog-3d-link");
- conceptLink.hidden=!hasConceptDimensions(p);
- if(hasConceptDimensions(p)){
+ conceptLink.hidden=!hasModelPreview(p);
+ if(hasModelPreview(p)){
   conceptLink.href="3d.html?product="+encodeURIComponent(p.slug);
   conceptLink.textContent=(p.slug==="hilton-2"?(state.locale==="uk"?"Переглянути в 3D":"View in 3D"):t("open3D"));conceptLink.insertAdjacentHTML("beforeend",window.matrixIcon("cube"));
  }
  const ar=$("#dialog-ar");const arReason=$("#dialog-ar-reason");
- ar.hidden=arReason.hidden=p.slug!=="hilton-2";
- ar.disabled=false;
+ const hasCatalogSize=Number.isInteger(p.width)&&Number.isInteger(p.depth)&&p.width>=300&&p.depth>=300&&p.width<=8000&&p.depth<=6000;
+ ar.hidden=arReason.hidden=false;
+ ar.disabled=!hasCatalogSize;
  ar.onclick=()=>{location.href="3d.html?product="+encodeURIComponent(p.slug)+"#viewer"};
  ar.textContent=state.locale==="uk"?"Переглянути у своїй кімнаті":"View in your room";
- arReason.textContent=state.locale==="uk"?"AR-превʼю: висота приблизно 98 см, не підтверджена. Не для точних замірів.":"AR preview: estimated height 98 cm, unconfirmed. Not for accurate measurements.";
+ arReason.textContent=hasCatalogSize?(state.locale==="uk"?"Приблизне AR: висоту не підтверджено. Оцінку та застереження показано у 3D-перегляді.":"Estimated AR: height is unconfirmed. The estimate and limitations are shown in the 3D viewer."):(state.locale==="uk"?"AR недоступне: ширина та глибина потребують уточнення. 3D-перегляд доступний.":"AR unavailable: width and depth need confirmation. 3D viewing is available.");
  const description=$("#dialog-description");description.textContent=p.description;description.lang="uk";description.hidden=!p.description;
  const note=$("#dialog-source-note");note.hidden=!p.flags.length;
  note.textContent=state.locale==="uk"?"Варіанти та неоднозначні дані наведено як у джерелі. Уточніть характеристики у виробника.":"Variants and ambiguous specifications are shown as supplied. Confirm details with the manufacturer.";
@@ -315,4 +316,5 @@ for(const d of [dialog,savedDialog]){
  d.addEventListener("click",e=>{if(e.target===d)d.close()});
 }
 updateLanguage();
+
 
