@@ -60,6 +60,7 @@ jobs:
       - run: python scripts/3d/test_hilton2_draft.py
       - run: python scripts/3d/build_catalog_models.py --sync-web
       - run: python scripts/3d/test_catalog_models.py
+      - run: python scripts/3d/test_photo_shapes.py
       - run: node scripts/3d/test_ar_policy.cjs
       - run: npm ci --prefix apps/web
       - run: npm install --prefix /tmp/matrix-browser playwright@1.56.1
@@ -70,6 +71,7 @@ jobs:
           NODE_PATH=/tmp/matrix-browser/node_modules node scripts/test_mobile_storefront.cjs
           NODE_PATH=/tmp/matrix-browser/node_modules node scripts/3d/test_preview.cjs
           NODE_PATH=/tmp/matrix-browser/node_modules node scripts/3d/test_catalog_viewers.cjs
+      - run: python scripts/3d/build_photo_review.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:

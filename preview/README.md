@@ -16,7 +16,7 @@ Merging changes to master can trigger the existing GitHub Pages workflow.
 
 All **76 products** have their own 3D view at `3d.html?product=<slug>`.
 The Hilton-2 pilot is retained; the other **75** drafts use authored photo profiles
-in `scripts/3d/catalog_profiles.py`. Profiles record silhouette, seat count,
+in `scripts/3d/catalog_profiles.py` and `scripts/3d/shape_profiles.py`. Profiles record silhouette, seat count,
 chaise orientation, headboard pattern, fabric appearance and visible details.
 The models include rounded crowned upholstery, piping, original woven PBR
 textures, metal feet, timber accents, shelves and bed slats where pictured.
@@ -33,6 +33,7 @@ with estimates. Beds show one representative visual configuration, not every siz
 python -m pip install -r scripts/3d/requirements.txt
 python scripts/3d/build_catalog_models.py --sync-web
 python scripts/3d/test_catalog_models.py
+python scripts/3d/test_photo_shapes.py
 node scripts/3d/test_ar_policy.cjs
 ```
 
@@ -47,3 +48,8 @@ and run `node scripts/3d/test_catalog_viewers.cjs` with Playwright available.
 Tests check real WebGL loads for straight, corner, U-shaped, bed and chaise forms,
 mobile overflow, language switching, and AR gating. Native Quick Look/Scene Viewer
 placement still needs review on actual iPhone/Android devices.
+
+Shape revision 2 uses continuous stitched shells, product-family arm/base proportions,
+separate seat/back counts and dedicated curved/corner-return construction. Model URLs
+contain `-v2-` to invalidate old cached geometry. CI includes source-photo / real WebGL
+comparison images; see `docs/CATALOG_3D.md` for the reviewed shape observations.

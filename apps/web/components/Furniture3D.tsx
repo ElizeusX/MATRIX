@@ -41,6 +41,7 @@ const round=(n:number)=>Math.round(n/10);
 export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:"uk"|"en"}){
  const draft=model.status==="draft";
  const unknown=draft&&model.dimensions_estimated===true;
+ const initialOrbit=draft&&model.camera_orbit&&/^-?\d+deg \d+deg auto$/.test(model.camera_orbit)?model.camera_orbit:"-25deg 75deg auto";
  const width=model.width_mm??(draft?model.estimated_width_mm:0);
  const depth=model.depth_mm??(draft?model.estimated_depth_mm:0);
  const height=model.height_mm??(draft?model.estimated_height_mm:0);
@@ -136,6 +137,7 @@ export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:
       ar-scale="fixed"
       ar-placement="floor"
       camera-controls={true}
+      camera-orbit={initialOrbit}
       field-of-view="35deg"
       interaction-prompt="auto"
       shadow-intensity="0.75"
@@ -148,7 +150,7 @@ export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:
    {error&&<p className="matrix3d-error" role="alert">{error}</p>}
    <div className="matrix3d-toolbar">
     <button type="button" disabled={!ready} onClick={()=>viewer.current?.setAttribute("field-of-view","24deg")}>{t.zoom}</button>
-    <button type="button" disabled={!ready} onClick={()=>{viewer.current?.setAttribute("field-of-view","35deg");viewer.current?.setAttribute("camera-orbit","0deg 75deg auto")}}>{t.reset}</button>
+    <button type="button" disabled={!ready} onClick={()=>{viewer.current?.setAttribute("field-of-view","35deg");viewer.current?.setAttribute("camera-orbit",initialOrbit)}}>{t.reset}</button>
     <button type="button" onClick={()=>setShowDimensions(v=>!v)}>{showDimensions?t.hideDimensions:t.dimensions}</button>
     <button type="button" onClick={()=>setFull(v=>!v)}>{full?t.exitFullscreen:t.fullscreen}</button>
    </div>

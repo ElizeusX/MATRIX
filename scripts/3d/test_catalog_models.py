@@ -17,7 +17,7 @@ def inspect(slug, record):
     n,kind=struct.unpack_from('<II',data,12);assert kind==0x4e4f534a
     doc=json.loads(data[20:20+n]);binary=data[28+n:]
     assert struct.unpack_from('<II',data,20+n)==(len(binary),0x004e4942)
-    ex=doc['asset']['extras'];assert ex['product_slug']==slug and ex['approval']=='DRAFT_ONLY'
+    ex=doc['asset']['extras'];assert ex['product_slug']==slug and ex['approval']=='DRAFT_ONLY' and ex['shape_revision']==2
     assert not ex['accurate_AR'] and not ex['geometry_verified'] and not ex['room_measurement_allowed']
     points=[]
     for mesh in doc['meshes']:
@@ -39,7 +39,7 @@ def inspect(slug, record):
     assert np.allclose(size,expected,atol=1e-5),(slug,size,expected)
     assert abs(points[:,1].min())<1e-6
     assert data and len(data)<4*1024*1024,(slug,len(data))
-    assert len(doc['meshes'])>=15 and len(doc['images'])==2
+    assert len(doc['meshes'])>=6 and len(doc['images'])==2
     assert all('uri' not in i for i in doc['images']),slug
     assert manifest['height_mm'] is None and manifest['geometry_verified'] is False
     known=record.get('width') is not None and record.get('depth') is not None

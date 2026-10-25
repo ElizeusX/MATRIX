@@ -73,7 +73,7 @@ def fabric():
         tiled=Image.fromarray(np.tile(np.asarray(small),(3,3)))
         cloud+=np.asarray(tiled.resize((s*3,s*3),Image.Resampling.BICUBIC),dtype=float)[s:s*2,s:s*2]/255/cells**.3
     cloud=(cloud-cloud.mean())/cloud.std()
-    color=np.uint8(np.clip(229+7*cloud+70*h+rng.normal(0,2,(s,s)),0,255))
+    color=np.uint8(np.clip(233+2.4*cloud+70*h+rng.normal(0,1.6,(s,s)),0,255))
     dx=np.roll(h,-1,1)-np.roll(h,1,1);dy=np.roll(h,-1,0)-np.roll(h,1,0)
     normal=np.dstack((-dx,-dy,np.ones_like(h)));normal/=np.linalg.norm(normal,axis=2)[:,:,None]
     out=[]
@@ -95,13 +95,18 @@ def export(model, folder, slug, profile, extras, textures):
         access.append(a);return len(access)-1
     for name,p,f,uv,mat,n in model.parts:
         meshes.append(dict(name=name,primitives=[dict(attributes=dict(POSITION=acc(p,'VEC3',5126),NORMAL=acc(n,'VEC3',5126),TEXCOORD_0=acc(uv.astype('<f4'),'VEC2',5126)),indices=acc(f.flatten().astype('<u4'),'SCALAR',5125),material=mat,mode=4)]))
-    rgb=[int(profile['color'][i:i+2],16)/255 for i in (1,3,5)]
-    # glTF color factors are linear, whereas photo hex colors are sRGB.
-    linear=lambda v: v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4
-    color=[linear(v) for v in rgb]
-    colors=[color,[v*.76 for v in color],[.045,.046,.043],[.10,.065,.038],[.68,.63,.52],
-            [max(.1,v*.5+.23) for v in color]]
-    names=['Woven_upholstery','Stitched_piping','Dark_metal_feet','Timber_caps_and_slats','Accent_pillow','Contrast_upholstery']
+    palette=profile.get('shape',{}).get('palette',{})
+    to_linear=lambda v: v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4
+    def rgb(hexcolor):return [to_linear(int(hexcolor[i:i+2],16)/255) for i in (1,3,5)]
+    color=rgb(palette.get('body',profile['color']))
+    family=profile.get('shape',{}).get('family')
+    secondary=rgb(palette['secondary']) if 'secondary' in palette else color
+    back=rgb(palette.get('back',profile['color']))
+    cap=rgb(profile.get('shape',{}).get('cap_color','#42382e'))
+    feet=[.32,.31,.28] if family in ('venera','bed','fellini') else [.035,.035,.035]
+    accent=rgb('#ad839e') if family=='delta' else rgb('#d0c6a7')
+    colors=[color,[v*.65 for v in color],feet,cap,accent,secondary,back]
+    names=['Photo_fabric','Stitched_recess','Feet','Caps_and_slats','Accent_pillow','Secondary_fabric','Back_cushion_fabric']
     materials=[]
     for i,(name,c) in enumerate(zip(names,colors)):
         pbr=dict(baseColorFactor=c+[1],metallicFactor=.65 if i==2 else 0,roughnessFactor=.35 if i in (2,3) else .88)
@@ -111,7 +116,7 @@ def export(model, folder, slug, profile, extras, textures):
             mat['extensions']={'KHR_materials_sheen':{'sheenColorFactor':[.16,.16,.16],'sheenRoughnessFactor':.85}}
         materials.append(mat)
     images=[dict(bufferView=view(t),mimeType='image/png') for t in textures]
-    doc=dict(asset=dict(version='2.0',generator='MATRIX photo-guided catalog surfaces v1',extras=extras),
+    doc=dict(asset=dict(version='2.0',generator='MATRIX photo-specific continuous upholstery v2',extras=extras),
         extensionsUsed=['KHR_materials_sheen'],scene=0,scenes=[dict(nodes=list(range(len(meshes))))],
         nodes=[dict(name=m['name'],mesh=i) for i,m in enumerate(meshes)],meshes=meshes,
         buffers=[dict(byteLength=len(buf))],bufferViews=views,accessors=access,materials=materials,
@@ -119,7 +124,7 @@ def export(model, folder, slug, profile, extras, textures):
         samplers=[dict(magFilter=9729,minFilter=9987,wrapS=10497,wrapT=10497)])
     j=json.dumps(doc,separators=(',',':')).encode();j+=b' '*(-len(j)%4);buf+=b'\0'*(-len(buf)%4)
     glb=struct.pack('<III',0x46546c67,2,28+len(j)+len(buf))+struct.pack('<II',len(j),0x4e4f534a)+j+struct.pack('<II',len(buf),0x004e4942)+buf
-    (folder/f'{slug}-draft.glb').write_bytes(glb)
+    (folder/f'{slug}-v2-draft.glb').write_bytes(glb)
     if extras['dimensions_estimated']:return len(glb)
     # Matching vertices, Y-up/metres, embedded texture and aligned uncompressed USDZ.
     usd=['#usda 1.0\n(defaultPrim="Furniture"\nmetersPerUnit=1\nupAxis="Y")\ndef Xform "Furniture" {',
@@ -169,7 +174,7 @@ def export(model, folder, slug, profile, extras, textures):
     if not layer.ImportFromString('\n'.join(usd)):raise RuntimeError(slug+' USD import failed')
     with tempfile.TemporaryDirectory() as tmp:
         crate=pathlib.Path(tmp)/'furniture.usdc';layer.Export(str(crate));usdbytes=crate.read_bytes()
-    with zipfile.ZipFile(folder/f'{slug}-estimated.usdz','w',compression=zipfile.ZIP_STORED) as z:
+    with zipfile.ZipFile(folder/f'{slug}-v2-estimated.usdz','w',compression=zipfile.ZIP_STORED) as z:
         for name,data in [('furniture.usdc',usdbytes),('fabric.png',textures[0])]:
             info=zipfile.ZipInfo(name);padding=(-(z.fp.tell()+30+len(name)+4))%64
             info.extra=struct.pack('<HH',0x1986,padding)+b'\0'*padding;z.writestr(info,data)
