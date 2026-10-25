@@ -142,9 +142,9 @@ class UpholsteryModel(SurfaceModel):
         for i in range(n):
             for j in (0,8):
                 a=i*9+j;b=(i+1)*9+j;c=span+b;d=span+a
-                faces.extend([(a,b,c),(a,c,d)] if j==8 else [(a,c,b),(a,d,c)])
+                faces.extend([(a,b,c),(a,c,d)] if j==0 else [(a,c,b),(a,d,c)])
         for i in (0,n):
             for j in range(8):
                 a=i*9+j;b=a+1;c=span+b;d=span+a
-                faces.extend([(a,b,c),(a,c,d)] if i==0 else [(a,c,b),(a,d,c)])
+                faces.extend([(a,b,c),(a,c,d)] if i==n else [(a,c,b),(a,d,c)])
         self.parts.append([name,np.asarray(verts),np.asarray(faces,dtype=np.uint32),np.asarray(uv),material])
