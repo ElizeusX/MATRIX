@@ -45,7 +45,15 @@ async function assertMobileFlow(page, width) {
       await page.evaluate(() => document.fonts.ready);
       for (const locale of ['uk', 'en']) {
         if (locale === 'en') await page.locator('#lang-switch').click();
-        assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `page overflow at ${width}/${locale}`);
+        await page.screenshot({ path: `artifacts/mobile/storefront-${width}-${locale}.png`, fullPage: false });
+        const overflow = await page.evaluate(() => ({
+          width: document.documentElement.scrollWidth,
+          elements: [...document.querySelectorAll('body *')].filter(el => {
+            const rect = el.getBoundingClientRect();
+            return rect.width && (rect.x < -1 || rect.right > innerWidth + 1);
+          }).map(el => ({ selector: el.className, bounds: el.getBoundingClientRect().toJSON() }))
+        }));
+        assert(overflow.width <= width, `page overflow at ${width}/${locale}: ${JSON.stringify(overflow)}`);
         if (width <= 580) await assertMobileFlow(page, width);
         await page.screenshot({ path: `artifacts/mobile/storefront-${width}-${locale}.png`, fullPage: false });
       }
