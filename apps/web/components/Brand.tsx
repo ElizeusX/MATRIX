@@ -1,53 +1,32 @@
-import type { ReactNode } from "react";
-export function FurnitureIcon({
-  kind,
-}: {
-  kind: "sofa" | "corner" | "bed" | "search" | "bag" | "cube";
-}) {
-  const paths: Record<string, ReactNode> = {
-    sofa: (
-      <>
-        <path d="M5 12V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4M5 10H3v9h18v-9h-2M5 14h14M6 19v2m12-2v2" />
-      </>
-    ),
-    corner: (
-      <>
-        <path d="M3 12V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13h-6v-6H3v-4h3v4m9 0V9h6M5 14v5m14 1v2" />
-      </>
-    ),
-    bed: (
-      <>
-        <path d="M4 12V5h16v7M2 20v-8h20v8M2 17h20M6 12V8h5v4m2 0V8h5v4" />
-      </>
-    ),
-    search: (
-      <>
-        <circle cx="10.5" cy="10.5" r="6.5" />
-        <path d="m16 16 5 5" />
-      </>
-    ),
-    bag: (
-      <>
-        <path d="M5 7h14l2 14H3L5 7Zm3 3V6a4 4 0 0 1 8 0v4" />
-      </>
-    ),
-    cube: (
-      <>
-        <path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10 9-5M12 12 3 7m9 5v10M7 4.5l9 5" />
-      </>
-    ),
-  };
+const paths = {
+  sofa: "M7 17V11q0-4 4-4h10q4 0 4 4v6M7 15H4v10h24V15h-3M7 20h18M16 9v9M7 25v3m18-3v3",
+  corner:
+    "M5 17V9q0-3 3-3h16q3 0 3 3v17H17v-8H5v-5H2v13h11M7 11h8v7m3-7h6v10M5 26v3m22-3v3",
+  bed: "M5 18V8q0-3 3-3h16q3 0 3 3v10M3 28V18h26v10M3 24h26M8 17v-6h6v6m4 0v-6h6v6M16 7v2",
+  search: "M22 13a9 9 0 1 1-9-9h4l5 5v4Zm-2 7 8 8M8 13q0-5 5-5",
+  bag: "M7 11h18l3 17H4l3-17Zm5 3V8a4 4 0 0 1 8 0v6M11 22l5-4 5 4",
+  cube: "m16 6 9 5v10l-9 5-9-5V11l9-5Zm0 10 9-5m-9 5-9-5m9 5v10M3 10V4h6m14 0h6v6M3 23v6h6m14 0h6v-6",
+  heart: "M16 27 5 16C-2 8 9-1 16 9c7-10 18-1 11 7L16 27Zm-8-15q0-4 4-4",
+  arrow: "M3 16h25M21 8l8 8-8 8M6 12v8",
+  close: "m8 8 16 16M24 8 8 24M4 10V4h6m12 24h6v-6",
+  menu: "M4 8h24M4 16h18M4 24h24M27 14v4",
+  reset: "M6 12a11 11 0 1 1 1 12M6 4v8h8M16 10v7l5 3",
+  fullscreen: "M4 12V4h8m8 0h8v8M4 20v8h8m8 0h8v-8M12 16h8m-4-4v8",
+} as const;
+export function FurnitureIcon({ kind }: { kind: keyof typeof paths }) {
   return (
     <svg
-      viewBox="0 0 24 24"
+      className="matrix-icon"
+      viewBox="0 0 32 32"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.35"
+      strokeWidth="1.4"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
+      focusable="false"
     >
-      {paths[kind]}
+      <path d={paths[kind]} />
     </svg>
   );
 }
