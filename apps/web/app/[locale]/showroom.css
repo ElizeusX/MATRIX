@@ -634,3 +634,24 @@ body {
 
 /* Custom MATRIX controls share a 32-unit drawing grid. */
 .matrix-icon{width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0}.menu-toggle .matrix-icon{width:24px;height:24px}.product-open .matrix-icon,.favorite-item .matrix-icon,.dialog-close .matrix-icon{width:21px;height:21px}.modal-heart .matrix-icon{width:20px;height:20px;margin-left:10px}.favorite-btn.selected .matrix-icon{fill:currentColor;fill-opacity:.16}.underlined-link>.matrix-icon,.category-arrow .matrix-icon{width:21px;height:21px}.dialog-close{display:flex;align-items:center;justify-content:center}
+
+/* Category links are navigation controls, not selected tabs. */
+.showroomCategories > a,
+.showroomCategories > a:first-child,
+.filters a, .storeTools a { color: #000; }
+.showroomCategories > a:first-child { background: #fff; }
+
+@media (max-width: 580px) {
+  .localeHeader { gap: 8px; padding-inline: 4%; }
+  .matrixBrand { min-width: 0; }
+  .storeTools { gap: 12px; flex-shrink: 0; }
+  .showroomHero { min-height: 620px; }
+  .showroomText { max-width: none; }
+  .showroomText h1 { font-size: clamp(35px, 10.6vw, 44px); }
+  .showroomCta { margin: 0; min-height: 48px; bottom: 50px; }
+  .showroomAr { top: auto; bottom: 125px; }
+  .showroomCategories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .showroomCategories > a { min-width: 0; min-height: 48px; white-space: normal; line-height: 1.25; padding: 9px 5px; }
+  .showroomCategories .categoryArrow { display: none; }
+  .homeProduct, .homeProductPhoto, .homeProduct h3 { min-width: 0; overflow-wrap: anywhere; }
+}
