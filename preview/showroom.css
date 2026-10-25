@@ -720,7 +720,6 @@ html {
     background 0.2s,
     transform 0.2s;
 }
-.showroom-category:first-child,
 .showroom-categories .showroom-category.active {
   background: linear-gradient(110deg, #c6ac7f, #ae8b57);
   color: white;
@@ -1089,3 +1088,12 @@ html {
 
 /* Custom MATRIX controls share a 32-unit drawing grid. */
 .matrix-icon{width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0}.menu-toggle .matrix-icon{width:24px;height:24px}.product-open .matrix-icon,.favorite-item .matrix-icon,.dialog-close .matrix-icon{width:21px;height:21px}.modal-heart .matrix-icon{width:20px;height:20px;margin-left:10px}.favorite-btn.selected .matrix-icon{fill:currentColor;fill-opacity:.16}.underlined-link>.matrix-icon,.category-arrow .matrix-icon{width:21px;height:21px}.dialog-close{display:flex;align-items:center;justify-content:center}
+
+/* Inactive controls retain black text and custom SVG strokes. */
+.showroom-categories .showroom-category:not(.active),
+.filter:not(.active),
+.favorite-btn:not(.selected),
+.icon-action, .menu-toggle, .language-switch, .product-open {
+  color: #000;
+}
+.showroom-categories .showroom-category:not(.active) { background: #fff; }

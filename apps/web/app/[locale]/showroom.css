@@ -634,3 +634,9 @@ body {
 
 /* Custom MATRIX controls share a 32-unit drawing grid. */
 .matrix-icon{width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0}.menu-toggle .matrix-icon{width:24px;height:24px}.product-open .matrix-icon,.favorite-item .matrix-icon,.dialog-close .matrix-icon{width:21px;height:21px}.modal-heart .matrix-icon{width:20px;height:20px;margin-left:10px}.favorite-btn.selected .matrix-icon{fill:currentColor;fill-opacity:.16}.underlined-link>.matrix-icon,.category-arrow .matrix-icon{width:21px;height:21px}.dialog-close{display:flex;align-items:center;justify-content:center}
+
+/* Category links are navigation controls, not selected tabs. */
+.showroomCategories > a,
+.showroomCategories > a:first-child,
+.filters a, .storeTools a { color: #000; }
+.showroomCategories > a:first-child { background: #fff; }
