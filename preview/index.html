@@ -8,9 +8,10 @@
   <meta name="description" content="MATRIX — mobile design preview. Demo only; no live prices, stock, checkout.">
   <title>MATRIX — Furniture, thoughtfully designed • Preview</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=all-products-3d-1">
+  <link rel="stylesheet" href="style.css?v=showroom-1">
+  <link rel="stylesheet" href="showroom.css?v=1">
   <script src="catalog.js?v=photos-2" defer></script>
-  <script src="app.js?v=estimated-ar-all-products-3d-1" defer></script>
+  <script src="app.js?v=showroom-1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">До основного вмісту</a>
@@ -18,44 +19,33 @@
   <header class="site-header" id="top">
     <div class="header-inner">
       <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
-      <a class="wordmark" href="#top" aria-label="MATRIX home">MATRIX<span class="wordmark-point">.</span></a>
+      <a class="wordmark" href="#top" aria-label="MATRIX home"><span class="brand-symbol" aria-hidden="true">M</span><span class="brand-type">MATRIX<small>ФАБРИКА М’ЯКИХ МЕБЛІВ</small></span></a>
       <nav id="main-nav" class="main-nav" aria-label="Main navigation"><a href="#products" data-i18n="nav3D">3D / AR</a>
-        <a href="#collection" data-i18n="navCollection">Колекції</a>
+        <a href="#products" data-i18n="navCollection">Колекції</a>
         <a href="#story" data-i18n="navStory">Філософія</a>
         <a href="#contact" data-i18n="navContact">Контакти</a>
       </nav>
-      <div class="header-tools">
+      <div class="header-tools"><a class="header-search icon-action" href="#catalog-search" aria-label="Пошук"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></a>
         <button class="language-switch" id="lang-switch" type="button" aria-label="Switch language"><span id="language-current">UA</span><span class="language-split">/</span><span id="language-other">EN</span></button>
         <button class="icon-action" id="favorites-trigger" type="button" aria-label="Обрані товари" title="Обране"><svg viewBox="0 0 24 24" width="21" height="21" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M20.6 8.1c0 5-8.6 11-8.6 11s-8.6-6-8.6-11a4.6 4.6 0 0 1 8.6-2.2 4.6 4.6 0 0 1 8.6 2.2Z"/></svg><span class="tool-count" id="favorite-count" hidden>0</span></button>
       </div>
     </div>
   </header>
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero showroom-hero" aria-labelledby="hero-title">
       <div class="hero-text">
-        <p class="eyebrow"><span class="mini-line"></span><span data-i18n="heroEyebrow">МЕБЛІ З ХАРАКТЕРОМ</span></p>
-        <h1 id="hero-title"><span data-i18n="heroLine1">Простір,</span><br><em data-i18n="heroLine2">де ти — вдома.</em></h1>
-        <p class="hero-description" data-i18n="heroDescription">М’які меблі MATRIX для моментів, до яких хочеться повертатися. Знайомтеся з колекціями, створеними для вашого простору.</p>
-        <a href="#collection" class="underlined-link"><span data-i18n="explore">Дивитися колекції</span><span aria-hidden="true">↗</span></a>
-        <div class="hero-index"><span data-i18n="heroAside">Дизайн-превʼю</span><span>01 — 03</span></div>
+        <p class="hero-pagination">MATRIX / COLLECTION <span></span></p>
+        <h1 id="hero-title"><span data-i18n="heroLine1">Меблі, що</span><br><span data-i18n="heroLine2">пасують вашому стилю</span></h1>
+        <p class="hero-description" data-i18n="heroDescription">Створюємо простір для комфортного та впевненого життя</p>
+        <a href="#products" class="underlined-link"><span data-i18n="explore">Переглянути каталог</span><span aria-hidden="true">→</span></a>
       </div>
-      <div class="hero-visual">
-        <img class="hero-product-photo" src="media/products/hilton-p.jpg" alt="Кутовий диван Хілтон-П — MATRIX" width="1200" height="800" fetchpriority="high">
-        <span class="art-credit" data-i18n="artNote">Хілтон-П · фото з каталогу MATRIX</span>
-      </div>
-      <div class="hero-side-note">MATRIX / DESIGN PREVIEW <span>2026</span></div>
+      <a class="hero-ar" href="3d.html?product=hilton-2" aria-label="Хілтон-2: 3D / AR"><span>3D</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10 9-5M12 12 3 7m9 5v10M7 4.5l9 5"/></svg><span>Хілтон-2<br>3D / AR</span><span aria-hidden="true">+</span></a>
+      <span class="showroom-caption" data-i18n="artNote">Інтер’єрна візуалізація</span>
     </section>
-    <section class="ticker" aria-label="Brand values"><span>FORM & FEEL</span><span class="ticker-separator">✳</span><span data-i18n="tickerOne">СПОКІЙНА ЕСТЕТИКА</span><span class="ticker-separator">✳</span><span data-i18n="tickerTwo">СТВОРЕНО ДЛЯ ЖИТТЯ</span><span class="ticker-separator">✳</span><span>MADE FOR HOME</span></section>
-    <section class="section collections" id="collection" aria-labelledby="collection-title">
-      <div class="section-heading"><div><p class="eyebrow"><span class="mini-line"></span>OUR COLLECTION</p><h2 id="collection-title" data-i18n="collectionTitle">Знайдіть своє.</h2></div><p class="section-intro" data-i18n="collectionIntro">Ознайомтеся з моделями в каталозі. Фотографії та характеристики — з каталогу виробника.</p></div>
-      <div class="category-tiles">
-        <button class="category-tile corner-tile" data-category="corner-sofas" type="button"><span class="tile-index">01 / 03</span><img class="category-photo" src="media/products/hilton-2.jpg" alt="Кутовий диван Хілтон-2" width="1200" height="800" loading="lazy"><span class="tile-bottom"><strong data-i18n="catCorner">Кутові дивани</strong><span aria-hidden="true">↗</span></span></button>
-        <button class="category-tile straight-tile" data-category="straight-sofas" type="button"><span class="tile-index">02 / 03</span><img class="category-photo" src="media/products/molly.jpg" alt="Прямий диван Моллі" width="1200" height="800" loading="lazy"><span class="tile-bottom"><strong data-i18n="catStraight">Прямі дивани</strong><span aria-hidden="true">↗</span></span></button>
-        <button class="category-tile beds-tile" data-category="beds" type="button"><span class="tile-index">03 / 03</span><img class="category-photo" src="media/products/lizhko-faro.jpg" alt="Ліжко Фаро" width="1200" height="800" loading="lazy"><span class="tile-bottom"><strong data-i18n="catBeds">Ліжка</strong><span aria-hidden="true">↗</span></span></button>
-      </div>
-    </section>
+    <section class="showroom-categories" id="collection" aria-label="Колекції">
+<button type="button" class="showroom-category" data-category="straight-sofas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4M5 10H3v9h18v-9h-2M5 14h14M6 19v2m12-2v2"/></svg><span data-i18n="catStraight">Дивани</span><span class="category-arrow" aria-hidden="true">→</span></button><button type="button" class="showroom-category" data-category="corner-sofas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13h-6v-6H3v-4h3v4m9 0V9h6M5 14v5m14 1v2"/></svg><span data-i18n="catCorner">Кутові дивани</span><span class="category-arrow" aria-hidden="true">→</span></button><button type="button" class="showroom-category" data-category="beds"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12V5h16v7M2 20v-8h20v8M2 17h20M6 12V8h5v4m2 0V8h5v4"/></svg><span data-i18n="catBeds">Ліжка</span><span class="category-arrow" aria-hidden="true">→</span></button>    </section>
     <section class="section inventory" id="products" aria-labelledby="products-title">
-      <div class="section-heading inventory-heading"><div><p class="eyebrow"><span class="mini-line"></span>MATRIX PRODUCTS</p><h2 id="products-title" data-i18n="productsTitle">Каталог моделей</h2></div><p class="section-intro" data-i18n="productsIntro">Реальні назви моделей із сайту виробника. Фотографії — з каталогу виробника.</p></div>
+      <div class="section-heading inventory-heading"><div><p class="eyebrow"><span class="mini-line"></span>MATRIX PRODUCTS</p><h2 id="products-title" data-i18n="productsTitle">Колекція MATRIX</h2></div><p class="section-intro" data-i18n="productsIntro">Реальні назви моделей із сайту виробника. Фотографії — з каталогу виробника.</p></div>
       <div class="catalog-3d-note"><span class="catalog-3d-icon" aria-hidden="true">◈</span><span data-i18n="catalog3DInfo">Під кожною моделлю з габаритами — кнопка 3D. Окремі концепти для перегляду; AR доступне лише після перевірки точності.</span><a href="3d.html?product=hilton-2" data-i18n="catalog3DDemo">Приклад 3D ↗</a></div>
       <div class="catalog-tools">
         <div class="filter-list" role="group" aria-label="Filter products"><button type="button" class="filter active" data-filter="all" data-i18n="all">Усі моделі</button><button type="button" class="filter" data-filter="corner-sofas" data-i18n="catCorner">Кутові дивани</button><button type="button" class="filter" data-filter="straight-sofas" data-i18n="catStraight">Прямі дивани</button><button type="button" class="filter" data-filter="beds" data-i18n="catBeds">Ліжка</button></div>

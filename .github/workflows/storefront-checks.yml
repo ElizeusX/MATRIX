@@ -1,0 +1,36 @@
+name: MATRIX Storefront Checks
+on:
+  pull_request:
+    paths:
+      - 'apps/web/**'
+      - 'preview/**'
+      - '.github/workflows/storefront-checks.yml'
+  push:
+    branches: [master]
+    paths:
+      - 'apps/web/**'
+      - 'preview/**'
+      - '.github/workflows/storefront-checks.yml'
+permissions:
+  contents: read
+jobs:
+  storefront:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm ci
+        working-directory: apps/web
+      - run: npm run lint
+        working-directory: apps/web
+      - run: npm run build
+        working-directory: apps/web
+      - name: Validate preview and AR policy
+        run: |
+          node --check preview/app.js
+          node --check preview/3d-page.js
+          node scripts/3d/test_ar_policy.cjs
