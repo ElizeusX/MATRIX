@@ -79,20 +79,22 @@ def sofa(profile,s,w,d,h):
     for i,(x,width,depth) in enumerate(modules):
         end=rear+depth;seat_start=rear+.20;sz=(seat_start+end)/2
         if s.get('continuous_base') and profile['chaise']!='none':
-            m.panel(f'underframe_{i}',(x,(floor+seat-thick)/2,(rear+end)/2),
-                (width-.006,seat-thick-floor,depth-.015),.022,.001,material=5)
+            m.upholstery(f'underframe_{i}',(x,(floor+seat-thick)/2,(rear+end)/2),
+                (width-.006,seat-thick-floor,depth-.015),.022,.001,material=5,
+                plan_radius=.23 if s.get('round_chaise') and depth>regular+.1 else 0,segments=14)
         if not s.get('continuous_base'):
             thick=seat-floor-.006
         cells=s.get('seat_channels',0)
         m.upholstery(f'seat_shell_{i}',(x,seat-thick/2,sz),(width-.009,thick,end-seat_start-.012),
             min(s['radius'],.075),.010,seat_grid=(cells,s.get('seat_rows',2 if cells else 0),.009) if cells else None,
-            diamond=s.get('diamond',False),piping=s['family']=='loft',top_piping=s['family']=='venera',segments=22)
+            diamond=s.get('diamond',False),piping=s['family']=='loft',top_piping=s['family']=='venera',
+            plan_radius=.23 if s.get('round_chaise') and depth>regular+.1 else 0,segments=22)
     # Hide the supporting rear below the photographed cushion outline.
     support_h=min(s['arm_h']+.035,h-.16)
     m.panel('rear_support',(0,(floor+support_h)/2,rear+.060),(w-.035,support_h-floor,.12),.025,.001)
     for side in (-1,1):
         if s['arm']==0:continue
-        aw=s['arm'];x=side*(w-aw)/2;end=front
+        aw=s['arm'];x=side*(w-aw)/2;end=rear+regular*.50 if s['family']=='rotating' else front
         if s['family']=='hilton-return' and side==1:end=min(d/2,front+.22)
         arm_depth=end-rear;az=(end+rear)/2
         if s.get('shelves') and side==-1:

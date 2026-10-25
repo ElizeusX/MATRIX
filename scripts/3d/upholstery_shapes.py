@@ -9,10 +9,11 @@ from catalog_surfaces import SurfaceModel
 class UpholsteryModel(SurfaceModel):
     def upholstery(self,name,center,size,radius=.045,bulge=.012,tilt=0,
                    material=0,front_grid=None,seat_grid=None,diamond=False,
-                   pillow=False,piping=False,top_piping=False,roll=0,taper=0,segments=22):
+                   pillow=False,piping=False,top_piping=False,plan_radius=0,roll=0,taper=0,segments=22):
         half=np.array(size,dtype=float)/2
         radius=min(radius,min(half)*.92)
-        core=half-radius
+        radii=np.array([min(plan_radius,half[0]*.8),radius,min(plan_radius,half[2]*.8)]) if plan_radius else np.full(3,radius)
+        core=half-radii
         rotation=np.array([[math.cos(roll),-math.sin(roll),0],
                            [math.sin(roll),math.cos(roll),0],[0,0,1.]])
         def groove(coords,extent,count,spread=.012):
@@ -20,9 +21,9 @@ class UpholsteryModel(SurfaceModel):
             seams=np.linspace(-extent,extent,count+1)[1:-1]
             return np.exp(-(np.min(abs(coords[:,None]-seams),axis=1)/spread)**2)
         def map_points(raw):
-            near=np.clip(raw,-core,core);delta=raw-near
+            near=np.clip(raw,-core,core);delta=(raw-near)/radii
             normals=delta/np.maximum(np.linalg.norm(delta,axis=1)[:,None],1e-12)
-            p=near+radius*normals
+            p=near+radii*normals
             x,y,z=p.T.copy();qx=np.clip(x/half[0],-1,1);qy=np.clip(y/half[1],-1,1);qz=np.clip(z/half[2],-1,1)
             front=np.clip(normals[:,2],0,1);top=np.clip(normals[:,1],0,1)
             front_bump=(1-qx*qx)*(1-qy*qy)
