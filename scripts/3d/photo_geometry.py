@@ -33,10 +33,12 @@ def back_cushions(m,profile,s,inside,rear,h):
         x=offset-span/2+(i+.5)*width;cw=width-.012;cy=bottom+height/2
         kind=s['back'];grid=s.get('grid')
         if kind=='tuft':grid=(3,2,.020)
+        if kind=='fold':grid=(1,2,.016)
         loose=kind in ('pillow','tuft','lumbar')
         m.upholstery(f'back_shell_{i}',(x,cy,z),(cw,height,.225),.025 if loose else .04,
             .035 if loose else .020,tilt=.22 if loose else .17,material=6,
-            front_grid=grid,diamond=kind=='diamond',pillow=loose,
+            front_grid=grid,front_offset=.07 if kind=='fold' else 0,diamond=kind=='diamond',pillow=loose,
+            roll=(.018 if i%2==0 else -.012) if loose else 0,
             piping=s.get('welt',False),segments=24)
         if kind=='straps':
             for j,px in enumerate((x-cw/6,x+cw/6)):
@@ -45,9 +47,6 @@ def back_cushions(m,profile,s,inside,rear,h):
                 m.line(f'back_strap_{i}_{j}',pts,.0075,1)
             xs=np.linspace(x-cw/2+.025,x+cw/2-.025,30)
             m.line(f'back_cross_strap_{i}',[(xx,cy,z+.111) for xx in xs],.0075,1)
-        if kind=='fold':
-            # Hilton-P has one attached folded pad, not a floating headrest.
-            m.line(f'back_fold_{i}',[(xx,cy+.075,z+.11-.17*.075) for xx in np.linspace(x-cw/2+.03,x+cw/2-.03,24)],.0013,1)
     if s['back']=='lumbar':
         for i in range(count*2):
             x=-inside/2+(i+.5)*inside/(count*2)
@@ -86,7 +85,7 @@ def sofa(profile,s,w,d,h):
             thick=seat-floor-.006
         cells=s.get('seat_channels',0)
         m.upholstery(f'seat_shell_{i}',(x,seat-thick/2,sz),(width-.009,thick,end-seat_start-.012),
-            min(s['radius'],.075),.010,seat_grid=(cells,s.get('seat_rows',2 if cells else 0),.009) if cells else None,
+            min(s.get('seat_radius',s['radius']),.075),.010,seat_grid=(cells,s.get('seat_rows',2 if cells else 0),.009) if cells else None,
             diamond=s.get('diamond',False),piping=s['family']=='loft',top_piping=s['family']=='venera',
             plan_radius=.23 if s.get('round_chaise') and depth>regular+.1 else 0,segments=22)
     # Hide the supporting rear below the photographed cushion outline.
@@ -124,11 +123,20 @@ def sofa(profile,s,w,d,h):
             z=rear+.22+(i+.5)*return_depth/count
             # Build a cushion facing +Z, then rotate it to face into the corner (-X).
             x=w/2-s['arm']-.075;height=h-s['seat']-.025
+            angle=math.radians(55 if s['family']=='hilton-return' else 90)
+            if s['family']=='hilton-return':
+                length=return_depth/count
+                x=inner/2-.85+math.cos(angle)*(i+.5)*length
+                z=rear+.24+math.sin(angle)*(i+.5)*length
             before=len(m.parts)
             m.upholstery(f'return_back_shell_{i}',(0,(s['seat']+h)/2,0),
                 (return_depth/count-.012,height,.20),.035,.020,
-                front_grid=(2,2,.010),tilt=.18,material=6,segments=22)
-            part=m.parts[before];p=part[1].copy();part[1][:,0]=x-p[:,2];part[1][:,2]=z+p[:,0]
+                front_grid=(1,2,.014) if s['family']=='hilton-return' else (2,2,.010),
+                front_offset=.07 if s['family']=='hilton-return' else 0,
+                tilt=.22,material=6,segments=22)
+            part=m.parts[before];p=part[1].copy()
+            part[1][:,0]=x+math.cos(angle)*p[:,0]-math.sin(angle)*p[:,2]
+            part[1][:,2]=z+math.sin(angle)*p[:,0]+math.cos(angle)*p[:,2]
     if s.get('trim'):
         for i,(x,width,depth) in enumerate(modules):
             m.panel(f'front_timber_band_{i}',(x,seat-thick-.02,rear+depth-.003),(width,.065,.018),.004,0,material=3)
@@ -163,9 +171,19 @@ def bed(profile,s,w,d,h):
         m.upholstery(f'end_rail_{side}',(0,(floor+top)/2,side*(d-rail)/2),
             (w,top-floor,rail),.023,.003,front_grid=(cols,1,.004) if s.get('rail_channels') else None,segments=16)
     board_bottom=.04;board_height=h-board_bottom;z=-d/2+.055
-    pattern=s.get('bed_pattern');grid=(cols,rows,.008)
-    m.upholstery('headboard_shell',(0,(h+board_bottom)/2,z),(w,board_height,.13),.021,.008,
-        front_grid=grid,diamond=pattern=='diamond',material=0,segments=26)
+    pattern=s.get('bed_pattern');grid=None if pattern=='diamond' else (cols,rows,.008)
+    shell_map=m.upholstery('headboard_shell',(0,(h+board_bottom)/2,z),(w,board_height,.13),.021,.008,
+        front_grid=grid,diamond=pattern=='diamond',material=0,segments=36 if pattern=='diamond' else 26)
+    if pattern=='diamond':
+        # Dark sewn channels follow the actual depressed headboard surface.
+        period=min(.45,w/2);hy=board_height/2;hx=w/2
+        for direction in (-1,1):
+            for k in range(-4,5):
+                points=[]
+                for yy in np.linspace(-hy+.025,hy-.025,120):
+                    xx=direction*yy+k*period*math.sqrt(2)
+                    if -hx+.025<=xx<=hx-.025:points.append((xx,yy,.065))
+                if len(points)>1:m.line(f'headboard_diagonal_stitch_{direction}_{k}',shell_map(np.asarray(points)),.0018,1)
     # The photographed daybed return is at the right end, with matching padding.
     if daybed:
         before=len(m.parts)
@@ -200,9 +218,9 @@ def delta(profile,s,w,d,h):
         seat_grid=(4,2,.006),segments=24)
     rear=-d/2+.035
     m.curved_back('low_lavender_sweep',[-w/2,-w*.28,0],[.45,.65,.61],rear,.07,material=0)
-    m.curved_back('high_violet_sweep',[0,w*.14,w*.38,w/2],[.61,h,.78,.50],rear,.07,material=6)
+    m.curved_back('high_violet_sweep',[0,w*.18,w*.40,w/2],[.61,h,.77,.49],rear,.07,material=6)
     # A continuous rounded right-end return, not a row of raised blocks.
-    m.curved_back('right_end_sweep',[-d/2,d*.05,d/2],[.50,.68,.47],0,.07,material=6)
+    m.curved_back('right_end_sweep',[-d/2,d*.05,d/2],[.49,.48,.47],0,.07,material=6)
     p=m.parts[-1][1].copy();m.parts[-1][1][:,0]=w/2-.035-p[:,2];m.parts[-1][1][:,2]=p[:,0]
     m.upholstery('loose_lavender_pillow',(w*.27,.62,rear+.11),(.38,.34,.13),.020,.028,
         pillow=True,roll=.08,piping=True,material=4,segments=24)

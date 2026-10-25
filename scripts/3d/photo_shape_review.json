@@ -4,7 +4,7 @@
     "pryamyy-dyvan-venera": {
       "photo": "media/products/pryamyy-dyvan-venera.jpg",
       "counts": {"seat_shell_": 2, "back_shell_": 2, "arm_shell_": 2, "continuous_underframe": 1},
-      "ratios": [{"mesh": "arm_shell_-1", "axis": 0, "total_axis": 0, "min": 0.045, "max": 0.078}, {"mesh": "seat_shell_0", "axis": 1, "total_axis": 1, "min": 0.20, "max": 0.29}],
+      "ratios": [{"mesh": "arm_shell_-1", "axis": 0, "total_axis": 0, "min": 0.045, "max": 0.095}, {"mesh": "seat_shell_0", "axis": 1, "total_axis": 1, "min": 0.20, "max": 0.29}],
       "observation": "Two thick seat cushions on one slim base, slender rounded arms, two full loose back pillows and raised tapered feet."
     },
     "kutovyy-dyvan-neo-2": {

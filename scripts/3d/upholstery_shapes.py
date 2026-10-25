@@ -8,7 +8,7 @@ from catalog_surfaces import SurfaceModel
 
 class UpholsteryModel(SurfaceModel):
     def upholstery(self,name,center,size,radius=.045,bulge=.012,tilt=0,
-                   material=0,front_grid=None,seat_grid=None,diamond=False,
+                   material=0,front_grid=None,seat_grid=None,diamond=False,front_offset=0,
                    pillow=False,piping=False,top_piping=False,plan_radius=0,roll=0,taper=0,segments=22):
         half=np.array(size,dtype=float)/2
         radius=min(radius,min(half)*.92)
@@ -35,17 +35,19 @@ class UpholsteryModel(SurfaceModel):
                 puff=np.maximum(0,(1-qx*qx)*(1-qy*qy))**.7
                 p[:,2]=z*(.28+.82*puff)
                 p[:,0]*=1-.024*(1-qy*qy)
-                p[:,1]-=.013*np.clip(qy,0,1)*(1-qx*qx)
+                p[:,1]-=.032*np.clip(qy,0,1)*(1-qx*qx)
+                p[:,1]+=.018*abs(qx)**6*np.clip(qy,0,1)**4
                 rim=np.exp(-((1-abs(qx))/.13)**2)+np.exp(-((1-abs(qy))/.13)**2)
-                p[:,2]+=np.sign(z)*.0022*np.sin(x*75+y*45)*rim*np.maximum(0,1-abs(qx*qy))
+                p[:,2]+=np.sign(z)*.005*np.sin(x*75+y*45)*rim*np.maximum(0,1-abs(qx*qy))
+                p[:,2]+=np.sign(z)*.007*np.sin(x*82+.7)*np.exp(-((qy+.80)/.17)**2)*(1-qx*qx)
             if front_grid:
                 cols,rows,depth=front_grid
-                lines=np.maximum(groove(x,half[0],cols),groove(y,half[1],rows))
+                lines=np.maximum(groove(x,half[0],cols),groove(y-front_offset,half[1],rows))
                 # Full fabric shell is compressed at stitched lines/intersections.
                 weight=np.maximum(0,(1-abs(qx)**8)*(1-abs(qy)**8))
                 p[:,2]-=front*depth*lines*weight
                 for tx in np.linspace(-half[0],half[0],cols+1)[1:-1]:
-                    for ty in np.linspace(-half[1],half[1],rows+1)[1:-1]:
+                    for ty in np.linspace(-half[1],half[1],rows+1)[1:-1]+front_offset:
                         dx=x-tx;dy=y-ty;r=np.hypot(dx,dy)
                         p[:,2]-=front*.011*np.exp(-(r/.046)**2)
                         p[:,2]+=front*.0028*np.sin(np.arctan2(dy,dx)*10+r*75)*np.exp(-(r/.10)**2)*weight
@@ -61,7 +63,7 @@ class UpholsteryModel(SurfaceModel):
                     a=(x+coords)/math.sqrt(2);b=(x-coords)/math.sqrt(2)
                     da=abs((a+period/2)%period-period/2)
                     db=abs((b+period/2)%period-period/2)
-                    p[:,axis]-=mask*.012*np.exp(-(np.minimum(da,db)/.009)**2)
+                    p[:,axis]-=mask*.020*np.exp(-(np.minimum(da,db)/.020)**2)
             if taper:p[:,0]*=1+taper*qy
             p[:,2]-=tilt*p[:,1]
             return p@rotation.T+center
@@ -81,6 +83,7 @@ class UpholsteryModel(SurfaceModel):
                     if seat_grid and a==2:count=seat_grid[1]
                     if count>1:
                         marks=np.linspace(-half[a],half[a],count+1)[1:-1]
+                        if front_grid and a==1:marks=marks+front_offset
                         base=np.r_[base,marks,marks-.012,marks+.012]
                     return np.unique(np.clip(base,-half[a],half[a]))
                 aa,bb=samples(axes[0]),samples(axes[1]);u,v=np.meshgrid(aa,bb)
@@ -109,6 +112,7 @@ class UpholsteryModel(SurfaceModel):
                 for angle in np.linspace(start_angle,start_angle+90,8):
                     t=math.radians(angle);points.append((sx*(rx-r)+r*math.cos(t),half[1],sz*(rz-r)+r*math.sin(t)))
             points.append(points[0]);self.line(name+'_top_welt',map_points(np.asarray(points)),.0014,1)
+        return map_points
 
     def foot(self,name,center,height,splayed=False,material=2):
         self.panel(name,center,(.055,height,.055),.009,0,material=material)

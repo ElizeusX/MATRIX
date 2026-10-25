@@ -11,7 +11,7 @@ FAMILIES={
  'malibu':dict(arm=.26,arm_h=.59,feet=.015,seat=.45,thickness=.42,depth=1.35,back='pillow',radius=.13,seat_channels=6,loose_front=2),
  'loft':dict(arm=.19,arm_h=.64,feet=.025,seat=.46,thickness=.42,depth=1.06,back='pillow',radius=.018,welt=True),
  'lili':dict(arm=.21,arm_h=.66,feet=.03,seat=.47,thickness=.42,depth=1.08,back='pillow',radius=.055,accent=2),
- 'venera':dict(arm=.15,arm_h=.64,feet=.12,seat=.49,thickness=.23,depth=1.00,back='pillow',radius=.095,welt=True,continuous_base=True,splayed=True),
+ 'venera':dict(arm=.18,arm_h=.64,feet=.12,seat=.49,thickness=.23,depth=1.00,back='pillow',radius=.095,seat_radius=.038,welt=True,continuous_base=True,splayed=True),
  'eldorado':dict(arm=.22,arm_h=.67,feet=.02,seat=.50,thickness=.21,depth=1.08,back='stitched',radius=.025,grid=(2,2,.012),wood=True,continuous_base=True),
  'eldorado2':dict(arm=.24,arm_h=.64,feet=.025,seat=.50,thickness=.21,depth=1.08,back='stitched',radius=.025,grid=(2,2,.012),wood=True,continuous_base=True,taper=.06),
  'elegant':dict(arm=.24,arm_h=.65,feet=.035,seat=.49,thickness=.20,depth=1.09,back='straps',radius=.02,grid=(3,2,.008),wood=True,trim=True,continuous_base=True),
