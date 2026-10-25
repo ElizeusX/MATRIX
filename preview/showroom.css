@@ -1248,6 +1248,7 @@ html {
 }
 
 /* A single details button covers the card; favorites remain independently operable. */
+.product-card { position: relative; }
 .product-details-button {
   position: absolute;
   inset: 0;

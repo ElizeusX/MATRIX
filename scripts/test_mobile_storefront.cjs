@@ -43,7 +43,7 @@ async function assertProductCards(page, width, locale) {
   await card.scrollIntoViewIfNeeded();
   const outer = await card.boundingBox();
   const target = await button.boundingBox();
-  assert(Math.abs(outer.width - target.width) <= 2 && Math.abs(outer.height - target.height) <= 2, 'details target covers the whole card');
+  assert(Math.abs(outer.width - target.width) <= 2 && Math.abs(outer.height - target.height) <= 2, `details target covers the whole card: ${JSON.stringify({ outer, target })}`);
   for (const selector of ['.product-photo', 'h3', '.product-meta p']) {
     await card.scrollIntoViewIfNeeded();
     const b = await card.locator(selector).boundingBox();
