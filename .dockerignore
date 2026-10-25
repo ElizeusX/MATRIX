@@ -1,0 +1,10 @@
+**/node_modules
+**/.next
+**/__pycache__
+.git
+.env
+.env.*
+artifacts
+preview/media
+apps/web/public/models
+apps/web/public/model-manifests

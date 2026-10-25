@@ -12,34 +12,38 @@ Product names and descriptions retain the original Ukrainian text in both UI lan
 See [source audit](../docs/SOURCE_AUDIT.md) for the import and validation workflow.
 Merging changes to master can trigger the existing GitHub Pages workflow.
 
-## Product-specific 3D concept viewer
+## Product-specific photo-guided 3D
 
-The catalog displays **View in 3D / Дивитися у 3D** below every product with
-a valid numeric overall width and depth. Each button links to a **product-specific**
-page: `3d.html?product=<product-slug>` (never to the Hilton-2 model for other products).
-The product detail dialog shows the same link.
+All **76 products** have their own 3D view at `3d.html?product=<slug>`.
+The Hilton-2 pilot is retained; the other **75** drafts use authored photo profiles
+in `scripts/3d/catalog_profiles.py`. Profiles record silhouette, seat count,
+chaise orientation, headboard pattern, fabric appearance and visible details.
+The models include rounded crowned upholstery, piping, original woven PBR
+textures, metal feet, timber accents, shelves and bed slats where pictured.
+No manufacturer watermarks or photo pixels are embedded in the models.
 
-The Pages workflow builds a separate `preview/models/<slug>-concept.glb` for
-every eligible catalog product by running:
+These remain **photo-guided drafts**, not scans or manufacturer-approved replicas.
+All heights are estimated. **53 products** (including Hilton-2) have usable catalog
+width/depth and matching GLB/USDZ exports for explicitly estimated AR. The other
+**23** have missing or ambiguous width/depth: all dimensions are labeled estimates,
+and AR stays disabled. Source catalog values are never repaired or overwritten
+with estimates. Beds show one representative visual configuration, not every size.
 
 ```sh
-python3 scripts/3d/build_catalog_concepts.py
-python3 scripts/3d/test_catalog_concepts.py
+python -m pip install -r scripts/3d/requirements.txt
+python scripts/3d/build_catalog_models.py --sync-web
+python scripts/3d/test_catalog_models.py
+node scripts/3d/test_ar_policy.cjs
 ```
 
-Current source catalog: 76 products, **53** with usable overall width and
-depth. Each concept's bounding box matches the imported numeric width/depth.
-However, **height = 0.85m is an explicit unverified design assumption for all
-concepts**. Cushion placement, materials, backrest details, left/right chaise
-orientation and other geometry are procedurally illustrative — **they have
-not been reconstructed from individual photos**. A reference photo is displayed
-beside the 3D concept to make that distinction clear.
+Pages builds all model assets before uploading the preview. `--sync-web` also
+copies them into Next.js public assets; approved API models take precedence over
+the local drafts. Docker Compose generates them in a separate Python build stage.
+Generated catalog binaries/manifests are deployment artifacts and are ignored by
+Git; the existing Hilton-2 pilot assets remain committed.
 
-**AR is intentionally disabled for ALL generated concept GLBs** and no
-USDZ is generated. Room-scale AR will be available only after authentic
-photo-based modeling, a verified manufacturer height, geometry review, asset
-rights approval, and real device testing.
-
-To test: https://elizeusx.github.io/MATRIX/#products → choose a model with
-dimensions → **Дивитися у 3D**. Direct example:
-https://elizeusx.github.io/MATRIX/3d.html?product=molly.
+For browser smoke tests, start `python -m http.server 8765 --bind 127.0.0.1`
+and run `node scripts/3d/test_catalog_viewers.cjs` with Playwright available.
+Tests check real WebGL loads for straight, corner, U-shaped, bed and chaise forms,
+mobile overflow, language switching, and AR gating. Native Quick Look/Scene Viewer
+placement still needs review on actual iPhone/Android devices.

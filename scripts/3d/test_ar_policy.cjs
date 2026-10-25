@@ -11,3 +11,15 @@ assert(eligible(pilot,dimensions));
 for(const change of [{preview_ar:false},{estimated_height_mm:null},{estimated_height_mm:NaN},{height_estimate_source:''},{rights_confirmed:false},{height_mm:980},{usdz_url:''}])assert(!eligible({...pilot,...change},dimensions));
 assert(!eligible(pilot,{...dimensions,y:.85}));
 console.log('PASS: AR approval policy, approved and explicit estimated preview, missing estimates, mismatch, rights, asset URLs');
+
+
+const fs=require('node:fs');
+const path=require('node:path');
+for(const file of fs.readdirSync(path.resolve(__dirname,'../../preview/model-manifests'))){
+ if(!file.endsWith('.json'))continue;
+ const m=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../../preview/model-manifests',file)));
+ assert(require('../../preview/ar-policy.js').viewable(m),file);
+ const size={x:(m.width_mm??m.estimated_width_mm)/1000,z:(m.depth_mm??m.estimated_depth_mm)/1000,y:m.estimated_height_mm/1000};
+ assert.equal(eligible(m,size),m.enabled_ar,file);
+ assert(!approved(m),file);
+}

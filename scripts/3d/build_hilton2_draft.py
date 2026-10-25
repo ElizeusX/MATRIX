@@ -17,7 +17,7 @@ class Model:
         # slight broad compression near the edge, rather than flat box primitives.
         half=np.array(size)/2; core=half-radius
         verts=[]; norms=[]; uv=[]; faces=[]
-        n=16
+        n=getattr(self, "segments", 16)
         for axis in range(3):
             axes=[a for a in range(3) if a!=axis]
             for sign in [-1,1]:
@@ -182,3 +182,4 @@ def main():
         m.panel(f'headrest_{i+1}',(x,.904,-.63),(.75,.16,.205),.043,.007,tilt=.24)
     m.finish();export(m)
 if __name__=='__main__':main()
+
