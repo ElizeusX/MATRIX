@@ -34,10 +34,10 @@ export function Brand() {
   return (
     <span className="brand-logo">
       <img
-        src="/media/matrix-logo.png"
+        src="/media/matrix-logo-transparent-v1.png"
         alt="MATRIX — Фабрика м’яких меблів"
-        width={918}
-        height={610}
+        width={1539}
+        height={1022}
         decoding="async"
       />
     </span>

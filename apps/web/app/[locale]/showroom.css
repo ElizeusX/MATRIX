@@ -805,26 +805,19 @@ body {
 .product-ar-badge .matrix-icon { width: 22px; height: 22px; }
 .product-meta > .product-ar-badge { margin-top: 0; }
 
-/* Match the artwork's near-white paper to the opaque white navigation panel. */
+/* True alpha artwork blends with the navigation without color correction or cropping. */
 .brand-logo {
-  background: #fff;
   display: block;
-  position: relative;
   width: 136px;
   max-width: 100%;
-  aspect-ratio: 640 / 410;
   flex: 0 0 auto;
-  overflow: hidden;
+  background: transparent;
 }
 .brand-logo img {
-  filter: brightness(1.04);
   display: block;
-  position: absolute;
-  width: 143.4375%;
-  max-width: none;
+  width: 100%;
+  max-width: 100%;
   height: auto;
-  left: -21.875%;
-  top: -28.7805%;
 }
 @media (max-width: 580px) {
   .brand-logo { width: 100px; }
