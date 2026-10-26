@@ -32,13 +32,14 @@ export function FurnitureIcon({ kind }: { kind: keyof typeof paths }) {
 }
 export function Brand() {
   return (
-    <>
-      <span className="brand-symbol" aria-hidden="true">
-        M
-      </span>
-      <span className="brand-type">
-        MATRIX<small>ФАБРИКА М’ЯКИХ МЕБЛІВ</small>
-      </span>
-    </>
+    <span className="brand-logo">
+      <img
+        src="/media/matrix-logo.png"
+        alt="MATRIX — Фабрика м’яких меблів"
+        width={918}
+        height={610}
+        decoding="async"
+      />
+    </span>
   );
 }
