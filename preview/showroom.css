@@ -1469,3 +1469,53 @@ html {
 @media (max-width: 580px) {
   .brand-logo { width: 100px; }
 }
+
+
+/* A calm entrance for the showroom; the photo settles without moving content. */
+@keyframes matrix-hero-reveal {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes matrix-hero-photo {
+  from { transform: scale(1.045) translate3d(-0.4%, 0, 0); }
+  to { transform: scale(1) translate3d(0, 0, 0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero.showroom-hero { overflow: hidden; }
+  .showroom-hero .hero-pagination,
+  .showroom-hero .hero-text h1,
+  .showroom-hero .hero-description,
+  .showroom-hero .underlined-link,
+  .showroom-hero .hero-ar {
+    animation: matrix-hero-reveal .85s cubic-bezier(.22, .61, .36, 1) backwards;
+  }
+  .showroom-hero .hero-text h1 { animation-delay: .08s; }
+  .showroom-hero .hero-description { animation-delay: .18s; }
+  .showroom-hero .underlined-link { animation-delay: .28s; }
+  .showroom-hero .hero-ar { animation-delay: .38s; }
+  .showroom-hero:focus-within .hero-text > *,
+  .showroom-hero:focus-within .hero-ar { animation: none; }
+}
+@media (min-width: 581px) and (prefers-reduced-motion: no-preference) {
+  .showroom-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background: inherit;
+    animation: matrix-hero-photo 4.8s cubic-bezier(.22, .61, .36, 1) backwards;
+  }
+}
+@media (max-width: 580px) and (prefers-reduced-motion: no-preference) {
+  .showroom-visual { isolation: isolate; }
+  .showroom-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: inherit;
+    animation: matrix-hero-photo 4.8s cubic-bezier(.22, .61, .36, 1) backwards;
+  }
+}
