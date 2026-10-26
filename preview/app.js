@@ -33,7 +33,14 @@ const translations = {
     dimensions:"Габарити",sleepArea:"Спальне місце",mm:"мм",pending:"Уточнюється",
     photoDemo:"Концепт · не фото виробу",details:"Переглянути модель",open3D:"Переглянути в 3D",
     search:"Пошук моделі",menuOpen:"Відкрити меню",menuClose:"Закрити меню",
-    close:"Закрити",heart:"Додати в обране",count:"моделей"
+    close:"Закрити",heart:"Додати в обране",count:"моделей",
+    openAR:"Переглянути у своїй кімнаті AR",arLoading:"Готуємо AR…",
+    arReady:"Наведіть камеру на підлогу та розмістіть меблі. AR є приблизною візуалізацією.",
+    arEstimate:"Висоту не підтверджено: використано приблизно {height} см. Не використовуйте AR для точних замірів.",
+    arUnsupported:"AR не підтримується цим пристроєм або браузером. Спробуйте Safari на iPhone чи Chrome на сумісному Android. 3D-перегляд доступний окремо.",
+    arUnavailable:"Для цієї моделі AR недоступне. 3D-перегляд доступний окремо.",
+    arMismatch:"Габарити 3D-файлу не відповідають даним моделі. AR недоступне.",
+    arFailed:"Не вдалося запустити AR. 3D-перегляд доступний окремо; закрийте та відкрийте модель, щоб спробувати знову."
   },
   en: {
     skip:"Skip to main content",preview:"Design preview • Prices & ordering disabled",
@@ -60,7 +67,14 @@ const translations = {
     dimensions:"Overall dimensions",sleepArea:"Sleeping area",mm:"mm",pending:"Unconfirmed",
     photoDemo:"Concept · not a product photo",details:"View product",open3D:"View in 3D",
     search:"Search models",menuOpen:"Open menu",menuClose:"Close menu",
-    close:"Close",heart:"Add to favorites",count:"models"
+    close:"Close",heart:"Add to favorites",count:"models",
+    openAR:"View in your room AR",arLoading:"Preparing AR…",
+    arReady:"Aim at the floor and place the furniture. AR is an approximate visualization.",
+    arEstimate:"Height is unconfirmed: this preview uses approximately {height} cm. Do not use AR for precise measurements.",
+    arUnsupported:"This device or browser does not support AR. Try Safari on iPhone or Chrome on a compatible Android. The 3D viewer is available separately.",
+    arUnavailable:"AR is unavailable for this model. The 3D viewer is available separately.",
+    arMismatch:"The 3D file dimensions do not match the model data. AR is unavailable.",
+    arFailed:"Could not launch AR. The 3D viewer is available separately; close and reopen the product to try again."
   }
 };
 
@@ -79,6 +93,21 @@ try {
 } catch { /* private browsing or disabled storage; the preview still works */ }
 
 function t(key){return translations[state.locale][key]||key}
+let productARState={phase:"idle",manifest:null};
+function renderProductAR(){
+ const button=$("#dialog-ar"),reason=$("#dialog-ar-reason");
+ const {phase,manifest}=productARState;
+ button.replaceChildren(document.createTextNode(t("openAR")));
+ button.insertAdjacentHTML("beforeend",window.matrixIcon("cube"));
+ button.hidden=reason.hidden=false;
+ button.disabled=phase!=="ready";
+ button.setAttribute("aria-busy",String(phase==="loading"));
+ let message=t(({idle:"arLoading",loading:"arLoading",ready:"arReady",unsupported:"arUnsupported",unavailable:"arUnavailable",mismatch:"arMismatch",error:"arFailed",failed:"arFailed"})[phase]);
+ if(manifest&&window.MATRIX_AR_POLICY.estimated(manifest))message+=" "+t("arEstimate").replace("{height}",String(manifest.estimated_height_mm/10));
+ reason.textContent=message;
+}
+const productAR=window.MATRIX_AR_LAUNCHER.create({container:dialog,onState:next=>{productARState=next;renderProductAR()}});
+$("#dialog-ar").addEventListener("click",()=>productAR.launch());
 function hasModelPreview(p){
  return typeof p.slug==="string"&&/^[a-z0-9-]+$/.test(p.slug);
 }
@@ -265,13 +294,8 @@ function openProductContents(id){
   conceptLink.href="3d.html?product="+encodeURIComponent(p.slug);
   conceptLink.textContent=(p.slug==="hilton-2"?(state.locale==="uk"?"Переглянути в 3D":"View in 3D"):t("open3D"));conceptLink.insertAdjacentHTML("beforeend",window.matrixIcon("cube"));
  }
- const ar=$("#dialog-ar");const arReason=$("#dialog-ar-reason");
- const hasCatalogSize=Number.isInteger(p.width)&&Number.isInteger(p.depth)&&p.width>=300&&p.depth>=300&&p.width<=8000&&p.depth<=6000;
- ar.hidden=arReason.hidden=false;
- ar.disabled=!hasCatalogSize;
- ar.onclick=()=>{location.href="3d.html?product="+encodeURIComponent(p.slug)+"#viewer"};
- ar.textContent=state.locale==="uk"?"Переглянути у своїй кімнаті":"View in your room";
- arReason.textContent=hasCatalogSize?(state.locale==="uk"?"Приблизне AR: висоту не підтверджено. Оцінку та застереження показано у 3D-перегляді.":"Estimated AR: height is unconfirmed. The estimate and limitations are shown in the 3D viewer."):(state.locale==="uk"?"AR недоступне: ширина та глибина потребують уточнення. 3D-перегляд доступний.":"AR unavailable: width and depth need confirmation. 3D viewing is available.");
+ void productAR.prepare(p.slug);
+ renderProductAR();
  const description=$("#dialog-description");description.textContent=p.description;description.lang="uk";description.hidden=!p.description;
  const note=$("#dialog-source-note");note.hidden=!p.flags.length;
  note.textContent=state.locale==="uk"?"Варіанти та неоднозначні дані наведено як у джерелі. Уточніть характеристики у виробника.":"Variants and ambiguous specifications are shown as supplied. Confirm details with the manufacturer.";
@@ -327,6 +351,7 @@ $("#dialog-close").addEventListener("click",()=>dialog.close());
 $("#favorites-close").addEventListener("click",()=>savedDialog.close());
 for(const d of [dialog,savedDialog]){
  d.addEventListener("close",()=>{
+   if(d===dialog)productAR.reset();
    if(!dialog.open&&!savedDialog.open)document.body.classList.remove("dialog-open");
  });
  d.addEventListener("click",e=>{if(e.target===d)d.close()});

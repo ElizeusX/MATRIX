@@ -21,7 +21,7 @@
 .matrix3d-toolbar button{border:1px solid #dce3db;background:#fff;color:#344536;padding:10px 12px;font-size:12px;cursor:pointer}
 .matrix3d-toolbar button:disabled{opacity:.45;cursor:not-allowed}
 .matrix3d-arbar{padding:0 19px 20px;display:grid;gap:8px}
-.matrix3d-arbutton{border:0;background:#303c35;color:white;padding:17px 22px;cursor:pointer;text-align:center}
+.matrix3d-arbutton{display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;background:#303c35;color:white;padding:17px 22px;cursor:pointer;text-align:center}
 .matrix3d-arbutton:disabled{opacity:.45;cursor:not-allowed}
 .matrix3d-arbar small{color:#738173;font-size:11px;line-height:1.65}
 .matrix3d-disclaimer{font-size:12px;line-height:1.85;color:#81877f;max-width:650px;margin:22px 0}

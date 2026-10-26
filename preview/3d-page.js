@@ -52,8 +52,8 @@ const i18n={
 };
 const pilot = chosen?.slug === "hilton-2";
 const pilotCopy = {
- uk: {pre:"ХІЛТОН-2 · ПРИБЛИЗНЕ AR · ВИСОТА НЕ ПІДТВЕРДЖЕНА",description:"Обертайте диван і наближайте деталі. Форма опрацьована за фотографіями виробника, але пропорції ще не перевірені за кресленнями.",warning:"Чернетка за фото: ширина 280 см, глибина 180 см. Висота виробу невідома; вертикальні пропорції моделі умовні. Тканина — візуальна імітація. Не використовуйте для замірів або замовлення обивки.",unverified:"НЕ ПІДТВЕРДЖЕНА",reference:"Фото виробника · синя конфігурація з оттоманкою ліворуч. Порівняйте з чернеткою.",arButton:"Переглянути у своїй кімнаті",footer:"Хілтон-2 · приблизне AR · висота не підтверджена"},
- en: {pre:"HILTON-2 · ESTIMATED AR · HEIGHT UNCONFIRMED",description:"Rotate the sofa and zoom into details. Shapes follow manufacturer photographs; proportions still need drawing-based review.",warning:"Photo-guided draft: width 280 cm, depth 180 cm. Product height is unknown; vertical proportions are provisional. Fabric is an appearance study. Do not use for measuring or selecting upholstery.",unverified:"UNCONFIRMED",reference:"Manufacturer photo · blue left-chaise configuration. Compare with the draft.",arButton:"View in your room",footer:"Hilton-2 · estimated AR · height unconfirmed"}
+ uk: {pre:"ХІЛТОН-2 · ПРИБЛИЗНЕ AR · ВИСОТА НЕ ПІДТВЕРДЖЕНА",description:"Обертайте диван і наближайте деталі. Форма опрацьована за фотографіями виробника, але пропорції ще не перевірені за кресленнями.",warning:"Чернетка за фото: ширина 280 см, глибина 180 см. Висота виробу невідома; вертикальні пропорції моделі умовні. Тканина — візуальна імітація. Не використовуйте для замірів або замовлення обивки.",unverified:"НЕ ПІДТВЕРДЖЕНА",reference:"Фото виробника · синя конфігурація з оттоманкою ліворуч. Порівняйте з чернеткою.",arButton:"Переглянути у своїй кімнаті AR",footer:"Хілтон-2 · приблизне AR · висота не підтверджена"},
+ en: {pre:"HILTON-2 · ESTIMATED AR · HEIGHT UNCONFIRMED",description:"Rotate the sofa and zoom into details. Shapes follow manufacturer photographs; proportions still need drawing-based review.",warning:"Photo-guided draft: width 280 cm, depth 180 cm. Product height is unknown; vertical proportions are provisional. Fabric is an appearance study. Do not use for measuring or selecting upholstery.",unverified:"UNCONFIRMED",reference:"Manufacturer photo · blue left-chaise configuration. Compare with the draft.",arButton:"View in your room AR",footer:"Hilton-2 · estimated AR · height unconfirmed"}
 };
 const text = key => (pilot && pilotCopy[lang][key]) || i18n[lang][key];
 const name = () => chosen ? (lang==="uk"?chosen.uk:(chosen.en||chosen.uk)) : text("headingUnavailable");
@@ -229,7 +229,7 @@ function renderApproval(){
  $("announcement").textContent=approved?"MATRIX / 3D & AR":(lang==="uk"?"3D ЗА ФОТО · РОЗМІРИ ПОТРЕБУЮТЬ ПЕРЕВІРКИ":"PHOTO-GUIDED 3D · DIMENSIONS NEED REVIEW");
  $("footer-note").textContent=$("announcement").textContent;
  $("ar-title").textContent=ar?(lang==="uk"?"Переглянути у своїй кімнаті":"View in your room"):(lang==="uk"?"AR потребує розмірів":"AR needs dimensions");
- $("ar-button-label").textContent=lang==="uk"?"Переглянути у своїй кімнаті":"View in your room";
+ $("ar-button-label").textContent=lang==="uk"?"Переглянути у своїй кімнаті AR":"View in your room AR";
  $("ar-description").textContent=missing?(lang==="uk"?"Ширина та глибина невідомі або неоднозначні. Доступний тільки 3D-перегляд.":"Width and depth are missing or ambiguous. 3D viewing is available."):
   modelNode?.canActivateAR?(lang==="uk"?"Наведіть камеру на підлогу. Переміщуйте та повертайте меблі жестами.":"Aim at the floor. Move and rotate the furniture with gestures."):
   (lang==="uk"?"AR не підтримується цим пристроєм. 3D-перегляд доступний.":"This device does not support AR. 3D remains available.");

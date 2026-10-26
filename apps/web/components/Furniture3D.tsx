@@ -18,7 +18,7 @@ const copy={
   start:"Відкрити 3D",close:"Закрити 3D",loading:"Завантаження 3D-моделі…",
   zoom:"Збільшити",reset:"Скинути вигляд",fullscreen:"На весь екран",exitFullscreen:"Закрити повний екран",
   dimensions:"Габарити",hideDimensions:"Приховати розміри",
-  ar:"Переглянути у своїй кімнаті",unavailableAR:"AR недоступне в цьому браузері або на пристрої. 3D-перегляд працює окремо.",
+  ar:"Переглянути у своїй кімнаті AR",unavailableAR:"AR недоступне в цьому браузері або на пристрої. 3D-перегляд працює окремо.",
   placement:"У AR наведіть камеру на підлогу та розмістіть меблі. Розміри перевірено за даними виробника.",
   disclaimer:"AR — приблизна візуалізація. Перед покупкою виміряйте кімнату рулеткою. Виявлення зіткнень зі стінами не гарантується.",
   failure:"Не вдалося відкрити 3D. Перевірте інтернет і підтримку WebGL 2 у браузері.",
@@ -30,7 +30,7 @@ const copy={
   start:"Open 3D",close:"Close 3D",loading:"Loading 3D model…",
   zoom:"Zoom in",reset:"Reset view",fullscreen:"Full screen",exitFullscreen:"Exit full screen",
   dimensions:"Dimensions",hideDimensions:"Hide dimensions",
-  ar:"View in your room",unavailableAR:"AR isn't supported by this device or browser. The 3D viewer is still available.",
+  ar:"View in your room AR",unavailableAR:"AR isn't supported by this device or browser. The 3D viewer is still available.",
   placement:"In AR, aim your camera at the floor and position the furniture. Dimensions were verified against manufacturer measurements.",
   disclaimer:"AR positioning is approximate. Check the room with a tape measure before purchasing. Collision detection is not guaranteed.",
   failure:"Could not open 3D. Check your connection and browser WebGL 2 support.",
@@ -156,7 +156,7 @@ export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:
     <button type="button" onClick={()=>setFull(v=>!v)}>{full?t.exitFullscreen:t.fullscreen}</button>
    </div>
    {model.enabled_ar&&model.usdz_url&&<div className="matrix3d-arbar">
-    <button type="button" className="matrix3d-arbutton" disabled={!arEligible||!arSupport} onClick={launchAR}>{t.ar} ↗</button>
+    <button type="button" className="matrix3d-arbutton" disabled={!arEligible||!arSupport} onClick={launchAR}>{t.ar}<FurnitureIcon kind="cube"/></button>
     {!arSupport&&ready&&<small>{t.unavailableAR}</small>}
    </div>}
   </div>}

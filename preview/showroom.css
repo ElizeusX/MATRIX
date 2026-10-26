@@ -982,6 +982,16 @@ html {
   height: 22px;
   stroke-width: 2;
 }
+.dialog-ar-viewer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
 .language-switch {
   font-size: 10px;
 }
