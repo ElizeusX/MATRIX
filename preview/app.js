@@ -277,7 +277,7 @@ function updateLanguage(){
     el.replaceChildren(document.createTextNode(state.locale==="uk"?"Місце для ":"Room for "));
     const em=document.createElement("em");em.textContent=state.locale==="uk"?"ваших історій.":"your stories.";el.append(em);
    }
-  }else {el.textContent=t(key).replace(/[↗♡♥]/g,"").trim();if(["consult","toFavorites","catalog3DDemo"].includes(key))el.insertAdjacentHTML("beforeend",window.matrixIcon(key==="toFavorites"?"heart":key==="catalog3DDemo"?"cube":"arrow"));}
+  }else {el.textContent=t(key).replace(/[↗♡♥]/g,"").trim();if(["consult","toFavorites","catalog3DDemo"].includes(key))el.insertAdjacentHTML("beforeend",window.matrixIcon(key==="toFavorites"?"heart":key==="catalog3DDemo"?"cube":"arrowRight"));}
  }
  search.placeholder=t("search");search.setAttribute("aria-label",t("search"));
  $("#menu-toggle").setAttribute("aria-label",t($("#main-nav").classList.contains("open")?"menuClose":"menuOpen"));
