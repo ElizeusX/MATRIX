@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="216" height="52" viewBox="0 0 216 52" fill="none">
+  <title>MATRIX — Фабрика м’яких меблів</title>
+  <defs>
+    <linearGradient id="gold" x1="3" y1="5" x2="49" y2="45" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#79582C"/><stop offset=".28" stop-color="#DDC18A"/><stop offset=".58" stop-color="#B08A4B"/><stop offset="1" stop-color="#80602F"/>
+    </linearGradient>
+    <linearGradient id="fold" x1="12" y1="7" x2="31" y2="31" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E5CC98"/><stop offset="1" stop-color="#9C773F"/>
+    </linearGradient>
+  </defs>
+  <!-- Folded upholstery-inspired M, redrawn for small-size use. -->
+  <path d="M5 9 12 13Q17 16 17 21V44H5Z" fill="url(#gold)"/>
+  <path d="M3 44V9C3 5 5 4 9 6L33 19C36 21 37 22 37 25L26 33C22 35 19 33 18 29L17 19C17 16 15 14 12 12L5 8V44Z" fill="url(#gold)"/>
+  <path d="M6 8 17 15C20 17 20 20 20 24V28C20 32 23 33 26 31L36 24C37 23 37 22 35 21L9 7C6 5 5 6 6 8Z" fill="url(#fold)"/>
+  <path d="M38 23V15C38 10 42 6 48 5V44H45V25C45 22 44 21 41 22Z" fill="url(#gold)"/>
+  <path d="M28 44V37C28 32 32 29 37 27L43 24V44Z" fill="url(#gold)"/>
+  <path d="M5 43V9L12 13C15 15 16 17 16 20V43M29 43V37C29 32 33 30 38 28L42 26" stroke="#F3E3BC" stroke-opacity=".65" stroke-width=".65"/>
+  <!-- Geometric wordmark uses paths, so it never depends on a downloaded font. -->
+  <g stroke="#211F1B" stroke-width="2.7" stroke-linejoin="miter" stroke-linecap="square">
+    <path d="M63 31V10L75 23 87 10V31"/>
+    <path d="M97 31 108 10 119 31"/>
+    <path d="M128 10H150M139 10V31"/>
+    <path d="M160 31V10H170C182 10 182 23 170 23H166M170 23 180 31"/>
+    <path d="M190 10V31"/>
+    <path d="M201 10 213 31M213 10 201 31"/>
+  </g>
+  <text x="62" y="44" fill="#6D665C" font-family="Arial, sans-serif" font-size="5.7" letter-spacing="1.6">ФАБРИКА М’ЯКИХ МЕБЛІВ</text>
+</svg>
