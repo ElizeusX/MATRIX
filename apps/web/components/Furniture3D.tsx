@@ -2,6 +2,7 @@
 
 import {useEffect,useRef,useState} from "react";
 import type {FurnitureModel} from "../lib/ar-models";
+import {FurnitureIcon} from "./Brand";
 import "./furniture-3d.css";
 
 type ViewerElement = HTMLElement & {
@@ -17,7 +18,7 @@ const copy={
   start:"Відкрити 3D",close:"Закрити 3D",loading:"Завантаження 3D-моделі…",
   zoom:"Збільшити",reset:"Скинути вигляд",fullscreen:"На весь екран",exitFullscreen:"Закрити повний екран",
   dimensions:"Габарити",hideDimensions:"Приховати розміри",
-  ar:"Переглянути у своїй кімнаті",unavailableAR:"AR недоступне в цьому браузері або на пристрої. 3D-перегляд працює окремо.",
+  ar:"Переглянути у своїй кімнаті AR / 3D",unavailableAR:"AR недоступне в цьому браузері або на пристрої. 3D-перегляд працює окремо.",
   placement:"У AR наведіть камеру на підлогу та розмістіть меблі. Розміри перевірено за даними виробника.",
   disclaimer:"AR — приблизна візуалізація. Перед покупкою виміряйте кімнату рулеткою. Виявлення зіткнень зі стінами не гарантується.",
   failure:"Не вдалося відкрити 3D. Перевірте інтернет і підтримку WebGL 2 у браузері.",
@@ -29,7 +30,7 @@ const copy={
   start:"Open 3D",close:"Close 3D",loading:"Loading 3D model…",
   zoom:"Zoom in",reset:"Reset view",fullscreen:"Full screen",exitFullscreen:"Exit full screen",
   dimensions:"Dimensions",hideDimensions:"Hide dimensions",
-  ar:"View in your room",unavailableAR:"AR isn't supported by this device or browser. The 3D viewer is still available.",
+  ar:"View in your room AR / 3D",unavailableAR:"AR isn't supported by this device or browser. The 3D viewer is still available.",
   placement:"In AR, aim your camera at the floor and position the furniture. Dimensions were verified against manufacturer measurements.",
   disclaimer:"AR positioning is approximate. Check the room with a tape measure before purchasing. Collision detection is not guaranteed.",
   failure:"Could not open 3D. Check your connection and browser WebGL 2 support.",
@@ -38,7 +39,7 @@ const copy={
  }
 };
 const round=(n:number)=>Math.round(n/10);
-export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:"uk"|"en"}){
+export default function Furniture3D({model,locale,initiallyOpen=false}:{model:FurnitureModel;locale:"uk"|"en";initiallyOpen?:boolean}){
  const draft=model.status==="draft";
  const unknown=draft&&model.dimensions_estimated===true;
  const initialOrbit=draft&&model.camera_orbit&&/^-?\d+deg \d+deg auto$/.test(model.camera_orbit)?model.camera_orbit:"-25deg 75deg auto";
@@ -54,7 +55,7 @@ export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:
   placement:"Estimated AR: height follows photo proportions. Geometry and fabric are unverified.",
   disclaimer:unknown?"Width, depth and height are missing or ambiguous. All model dimensions are estimates. AR is disabled.":`Product height is unknown: this preview uses approximately ${Math.round(height/10)} cm. Shape and fabric follow photos. Do not use AR for accurate measurements; confirm dimensions with the manufacturer.`
  }):{})};
- const [open,setOpen]=useState(false);
+ const [open,setOpen]=useState(initiallyOpen);
  const [registered,setRegistered]=useState(false);
  const [ready,setReady]=useState(false);
  const [validatedSource,setValidatedSource]=useState("");
@@ -124,7 +125,7 @@ export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:
   <div ref={container} className={`matrix3d-stage ${full?"matrix3d-full":""}`}>
    <div className="matrix3d-topbar">
     <span className="matrix3d-verified">MATRIX / 3D</span>
-    <button type="button" onClick={close} aria-label={t.close}>{t.close} ×</button>
+    <button type="button" onClick={close} aria-label={t.close}>{t.close}<FurnitureIcon kind="close"/></button>
    </div>
    {!registered&&!error&&<div className="matrix3d-loading" role="status">{t.loading}</div>}
    {registered&&<model-viewer
@@ -155,7 +156,7 @@ export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:
     <button type="button" onClick={()=>setFull(v=>!v)}>{full?t.exitFullscreen:t.fullscreen}</button>
    </div>
    {model.enabled_ar&&model.usdz_url&&<div className="matrix3d-arbar">
-    <button type="button" className="matrix3d-arbutton" disabled={!arEligible||!arSupport} onClick={launchAR}>{t.ar} ↗</button>
+    <button type="button" className="matrix3d-arbutton" disabled={!arEligible||!arSupport} onClick={launchAR}>{t.ar}<FurnitureIcon kind="cube"/></button>
     {!arSupport&&ready&&<small>{t.unavailableAR}</small>}
    </div>}
   </div>}

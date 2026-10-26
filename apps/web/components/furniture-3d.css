@@ -9,7 +9,10 @@
 .matrix3d-stage{position:relative;border:1px solid #e9eee7;background:#fff;margin-top:30px;min-height:420px;overflow:hidden}
 .matrix3d-stage model-viewer{display:block;width:100%;height:500px;background:#fff;--progress-bar-color:#6a826d;--poster-color:#fff}
 .matrix3d-topbar{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-bottom:1px solid #edf0eb}
-.matrix3d-topbar button{border:0;background:transparent;font-size:13px;cursor:pointer}
+.matrix3d-topbar button{-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:rgba(0,0,0,.1);-webkit-text-fill-color:currentColor;accent-color:#000;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:44px;min-height:44px;padding:8px 12px;border:1px solid #ded9d1;border-radius:24px;background:#fff;color:#000;font:inherit;font-size:13px;cursor:pointer}
+.matrix3d-topbar button:hover,.matrix3d-topbar button:active{background:#f1efeb}
+.matrix3d-topbar button:focus-visible{outline:2px solid #000;outline-offset:3px}
+.matrix3d-topbar button .matrix-icon{width:22px;height:22px;stroke-width:2}
 .matrix3d-loading{min-height:380px;display:grid;place-items:center;font-size:14px;color:#6e766d}
 .matrix3d-measures{position:absolute;top:80px;left:16px;z-index:2;display:flex;flex-wrap:wrap;gap:7px;pointer-events:none}
 .matrix3d-measures span{background:rgba(255,255,255,.94);border:1px solid #e6eee5;padding:8px 10px;font-size:12px;color:#465b48}
@@ -18,7 +21,7 @@
 .matrix3d-toolbar button{border:1px solid #dce3db;background:#fff;color:#344536;padding:10px 12px;font-size:12px;cursor:pointer}
 .matrix3d-toolbar button:disabled{opacity:.45;cursor:not-allowed}
 .matrix3d-arbar{padding:0 19px 20px;display:grid;gap:8px}
-.matrix3d-arbutton{border:0;background:#303c35;color:white;padding:17px 22px;cursor:pointer;text-align:center}
+.matrix3d-arbutton{display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;background:#303c35;color:white;padding:17px 22px;cursor:pointer;text-align:center}
 .matrix3d-arbutton:disabled{opacity:.45;cursor:not-allowed}
 .matrix3d-arbar small{color:#738173;font-size:11px;line-height:1.65}
 .matrix3d-disclaimer{font-size:12px;line-height:1.85;color:#81877f;max-width:650px;margin:22px 0}

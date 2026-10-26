@@ -40,5 +40,7 @@ jobs:
         run: |
           node --check preview/app.js
           node --check preview/3d-page.js
+          node --check preview/ar-launcher.js
           node scripts/3d/test_ar_policy.cjs
+          node scripts/3d/test_product_ar.cjs
 

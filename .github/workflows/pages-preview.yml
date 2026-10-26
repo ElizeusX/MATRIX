@@ -34,7 +34,9 @@ jobs:
           node --check preview/catalog.js
           node --check preview/3d-page.js
           node --check preview/ar-policy.js
+          node --check preview/ar-launcher.js
           node scripts/3d/test_ar_policy.cjs
+          node scripts/3d/test_product_ar.cjs
       - name: Validate required static assets
         shell: bash
         run: |

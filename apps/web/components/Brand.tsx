@@ -8,7 +8,7 @@ const paths = {
   cube: "m16 6 9 5v10l-9 5-9-5V11l9-5Zm0 10 9-5m-9 5-9-5m9 5v10M3 10V4h6m14 0h6v6M3 23v6h6m14 0h6v-6",
   heart: "M16 27 5 16C-2 8 9-1 16 9c7-10 18-1 11 7L16 27Zm-8-15q0-4 4-4",
   arrow: "M3 16h25M21 8l8 8-8 8M6 12v8",
-  close: "m8 8 16 16M24 8 8 24M4 10V4h6m12 24h6v-6",
+  close: "M8 8 24 24M24 8 8 24",
   menu: "M4 8h24M4 16h18M4 24h24M27 14v4",
   reset: "M6 12a11 11 0 1 1 1 12M6 4v8h8M16 10v7l5 3",
   fullscreen: "M4 12V4h8m8 0h8v8M4 20v8h8m8 0h8v-8M12 16h8m-4-4v8",
