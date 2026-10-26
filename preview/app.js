@@ -82,12 +82,35 @@ function t(key){return translations[state.locale][key]||key}
 function hasModelPreview(p){
  return typeof p.slug==="string"&&/^[a-z0-9-]+$/.test(p.slug);
 }
+// Load only metadata for nearby cards; never download 3D assets for a badge.
+const arAvailability=new Map();
+function addARBadge(card){
+ const slug=card.dataset.slug;
+ if(!slug||!/^[a-z0-9-]+$/.test(slug))return;
+ if(!arAvailability.has(slug)){
+  arAvailability.set(slug,fetch("model-manifests/"+encodeURIComponent(slug)+".json",{cache:"no-store"})
+   .then(response=>response.ok?response.json():null)
+   .then(model=>model?.slug===slug&&window.MATRIX_AR_POLICY.available(model))
+   .catch(()=>false));
+ }
+ void arAvailability.get(slug).then(available=>{
+  if(!available||!card.isConnected||card.querySelector(".product-ar-badge"))return;
+  const badge=document.createElement("span");badge.className="product-ar-badge";
+  badge.innerHTML=window.matrixIcon("cube");
+  const label=document.createElement("span");label.textContent="3D / AR";
+  badge.append(label);card.querySelector(".product-meta").append(badge);
+ });
+}
+const arBadgeObserver=typeof IntersectionObserver==="function"?new IntersectionObserver(entries=>{
+ for(const entry of entries)if(entry.isIntersecting){arBadgeObserver.unobserve(entry.target);addARBadge(entry.target);}
+},{rootMargin:"200px"}):null;
 function getCategory(category){
   return category==="corner-sofas"?t("catCorner"):category==="straight-sofas"?t("catStraight"):category==="beds"?t("catBeds"):t("catUnspecified");
 }
 function elementsForProduct(p,index){
   const fragment=document.createElement("article");
   fragment.className="product-card";
+  fragment.dataset.slug=p.slug;
   const visual=document.createElement("div");
   visual.className="product-visual-wrap";
   const artwork=document.createElement("div");
@@ -134,7 +157,9 @@ function drawProducts(){
   const categoryMatch=state.filter==="all"||p.category===state.filter;
   return categoryMatch&&(p.uk.toLocaleLowerCase().includes(q)||p.en.toLocaleLowerCase().includes(q));
  });
+ arBadgeObserver?.disconnect();
  grid.replaceChildren(...filtered.map((p,i)=>elementsForProduct(p,i)));
+ for(const card of grid.children){if(arBadgeObserver)arBadgeObserver.observe(card);else addARBadge(card);}
  $("#empty-message").hidden=filtered.length!==0;
  $("#catalog-count").textContent=String(filtered.length).padStart(2,"0")+" "+t("count").toUpperCase();
  for(const filter of document.querySelectorAll("[data-filter]")){

@@ -8,7 +8,9 @@
  function estimated(m){return base(m)&&m.status==='draft'&&m.preview_ar===true&&m.height_mm===null&&positive(m.estimated_height_mm)&&typeof m.height_estimate_source==='string'&&m.height_estimate_source.trim().length>0;}
  function matches(m,size){return (approved(m)||estimated(m))&&!!size&&[size.x,size.z,size.y].every((v,i)=>{const expected=[m.width_mm,m.depth_mm,estimated(m)?m.estimated_height_mm:m.height_mm][i];return positive(v)&&Math.abs(v*1000-expected)<=Math.max(5,expected*.01)});}
  function eligible(m,size){return matches(m,size)&&m.enabled_ar===true&&safeAsset(m.usdz_url,'.usdz');}
- const policy={viewable,approved,estimated,matches,eligible};
+ // Catalog capability only; the viewer still validates mesh scale and device support.
+ function available(m){return (approved(m)||estimated(m))&&m.dimensions_estimated!==true&&m.enabled_ar===true&&safeAsset(m.usdz_url,'.usdz');}
+ const policy={viewable,approved,estimated,matches,eligible,available};
  if(typeof module!=='undefined')module.exports=policy;else root.MATRIX_AR_POLICY=policy;
 })(typeof window==='undefined'?globalThis:window);
 

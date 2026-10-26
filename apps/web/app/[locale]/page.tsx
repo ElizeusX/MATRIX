@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ARBadge from "../../components/ARBadge";
 import { FurnitureIcon } from "../../components/Brand";
 import { getApprovedModel } from "../../lib/ar-models";
 import { getProducts, money } from "../../lib/catalog";
@@ -123,6 +124,7 @@ export default async function LocalHome({
                     {current?.available && current.price_minor != null
                       ? money(current.price_minor, locale, current.currency)
                       : t.price}
+                    <ARBadge slug={p.slug} />
                   </p>
                 </Link>
               </article>

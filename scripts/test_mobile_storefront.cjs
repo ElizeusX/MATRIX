@@ -41,10 +41,16 @@ async function assertProductCards(page, width, locale) {
   assert.equal(await button.getAttribute('aria-haspopup'), 'dialog');
   assert((await button.getAttribute('aria-label')).includes(title));
   await card.scrollIntoViewIfNeeded();
+  const badge = card.locator('.product-ar-badge');
+  await badge.waitFor({ state: 'visible' });
+  assert.equal((await badge.textContent()).trim(), '3D / AR');
+  assert(await badge.evaluate(el => el.tagName === 'SPAN' && !el.hasAttribute('tabindex') && !el.closest('a,button')));
+  assert.equal(await badge.evaluate(el => getComputedStyle(el).pointerEvents), 'none');
+  assert.equal(await page.locator('.product-card[data-slug="hilton-p"] .product-ar-badge').count(), 0, '3D-only product has no AR badge');
   const outer = await card.boundingBox();
   const target = await button.boundingBox();
   assert(Math.abs(outer.width - target.width) <= 2 && Math.abs(outer.height - target.height) <= 2, `details target covers the whole card: ${JSON.stringify({ outer, target })}`);
-  for (const selector of ['.product-photo', 'h3', '.product-meta p']) {
+  for (const selector of ['.product-photo', 'h3', '.product-meta p', '.product-ar-badge']) {
     await card.scrollIntoViewIfNeeded();
     const b = await card.locator(selector).boundingBox();
     await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2);
@@ -72,6 +78,7 @@ async function assertProductCards(page, width, locale) {
   assert.equal(await favorite.getAttribute('aria-pressed'), 'false');
   assert(!(await page.locator('#product-dialog').isVisible()));
   await card.scrollIntoViewIfNeeded();
+  await card.locator(".product-ar-badge").waitFor({ state: "visible" });
   await page.screenshot({ path: `artifacts/mobile/catalog-${width}-${locale}.png`, fullPage: false });
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
 }
@@ -116,7 +123,7 @@ async function assertProductCards(page, width, locale) {
       assert.deepEqual(errors, []);
       await page.close();
     }
-    console.log('PASS: responsive layout, UA/EN, enlarged text, hero/story separation, touch targets, menu, category filters, full-card details, keyboard access, independent favorites and AR link');
+    console.log('PASS: responsive layout, UA/EN, enlarged text, hero/story separation, touch targets, menu, category filters, full-card details, keyboard access, independent favorites, passive AR badges and AR link');
   } finally {
     await browser.close();
   }
