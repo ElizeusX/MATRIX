@@ -51,21 +51,30 @@ function fixture(options={}){
   assert.equal(f.state.phase,'loading');assert(!('ar' in f.viewer.attrs));
   f.click();assert.equal(f.launched,0);
   await f.load();assert.equal(f.state.phase,'ready');assert.equal(f.viewer.attrs['ios-src'],manifest.usdz_url);
+  assert(f.state.loaded);assert('camera-controls' in f.viewer.attrs);assert(!('aria-hidden' in f.viewer.attrs));
+  f.viewer.setAttribute('camera-orbit','0deg 0deg auto');f.viewer.setAttribute('field-of-view','20deg');
+  f.launcher.resetView();assert.equal(f.viewer.attrs['camera-orbit'],'-25deg 75deg auto');assert.equal(f.viewer.attrs['field-of-view'],'32deg');
   assert.equal(f.viewer.attrs['ar-modes'],'scene-viewer quick-look');assert.equal(f.viewer.attrs['ar-scale'],'fixed');
   assert.equal(f.viewer.attrs['ar-placement'],'floor');assert.equal(f.viewer.attrs.loading,'eager');
   f.click();assert.equal(f.launched,1);assert.equal(f.fetches,1);
-  await f.launcher.prepare('hilton-2');assert.equal(f.fetches,1,'relabeling must reuse the prepared model');
+  await f.launcher.prepare('hilton-2','Translated product');assert.equal(f.fetches,1,'relabeling must reuse the prepared model');assert.equal(f.viewer.attrs.alt,'Translated product');
   f.launcher.reset();assert(f.viewer.removed);f.click();assert.equal(f.launched,1);
+  assert.equal(f.state.loaded,false);
   assert.equal(f.intervals.size,0);assert.equal(f.timeouts.size,0);
  }
- for(const change of [{enabled_ar:false},{rights_confirmed:false},{dimensions_estimated:true},{usdz_url:'https://untrusted.test/model.usdz'},{slug:'different-product'}]){
+ for(const change of [{rights_confirmed:false},{enabled_3d:false},{glb_url:'https://untrusted.test/model.glb'},{slug:'different-product'}]){
   const f=fixture({manifest:{...draft,...change}});await f.launcher.prepare('hilton-2');
   assert.equal(f.state.phase,'unavailable');assert(!f.viewer);f.click();assert.equal(f.launched,0);
+ }
+ for(const change of [{enabled_ar:false},{dimensions_estimated:true},{usdz_url:'https://untrusted.test/model.usdz'}]){
+  const f=fixture({manifest:{...draft,...change}});await f.launcher.prepare('hilton-2');await f.load();
+  assert(f.state.loaded,'3D remains available when AR is unavailable');assert.equal(f.state.phase,'unavailable');
+  assert(!('ar' in f.viewer.attrs));f.click();assert.equal(f.launched,0);f.launcher.resetView();f.launcher.reset();
  }
  const mismatch=fixture({size:{...dimensions,y:.85}});await mismatch.launcher.prepare('hilton-2');await mismatch.load();
  assert.equal(mismatch.state.phase,'mismatch');assert(!('ar' in mismatch.viewer.attrs));mismatch.click();assert.equal(mismatch.launched,0);
  const unsupported=fixture({supported:false});await unsupported.launcher.prepare('hilton-2');await unsupported.load();await unsupported.poll();
- assert.equal(unsupported.state.phase,'unsupported');unsupported.click();assert.equal(unsupported.launched,0);
+ assert.equal(unsupported.state.phase,'unsupported');assert(unsupported.state.loaded,'unsupported AR devices can still view 3D');unsupported.click();assert.equal(unsupported.launched,0);
  const delayed=fixture({supported:false});await delayed.launcher.prepare('hilton-2');await delayed.load();
  delayed.viewer.canActivateAR=true;await delayed.poll();assert.equal(delayed.state.phase,'ready');delayed.click();assert.equal(delayed.launched,1);
  for(const options of [{launchRejects:true},{launchThrows:true}]){
@@ -75,7 +84,7 @@ function fixture(options={}){
   const f=fixture(options);await f.launcher.prepare('hilton-2');assert.equal(f.state.phase,options.notFound?'unavailable':'error');assert(!f.viewer);
  }
  const failure=fixture();await failure.launcher.prepare('hilton-2');failure.viewer.dispatchEvent(new Event('error'));
- assert.equal(failure.state.phase,'error');failure.click();assert.equal(failure.launched,0);
+ assert.equal(failure.state.phase,'error');assert.equal(failure.state.loaded,false);failure.click();assert.equal(failure.launched,0);
  const changed=fixture();await changed.launcher.prepare('hilton-2');await changed.load();changed.viewer.getDimensions=()=>({...dimensions,x:1});
  changed.click();assert.equal(changed.state.phase,'mismatch');assert.equal(changed.launched,0);
  const timeout=fixture();await timeout.launcher.prepare('hilton-2');[...timeout.timeouts.values()].find(t=>t.delay===30000).fn();
@@ -88,5 +97,5 @@ function fixture(options={}){
  race.click();assert.equal(race.launched,1);race.launcher.reset();
  const missingLibrary=fixture({libraryMissing:true});const opening=missingLibrary.launcher.prepare('hilton-2');await tick();
  missingLibrary.document.head.children[0].onerror();await opening;assert.equal(missingLibrary.state.phase,'error');
- console.log('PASS: direct synchronous AR, approved/estimated policy, native assets, scale checks, delayed/unsupported devices, errors, teardown and product-switch races');
+ console.log('PASS: inline 3D camera/reset, 3D-only and unsupported AR devices, synchronous native AR, approval/scale checks, errors, teardown and product-switch races');
 })().catch(error=>{console.error(error);process.exitCode=1});

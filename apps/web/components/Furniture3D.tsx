@@ -39,7 +39,7 @@ const copy={
  }
 };
 const round=(n:number)=>Math.round(n/10);
-export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:"uk"|"en"}){
+export default function Furniture3D({model,locale,initiallyOpen=false}:{model:FurnitureModel;locale:"uk"|"en";initiallyOpen?:boolean}){
  const draft=model.status==="draft";
  const unknown=draft&&model.dimensions_estimated===true;
  const initialOrbit=draft&&model.camera_orbit&&/^-?\d+deg \d+deg auto$/.test(model.camera_orbit)?model.camera_orbit:"-25deg 75deg auto";
@@ -55,7 +55,7 @@ export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:
   placement:"Estimated AR: height follows photo proportions. Geometry and fabric are unverified.",
   disclaimer:unknown?"Width, depth and height are missing or ambiguous. All model dimensions are estimates. AR is disabled.":`Product height is unknown: this preview uses approximately ${Math.round(height/10)} cm. Shape and fabric follow photos. Do not use AR for accurate measurements; confirm dimensions with the manufacturer.`
  }):{})};
- const [open,setOpen]=useState(false);
+ const [open,setOpen]=useState(initiallyOpen);
  const [registered,setRegistered]=useState(false);
  const [ready,setReady]=useState(false);
  const [validatedSource,setValidatedSource]=useState("");

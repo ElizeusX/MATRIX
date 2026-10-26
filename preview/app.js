@@ -35,12 +35,13 @@ const translations = {
     search:"Пошук моделі",menuOpen:"Відкрити меню",menuClose:"Закрити меню",
     close:"Закрити",heart:"Додати в обране",count:"моделей",
     openAR:"Переглянути у своїй кімнаті AR / 3D",arLoading:"Готуємо AR…",
+    inline3D:"Модель у 3D",inline3DLoading:"Завантажуємо 3D-модель…",inline3DFailed:"Не вдалося завантажити 3D. Закрийте та відкрийте модель, щоб спробувати знову.",inline3DUnavailable:"3D-модель поки недоступна.",inline3DHint:"Обертайте одним пальцем, наближайте двома.",reset3D:"Скинути вигляд",
     arReady:"Наведіть камеру на підлогу та розмістіть меблі. AR є приблизною візуалізацією.",
     arEstimate:"Висоту не підтверджено: використано приблизно {height} см. Не використовуйте AR для точних замірів.",
-    arUnsupported:"AR не підтримується цим пристроєм або браузером. Спробуйте Safari на iPhone чи Chrome на сумісному Android. 3D-перегляд доступний окремо.",
-    arUnavailable:"Для цієї моделі AR недоступне. 3D-перегляд доступний окремо.",
+    arUnsupported:"AR не підтримується цим пристроєм або браузером. Спробуйте Safari на iPhone чи Chrome на сумісному Android. Обертати модель можна у 3D під фотографіями.",
+    arUnavailable:"Для цієї моделі AR недоступне.",
     arMismatch:"Габарити 3D-файлу не відповідають даним моделі. AR недоступне.",
-    arFailed:"Не вдалося запустити AR. 3D-перегляд доступний окремо; закрийте та відкрийте модель, щоб спробувати знову."
+    arFailed:"Не вдалося запустити AR. Закрийте та відкрийте модель, щоб спробувати знову."
   },
   en: {
     skip:"Skip to main content",preview:"Design preview • Prices & ordering disabled",
@@ -69,12 +70,13 @@ const translations = {
     search:"Search models",menuOpen:"Open menu",menuClose:"Close menu",
     close:"Close",heart:"Add to favorites",count:"models",
     openAR:"View in your room AR / 3D",arLoading:"Preparing AR…",
+    inline3D:"3D model",inline3DLoading:"Loading 3D model…",inline3DFailed:"Could not load 3D. Close and reopen the product to try again.",inline3DUnavailable:"A 3D model is not available yet.",inline3DHint:"Drag to rotate, pinch to zoom.",reset3D:"Reset view",
     arReady:"Aim at the floor and place the furniture. AR is an approximate visualization.",
     arEstimate:"Height is unconfirmed: this preview uses approximately {height} cm. Do not use AR for precise measurements.",
-    arUnsupported:"This device or browser does not support AR. Try Safari on iPhone or Chrome on a compatible Android. The 3D viewer is available separately.",
-    arUnavailable:"AR is unavailable for this model. The 3D viewer is available separately.",
+    arUnsupported:"This device or browser does not support AR. Try Safari on iPhone or Chrome on a compatible Android. Rotate the 3D model below the photographs.",
+    arUnavailable:"AR is unavailable for this model.",
     arMismatch:"The 3D file dimensions do not match the model data. AR is unavailable.",
-    arFailed:"Could not launch AR. The 3D viewer is available separately; close and reopen the product to try again."
+    arFailed:"Could not launch AR. Close and reopen the product to try again."
   }
 };
 
@@ -93,10 +95,10 @@ try {
 } catch { /* private browsing or disabled storage; the preview still works */ }
 
 function t(key){return translations[state.locale][key]||key}
-let productARState={phase:"idle",manifest:null};
+let productARState={phase:"idle",manifest:null,loaded:false};
 function renderProductAR(){
  const button=$("#dialog-ar"),reason=$("#dialog-ar-reason");
- const {phase,manifest}=productARState;
+ const {phase,manifest,loaded}=productARState;
  button.replaceChildren(document.createTextNode(t("openAR")));
  button.insertAdjacentHTML("beforeend",window.matrixIcon("cube"));
  button.hidden=reason.hidden=false;
@@ -105,9 +107,15 @@ function renderProductAR(){
  let message=t(({idle:"arLoading",loading:"arLoading",ready:"arReady",unsupported:"arUnsupported",unavailable:"arUnavailable",mismatch:"arMismatch",error:"arFailed",failed:"arFailed"})[phase]);
  if(manifest&&window.MATRIX_AR_POLICY.estimated(manifest))message+=" "+t("arEstimate").replace("{height}",String(manifest.estimated_height_mm/10));
  reason.textContent=message;
+ const placeholder=$("#dialog-3d-placeholder");
+ placeholder.hidden=loaded;
+ placeholder.textContent=t(phase==="error"?"inline3DFailed":phase==="unavailable"?"inline3DUnavailable":"inline3DLoading");
+ $("#dialog-3d-stage").setAttribute("aria-busy",String(!loaded&&phase==="loading"));
+ $("#dialog-3d-reset").disabled=!loaded;
 }
-const productAR=window.MATRIX_AR_LAUNCHER.create({container:dialog,onState:next=>{productARState=next;renderProductAR()}});
+const productAR=window.MATRIX_AR_LAUNCHER.create({container:$("#dialog-3d-stage"),onState:next=>{productARState=next;renderProductAR()}});
 $("#dialog-ar").addEventListener("click",()=>productAR.launch());
+$("#dialog-3d-reset").addEventListener("click",()=>productAR.resetView());
 function hasModelPreview(p){
  return typeof p.slug==="string"&&/^[a-z0-9-]+$/.test(p.slug);
 }
@@ -288,13 +296,8 @@ function openProductContents(id){
   specRow(t("dimensions"),p.dimensions?`${p.dimensions} ${t("mm")}`:t("pending")),
   specRow(t("sleepArea"),p.sleepingArea?`${p.sleepingArea} ${t("mm")}`:t("pending"))
  );
- const conceptLink=$("#dialog-3d-link");
- conceptLink.hidden=!hasModelPreview(p);
- if(hasModelPreview(p)){
-  conceptLink.href="3d.html?product="+encodeURIComponent(p.slug);
-  conceptLink.textContent=(p.slug==="hilton-2"?(state.locale==="uk"?"Переглянути в 3D":"View in 3D"):t("open3D"));conceptLink.insertAdjacentHTML("beforeend",window.matrixIcon("cube"));
- }
- void productAR.prepare(p.slug);
+ $("#dialog-3d").hidden=!hasModelPreview(p);
+ void productAR.prepare(p.slug,p[state.locale]+" — "+t("inline3D"));
  renderProductAR();
  const description=$("#dialog-description");description.textContent=p.description;description.lang="uk";description.hidden=!p.description;
  const note=$("#dialog-source-note");note.hidden=!p.flags.length;

@@ -56,8 +56,11 @@ async function assertProductCards(page, width, locale) {
     await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2);
     assert(await page.locator('#product-dialog').isVisible(), `${selector} opens details at ${width}/${locale}`);
     assert.equal(await page.locator('#dialog-title').textContent(), title);
-    assert(await page.locator('#dialog-3d-link').isVisible(), '3D remains in product details');
-    assert.equal(await page.locator('#dialog-3d-link').getAttribute('href'), '3d.html?product=hilton-2');
+    assert(await page.locator('#dialog-3d').isVisible(), '3D is embedded in product details');
+    assert.equal(await page.locator('#product-dialog a[href^="3d.html"]').count(), 0, 'details never navigate to a separate 3D screen');
+    const photos = await page.locator('#dialog-gallery').boundingBox();
+    const inline3D = await page.locator('#dialog-3d').boundingBox();
+    assert(photos.y + photos.height <= inline3D.y + 1, 'inline 3D stays below the photographs');
     await page.keyboard.press('Escape');
   }
   // Padding also belongs to the details target.
