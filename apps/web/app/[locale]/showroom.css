@@ -1,5 +1,6 @@
 /* Reference-led MATRIX showroom, shared by the shop and static preview. */
 :root {
+  color-scheme: light;
   --ink: #24211c;
   --muted: #7a756e;
   --gold: #b59461;
@@ -70,6 +71,8 @@ body {
   box-shadow: 0 24px 70px #4e3b2520;
 }
 .localeHeader {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   height: 98px;
   padding: 0 5%;
   border: 0;
@@ -436,7 +439,7 @@ body {
   }
 }
 @media (max-width: 580px) {
-  body {
+  html, body {
     background: #fff;
   }
   .storefront {
