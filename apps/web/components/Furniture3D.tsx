@@ -2,6 +2,7 @@
 
 import {useEffect,useRef,useState} from "react";
 import type {FurnitureModel} from "../lib/ar-models";
+import {FurnitureIcon} from "./Brand";
 import "./furniture-3d.css";
 
 type ViewerElement = HTMLElement & {
@@ -124,7 +125,7 @@ export default function Furniture3D({model,locale}:{model:FurnitureModel;locale:
   <div ref={container} className={`matrix3d-stage ${full?"matrix3d-full":""}`}>
    <div className="matrix3d-topbar">
     <span className="matrix3d-verified">MATRIX / 3D</span>
-    <button type="button" onClick={close} aria-label={t.close}>{t.close} ×</button>
+    <button type="button" onClick={close} aria-label={t.close}>{t.close}<FurnitureIcon kind="close"/></button>
    </div>
    {!registered&&!error&&<div className="matrix3d-loading" role="status">{t.loading}</div>}
    {registered&&<model-viewer

@@ -911,11 +911,76 @@ html {
 .dialog-3d-link,
 .dialog-contact,
 .modal-heart {
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-text-fill-color: currentColor;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 14px 18px;
   border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
 }
 .dialog-3d-link {
-  color: #6a5132;
-  border-color: #dbcaaf;
+  background: #24211c;
+  color: #fff;
+  border: 1px solid #24211c;
+}
+.dialog-3d-link:hover:not(:disabled) {
+  background: #403a32;
+  border-color: #403a32;
+}
+.dialog-3d-link:disabled {
+  background: #f1efeb;
+  color: #595550;
+  border-color: #d8d3cb;
+  opacity: 1;
+}
+.dialog-contact,
+.modal-heart {
+  justify-content: space-between;
+  background: #fff;
+  color: #000;
+  border: 1px solid #c9c3b9;
+}
+.dialog-contact {
+  max-width: none;
+  margin-top: 12px;
+}
+.dialog-contact:hover,
+.modal-heart:hover {
+  background: #f5f2ed;
+}
+.dialog-close {
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+  -webkit-text-fill-color: currentColor;
+  accent-color: #000;
+  color: #000;
+  background: #fff;
+  border: 1px solid #ded9d1;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  flex-shrink: 0;
+}
+.dialog-close:hover,
+.dialog-close:active {
+  background: #f1efeb;
+}
+.dialog-close:focus-visible {
+  outline-color: #000;
+}
+.dialog-close .matrix-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2;
 }
 .language-switch {
   font-size: 10px;
@@ -1092,7 +1157,7 @@ html {
 }
 
 /* Custom MATRIX controls share a 32-unit drawing grid. */
-.matrix-icon{width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0}.menu-toggle .matrix-icon{width:24px;height:24px}.product-open .matrix-icon,.favorite-item .matrix-icon,.dialog-close .matrix-icon{width:21px;height:21px}.modal-heart .matrix-icon{width:20px;height:20px;margin-left:10px}.favorite-btn.selected .matrix-icon{fill:currentColor;fill-opacity:.16}.underlined-link>.matrix-icon,.category-arrow .matrix-icon{width:21px;height:21px}.dialog-close{display:flex;align-items:center;justify-content:center}
+.matrix-icon{width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0}.menu-toggle .matrix-icon{width:24px;height:24px}.product-open .matrix-icon,.favorite-item .matrix-icon{width:21px;height:21px}.modal-heart .matrix-icon{width:20px;height:20px;margin-left:10px}.favorite-btn.selected .matrix-icon{fill:currentColor;fill-opacity:.16}.underlined-link>.matrix-icon,.category-arrow .matrix-icon{width:21px;height:21px}.dialog-close{display:flex;align-items:center;justify-content:center}
 
 /* Inactive controls retain black text and custom SVG strokes. */
 .showroom-categories .showroom-category:not(.active),
