@@ -772,3 +772,10 @@ body {
     outline-offset: 3px;
   }
 }
+
+/* Product cards have one destination across the whole surface. */
+.homeProduct > a:first-child { display: block; height: 100%; }
+.homeProduct > a:focus-visible { outline: 2px solid #846332; outline-offset: -3px; }
+@media (max-width: 580px) {
+  .homeProduct > a:first-child { display: grid; }
+}
