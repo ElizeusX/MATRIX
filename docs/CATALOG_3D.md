@@ -1,6 +1,6 @@
 # Catalog 3D model implementation
 
-The existing Hilton-2 pilot is supplemented with 75 distinct, reproducible,
+The existing Hilton-2 pilot is supplemented with 65 distinct, reproducible,
 photo-guided draft models. These are authored surface studies, not photogrammetry,
 engineering drawings, or a guarantee of exact fabric/geometry.
 
@@ -22,8 +22,8 @@ for the added models. USD uses woven diffuse texture; glTF also has normal/sheen
 
 ## Dimensions and publication
 
-- 52 added products have usable numeric catalog width/depth; height is estimated
-  from the authored profile. Together with Hilton-2, 53 offer estimated AR.
+- 42 added products have usable numeric catalog width/depth; height is estimated
+  from the authored profile. Together with Hilton-2, 43 offer estimated AR.
 - 23 added products have absent/ambiguous source dimensions. Visual configuration
   estimates are stored separately, shown with ≈ labels, and never enable AR.
 - Every added manifest stays `status: draft`, `geometry_verified: false`,
@@ -54,10 +54,7 @@ back-pillow and stitch-channel counts in `shape_profiles.py`.
 
 - Neo/Molly: continuous upholstered seat/front shells and full back cushions with
   depressed stitch channels. No separate narrow strip seats or floating headrests.
-- Venera: two deep cushions on one low base, thin rounded arms, loose back pillows,
-  actual shell-following top welts and tapered raised feet.
 - Loft/Bliss/Hit: tall boxed front modules, narrow arms, sewn edges and loose pillows.
-- Monako: full rear pillows plus a separate row of low lumbar pillows.
 - Hilton-P: left chaise and shorter right corner return with inward-facing back
   cushions; no symmetric pair of full-depth ottomans.
 - Delta: continuous asymmetric swept back and one seat; no generic sofa arms or
@@ -67,7 +64,7 @@ back-pillow and stitch-channel counts in `shape_profiles.py`.
 
 `upholstery_shapes.py` sculpts channels, tuft depressions and local compression into
 continuous fabric meshes. `photo_shape_review.json` records independent visual
-observations for seven representative products. `test_photo_shapes.py` checks those
+observations for five active representative products. `test_photo_shapes.py` checks those
 module counts/proportions and the asymmetric/curved construction. Browser CI captures
 the actual model-viewer canvas and `build_photo_review.py` pairs it with each source
 photograph for visual review. These checks supplement human photo comparison; they

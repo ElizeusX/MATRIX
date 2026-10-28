@@ -1,7 +1,7 @@
 # MATRIX static preview
 
 Open `index.html` locally or serve this directory with `python -m http.server 8000`.
-The preview includes all 76 imported models, local primary photos, gallery links,
+The preview includes all 66 active models, local primary photos, gallery links,
 source descriptions and exact dimensions, search, category filters and favorites.
 `catalog.js` must load before `app.js`; both work without a catalog API.
 
@@ -14,8 +14,8 @@ Merging changes to master can trigger the existing GitHub Pages workflow.
 
 ## Product-specific photo-guided 3D
 
-All **76 products** have their own 3D view at `3d.html?product=<slug>`.
-The Hilton-2 pilot is retained; the other **75** drafts use authored photo profiles
+All **66 products** have their own 3D view at `3d.html?product=<slug>`.
+The Hilton-2 pilot is retained; the other **65** drafts use authored photo profiles
 in `scripts/3d/catalog_profiles.py` and `scripts/3d/shape_profiles.py`. Profiles record silhouette, seat count,
 chaise orientation, headboard pattern, fabric appearance and visible details.
 The models include rounded crowned upholstery, piping, original woven PBR
@@ -23,7 +23,7 @@ textures, metal feet, timber accents, shelves and bed slats where pictured.
 No manufacturer watermarks or photo pixels are embedded in the models.
 
 These remain **photo-guided drafts**, not scans or manufacturer-approved replicas.
-All heights are estimated. **53 products** (including Hilton-2) have usable catalog
+All heights are estimated. **43 products** (including Hilton-2) have usable catalog
 width/depth and matching GLB/USDZ exports for explicitly estimated AR. The other
 **23** have missing or ambiguous width/depth: all dimensions are labeled estimates,
 and AR stays disabled. Source catalog values are never repaired or overwritten

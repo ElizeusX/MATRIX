@@ -23,7 +23,20 @@ docker compose up -d --build api web
 ```
 Visit http://localhost:3000/uk, http://localhost:3000/en and http://localhost:3000/admin.
 
-> Important: Seed data contains **76 draft, unpublished MATRIX product records with no prices**. Nothing is offered for purchase until an authenticated admin fills the price, publishes the product and sets availability.
+> Important: Seed data contains **66 draft, unpublished MATRIX product records with no prices**. Nothing is offered for purchase until an authenticated admin fills the price, publishes the product and sets availability.
+
+## Discontinued products
+
+The active catalog contains 66 models. Ten retired sofas are listed in
+`data/discontinued-products.json` and excluded from future imports and 3D builds.
+For an existing database, apply the retirement migration before deploying:
+
+```sh
+docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database/migrations/005_discontinued_products.sql
+```
+
+It unpublishes these models and disables ordering while retaining product records
+and historical order references. Fresh databases use the updated 66-product seed.
 
 ## Create first administrator (one time)
 Do not seed a public default password. From the project root:
@@ -71,7 +84,7 @@ A change from +10% to +15% recomputes from base, never compounds. Promotions are
 - [Operations, deployment and release blockers](docs/RUNBOOK.md)
 
 ## Gaps
-Imported catalog: **76 products**, **76 local primary photos** and **387 source gallery references**. See [source audit](docs/SOURCE_AUDIT.md) for coverage and source-quality flags. The SQL seed has not been applied to a hosted database. No verified commercial prices. The UI is not fully accessible/SEO audited; there is no fully managed shipping integration, policy pages, transactional email, automatic FX rate provider or completed E2E testing. A secure production deployment and provider test credentials are still needed.
+Imported catalog: **66 products**, **66 local primary photos** and **360 source gallery references**. See [source audit](docs/SOURCE_AUDIT.md) for coverage and source-quality flags. The SQL seed has not been applied to a hosted database. No verified commercial prices. The UI is not fully accessible/SEO audited; there is no fully managed shipping integration, policy pages, transactional email, automatic FX rate provider or completed E2E testing. A secure production deployment and provider test credentials are still needed.
 
 ## Mobile UI preview on GitHub Pages
 
@@ -112,7 +125,7 @@ a reviewed GLB/USDZ pair, and real iOS/Android hardware test results.
 
 The GitHub Pages catalog (`preview/`) now has product-specific **3D**
 buttons under every product with usable recorded width and depth. It generates
-individual **conceptual** GLBs at build time (currently 53 of 76 catalog
+individual **conceptual** GLBs at build time (currently 43 of 66 catalog
 items) and opens `3d.html?product=<slug>` with the corresponding model,
 original product photograph and known dimensions.
 
@@ -126,8 +139,8 @@ human-approved, rights-cleared models with verified width/depth/height.
 
 ## Catalog 3D expansion
 
-All 76 products now have individual photo-guided 3D drafts (75 new models plus
-the Hilton-2 pilot). 53 support explicitly estimated AR; 23 with missing or
+All 66 active products now have individual photo-guided 3D drafts (65 new models plus
+the Hilton-2 pilot). 43 support explicitly estimated AR; 23 with missing or
 ambiguous dimensions offer 3D only. Heights, geometry and fabrics remain
 unverified and are labeled accordingly. See [catalog 3D](docs/CATALOG_3D.md)
 for reproduction, deployment and validation. Docker Compose builds these assets

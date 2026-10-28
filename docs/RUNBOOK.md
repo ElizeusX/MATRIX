@@ -14,6 +14,19 @@ docker compose up -d --build api web
 Use localhost ports 3000 (web) and 8080 (API). Default database is bound only to localhost.
 For source-mode API run: `set -a; . ./.env; set +a; cd services/api; go mod tidy; go run ./cmd/server`.
 
+## Discontinued products
+
+The active catalog contains 66 models. Ten retired sofas are listed in
+`data/discontinued-products.json` and excluded from future imports and 3D builds.
+For an existing database, apply the retirement migration before deploying:
+
+```sh
+docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database/migrations/005_discontinued_products.sql
+```
+
+It unpublishes these models and disables ordering while retaining product records
+and historical order references. Fresh databases use the updated 66-product seed.
+
 ## Administrator
 With Go installed and DATABASE_URL loaded from repo-root `.env`:
 ```sh

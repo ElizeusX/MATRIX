@@ -90,6 +90,21 @@ async function assertProductCards(page, width, locale) {
   const browser = await chromium.launch({ headless: true });
   fs.mkdirSync('artifacts/mobile', { recursive: true });
   try {
+    const retired = JSON.parse(fs.readFileSync('data/discontinued-products.json')).products;
+    const catalogPage = await browser.newPage();
+    await catalogPage.addInitScript(slugs => localStorage.setItem('matrix-static-preview-favorites-v1', JSON.stringify(slugs)), retired.map(p => p.slug));
+    await catalogPage.goto('http://127.0.0.1:8765/preview/');
+    await catalogPage.locator('.product-card').first().waitFor();
+    assert.equal(await catalogPage.locator('.product-card').count(), 66);
+    for (const {slug} of retired) assert.equal(await catalogPage.locator(`.product-card[data-slug="${slug}"]`).count(), 0, slug);
+    await catalogPage.locator('#favorites-trigger').click();
+    assert.equal(await catalogPage.locator('.favorite-item').count(), 0, 'retired favorites cannot reappear');
+    await catalogPage.locator('#favorites-close').click();
+    for (const query of ['Лондон-5', 'Венера', 'Атланта-Т', 'Вегас-Т', 'Монако', 'Фелліні']) {
+      await catalogPage.locator('#catalog-search').fill(query);
+      assert.equal(await catalogPage.locator('.product-card').count(), 0, query);
+    }
+    await catalogPage.close();
     for (const width of [320, 375, 390, 430, 580, 581, 768, 1440]) {
       const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
       const errors = [];

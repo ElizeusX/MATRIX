@@ -1,0 +1,45 @@
+{
+  "reason": "Discontinued by the manufacturer; exclude from storefronts and future imports.",
+  "products": [
+    {
+      "slug": "kutovyy-dyvan-fellini",
+      "uk": "Кутовий диван Фелліні"
+    },
+    {
+      "slug": "pryamyy-dyvan-fellini",
+      "uk": "Прямий Диван Фелліні"
+    },
+    {
+      "slug": "kutovyy-dyvan-venera",
+      "uk": "Кутовий диван Венера"
+    },
+    {
+      "slug": "pryamyy-dyvan-venera",
+      "uk": "Прямий диван Венера"
+    },
+    {
+      "slug": "kutovyy-dyvan-london-5",
+      "uk": "Кутовий диван Лондон-5"
+    },
+    {
+      "slug": "kutovyy-dyvan-atlanta-t",
+      "uk": "Кутовий диван Атланта-Т"
+    },
+    {
+      "slug": "kutovyy-dyvan-vehas-t",
+      "uk": "Кутовий диван Вегас-Т"
+    },
+    {
+      "slug": "pryamyy-dyvan-monako",
+      "uk": "Прямий диван Монако"
+    },
+    {
+      "slug": "kutovyy-dyvan-monako-2",
+      "uk": "Кутовий диван Монако 2"
+    },
+    {
+      "slug": "kutovyy-dyvan-monako-3",
+      "uk": "Кутовий диван Монако-3"
+    }
+  ]
+}
