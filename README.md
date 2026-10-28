@@ -38,6 +38,20 @@ docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database
 It unpublishes these models and disables ordering while retaining product records
 and historical order references. Fresh databases use the updated 66-product seed.
 
+Nine models also have manufacturer-confirmed dimensions in
+`data/dimension-overrides.json`. These override the older source on reimport,
+including the displayed alternatives in parentheses. Numeric 3D/AR dimensions
+use the primary configuration; height remains estimated. For an existing database
+with migrations 003 and 004 applied, also run:
+
+```sh
+docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database/migrations/006_manufacturer_dimensions.sql
+```
+
+This corrects dimensions without changing prices or publication. Approved 3D
+assets whose width/depth differ are returned to review. Corrected generated
+assets have dimension-specific filenames to refresh cached geometry.
+
 ## Create first administrator (one time)
 Do not seed a public default password. From the project root:
 The API runtime container is minimal and does not include the bootstrap utility. Run this one-time bootstrap from a Go development terminal with the database connection:
@@ -125,7 +139,7 @@ a reviewed GLB/USDZ pair, and real iOS/Android hardware test results.
 
 The GitHub Pages catalog (`preview/`) now has product-specific **3D**
 buttons under every product with usable recorded width and depth. It generates
-individual **conceptual** GLBs at build time (currently 43 of 66 catalog
+individual **conceptual** GLBs at build time (currently 48 of 66 catalog
 items) and opens `3d.html?product=<slug>` with the corresponding model,
 original product photograph and known dimensions.
 
@@ -140,7 +154,7 @@ human-approved, rights-cleared models with verified width/depth/height.
 ## Catalog 3D expansion
 
 All 66 active products now have individual photo-guided 3D drafts (65 new models plus
-the Hilton-2 pilot). 43 support explicitly estimated AR; 23 with missing or
+the Hilton-2 pilot). 48 support explicitly estimated AR; 18 with missing or
 ambiguous dimensions offer 3D only. Heights, geometry and fabrics remain
 unverified and are labeled accordingly. See [catalog 3D](docs/CATALOG_3D.md)
 for reproduction, deployment and validation. Docker Compose builds these assets

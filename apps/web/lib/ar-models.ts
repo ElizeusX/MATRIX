@@ -1,5 +1,6 @@
 import {readFile} from "node:fs/promises";
 import path from "node:path";
+import {sourceProduct} from "./source-catalog";
 export interface ApprovedModel {
  id:string;
  slug:string;
@@ -42,14 +43,17 @@ export type FurnitureModel=ApprovedModel|PreviewModel;
 
 export async function getFurnitureModel(slug:string):Promise<FurnitureModel|null>{
  const approved=await getApprovedModel(slug);
- if(approved)return approved;
+ const fact=sourceProduct(slug);
+ const corrected=fact?.dimensionSource==="manufacturer";
+ if(approved&&(!corrected||(approved.width_mm===fact.width&&approved.depth_mm===fact.depth)))return approved;
  if(!/^[a-z0-9-]{1,129}$/.test(slug))return null;
  try {
   const file=path.join(process.cwd(),"public/model-manifests",slug+".json");
   const m=JSON.parse(await readFile(file,"utf8"));
   if(m.slug!==slug||m.status!=="draft"||m.enabled_3d!==true||m.rights_confirmed!==true||m.geometry_verified!==false||m.height_mm!==null)return null;
   if(![m.width_mm??m.estimated_width_mm,m.depth_mm??m.estimated_depth_mm,m.estimated_height_mm].every(n=>typeof n==="number"&&Number.isFinite(n)&&n>0))return null;
-  const revision=m.shape_revision===2?"-v2":"";
+  if(corrected&&(m.width_mm!==fact.width||m.depth_mm!==fact.depth))return null;
+  const revision=(m.shape_revision===2?"-v2":"")+(corrected?`-${fact.width}x${fact.depth}`:"");
   if(m.glb_url!==`models/${slug}${revision}-draft.glb`)return null;
   const canAR=m.preview_ar===true&&m.dimensions_estimated!==true&&[m.width_mm,m.depth_mm].every(n=>typeof n==="number"&&Number.isFinite(n)&&n>0)&&typeof m.height_estimate_source==="string"&&m.height_estimate_source.trim().length>0&&m.usdz_url===`models/${slug}${revision}-estimated.usdz`;
   return {...m,id:"draft-"+slug,version:m.shape_revision??1,enabled_ar:m.enabled_ar===true&&canAR,

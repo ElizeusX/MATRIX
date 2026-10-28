@@ -22,9 +22,9 @@ for the added models. USD uses woven diffuse texture; glTF also has normal/sheen
 
 ## Dimensions and publication
 
-- 42 added products have usable numeric catalog width/depth; height is estimated
-  from the authored profile. Together with Hilton-2, 43 offer estimated AR.
-- 23 added products have absent/ambiguous source dimensions. Visual configuration
+- 47 added products have usable numeric catalog width/depth; height is estimated
+  from the authored profile. Together with Hilton-2, 48 offer estimated AR.
+- 18 added products have absent/ambiguous source dimensions. Visual configuration
   estimates are stored separately, shown with ≈ labels, and never enable AR.
 - Every added manifest stays `status: draft`, `geometry_verified: false`,
   `height_mm: null`. Estimates do not grant approval or precise room measuring.

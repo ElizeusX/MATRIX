@@ -18,6 +18,7 @@ const fs=require('node:fs');
     const m=JSON.parse(fs.readFileSync('preview/model-manifests/'+slug+'.json'));
     const actual=await page.locator('model-viewer').evaluate(v=>({src:v.getAttribute('src'),size:v.getDimensions(),ar:v.hasAttribute('ar')}));
     assert.equal(actual.src,m.glb_url);assert(Math.abs(actual.size.x*1000-(m.width_mm??m.estimated_width_mm))<1);
+    assert(Math.abs(actual.size.z*1000-(m.depth_mm??m.estimated_depth_mm))<1);
     assert.equal(actual.ar,m.enabled_ar);
     assert((await page.locator('#measure-height').textContent()).startsWith('≈'));
     assert(await page.locator('#ar-disabled').isDisabled()); // Chromium desktop has no native AR.

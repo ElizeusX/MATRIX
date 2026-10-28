@@ -27,6 +27,20 @@ docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database
 It unpublishes these models and disables ordering while retaining product records
 and historical order references. Fresh databases use the updated 66-product seed.
 
+Nine models also have manufacturer-confirmed dimensions in
+`data/dimension-overrides.json`. These override the older source on reimport,
+including the displayed alternatives in parentheses. Numeric 3D/AR dimensions
+use the primary configuration; height remains estimated. For an existing database
+with migrations 003 and 004 applied, also run:
+
+```sh
+docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database/migrations/006_manufacturer_dimensions.sql
+```
+
+This corrects dimensions without changing prices or publication. Approved 3D
+assets whose width/depth differ are returned to review. Corrected generated
+assets have dimension-specific filenames to refresh cached geometry.
+
 ## Administrator
 With Go installed and DATABASE_URL loaded from repo-root `.env`:
 ```sh

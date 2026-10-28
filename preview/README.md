@@ -23,9 +23,9 @@ textures, metal feet, timber accents, shelves and bed slats where pictured.
 No manufacturer watermarks or photo pixels are embedded in the models.
 
 These remain **photo-guided drafts**, not scans or manufacturer-approved replicas.
-All heights are estimated. **43 products** (including Hilton-2) have usable catalog
+All heights are estimated. **48 products** (including Hilton-2) have usable catalog
 width/depth and matching GLB/USDZ exports for explicitly estimated AR. The other
-**23** have missing or ambiguous width/depth: all dimensions are labeled estimates,
+**18** have missing or ambiguous width/depth: all dimensions are labeled estimates,
 and AR stays disabled. Source catalog values are never repaired or overwritten
 with estimates. Beds show one representative visual configuration, not every size.
 

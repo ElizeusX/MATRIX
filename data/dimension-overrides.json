@@ -1,0 +1,90 @@
+{
+  "source": "Manufacturer corrections supplied by the user",
+  "updatedAt": "2026-10-28",
+  "units": "mm",
+  "note": "Numeric values describe the primary configuration. Parenthesized alternatives are preserved in display text. Fields omitted by the manufacturer remain unchanged.",
+  "products": {
+    "hilton-p": {
+      "dimensions": "3500х2040",
+      "width": 3500,
+      "depth": 2040,
+      "dimensionSource": "manufacturer",
+      "sleepingArea": "2700х1300",
+      "sleepLength": 2700,
+      "sleepWidth": 1300,
+      "sleepingAreaSource": "manufacturer"
+    },
+    "kutovyy-dyvan-neo-2": {
+      "dimensions": "2520х1630",
+      "width": 2520,
+      "depth": 1630,
+      "dimensionSource": "manufacturer"
+    },
+    "kutovyy-dyvan-neo-3": {
+      "dimensions": "3520х1630",
+      "width": 3520,
+      "depth": 1630,
+      "dimensionSource": "manufacturer",
+      "sleepingArea": "3000х1520 (2100)",
+      "sleepLength": 3000,
+      "sleepWidth": 1520,
+      "sleepingAreaSource": "manufacturer"
+    },
+    "kutovyy-dyvan-leon-lyuks-140": {
+      "dimensions": "2450х1500",
+      "width": 2450,
+      "depth": 1500,
+      "dimensionSource": "manufacturer"
+    },
+    "molly": {
+      "dimensions": "2450х1150",
+      "width": 2450,
+      "depth": 1150,
+      "dimensionSource": "manufacturer",
+      "sleepingArea": "2000х1600",
+      "sleepLength": 2000,
+      "sleepWidth": 1600,
+      "sleepingAreaSource": "manufacturer"
+    },
+    "pryamyy-dyvan-neo-3": {
+      "dimensions": "3520х1080 (1630)",
+      "width": 3520,
+      "depth": 1080,
+      "dimensionSource": "manufacturer",
+      "sleepingArea": "3000х1520",
+      "sleepLength": 3000,
+      "sleepWidth": 1520,
+      "sleepingAreaSource": "manufacturer"
+    },
+    "dyvan-pryamyy-khit": {
+      "dimensions": "2350х1030",
+      "width": 2350,
+      "depth": 1030,
+      "dimensionSource": "manufacturer",
+      "sleepingArea": "1970х1500",
+      "sleepLength": 1970,
+      "sleepWidth": 1500,
+      "sleepingAreaSource": "manufacturer"
+    },
+    "dyvan-pryamyy-prestizh": {
+      "dimensions": "2400х1000",
+      "width": 2400,
+      "depth": 1000,
+      "dimensionSource": "manufacturer",
+      "sleepingArea": "1970х1470",
+      "sleepLength": 1970,
+      "sleepWidth": 1470,
+      "sleepingAreaSource": "manufacturer"
+    },
+    "pryamyy-dyvan-leon": {
+      "dimensions": "2100х930",
+      "width": 2100,
+      "depth": 930,
+      "dimensionSource": "manufacturer",
+      "sleepingArea": "1930х1350",
+      "sleepLength": 1930,
+      "sleepWidth": 1350,
+      "sleepingAreaSource": "manufacturer"
+    }
+  }
+}

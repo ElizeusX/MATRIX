@@ -39,12 +39,12 @@
       "category": "corner-sofas",
       "sourceUrl": "https://matrix-mebli.com/furniture/%d0%ba%d1%83%d1%82%d0%be%d0%b2%d0%b8%d0%b9-%d0%b4%d0%b8%d0%b2%d0%b0%d0%bd-%d1%85%d1%96%d0%bb%d1%82%d0%be%d0%bd-%d0%bf/",
       "description": "",
-      "dimensions": "",
-      "sleepingArea": "",
-      "width": null,
-      "depth": null,
-      "sleepLength": null,
-      "sleepWidth": null,
+      "dimensions": "3500х2040",
+      "sleepingArea": "2700х1300",
+      "width": 3500,
+      "depth": 2040,
+      "sleepLength": 2700,
+      "sleepWidth": 1300,
       "image": "media/products/hilton-p.jpg",
       "images": [
         "https://matrix-mebli.com/wp-content/uploads/2025/09/C6E5A053-B1AD-4FD8-AAF1-152E101A2CCF-1.jpg",
@@ -54,7 +54,9 @@
       "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/C6E5A053-B1AD-4FD8-AAF1-152E101A2CCF.jpg?w=1200&ssl=1",
       "imageSha256": "10591216291157cd64c5ac370e434e709b70622a1e1519cda5aafc42cf45d4c0",
       "sourcePriceText": "",
-      "flags": []
+      "flags": [],
+      "dimensionSource": "manufacturer",
+      "sleepingAreaSource": "manufacturer"
     },
     {
       "id": "molly",
@@ -65,10 +67,10 @@
       "sourceUrl": "https://matrix-mebli.com/furniture/%d0%bf%d1%80%d1%8f%d0%bc%d0%b8%d0%b9-%d0%b4%d0%b8%d0%b2%d0%b0%d0%bd-%d0%bc%d0%be%d0%bb%d0%bb%d1%96/",
       "description": "",
       "dimensions": "2450х1150",
-      "sleepingArea": "1950х1600",
+      "sleepingArea": "2000х1600",
       "width": 2450,
       "depth": 1150,
-      "sleepLength": 1950,
+      "sleepLength": 2000,
       "sleepWidth": 1600,
       "image": "media/products/molly.jpg",
       "images": [
@@ -79,7 +81,9 @@
       "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/4047E1D4-C3C4-4879-9978-AC15C063FCFF.jpg?w=1200&ssl=1",
       "imageSha256": "4ef88af67190f2e6e8634758b614161193c1a8ec11c626ebb4e4fcae2eb9581d",
       "sourcePriceText": "",
-      "flags": []
+      "flags": [],
+      "dimensionSource": "manufacturer",
+      "sleepingAreaSource": "manufacturer"
     },
     {
       "id": "lira-2",
@@ -529,10 +533,10 @@
       "category": "corner-sofas",
       "sourceUrl": "https://matrix-mebli.com/furniture/%d0%ba%d1%83%d1%82%d0%be%d0%b2%d0%b8%d0%b9-%d0%b4%d0%b8%d0%b2%d0%b0%d0%bd-%d0%bd%d0%b5%d0%be-2/",
       "description": "М’які елементи сидіння — пружинний блок,войлок,ППу,синтепон 300 мг/м3 Каркас дивану Натуральне Дерево Механізм «Єврокнижка» або «Тік-так» (Пантограф) Кутова частина дивана тільки «Єврокнижка»",
-      "dimensions": "2520Х1550",
+      "dimensions": "2520х1630",
       "sleepingArea": "2000Х 1520(2100)",
       "width": 2520,
-      "depth": 1550,
+      "depth": 1630,
       "sleepLength": null,
       "sleepWidth": null,
       "image": "media/products/kutovyy-dyvan-neo-2.jpg",
@@ -558,7 +562,8 @@
       "sourcePriceText": "",
       "flags": [
         "sleeping_dimensions_require_confirmation"
-      ]
+      ],
+      "dimensionSource": "manufacturer"
     },
     {
       "id": "kutovyy-dyvan-neo-3",
@@ -568,10 +573,10 @@
       "category": "corner-sofas",
       "sourceUrl": "https://matrix-mebli.com/furniture/%d0%ba%d1%83%d1%82%d0%be%d0%b2%d0%b8%d0%b9-%d0%b4%d0%b8%d0%b2%d0%b0%d0%bd-%d0%bd%d0%b5%d0%be-3/",
       "description": "М’які елементи сидіння — пружинний блок,войлок,ППу,синтепон 300 мг/м3 Каркас дивану Натуральне Дерево Механізм «Єврокнижка» або «Тік-так» (Пантограф) Кутова частина дивана тільки «Єврокнижка»",
-      "dimensions": "3520Х1550",
-      "sleepingArea": "3000Х1520",
+      "dimensions": "3520х1630",
+      "sleepingArea": "3000х1520 (2100)",
       "width": 3520,
-      "depth": 1550,
+      "depth": 1630,
       "sleepLength": 3000,
       "sleepWidth": 1520,
       "image": "media/products/kutovyy-dyvan-neo-3.jpg",
@@ -585,7 +590,9 @@
       "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/10/%D0%A3%D0%B3-%D0%9D%D0%B5%D0%BE-3.jpg?w=1200&ssl=1",
       "imageSha256": "eb8208dade52a9977055e80ebbce08d9d6b69a9cd46b30053709e1d6485b524a",
       "sourcePriceText": "",
-      "flags": []
+      "flags": [],
+      "dimensionSource": "manufacturer",
+      "sleepingAreaSource": "manufacturer"
     },
     {
       "id": "pryamyy-dyvan-neo-3",
@@ -595,10 +602,10 @@
       "category": "straight-sofas",
       "sourceUrl": "https://matrix-mebli.com/furniture/%d0%bf%d1%80%d1%8f%d0%bc%d0%b8%d0%b9-%d0%b4%d0%b8%d0%b2%d0%b0%d0%bd-%d0%bd%d0%b5%d0%be-3/",
       "description": "М’які елементи сидіння — пружинний блок,войлок,ППу,синтепон 300 мг/м3 Каркас дивану Натуральне Дерево Механізм «Єврокнижка» або «Тік-так» (Пантограф)",
-      "dimensions": "3520Х1080(1550)",
-      "sleepingArea": "3000Х1520",
-      "width": null,
-      "depth": null,
+      "dimensions": "3520х1080 (1630)",
+      "sleepingArea": "3000х1520",
+      "width": 3520,
+      "depth": 1080,
       "sleepLength": 3000,
       "sleepWidth": 1520,
       "image": "media/products/pryamyy-dyvan-neo-3.jpg",
@@ -614,9 +621,9 @@
       "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE-3.jpg?w=1200&ssl=1",
       "imageSha256": "405ea7b7ddc93a7c4664b0e6086b3c541772a66d6431067243d8d70f2861a989",
       "sourcePriceText": "",
-      "flags": [
-        "dimensions_require_confirmation"
-      ]
+      "flags": [],
+      "dimensionSource": "manufacturer",
+      "sleepingAreaSource": "manufacturer"
     },
     {
       "id": "kutovyy-dyvan-elehant",
@@ -821,12 +828,12 @@
       "category": "straight-sofas",
       "sourceUrl": "https://matrix-mebli.com/furniture/%d0%b4%d0%b8%d0%b2%d0%b0%d0%bd-%d0%bf%d1%80%d1%8f%d0%bc%d0%b8%d0%b9-%d1%85%d1%96%d1%82/",
       "description": "М’які елементи сидіння — , пружинний блок,войлок,ППу Каркас дивану Натуральне Дерево Механізм «Єврокнижка» або «Тік-так» (Пантограф)",
-      "dimensions": "2400Х100",
-      "sleepingArea": "1970Х1470",
-      "width": null,
-      "depth": null,
+      "dimensions": "2350х1030",
+      "sleepingArea": "1970х1500",
+      "width": 2350,
+      "depth": 1030,
       "sleepLength": 1970,
-      "sleepWidth": 1470,
+      "sleepWidth": 1500,
       "image": "media/products/dyvan-pryamyy-khit.jpg",
       "images": [
         "https://matrix-mebli.com/wp-content/uploads/2023/09/IMG_8162.jpg",
@@ -847,9 +854,9 @@
       "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/IMG_8586.jpg?w=1200&ssl=1",
       "imageSha256": "969a34a780137cd29adf446e3c71942a75d6205ea462c38693b332d59aa4e740",
       "sourcePriceText": "",
-      "flags": [
-        "dimensions_require_confirmation"
-      ]
+      "flags": [],
+      "dimensionSource": "manufacturer",
+      "sleepingAreaSource": "manufacturer"
     },
     {
       "id": "lizhko-faro",
@@ -1222,10 +1229,10 @@
       "category": "straight-sofas",
       "sourceUrl": "https://matrix-mebli.com/furniture/%d0%bf%d1%80%d0%b5%d1%81%d1%82%d0%b8%d0%b6-2/",
       "description": "",
-      "dimensions": "2400Х100",
-      "sleepingArea": "1970Х1470",
-      "width": null,
-      "depth": null,
+      "dimensions": "2400х1000",
+      "sleepingArea": "1970х1470",
+      "width": 2400,
+      "depth": 1000,
       "sleepLength": 1970,
       "sleepWidth": 1470,
       "image": "media/products/dyvan-pryamyy-prestizh.jpg",
@@ -1239,9 +1246,9 @@
       "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%94.jpg?w=1200&ssl=1",
       "imageSha256": "f3aafbb84be3db5716416690b35bb731f694bb893082e8f68188185d659ddc52",
       "sourcePriceText": "",
-      "flags": [
-        "dimensions_require_confirmation"
-      ]
+      "flags": [],
+      "dimensionSource": "manufacturer",
+      "sleepingAreaSource": "manufacturer"
     },
     {
       "id": "pryamyy-dyvan-dzhaz",
@@ -1823,10 +1830,10 @@
       "category": "corner-sofas",
       "sourceUrl": "https://matrix-mebli.com/furniture/%d0%bf%d1%80%d0%b5%d1%81%d1%82%d0%b8%d0%b6-140-%d1%82/",
       "description": "",
-      "dimensions": "2450Х15000",
+      "dimensions": "2450х1500",
       "sleepingArea": "2000Х1450",
-      "width": null,
-      "depth": null,
+      "width": 2450,
+      "depth": 1500,
       "sleepLength": 2000,
       "sleepWidth": 1450,
       "image": "media/products/kutovyy-dyvan-leon-lyuks-140.jpg",
@@ -1838,9 +1845,8 @@
       "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-140-%D0%A2-1.jpg?w=1200&ssl=1",
       "imageSha256": "25d16211a557b14901444e0f91af4f452596279fa2d19458964e6217c643afa5",
       "sourcePriceText": "",
-      "flags": [
-        "dimensions_require_confirmation"
-      ]
+      "flags": [],
+      "dimensionSource": "manufacturer"
     },
     {
       "id": "pryamyy-dyvan-sihma",
@@ -1905,12 +1911,12 @@
       "category": "straight-sofas",
       "sourceUrl": "https://matrix-mebli.com/furniture/%d0%bb%d0%b5%d0%be%d0%bd/",
       "description": "",
-      "dimensions": "2100Х930",
-      "sleepingArea": "1930Х135",
+      "dimensions": "2100х930",
+      "sleepingArea": "1930х1350",
       "width": 2100,
       "depth": 930,
-      "sleepLength": null,
-      "sleepWidth": null,
+      "sleepLength": 1930,
+      "sleepWidth": 1350,
       "image": "media/products/pryamyy-dyvan-leon.jpg",
       "images": [
         "https://matrix-mebli.com/wp-content/uploads/2019/06/Д.Леон1.jpg",
@@ -1920,9 +1926,9 @@
       "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94.%D0%9B%D0%B5%D0%BE%D0%BD1.jpg?w=1200&ssl=1",
       "imageSha256": "84bdef8806480d00dce88d115f67d626b97754c0cd7a3ddf53fda5d15f5e5373",
       "sourcePriceText": "",
-      "flags": [
-        "sleeping_dimensions_require_confirmation"
-      ]
+      "flags": [],
+      "dimensionSource": "manufacturer",
+      "sleepingAreaSource": "manufacturer"
     },
     {
       "id": "delta",

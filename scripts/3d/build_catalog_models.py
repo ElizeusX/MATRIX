@@ -41,7 +41,9 @@ def generate(output=OUT, sync_web=False, slugs=None):
             source_catalog_width_mm=p.get('width'),source_catalog_depth_mm=p.get('depth'),
             shape_revision=2,reference_photo=profile['reference'],source_url=p['sourceUrl'],profile=profile,
             method='Authored photo-guided surfaces, not a scan or measured replica; original procedural fabric')
-        size=export(m,output,slug,profile,extras,tex)
+        # Dimension changes get distinct asset URLs so browsers cannot reuse old scale.
+        asset_tag=f'-{w}x{d}' if p.get('dimensionSource')=='manufacturer' else ''
+        size=export(m,output,slug,profile,extras,tex,asset_tag=asset_tag)
         manifest=dict(slug=slug,status='draft',enabled_3d=True,enabled_ar=known,
             geometry_verified=False,rights_confirmed=True,
             rights_basis='Original authored geometry and procedural textures; no photo pixels embedded',
@@ -49,9 +51,9 @@ def generate(output=OUT, sync_web=False, slugs=None):
             estimated_width_mm=w,estimated_depth_mm=d,estimated_height_mm=h,
             dimensions_estimated=not known,preview_ar=known,
             height_estimate_source='Authored photo profile proportions; not a manufacturer measurement',
-            shape_revision=2,camera_orbit=('-25deg 65deg auto' if profile['shape']['family']=='bed' else '-12deg 78deg auto' if profile['shape']['family']=='venera' else '-20deg 78deg auto'),glb_url=f'models/{slug}-v2-draft.glb',reference_photo=profile['reference'],
+            shape_revision=2,camera_orbit=('-25deg 65deg auto' if profile['shape']['family']=='bed' else '-12deg 78deg auto' if profile['shape']['family']=='venera' else '-20deg 78deg auto'),glb_url=f'models/{slug}-v2{asset_tag}-draft.glb',reference_photo=profile['reference'],
             blockers=['manufacturer_height','geometry_approval','device_ar_review'])
-        if known:manifest['usdz_url']=f'models/{slug}-v2-estimated.usdz'
+        if known:manifest['usdz_url']=f'models/{slug}-v2{asset_tag}-estimated.usdz'
         else:manifest['blockers'].append('manufacturer_width_depth')
         (manifests/f'{slug}.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
         count+=1;ar_count+=known

@@ -76,18 +76,17 @@ pryamyy-dyvan-leon|straight|tuft|2|none|#77718c|940|none
 
 # Chosen visual configurations only. These values NEVER overwrite source records.
 ESTIMATED_WD = {
- 'hilton-p': (3500,1800), 'lira-2': (1800,2150), 'elli': (2410,1100),
- 'lizhko-soft-2': (1750,2150), 'pryamyy-dyvan-neo-3': (3520,1080),
- 'dyvan-pryamyy-khit': (2400,1000), 'lizhko-faro': (1800,2180),
+ 'lira-2': (1800,2150), 'elli': (2410,1100),
+ 'lizhko-soft-2': (1750,2150),
+ 'lizhko-faro': (1800,2180),
  'lizhko-bali': (1800,2150), 'lizhko-milana': (1800,2150),
  'lizhko-lira': (1800,2150), 'lizhko-soft': (1750,2150),
  'lizhko-skay': (2150,1000), 'lizhko-skay-z-pidyomnym-mekhanizmom': (2150,1000),
- 'terri': (2150,1000), 'dyvan-pryamyy-prestizh': (2400,1000),
+ 'terri': (2150,1000),
  'dyvan-pryamyy-leon-lyuks': (2400,1000), 'kutovyy-pryamyy-boston-4': (2550,1000),
  'pryamyy-kutovyy-prestizh-b-4': (2400,1500),
  'pryamyy-kutovyy-prestizh-p-b4': (3000,1500), 'prestizh-pm': (3260,1900),
  'kutovyy-dyvan-prestizh-m-b4': (2400,1900), 'dyvan-povorotnyy-bond': (2600,1600),
- 'kutovyy-dyvan-leon-lyuks-140': (2450,1500),
 }
 
 def profiles():

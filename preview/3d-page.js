@@ -94,7 +94,7 @@ $("switch-lang").addEventListener("click",()=>{
  setContent();renderApproval();
 });
 
-const modelPath = chosen ? "models/"+encodeURIComponent(chosen.slug)+(pilot?"":"-v2")+"-draft.glb" : null;
+const modelPath = chosen ? "models/"+encodeURIComponent(chosen.slug)+(pilot?"":"-v2")+(chosen.dimensionSource==="manufacturer"?`-${chosen.width}x${chosen.depth}`:"")+"-draft.glb" : null;
 let modelNode = null;
 let manifest=null;
 let measuredSize=null;

@@ -14,6 +14,11 @@ snapshot now contains 66 products, 66 primary photos and 360 gallery references.
 them even if they remain on the source site. The counts below describe the original
 2026-10-24 crawl.
 
+Nine active models received manufacturer-supplied dimension corrections on the
+same date. `data/dimension-overrides.json` records these values and takes priority
+over older source text during reimport. Unspecified sleeping dimensions remain
+unchanged; alternatives in parentheses are displayed in full.
+
 ## Imported data
 
 - 76 original Ukrainian product names, source URLs and source dimension strings.

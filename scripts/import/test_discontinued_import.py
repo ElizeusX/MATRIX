@@ -34,6 +34,8 @@ class DiscontinuedImportTest(unittest.TestCase):
     build_catalog.build(cache)
    snapshot=json.loads((root/'data/catalog.json').read_text())
    self.assertEqual([p['slug'] for p in snapshot['products']],['molly','smart'])
+   self.assertEqual(snapshot['products'][0]['dimensions'],'2450х1150')
+   self.assertEqual(snapshot['products'][0]['sleepingArea'],'2000х1600')
    self.assertEqual(snapshot,json.loads((root/'apps/web/lib/source-catalog.json').read_text()))
    for product,index in zip(snapshot['products'],[0,len(titles)-1]):
     for base in ['preview','apps/web/public']:

@@ -12,6 +12,7 @@ from lxml import html
 
 ROOT = Path(__file__).resolve().parents[2]
 DISCONTINUED_SLUGS = {p['slug'] for p in json.loads((ROOT/'data/discontinued-products.json').read_text())['products']}
+DIMENSION_OVERRIDES = json.loads((ROOT/'data/dimension-overrides.json').read_text())['products']
 LETTERS = dict(zip('абвгґдеєжзиіїйклмнопрстуфхцчшщьюя', ['a','b','v','h','g','d','e','ye','zh','z','y','i','yi','y','k','l','m','n','o','p','r','s','t','u','f','kh','ts','ch','sh','shch','','yu','ya']))
 ALIASES = {'Кутовий диван Хілтон-2': 'hilton-2', 'Кутовий диван Хілтон-П': 'hilton-p', 'Прямий диван Моллі': 'molly', 'Ліра-2': 'lira-2', 'Прямий диван Ельдорадо-2': 'eldorado-2', 'Прямий диван Ельдорадо': 'eldorado', 'Прямий диван Еллі': 'elli', 'Кутовий диван Смарт': 'smart', 'Прямий диван Рубін': 'rubin'}
 
@@ -26,6 +27,15 @@ def pair(value):
  if not m:return [None,None]
  nums=list(map(int,m.groups()))
  return nums if all(500<=n<=5000 for n in nums) else [None,None]
+
+def apply_dimension_override(product):
+ # Explicit manufacturer corrections take priority over the older public site.
+ # Primary numeric dimensions are supplied explicitly, never parsed from variants.
+ update=DIMENSION_OVERRIDES.get(product['slug'],{})
+ product.update(update)
+ for field,flag in [('dimensions','dimensions_require_confirmation'),('sleepingArea','sleeping_dimensions_require_confirmation')]:
+  if field in update:product['flags']=[f for f in product['flags'] if f!=flag]
+ return product
 
 def build(cache):
  listing=json.loads((cache/'listing.json').read_text());photos=json.loads((cache/'photos.json').read_text());products=[];product_photos=[]
@@ -55,7 +65,7 @@ def build(cache):
   if category=='unspecified':flags.append('category_requires_confirmation')
   price=texts(doc,'//div[@class="price-block"]')
   p=dict(id=slug,slug=slug,uk=title,en=title,category=category,sourceUrl=item['url'],description=description,dimensions=size,sleepingArea=sleep,width=width,depth=depth,sleepLength=length,sleepWidth=sw,image=f'media/products/{slug}.jpg',images=images,sourceImage=photos[i]['source_url'],downloadUrl=photos[i]['download_url'],imageSha256=photos[i]['sha256'],sourcePriceText=price,flags=flags)
-  products.append(p)
+  products.append(apply_dimension_override(p))
   product_photos.append(photos[i])
  assert len({p['slug'] for p in products})==len(products),'Duplicate slugs'
  payload=dict(source='https://matrix-mebli.com',retrievedAt=datetime.now(timezone.utc).date().isoformat(),catalogPages=int(re.search(r'max_page_furniture\s*=\s*(\d+)',(cache/'catalog.html').read_text()).group(1)),products=products)
@@ -69,15 +79,20 @@ def build(cache):
   if not original.exists():original=cache/'images'/f'{photo["index"]:03}.jpg'
   for base in [ROOT/'preview',ROOT/'apps/web/public']:
    shutil.copyfile(original,base/p['image'])
- seed=['-- Imported public catalog snapshot. Prices, availability and publication are not inferred.','BEGIN;',"INSERT INTO categories(slug,title_uk,title_en) VALUES ('corner-sofas','Дивани кутові','Corner sofas'),('straight-sofas','Дивани прямі','Straight sofas'),('beds','Ліжка','Beds') ON CONFLICT(slug) DO NOTHING;"]
+ write_seed(products)
+ print(f'{len(products)} products, {sum(len(p["images"]) for p in products)} gallery references, {sum(bool(p["description"]) for p in products)} descriptions')
+
+def write_seed(products):
+ seed=['-- Imported catalog with explicit manufacturer corrections. Prices, availability and publication are not inferred.','BEGIN;',"INSERT INTO categories(slug,title_uk,title_en) VALUES ('corner-sofas','Дивани кутові','Corner sofas'),('straight-sofas','Дивани прямі','Straight sofas'),('beds','Ліжка','Beds') ON CONFLICT(slug) DO NOTHING;"]
  for p in products:
-  desc='\n'.join(filter(None,[p['description'],('Габаритні розміри (джерело): '+p['dimensions']) if p['dimensions'] else '',('Спальне місце (джерело): '+p['sleepingArea']) if p['sleepingArea'] else '']))
+  dims_label='виробник' if p.get('dimensionSource')=='manufacturer' else 'джерело'
+  sleep_label='виробник' if p.get('sleepingAreaSource')=='manufacturer' else 'джерело'
+  desc='\n'.join(filter(None,[p['description'],(f'Габаритні розміри ({dims_label}): '+p['dimensions']) if p['dimensions'] else '',(f'Спальне місце ({sleep_label}): '+p['sleepingArea']) if p['sleepingArea'] else '']))
   vals=[p['slug'],p['sourceUrl'],p['uk'],p['en'],desc or None,p['width'],p['depth'],p['sleepWidth'],p['sleepLength']]
   seed.append('INSERT INTO products(category_id,slug,source_url,title_uk,title_en,description_uk,width_mm,depth_mm,sleeping_width_mm,sleeping_length_mm) VALUES ((SELECT id FROM categories WHERE slug='+sql(p['category'])+'),'+','.join(map(sql,vals))+') ON CONFLICT(slug) DO UPDATE SET source_url=COALESCE(products.source_url,EXCLUDED.source_url),description_uk=COALESCE(products.description_uk,EXCLUDED.description_uk);')
   seed.append('INSERT INTO product_media(product_id,object_key,alt_uk,alt_en,source_url,sort_order) SELECT id,'+','.join(map(sql,[p['image'],p['uk'],p['en'],p['sourceImage']]))+',0 FROM products WHERE slug='+sql(p['slug'])+' ON CONFLICT(object_key) DO NOTHING;')
  seed.append('COMMIT;')
  (ROOT/'database/seeds/verified_catalog.sql').write_text('\n'.join(seed)+'\n')
- print(f'{len(products)} products, {sum(len(p["images"]) for p in products)} gallery references, {sum(bool(p["description"]) for p in products)} descriptions')
 
 if __name__=='__main__':
  parser=argparse.ArgumentParser();parser.add_argument('--cache',type=Path,required=True);args=parser.parse_args();build(args.cache)
