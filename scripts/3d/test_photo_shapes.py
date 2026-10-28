@@ -27,7 +27,8 @@ def read_meshes(slug,with_faces=False):
 def main():
     reviews=json.loads((ROOT/'scripts/3d/photo_shape_review.json').read_text())['products']
     for slug,r in reviews.items():
-        assert (ROOT/'preview'/r['photo']).exists()
+        photo=next(p['image'] for p in json.loads((ROOT/'data/catalog.json').read_text())['products'] if p['slug']==slug)
+        assert r['photo']==photo and (ROOT/'preview'/photo).exists()
         meshes=read_meshes(slug);total=np.ptp(np.concatenate(list(meshes.values())),axis=0)
         for prefix,count in r['counts'].items():
             # Edge piping belongs to the same shell, not an additional cushion.

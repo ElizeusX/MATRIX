@@ -14,19 +14,26 @@ window.MATRIX_CATALOG = [
     "depth": 1800,
     "sleepLength": 2100,
     "sleepWidth": 1300,
-    "image": "media/products/hilton-2.jpg",
+    "image": "media/products/hilton-2.webp",
     "images": [
+      "media/products/gallery/e3ddca3af4a372a1b414.webp",
+      "media/products/gallery/05a12dc45c5ab6ef4790.webp",
+      "media/products/gallery/87a28f9e17ae135551df.webp",
+      "media/products/gallery/4c0388e303c118e9f77f.webp",
+      "media/products/gallery/a395dfda723b1aec15cc.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/1E965FA7-7848-451E-A14D-DF038AF46929.jpg?fit=1536%2C1024&ssl=1?v=1757673576",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/1E965FA7-7848-451E-A14D-DF038AF46929.jpg?w=1200&ssl=1",
+    "imageSha256": "7fe47ea780b3995c14fc2e413bd761e0da412e6a94aae5cbaa23933a25353a05",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2025/09/1E965FA7-7848-451E-A14D-DF038AF46929-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2025/09/хілтон-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2025/09/733F873C-49B3-421B-998D-925CEFD498FD.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2025/09/7BCB4EC7-BBE4-4B00-8D9E-8D3979EDC39F.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2025/09/7E584560-8700-4710-8FA4-315C8417505B.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/1E965FA7-7848-451E-A14D-DF038AF46929.jpg?fit=1536%2C1024&ssl=1?v=1757673576",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/1E965FA7-7848-451E-A14D-DF038AF46929.jpg?w=1200&ssl=1",
-    "imageSha256": "7dfc3049b15323ab6d1a20648ee37f9ae8fbbc8ab30e505953d1ee687412e152",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "hilton-p",
@@ -42,18 +49,22 @@ window.MATRIX_CATALOG = [
     "depth": 2040,
     "sleepLength": 2700,
     "sleepWidth": 1300,
-    "image": "media/products/hilton-p.jpg",
+    "image": "media/products/hilton-p.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2025/09/C6E5A053-B1AD-4FD8-AAF1-152E101A2CCF-1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2025/09/7ECAEF9E-72FD-4552-9543-4E32E7FD61AD.jpg"
+      "media/products/gallery/c4e5229963eddb35903c.webp",
+      "media/products/gallery/b4f18beae97e31c8787e.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/C6E5A053-B1AD-4FD8-AAF1-152E101A2CCF.jpg?fit=1536%2C1024&ssl=1?v=1757674247",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/C6E5A053-B1AD-4FD8-AAF1-152E101A2CCF.jpg?w=1200&ssl=1",
-    "imageSha256": "10591216291157cd64c5ac370e434e709b70622a1e1519cda5aafc42cf45d4c0",
+    "imageSha256": "aea37ae16987f7dfa1a3faa1e81823f02feb53086643a423430df7e89ade384f",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
-    "sleepingAreaSource": "manufacturer"
+    "sleepingAreaSource": "manufacturer",
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2025/09/C6E5A053-B1AD-4FD8-AAF1-152E101A2CCF-1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2025/09/7ECAEF9E-72FD-4552-9543-4E32E7FD61AD.jpg"
+    ]
   },
   {
     "id": "molly",
@@ -69,18 +80,22 @@ window.MATRIX_CATALOG = [
     "depth": 1150,
     "sleepLength": 2000,
     "sleepWidth": 1600,
-    "image": "media/products/molly.jpg",
+    "image": "media/products/molly.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2025/09/4047E1D4-C3C4-4879-9978-AC15C063FCFF-1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2025/09/EE467BC0-8587-4BBF-A8A6-FE70D667DAD9.jpg"
+      "media/products/gallery/6a3eb3e3e035baa18958.webp",
+      "media/products/gallery/33f35e1c30397a1e3d76.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/4047E1D4-C3C4-4879-9978-AC15C063FCFF.jpg?fit=1536%2C1024&ssl=1?v=1757670130",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/4047E1D4-C3C4-4879-9978-AC15C063FCFF.jpg?w=1200&ssl=1",
-    "imageSha256": "4ef88af67190f2e6e8634758b614161193c1a8ec11c626ebb4e4fcae2eb9581d",
+    "imageSha256": "f4c19720bf5df16a41cb34faea4219cc045eef81284d56d2437591c369b0988a",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
-    "sleepingAreaSource": "manufacturer"
+    "sleepingAreaSource": "manufacturer",
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2025/09/4047E1D4-C3C4-4879-9978-AC15C063FCFF-1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2025/09/EE467BC0-8587-4BBF-A8A6-FE70D667DAD9.jpg"
+    ]
   },
   {
     "id": "lira-2",
@@ -96,17 +111,20 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lira-2.jpg",
+    "image": "media/products/lira-2.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2025/09/5E6ECDBD-E94D-4722-89C4-588529D7F991-—-копия.jpg"
+      "media/products/gallery/e46b3026b577b5dcbec6.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/5E6ECDBD-E94D-4722-89C4-588529D7F991.jpg?fit=1536%2C736&ssl=1?v=1757669742",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/5E6ECDBD-E94D-4722-89C4-588529D7F991.jpg?w=1200&ssl=1",
-    "imageSha256": "52dcc4d34d44ae56335242639726f1d5706ecdfd04741760fced55f6668944cc",
+    "imageSha256": "452e0d0740524f64d7a42ce3a70a6793f2cdb15aaa88eb8270f857af2b218d9b",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation",
       "category_requires_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2025/09/5E6ECDBD-E94D-4722-89C4-588529D7F991-—-копия.jpg"
     ]
   },
   {
@@ -123,20 +141,28 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 1980,
     "sleepWidth": 1600,
-    "image": "media/products/eldorado-2.jpg",
+    "image": "media/products/eldorado-2.webp",
     "images": [
+      "media/products/gallery/9ff4e3de98fe4895b121.webp",
+      "media/products/gallery/8cc198cd438e02ef1e54.webp",
+      "media/products/gallery/c4b6c4e4b285a5dc146c.webp",
+      "media/products/gallery/cdf1eed305fafdb822fa.webp",
+      "media/products/gallery/f7f4907d287ef02a1581.webp",
+      "media/products/gallery/b30696595454f67c9304.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6659.jpg?fit=1290%2C770&ssl=1?v=1718105762",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6659.jpg?w=1200&ssl=1",
+    "imageSha256": "14548775fd9ea84be5dfc030c2cb0fa2e0ca6469127678c71a3b1789213f35f1",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_6659-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9896.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9916.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9915.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9898.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9901.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6659.jpg?fit=1290%2C770&ssl=1?v=1718105762",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6659.jpg?w=1200&ssl=1",
-    "imageSha256": "b198c553ab750b9a2d01eaf5c1c864e871127fd5d16b199ebfb56268fc62a794",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "eldorado",
@@ -152,18 +178,24 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 1980,
     "sleepWidth": 1600,
-    "image": "media/products/eldorado.jpg",
+    "image": "media/products/eldorado.webp",
     "images": [
+      "media/products/gallery/17cf6497da83cd4e8c78.webp",
+      "media/products/gallery/b0b30d5e21164ce8eb3f.webp",
+      "media/products/gallery/ad86aef303c6bd2ceead.webp",
+      "media/products/gallery/5ed8a23e3c9e75a26a91.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6355.jpg?fit=1290%2C993&ssl=1?v=1717569723",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6355.jpg?w=1200&ssl=1",
+    "imageSha256": "726852a671deaf70575081246234c06950f31a3fdf1f18d216d52a703b5c0e89",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9114-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9115-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9124-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9121.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6355.jpg?fit=1290%2C993&ssl=1?v=1717569723",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6355.jpg?w=1200&ssl=1",
-    "imageSha256": "295784446ce4d390b365836587e2babbcf3bafdef7e5d486ad1626b08096e8ab",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "elli",
@@ -179,8 +211,30 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": 1980,
     "sleepWidth": 1600,
-    "image": "media/products/elli.jpg",
+    "image": "media/products/elli.webp",
     "images": [
+      "media/products/gallery/71b42a9d06b0cecfdeea.webp",
+      "media/products/gallery/2b469e2bb40c8940ec92.webp",
+      "media/products/gallery/8f10f39d568acf6c4711.webp",
+      "media/products/gallery/25b2a0a8d23d166c1ef8.webp",
+      "media/products/gallery/bfad07e663c5a79c12e1.webp",
+      "media/products/gallery/5e19d153736908cee66b.webp",
+      "media/products/gallery/717e31801ca370241703.webp",
+      "media/products/gallery/f27255f25f7aa1d920a7.webp",
+      "media/products/gallery/c3493de5d37311ef2882.webp",
+      "media/products/gallery/2e41258c7bbeb65d4257.webp",
+      "media/products/gallery/f6e03c8c57713f0d9fde.webp",
+      "media/products/gallery/56d3dc4f541e594114f1.webp",
+      "media/products/gallery/1e951b708bf837215353.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6354.jpg?fit=1290%2C979&ssl=1?v=1717569367",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6354.jpg?w=1200&ssl=1",
+    "imageSha256": "7b5984ee13ac5d558f606ef8d0eae5ba2c83b60b66cdfe31be99ff85c3b4a746",
+    "sourcePriceText": "",
+    "flags": [
+      "dimensions_require_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9564-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9567-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9573-3.jpg",
@@ -194,13 +248,6 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_0953.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9566.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9573.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6354.jpg?fit=1290%2C979&ssl=1?v=1717569367",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6354.jpg?w=1200&ssl=1",
-    "imageSha256": "ede062efd1be47fe73b4721634215b435463c89e80b830f090f88df5468f47d5",
-    "sourcePriceText": "",
-    "flags": [
-      "dimensions_require_confirmation"
     ]
   },
   {
@@ -217,8 +264,28 @@ window.MATRIX_CATALOG = [
     "depth": 1650,
     "sleepLength": 1980,
     "sleepWidth": 1600,
-    "image": "media/products/smart.jpg",
+    "image": "media/products/smart.webp",
     "images": [
+      "media/products/gallery/f054aaf4e5f74962dc44.webp",
+      "media/products/gallery/cff80056346fc4885f21.webp",
+      "media/products/gallery/1cea0d5b66f63c9cfb17.webp",
+      "media/products/gallery/db30ea87b9c866147747.webp",
+      "media/products/gallery/e7d2f94a8e687a49ae76.webp",
+      "media/products/gallery/46e8f9e0ca3110fd7c4f.webp",
+      "media/products/gallery/15e336aa725bea3c6ef2.webp",
+      "media/products/gallery/3e74e357f94e01440c30.webp",
+      "media/products/gallery/6ae6b192e761b86dcb8c.webp",
+      "media/products/gallery/62acc03a47f52ed1a39d.webp",
+      "media/products/gallery/172b4c3afb6df54b4cd2.webp",
+      "media/products/gallery/85c33b3e011e14aca901.webp",
+      "media/products/gallery/b4dfd58d2bf3d93b29b9.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6339.jpg?fit=1275%2C839&ssl=1?v=1717568060",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6339.jpg?w=1200&ssl=1",
+    "imageSha256": "6335d0b1a03c5d2f23e1403bc7813766cd6060b50ec695ae4390c72c6c6cfd7a",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9947.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9948.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9964.jpg",
@@ -232,12 +299,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9163.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9935.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9937.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6339.jpg?fit=1275%2C839&ssl=1?v=1717568060",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6339.jpg?w=1200&ssl=1",
-    "imageSha256": "99c0e606ce939961d5153e84ae5a88a4d5a06bf408743e93eadd9a0cbf56c6c7",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "pryamyy-dyvan-malibu-2",
@@ -253,19 +315,26 @@ window.MATRIX_CATALOG = [
     "depth": 1350,
     "sleepLength": 2000,
     "sleepWidth": 1600,
-    "image": "media/products/pryamyy-dyvan-malibu-2.jpg",
+    "image": "media/products/pryamyy-dyvan-malibu-2.webp",
     "images": [
+      "media/products/gallery/df37f5bbab80fc218425.webp",
+      "media/products/gallery/df5c26541ac29ada8c6e.webp",
+      "media/products/gallery/a4342d7dda4b12058f39.webp",
+      "media/products/gallery/64378ca1445c9dfded14.webp",
+      "media/products/gallery/9c3b4e92936081b947ad.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6351.jpg?fit=1290%2C983&ssl=1?v=1717566375",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6351.jpg?w=1200&ssl=1",
+    "imageSha256": "4048b9a6347afee1081bad7772cf85cf865214c6afe01d0c7806db75ebb467ab",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9014.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9920.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9932.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9018.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9028.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6351.jpg?fit=1290%2C983&ssl=1?v=1717566375",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6351.jpg?w=1200&ssl=1",
-    "imageSha256": "1b359b6e8d15f3aabe426e4e15d73c12335bad4fa63644ac124ce0e711c8b21e",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "pryamyy-dyvan-malibu",
@@ -281,8 +350,29 @@ window.MATRIX_CATALOG = [
     "depth": 1350,
     "sleepLength": 2000,
     "sleepWidth": 1600,
-    "image": "media/products/pryamyy-dyvan-malibu.jpg",
+    "image": "media/products/pryamyy-dyvan-malibu.webp",
     "images": [
+      "media/products/gallery/a432fd1976c8271e243f.webp",
+      "media/products/gallery/922d0a53460b8ba46cb2.webp",
+      "media/products/gallery/d10b8b93caa748ddcaa9.webp",
+      "media/products/gallery/9aacac07f617eaab324e.webp",
+      "media/products/gallery/51131d8374224c7ea37e.webp",
+      "media/products/gallery/348a39be66d0ae5b4414.webp",
+      "media/products/gallery/cd946c542ebd277599e1.webp",
+      "media/products/gallery/10685315e062fd9b1e8a.webp",
+      "media/products/gallery/b0f54a686cb756fae6b5.webp",
+      "media/products/gallery/a7d5a6bd01a26a8fa793.webp",
+      "media/products/gallery/059ac1cc53ff4ede1ea5.webp",
+      "media/products/gallery/b10e938640b7e1c8b2bf.webp",
+      "media/products/gallery/2c94973d1c3edff9c27e.webp",
+      "media/products/gallery/6e6f5e6b585e512d4324.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/02/IMG_4977.jpg?fit=1568%2C988&ssl=1?v=1708435812",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/02/IMG_4977.jpg?w=1200&ssl=1",
+    "imageSha256": "4644e44be483f4735d3f56c8ae0308629b8af9d2039fb8c447b30ff6f82d5d03",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2024/02/IMG_4977.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/02/IMG_3194.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/02/IMG_3199.jpg",
@@ -297,12 +387,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2024/02/IMG_8285.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/02/IMG_8278.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2024/02/IMG_8263.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/02/IMG_4977.jpg?fit=1568%2C988&ssl=1?v=1708435812",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/02/IMG_4977.jpg?w=1200&ssl=1",
-    "imageSha256": "2a19f9713a1f864dcdb5aa8f3b768631066a8c97b7a4927a77c388f75f4680db",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "pryamyy-dyvan-neo-230",
@@ -318,16 +403,20 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 2000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-neo-230.jpg",
+    "image": "media/products/pryamyy-dyvan-neo-230.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9045-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9037-2.jpg"
+      "media/products/gallery/85c60b30556729367e6a.webp",
+      "media/products/gallery/6c22dac0c9b008102a5c.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6356.jpg?fit=1290%2C1058&ssl=1?v=1717570432",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6356.jpg?w=1200&ssl=1",
-    "imageSha256": "cb084983b0366ac99c319479c185b6f5e9a7403ed820a4e017ecc428f2e6c1fb",
+    "imageSha256": "8f97136083f0dd04e6707a1ed3f2125a48f54c18966c5700bed5131a99b34854",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9045-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_9037-2.jpg"
+    ]
   },
   {
     "id": "pryamyy-dyvan-rubin-3",
@@ -343,17 +432,22 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 3000,
     "sleepWidth": 1550,
-    "image": "media/products/pryamyy-dyvan-rubin-3.jpg",
+    "image": "media/products/pryamyy-dyvan-rubin-3.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_8493.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_8498.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_8501.jpg"
+      "media/products/gallery/d228d9258ce3f57a22cd.webp",
+      "media/products/gallery/734313e32c91135c3c19.webp",
+      "media/products/gallery/91efa900a957519981db.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6353.jpg?fit=1290%2C753&ssl=1?v=1717567502",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6353.jpg?w=1200&ssl=1",
-    "imageSha256": "f14b0f21b5c68306a0e11a28742e723212332ade7c303b51f8b3b0d22562e90c",
+    "imageSha256": "4944a97724bde6400718d80d3035fcd5348e3a3565bf57562db18418f385b7ba",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_8493.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_8498.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2024/06/IMG_8501.jpg"
+    ]
   },
   {
     "id": "lizhko-soft-2",
@@ -369,16 +463,19 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-soft-2.jpg",
+    "image": "media/products/lizhko-soft-2.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2024/02/IMG_4018.jpg"
+      "media/products/gallery/48acfb52f8ae9e7c0a02.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/02/IMG_4018.jpg?fit=1568%2C1096&ssl=1?v=1707376654",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/02/IMG_4018.jpg?w=1200&ssl=1",
-    "imageSha256": "ace918a34ac1ef94834ad29d1c5b9fe62585fa7c35153402129447a9063d6aac",
+    "imageSha256": "501f26e88184707662d33544e402d74bda7215a00223f0b61bc96dd146d56852",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2024/02/IMG_4018.jpg"
     ]
   },
   {
@@ -395,8 +492,32 @@ window.MATRIX_CATALOG = [
     "depth": 1580,
     "sleepLength": 2420,
     "sleepWidth": 1520,
-    "image": "media/products/kutovyy-dyvan-neapol.jpg",
+    "image": "media/products/kutovyy-dyvan-neapol.webp",
     "images": [
+      "media/products/gallery/79689d6faffab682a069.webp",
+      "media/products/gallery/f8ee085eb7f0e17637fa.webp",
+      "media/products/gallery/51ebfc8d3abb86f74512.webp",
+      "media/products/gallery/6c6ebb7c60fa70392556.webp",
+      "media/products/gallery/5eacbed21e0cdf90bf42.webp",
+      "media/products/gallery/58577974a105db2d4f7f.webp",
+      "media/products/gallery/1dcb9d709beb2b2d0274.webp",
+      "media/products/gallery/8ef1bf9841f8a44a89a7.webp",
+      "media/products/gallery/39360d931a1a89dc6d43.webp",
+      "media/products/gallery/ee688f80aeba3812eb45.webp",
+      "media/products/gallery/393dd1799dcbee7b6dd9.webp",
+      "media/products/gallery/0f9f4392d572cd8222db.webp",
+      "media/products/gallery/cc36b6fc9d06a4b5d64b.webp",
+      "media/products/gallery/9c1d4f46f886c5e615fb.webp",
+      "media/products/gallery/6d798f0efc7d5d09af2a.webp",
+      "media/products/gallery/9848bf33623bd8123e14.webp",
+      "media/products/gallery/03f87f778607a9b98562.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/12/IMG_2868.jpg?fit=1568%2C1112&ssl=1?v=1705409533",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/12/IMG_2868.jpg?w=1200&ssl=1",
+    "imageSha256": "d5cc846475880a9e363668e477ee5d4b9f986276fee5bcd56bab416f23d4fd52",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/12/IMG_2206.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/12/IMG_2214.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/12/IMG_2219.jpg",
@@ -414,12 +535,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/12/IMG_6253.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/12/IMG_6250.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/12/IMG_6235.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/12/IMG_2868.jpg?fit=1568%2C1112&ssl=1?v=1705409533",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/12/IMG_2868.jpg?w=1200&ssl=1",
-    "imageSha256": "e3107b7783f9dfdfc59439f928bd8135acd0b88b0d16e3d9354e7c7bd06be681",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "pryamyy-dyvan-lili",
@@ -435,8 +551,29 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/pryamyy-dyvan-lili.jpg",
+    "image": "media/products/pryamyy-dyvan-lili.webp",
     "images": [
+      "media/products/gallery/bd6ae8136cff3fb1e634.webp",
+      "media/products/gallery/893c387adb0af644ce84.webp",
+      "media/products/gallery/aedac10a74e354e17774.webp",
+      "media/products/gallery/6c56df1dc388c91282a1.webp",
+      "media/products/gallery/2be7040a2a0151127252.webp",
+      "media/products/gallery/44f2f0c454d7e592691c.webp",
+      "media/products/gallery/eece47c83f6680bba481.webp",
+      "media/products/gallery/cef34701540d6a8968d8.webp",
+      "media/products/gallery/c8e5e5470b04f9337311.webp",
+      "media/products/gallery/d88ad426aaa8ff8b7965.webp",
+      "media/products/gallery/5010d4bd91de9051d1ef.webp",
+      "media/products/gallery/8bd09c40d27ee090486c.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9B%D1%96%D0%BB%D1%96-1.jpg?fit=1568%2C765&ssl=1?v=1700577291",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9B%D1%96%D0%BB%D1%96-1.jpg?w=1200&ssl=1",
+    "imageSha256": "18305a6ac5294b8c60d072ef63b6ed7bcfee56bb343e7bbc580d5fb6b837055d",
+    "sourcePriceText": "",
+    "flags": [
+      "sleeping_dimensions_require_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Д-Лілі-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Д-Ліліа.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_0390.jpg",
@@ -449,13 +586,6 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_7506.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_4392.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8155.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9B%D1%96%D0%BB%D1%96-1.jpg?fit=1568%2C765&ssl=1?v=1700577291",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9B%D1%96%D0%BB%D1%96-1.jpg?w=1200&ssl=1",
-    "imageSha256": "35080cad9f8492d3dce7fcb560dcf8bfc2e9b7908833d9861455051357ad4f5e",
-    "sourcePriceText": "",
-    "flags": [
-      "sleeping_dimensions_require_confirmation"
     ]
   },
   {
@@ -472,8 +602,24 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 2000,
     "sleepWidth": 1550,
-    "image": "media/products/rubin.jpg",
+    "image": "media/products/rubin.webp",
     "images": [
+      "media/products/gallery/1d18e7e30319c6147279.webp",
+      "media/products/gallery/aa5b9d212a95e1ff0dfb.webp",
+      "media/products/gallery/a143834369406edab3f0.webp",
+      "media/products/gallery/799b759f47ea36c01072.webp",
+      "media/products/gallery/a4f3dcc3a6931309efa6.webp",
+      "media/products/gallery/5ae11a535edcdb417ad2.webp",
+      "media/products/gallery/edc45d5efcdd4d7558c9.webp",
+      "media/products/gallery/3e6b79b79096cc85696a.webp",
+      "media/products/gallery/8eea78322565c9811818.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A0%D1%83%D0%B1%D1%96%D0%BD-1.jpg?fit=1568%2C790&ssl=1?v=1700577187",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A0%D1%83%D0%B1%D1%96%D0%BD-1.jpg?w=1200&ssl=1",
+    "imageSha256": "ef265a034bc68d9082d87329fe7801eab946e7b8ff34ad33357ae77e69a25399",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/11/Д.Рубін-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/д.Рубін-разлож.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/FullSizeRender-9.jpg",
@@ -483,12 +629,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_2192.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_1077.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_1074.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A0%D1%83%D0%B1%D1%96%D0%BD-1.jpg?fit=1568%2C790&ssl=1?v=1700577187",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A0%D1%83%D0%B1%D1%96%D0%BD-1.jpg?w=1200&ssl=1",
-    "imageSha256": "ae7fe31b178056cfd2185db020bddf45cef017f567f4665c51e13dcf5b695e54",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "pryamyy-dyvan-neo",
@@ -504,8 +645,24 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 2000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-neo.jpg",
+    "image": "media/products/pryamyy-dyvan-neo.webp",
     "images": [
+      "media/products/gallery/0fd75ab155d1511f40ad.webp",
+      "media/products/gallery/f4a996f4dd83e4534481.webp",
+      "media/products/gallery/9e21afe0255ca6d1745b.webp",
+      "media/products/gallery/23b39165328d507298b1.webp",
+      "media/products/gallery/ec5975f6f171f540224c.webp",
+      "media/products/gallery/4113182d10681632e49d.webp",
+      "media/products/gallery/77a3a0daa6468096de41.webp",
+      "media/products/gallery/8e6e6e9dc3e2376604e9.webp",
+      "media/products/gallery/4489b04ef31a758b077f.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE.jpg?fit=1568%2C1045&ssl=1?v=1700577284",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE.jpg?w=1200&ssl=1",
+    "imageSha256": "f5029f27c9221e9767d6abfceef726b35e3499e68cad4cd2739b80401287a707",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Д-Нео-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_0166.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_0169.jpg",
@@ -515,12 +672,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_3129.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_7185.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8210.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE.jpg?fit=1568%2C1045&ssl=1?v=1700577284",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE.jpg?w=1200&ssl=1",
-    "imageSha256": "a0402a36a20868ad9d96a3ff913b91fd1920a79b3154b6120f63c9dab4c73fb7",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "kutovyy-dyvan-neo-2",
@@ -536,8 +688,32 @@ window.MATRIX_CATALOG = [
     "depth": 1630,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/kutovyy-dyvan-neo-2.jpg",
+    "image": "media/products/kutovyy-dyvan-neo-2.webp",
     "images": [
+      "media/products/gallery/6dd53d04c11d2b918a37.webp",
+      "media/products/gallery/81d4ef6952f926018f92.webp",
+      "media/products/gallery/e09a079391ecd837a9a3.webp",
+      "media/products/gallery/c0f6a733f43b49760b31.webp",
+      "media/products/gallery/b19966b7a98c2a0f34e5.webp",
+      "media/products/gallery/461b1a0ea9aa0e942c43.webp",
+      "media/products/gallery/e444cd24dd31c2693954.webp",
+      "media/products/gallery/5868cb609b6ec74642ff.webp",
+      "media/products/gallery/04c229ef221468f71e98.webp",
+      "media/products/gallery/11a45a4192d8de52517d.webp",
+      "media/products/gallery/8ae1fd141a7c4621f816.webp",
+      "media/products/gallery/cbb02bdaf2aff699ae7a.webp",
+      "media/products/gallery/3da1799e6fb6bf9a07ae.webp",
+      "media/products/gallery/ac0d0e40c270c989d4d1.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D1%83%D0%B3-%D0%9D%D0%B5%D0%BE-2%D0%B0.jpg?fit=1568%2C1045&ssl=1?v=1700577283",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D1%83%D0%B3-%D0%9D%D0%B5%D0%BE-2%D0%B0.jpg?w=1200&ssl=1",
+    "imageSha256": "598459fc5a0a7d31da0cdc25a452e13d3b173e651764d2c5b593ac8ed006db07",
+    "sourcePriceText": "",
+    "flags": [
+      "sleeping_dimensions_require_confirmation"
+    ],
+    "dimensionSource": "manufacturer",
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/уг-Нео-2а-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Уг-Нео-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Уг-Нео-2б.jpg",
@@ -552,15 +728,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/FullSizeRender-4.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_5539.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_5542.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D1%83%D0%B3-%D0%9D%D0%B5%D0%BE-2%D0%B0.jpg?fit=1568%2C1045&ssl=1?v=1700577283",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D1%83%D0%B3-%D0%9D%D0%B5%D0%BE-2%D0%B0.jpg?w=1200&ssl=1",
-    "imageSha256": "4d6f41e26cbe896b0f5fcd6e408e3a16d9a8a8c091e3b0d4c867b48efe4cb7dc",
-    "sourcePriceText": "",
-    "flags": [
-      "sleeping_dimensions_require_confirmation"
-    ],
-    "dimensionSource": "manufacturer"
+    ]
   },
   {
     "id": "kutovyy-dyvan-neo-3",
@@ -576,20 +744,26 @@ window.MATRIX_CATALOG = [
     "depth": 1630,
     "sleepLength": 3000,
     "sleepWidth": 1520,
-    "image": "media/products/kutovyy-dyvan-neo-3.jpg",
+    "image": "media/products/kutovyy-dyvan-neo-3.webp",
     "images": [
+      "media/products/gallery/c2eb717bc06146f8de6b.webp",
+      "media/products/gallery/a51db49ffbd7979049ae.webp",
+      "media/products/gallery/4a32caeb68719352e003.webp",
+      "media/products/gallery/979dab65d7152648ee70.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/10/%D0%A3%D0%B3-%D0%9D%D0%B5%D0%BE-3.jpg?fit=1568%2C1045&ssl=1?v=1700577215",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/10/%D0%A3%D0%B3-%D0%9D%D0%B5%D0%BE-3.jpg?w=1200&ssl=1",
+    "imageSha256": "d3353affc3a4253cff5c5eb87ad08bebf9d585b9bb1ad106f467e9842ade01fe",
+    "sourcePriceText": "",
+    "flags": [],
+    "dimensionSource": "manufacturer",
+    "sleepingAreaSource": "manufacturer",
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/10/Уг-Нео-3.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/FullSizeRender-6.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_0206.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_0210.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/10/%D0%A3%D0%B3-%D0%9D%D0%B5%D0%BE-3.jpg?fit=1568%2C1045&ssl=1?v=1700577215",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/10/%D0%A3%D0%B3-%D0%9D%D0%B5%D0%BE-3.jpg?w=1200&ssl=1",
-    "imageSha256": "eb8208dade52a9977055e80ebbce08d9d6b69a9cd46b30053709e1d6485b524a",
-    "sourcePriceText": "",
-    "flags": [],
-    "dimensionSource": "manufacturer",
-    "sleepingAreaSource": "manufacturer"
+    ]
   },
   {
     "id": "pryamyy-dyvan-neo-3",
@@ -605,22 +779,30 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 3000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-neo-3.jpg",
+    "image": "media/products/pryamyy-dyvan-neo-3.webp",
     "images": [
+      "media/products/gallery/6acdef592834ddd0656c.webp",
+      "media/products/gallery/918270b0c783c03bd07e.webp",
+      "media/products/gallery/0c12dac9b0c6012623da.webp",
+      "media/products/gallery/e54b8c609d99b880e1e9.webp",
+      "media/products/gallery/8ca6bf81f2a6bcab1773.webp",
+      "media/products/gallery/b8e5be06a9cb7804ea33.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE-3.jpg?fit=1568%2C1045&ssl=1?v=1700577280",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE-3.jpg?w=1200&ssl=1",
+    "imageSha256": "e093da5ea6c4c67a19c66bcd2cc1eb61fe03190d7060320d7cff8a00a60c852b",
+    "sourcePriceText": "",
+    "flags": [],
+    "dimensionSource": "manufacturer",
+    "sleepingAreaSource": "manufacturer",
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Д-Нео-3.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8490.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8494.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8497.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8475.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8486.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE-3.jpg?fit=1568%2C1045&ssl=1?v=1700577280",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE-3.jpg?w=1200&ssl=1",
-    "imageSha256": "405ea7b7ddc93a7c4664b0e6086b3c541772a66d6431067243d8d70f2861a989",
-    "sourcePriceText": "",
-    "flags": [],
-    "dimensionSource": "manufacturer",
-    "sleepingAreaSource": "manufacturer"
+    ]
   },
   {
     "id": "kutovyy-dyvan-elehant",
@@ -636,19 +818,26 @@ window.MATRIX_CATALOG = [
     "depth": 1670,
     "sleepLength": 2100,
     "sleepWidth": 1600,
-    "image": "media/products/kutovyy-dyvan-elehant.jpg",
+    "image": "media/products/kutovyy-dyvan-elehant.webp",
     "images": [
+      "media/products/gallery/ed92c99462e797253552.webp",
+      "media/products/gallery/cd2aef527f73a3d672cd.webp",
+      "media/products/gallery/fbeaa07dc250b20b8313.webp",
+      "media/products/gallery/88d673ef9bc36561b2f8.webp",
+      "media/products/gallery/16d702b683e7aeab425d.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%A3%D0%B3.%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82-260.jpg?fit=1568%2C1045&ssl=1?v=1700577189",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%A3%D0%B3.%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82-260.jpg?w=1200&ssl=1",
+    "imageSha256": "f1201fd81f0fe2d793a32c8505df658cf2af505a3225af55eb2e8fe204f6e77d",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/11/Уг.Елегант-260.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/уг.Елент-260-разл.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/photo_2023-11-10-09.17.07.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/photo_2023-11-10-09.16.59.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/photo_2023-11-10-09.16.57.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%A3%D0%B3.%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82-260.jpg?fit=1568%2C1045&ssl=1?v=1700577189",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%A3%D0%B3.%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82-260.jpg?w=1200&ssl=1",
-    "imageSha256": "298e9103d2bd775ac5e2a9b504900f2125357c28f980a8a16a2aa21ecb82cb3e",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "pryamyy-dyvan-elehant",
@@ -664,8 +853,25 @@ window.MATRIX_CATALOG = [
     "depth": 1090,
     "sleepLength": 1980,
     "sleepWidth": 1600,
-    "image": "media/products/pryamyy-dyvan-elehant.jpg",
+    "image": "media/products/pryamyy-dyvan-elehant.webp",
     "images": [
+      "media/products/gallery/2770b089e8cc7d15fab4.webp",
+      "media/products/gallery/84f97beccf631399b41b.webp",
+      "media/products/gallery/21bf214617a548fd8ab8.webp",
+      "media/products/gallery/61b9c868a50071e0cedb.webp",
+      "media/products/gallery/8f5bac25ef251af698f4.webp",
+      "media/products/gallery/82b898ecc97e5ff3c345.webp",
+      "media/products/gallery/55b7a94c47892105336e.webp",
+      "media/products/gallery/219ffeb54836b28212b6.webp",
+      "media/products/gallery/13cd0a54787f61c78873.webp",
+      "media/products/gallery/da9735170f3d15ec1cfd.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94-%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82.jpg?fit=1568%2C744&ssl=1?v=1700577191",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94-%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82.jpg?w=1200&ssl=1",
+    "imageSha256": "fe26c27608ade9359278c27acccf74811663697ad318608b4d56db1f304c116d",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/11/Д-Елегант.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/Д.Елегант-разлож.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/FullSizeRender-27.jpg",
@@ -676,12 +882,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_5964.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_7465.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_7474.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94-%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82.jpg?fit=1568%2C744&ssl=1?v=1700577191",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94-%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82.jpg?w=1200&ssl=1",
-    "imageSha256": "72b283e3d6d76466286e6a8cd7b00b9fff1a05d4118c1a9f7a9b9c321e0f58dc",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "pryamyy-dyvan-loft",
@@ -697,18 +898,24 @@ window.MATRIX_CATALOG = [
     "depth": 1060,
     "sleepLength": 2000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-loft.jpg",
+    "image": "media/products/pryamyy-dyvan-loft.webp",
     "images": [
+      "media/products/gallery/c84fe782f6e6de075d43.webp",
+      "media/products/gallery/d31ea928d000df242220.webp",
+      "media/products/gallery/8e1e7ccfed8bce06a9cb.webp",
+      "media/products/gallery/f31c6cb5fa231cdd5e99.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94.%D0%BB%D0%BE%D1%84%D1%82-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-3.jpg?fit=1568%2C666&ssl=1?v=1700577272",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94.%D0%BB%D0%BE%D1%84%D1%82-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-3.jpg?w=1200&ssl=1",
+    "imageSha256": "5270453755bbbaad8a151f96c685561006decc59cc37cc4ece1416c7c7e0ab12",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2022/08/Д.лофт-главная-3.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/Д.Лофт-Разл-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/Д.Лофт-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/IMG_1502.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94.%D0%BB%D0%BE%D1%84%D1%82-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-3.jpg?fit=1568%2C666&ssl=1?v=1700577272",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94.%D0%BB%D0%BE%D1%84%D1%82-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-3.jpg?w=1200&ssl=1",
-    "imageSha256": "6b0ca78935bbede55fb5a1bf94b4d348d0de76591e6e0e35f71cae5da98b6c82",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "kutovyy-dyvan-loft-2",
@@ -724,16 +931,20 @@ window.MATRIX_CATALOG = [
     "depth": 1550,
     "sleepLength": 2000,
     "sleepWidth": 1550,
-    "image": "media/products/kutovyy-dyvan-loft-2.jpg",
+    "image": "media/products/kutovyy-dyvan-loft-2.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2023/07/Уг-Лофт-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2023/07/Уг-Лофт-2а.jpg"
+      "media/products/gallery/0d3bc3f98d5480358758.webp",
+      "media/products/gallery/35c10f7ab3a9d1bbcd50.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%A3%D0%B3-%D0%9B%D0%BE%D1%84%D1%82-2.jpg?fit=1568%2C1045&ssl=1?v=1700577287",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%A3%D0%B3-%D0%9B%D0%BE%D1%84%D1%82-2.jpg?w=1200&ssl=1",
-    "imageSha256": "4b66fa928137d223b15c18ab0fd3251e584746c4f7f4f33cf261c03c5f68853b",
+    "imageSha256": "bee2d652f90e3c2424fe494d27b76a713c314b73a77c63472364fa93181f4e94",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2023/07/Уг-Лофт-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2023/07/Уг-Лофт-2а.jpg"
+    ]
   },
   {
     "id": "kutovyy-dyvan-loft",
@@ -749,17 +960,22 @@ window.MATRIX_CATALOG = [
     "depth": 1550,
     "sleepLength": 3000,
     "sleepWidth": 1520,
-    "image": "media/products/kutovyy-dyvan-loft.jpg",
+    "image": "media/products/kutovyy-dyvan-loft.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2022/08/Уг.Лофт-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2022/08/Уг.Лофт-П-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2022/08/Уг.Лофт-Разлож-2.jpg"
+      "media/products/gallery/7a04a1f15e4646544a1a.webp",
+      "media/products/gallery/f94619c280ac85b0fe9f.webp",
+      "media/products/gallery/724c75abc60ec568c24f.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%A3%D0%B3.%D0%9B%D0%BE%D1%84%D1%82-2.jpg?fit=1568%2C490&ssl=1?v=1700577276",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%A3%D0%B3.%D0%9B%D0%BE%D1%84%D1%82-2.jpg?w=1200&ssl=1",
-    "imageSha256": "0fa96df117b09f9255fb0ee7eac9b2422e028663ea2b189e6edc06b312558b07",
+    "imageSha256": "ca9c148811870cd0a449fee31320cea7b033cf13294d8d646922f785bc685673",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2022/08/Уг.Лофт-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2022/08/Уг.Лофт-П-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2022/08/Уг.Лофт-Разлож-2.jpg"
+    ]
   },
   {
     "id": "pryamyy-dyvan-loft-3",
@@ -775,16 +991,20 @@ window.MATRIX_CATALOG = [
     "depth": 1060,
     "sleepLength": 3000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-loft-3.jpg",
+    "image": "media/products/pryamyy-dyvan-loft-3.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2022/08/Д.Лофт-3-4.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2022/08/Д.Лофт-3-П-2.jpg"
+      "media/products/gallery/51835296f3c8a15dd482.webp",
+      "media/products/gallery/09dae05565bb58668783.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94.%D0%9B%D0%BE%D1%84%D1%82-3-4.jpg?fit=1568%2C537&ssl=1?v=1700577277",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94.%D0%9B%D0%BE%D1%84%D1%82-3-4.jpg?w=1200&ssl=1",
-    "imageSha256": "6e17bd8ad785b4135cc34a345c22bb4e113a78d5d17d3017c9e1c91a9d0b074a",
+    "imageSha256": "1c017ae2e15d983b680bb5e13db85dd119d8501169d6444adb8ec57c5d46697b",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2022/08/Д.Лофт-3-4.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2022/08/Д.Лофт-3-П-2.jpg"
+    ]
   },
   {
     "id": "kutovyy-dyvan-bliss",
@@ -800,8 +1020,23 @@ window.MATRIX_CATALOG = [
     "depth": 1550,
     "sleepLength": 2420,
     "sleepWidth": 1520,
-    "image": "media/products/kutovyy-dyvan-bliss.jpg",
+    "image": "media/products/kutovyy-dyvan-bliss.webp",
     "images": [
+      "media/products/gallery/1c2c70d0a708fb4973d1.webp",
+      "media/products/gallery/bb76bb87dcbe238eaf82.webp",
+      "media/products/gallery/3089964433a7389d2f4c.webp",
+      "media/products/gallery/a553582c8196ad08d187.webp",
+      "media/products/gallery/82d2df017c721b80f3c5.webp",
+      "media/products/gallery/31bf10f2b3aa9c6e5304.webp",
+      "media/products/gallery/3bc7432f0534c2212bd1.webp",
+      "media/products/gallery/50b8e35b0983c3c19e03.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2023-07-07-%D0%B2-13.46.44.jpg?fit=1568%2C629&ssl=1?v=1700577294",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2023-07-07-%D0%B2-13.46.44.jpg?w=1200&ssl=1",
+    "imageSha256": "e325adae0897c7d89f84e601e020726d57ddf808216d8a0f363804e2496d3606",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2022/08/Снимок-экрана-2023-07-07-в-13.46.44.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/FullSizeRender-3.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/Копия-IMG_0544.jpg",
@@ -810,12 +1045,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2022/08/IMG_0558.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/Уг.Блисс.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/Уг.Блисс.Разл.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2023-07-07-%D0%B2-13.46.44.jpg?fit=1568%2C629&ssl=1?v=1700577294",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2023-07-07-%D0%B2-13.46.44.jpg?w=1200&ssl=1",
-    "imageSha256": "ce639c19789e7c7f745db328c6d081c847c49341dcf17cc247f93fb040facf0e",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "dyvan-pryamyy-khit",
@@ -831,8 +1061,30 @@ window.MATRIX_CATALOG = [
     "depth": 1030,
     "sleepLength": 1970,
     "sleepWidth": 1500,
-    "image": "media/products/dyvan-pryamyy-khit.jpg",
+    "image": "media/products/dyvan-pryamyy-khit.webp",
     "images": [
+      "media/products/gallery/412f4b864d2fdedf2991.webp",
+      "media/products/gallery/5d51f49c875e4bafbd17.webp",
+      "media/products/gallery/6524a6df53d54b8c4be1.webp",
+      "media/products/gallery/584e730addf0c9cec0a4.webp",
+      "media/products/gallery/50984d1f1eed228172a9.webp",
+      "media/products/gallery/ea9c984e57f5b7bc3e7b.webp",
+      "media/products/gallery/c25109a445c0c75c4c96.webp",
+      "media/products/gallery/6f09cd09efa807e36ca6.webp",
+      "media/products/gallery/a80307a568dd0f524810.webp",
+      "media/products/gallery/1bc0be4582c57a976e67.webp",
+      "media/products/gallery/277996b4a42cd6f58570.webp",
+      "media/products/gallery/d8192b2fc5d83056a229.webp",
+      "media/products/gallery/1dc11fcd0f955a324379.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/IMG_8586.jpg?fit=1568%2C994&ssl=1?v=1700577161",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/IMG_8586.jpg?w=1200&ssl=1",
+    "imageSha256": "a76fccb7c6b83be9e235ee629ec4dcbbfbb68bd24024d3355d100ad3414296ba",
+    "sourcePriceText": "",
+    "flags": [],
+    "dimensionSource": "manufacturer",
+    "sleepingAreaSource": "manufacturer",
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/09/IMG_8162.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/09/IMG_8170.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/09/IMG_9958.jpg",
@@ -846,14 +1098,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/09/IMG_8601.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/09/FullSizeRender-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/09/FullSizeRender-3.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/IMG_8586.jpg?fit=1568%2C994&ssl=1?v=1700577161",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/IMG_8586.jpg?w=1200&ssl=1",
-    "imageSha256": "969a34a780137cd29adf446e3c71942a75d6205ea462c38693b332d59aa4e740",
-    "sourcePriceText": "",
-    "flags": [],
-    "dimensionSource": "manufacturer",
-    "sleepingAreaSource": "manufacturer"
+    ]
   },
   {
     "id": "lizhko-faro",
@@ -869,8 +1114,24 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-faro.jpg",
+    "image": "media/products/lizhko-faro.webp",
     "images": [
+      "media/products/gallery/207ceb28a82c1b95ba12.webp",
+      "media/products/gallery/2183db48bdaa2a007539.webp",
+      "media/products/gallery/1be064024a12b9c261b7.webp",
+      "media/products/gallery/2f8e573d07b466927922.webp",
+      "media/products/gallery/55d0d79bd00fe61ea6ac.webp",
+      "media/products/gallery/7fdc187401ca4ec7cb8a.webp",
+      "media/products/gallery/22393af36211b47d895a.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%A4%D0%B0%D1%80%D0%BE-1-9.jpg?fit=1568%2C1045&ssl=1?v=1700577266",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%A4%D0%B0%D1%80%D0%BE-1-9.jpg?w=1200&ssl=1",
+    "imageSha256": "498bb1d76f226217fa0ebff71bddfef619e38e49d059abe634d6fa122ec8ab8b",
+    "sourcePriceText": "",
+    "flags": [
+      "sleeping_dimensions_require_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Ліжко-Фаро-1-9.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_5850.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/FullSizeRender.jpg",
@@ -878,13 +1139,6 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_0285.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_7461.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_7453.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%A4%D0%B0%D1%80%D0%BE-1-9.jpg?fit=1568%2C1045&ssl=1?v=1700577266",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%A4%D0%B0%D1%80%D0%BE-1-9.jpg?w=1200&ssl=1",
-    "imageSha256": "d3e9cbefceebdc74805e57ff489fc165970275944cc6f92be756cd55cebd4fec",
-    "sourcePriceText": "",
-    "flags": [
-      "sleeping_dimensions_require_confirmation"
     ]
   },
   {
@@ -901,8 +1155,26 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-bali.jpg",
+    "image": "media/products/lizhko-bali.webp",
     "images": [
+      "media/products/gallery/daac9c60e2526b1340d7.webp",
+      "media/products/gallery/80b243b4d22e221ec153.webp",
+      "media/products/gallery/29c032dc72b5c53c16cc.webp",
+      "media/products/gallery/7eaafc8be2b3472a397a.webp",
+      "media/products/gallery/6af74bc3b873dcb71c13.webp",
+      "media/products/gallery/813baa763bb7300d4230.webp",
+      "media/products/gallery/826ca2703733de3c070f.webp",
+      "media/products/gallery/2b779b0965450fd6bc3e.webp",
+      "media/products/gallery/9138ba8894f6ee7780a7.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%91%D0%B0%D0%BB%D1%96-12.jpg?fit=990%2C609&ssl=1?v=1700577293",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%91%D0%B0%D0%BB%D1%96-12.jpg?w=1200&ssl=1",
+    "imageSha256": "b376416e6eed2252657cc1370da4e718aa947574e8ddcf7889f1468564827ddb",
+    "sourcePriceText": "",
+    "flags": [
+      "sleeping_dimensions_require_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Ліжко-Балі-8.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8572.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8554.jpg",
@@ -912,13 +1184,6 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/FullSizeRender-5.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/FullSizeRender-13.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_1104.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%91%D0%B0%D0%BB%D1%96-12.jpg?fit=990%2C609&ssl=1?v=1700577293",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%91%D0%B0%D0%BB%D1%96-12.jpg?w=1200&ssl=1",
-    "imageSha256": "b4477b50c0c253b10f82ef7ee3ed25b7681f3f4893b42969d5f8cd098935737b",
-    "sourcePriceText": "",
-    "flags": [
-      "sleeping_dimensions_require_confirmation"
     ]
   },
   {
@@ -935,19 +1200,25 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-milana.jpg",
+    "image": "media/products/lizhko-milana.webp",
     "images": [
+      "media/products/gallery/00a03091fb841d2f6553.webp",
+      "media/products/gallery/32c12751b1e284def336.webp",
+      "media/products/gallery/d8a0b21e393c39ea9db8.webp",
+      "media/products/gallery/4597854afaba867370d9.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%9C%D1%96%D0%BB%D0%B0%D0%BD%D0%B0.jpg?fit=1280%2C662&ssl=1?v=1700577309",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%9C%D1%96%D0%BB%D0%B0%D0%BD%D0%B0.jpg?w=1200&ssl=1",
+    "imageSha256": "5811d359c50cc64b48068a03fa239ddc43b45a666be6408056ed24f6b8f90891",
+    "sourcePriceText": "",
+    "flags": [
+      "sleeping_dimensions_require_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Ліжко-Мілана-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/FullSizeRender-15.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/FullSizeRender-13-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_0164.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%9C%D1%96%D0%BB%D0%B0%D0%BD%D0%B0.jpg?fit=1280%2C662&ssl=1?v=1700577309",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%9C%D1%96%D0%BB%D0%B0%D0%BD%D0%B0.jpg?w=1200&ssl=1",
-    "imageSha256": "e270e9c9ea278a60e5531b11c9bb75404e4b72fbbdf7408dd354873ec900e1e5",
-    "sourcePriceText": "",
-    "flags": [
-      "sleeping_dimensions_require_confirmation"
     ]
   },
   {
@@ -964,17 +1235,21 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-lira.jpg",
+    "image": "media/products/lizhko-lira.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2023/07/Ліжко-Ліра.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2023/07/Ліжко-Ліра-а.jpg"
+      "media/products/gallery/24a9f0e3e65e061bcb86.webp",
+      "media/products/gallery/12ce8cac7d7396336593.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%9B%D1%96%D1%80%D0%B0-6.jpg?fit=800%2C466&ssl=1?v=1700577311",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%9B%D1%96%D1%80%D0%B0-6.jpg?w=1200&ssl=1",
-    "imageSha256": "2e115604627baf468f5c4193dcb089a692c8a94bdb7f109a4c8226c2b4b44101",
+    "imageSha256": "b8ddcebb630b6d9ca73b4003536da98537862b357fd82d3ca3eb18a6eb5720d7",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2023/07/Ліжко-Ліра.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2023/07/Ліжко-Ліра-а.jpg"
     ]
   },
   {
@@ -991,18 +1266,23 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-soft.jpg",
+    "image": "media/products/lizhko-soft.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2023/07/Ліжко-Софт.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8442.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8449.jpg"
+      "media/products/gallery/93c101ac05717062fb9d.webp",
+      "media/products/gallery/5bac5974d8a4b2269801.webp",
+      "media/products/gallery/8f3dd41d1fbb78e65570.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%A1%D0%BE%D1%84%D1%82-1.jpg?fit=640%2C338&ssl=1?v=1700577312",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%A1%D0%BE%D1%84%D1%82-1.jpg?w=1200&ssl=1",
-    "imageSha256": "9f5352958d560bb229614ada9291bc0f9c4e94cc28f0dc770da0f44e0c8f2d48",
+    "imageSha256": "7866b615e023597c314c63495de96a7d2fcd11175193008a8903ce91230950c9",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2023/07/Ліжко-Софт.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8442.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8449.jpg"
     ]
   },
   {
@@ -1019,8 +1299,28 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-skay.jpg",
+    "image": "media/products/lizhko-skay.webp",
     "images": [
+      "media/products/gallery/e7f70edb9845f899fbc5.webp",
+      "media/products/gallery/3dd74311bc9ce0e3f335.webp",
+      "media/products/gallery/bb1fc9f8a443b432666b.webp",
+      "media/products/gallery/ab8fdcdd4717c3e70d14.webp",
+      "media/products/gallery/269ec59e1c3fc49ee432.webp",
+      "media/products/gallery/67c8b9f30f8c440478cc.webp",
+      "media/products/gallery/5a7a2d8b9db6daa84a13.webp",
+      "media/products/gallery/e6909c2f06d24f251be2.webp",
+      "media/products/gallery/2d10a3ad82407f7e0c92.webp",
+      "media/products/gallery/1a9c8db69d0e259a1f5b.webp",
+      "media/products/gallery/d95b95d8139e5b8d611a.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?fit=1568%2C804&ssl=1?v=1700577184",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?w=1200&ssl=1",
+    "imageSha256": "9d1fab40f62b8b367235064a8bc6c27f6036cf295fbf61643b160845fe0d0b75",
+    "sourcePriceText": "",
+    "flags": [
+      "sleeping_dimensions_require_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/11/Ліжко-скай-—-копия.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_3277-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_7197.jpg",
@@ -1032,13 +1332,6 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_8924.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_8970.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_9951.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?fit=1568%2C804&ssl=1?v=1700577184",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?w=1200&ssl=1",
-    "imageSha256": "51c5d1cd7d8be54aa211f28353cee7d8286e9cdd47d36da4c66acc911a923c3f",
-    "sourcePriceText": "",
-    "flags": [
-      "sleeping_dimensions_require_confirmation"
     ]
   },
   {
@@ -1055,8 +1348,26 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-skay-z-pidyomnym-mekhanizmom.jpg",
+    "image": "media/products/lizhko-skay-z-pidyomnym-mekhanizmom.webp",
     "images": [
+      "media/products/gallery/f67c498e4a76e5c2497d.webp",
+      "media/products/gallery/69167e0852196b66972b.webp",
+      "media/products/gallery/5276a0763d6bffde01f9.webp",
+      "media/products/gallery/bcef88cece43c0ef9496.webp",
+      "media/products/gallery/9cbfc811dd55eb495b00.webp",
+      "media/products/gallery/d3b3cd765d8b03883017.webp",
+      "media/products/gallery/f4ef8336efb8ea9fbe48.webp",
+      "media/products/gallery/2a712d31bf99cbd6179e.webp",
+      "media/products/gallery/b3830354536fdcd5fb18.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%D0%BF%D0%BE%D0%B4-%D0%BC%D0%B0%D1%82%D1%80%D0%B0%D1%81-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?fit=1568%2C842&ssl=1?v=1700577185",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%D0%BF%D0%BE%D0%B4-%D0%BC%D0%B0%D1%82%D1%80%D0%B0%D1%81-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?w=1200&ssl=1",
+    "imageSha256": "fadcee908795e2ff6528ebd4dca569ec119dd5974047db81694880ba33c26856",
+    "sourcePriceText": "",
+    "flags": [
+      "sleeping_dimensions_require_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/11/Ліжко-скай-под-матрас-—-копия.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_5975.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_5979.jpg",
@@ -1066,13 +1377,6 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_0795.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_0801.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_3161.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%D0%BF%D0%BE%D0%B4-%D0%BC%D0%B0%D1%82%D1%80%D0%B0%D1%81-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?fit=1568%2C842&ssl=1?v=1700577185",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%D0%BF%D0%BE%D0%B4-%D0%BC%D0%B0%D1%82%D1%80%D0%B0%D1%81-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?w=1200&ssl=1",
-    "imageSha256": "54941e594f2d503a87244296c13b979c14226145a6f4c790f294f8c2e619f084",
-    "sourcePriceText": "",
-    "flags": [
-      "sleeping_dimensions_require_confirmation"
     ]
   },
   {
@@ -1089,8 +1393,26 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/terri.jpg",
+    "image": "media/products/terri.webp",
     "images": [
+      "media/products/gallery/892674bb1c0b1b9bf5b0.webp",
+      "media/products/gallery/51dca83d905e79a3097c.webp",
+      "media/products/gallery/829b9046fcbc6f2314d9.webp",
+      "media/products/gallery/77aaf3f2ace327af0492.webp",
+      "media/products/gallery/c16d9fc88b0eb7c8da49.webp",
+      "media/products/gallery/cb0772f484335a0cf122.webp",
+      "media/products/gallery/fcec8f9daa3daf296942.webp",
+      "media/products/gallery/e30533d0c9a27925b80c.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%A2%D0%B5%D1%80%D1%80%D1%96.jpg?fit=800%2C380&ssl=1?v=1700577311",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%A2%D0%B5%D1%80%D1%80%D1%96.jpg?w=1200&ssl=1",
+    "imageSha256": "ebc386021df2464e8aeccf09a4d0f5ced6e1f41dffbc9458a1767b566aaffaca",
+    "sourcePriceText": "",
+    "flags": [
+      "sleeping_dimensions_require_confirmation",
+      "category_requires_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Террі-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/Терріа.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/FullSizeRender-20.jpg",
@@ -1099,14 +1421,6 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8396.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8384.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_4595.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%A2%D0%B5%D1%80%D1%80%D1%96.jpg?fit=800%2C380&ssl=1?v=1700577311",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%A2%D0%B5%D1%80%D1%80%D1%96.jpg?w=1200&ssl=1",
-    "imageSha256": "2d0d12633fdffc6e9132e3937baa846df437b4932bf0d920d4f9142f09db5438",
-    "sourcePriceText": "",
-    "flags": [
-      "sleeping_dimensions_require_confirmation",
-      "category_requires_confirmation"
     ]
   },
   {
@@ -1123,17 +1437,22 @@ window.MATRIX_CATALOG = [
     "depth": 1060,
     "sleepLength": 3000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-verado-3.jpg",
+    "image": "media/products/pryamyy-dyvan-verado-3.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_7174-1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_7178.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_7177.jpg"
+      "media/products/gallery/6941b2994d10cf332705.webp",
+      "media/products/gallery/94150064a2362c8a5222.webp",
+      "media/products/gallery/314f560dc63b79ce2bc1.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/IMG_7174.jpg?fit=1568%2C1109&ssl=1?v=1700577162",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/IMG_7174.jpg?w=1200&ssl=1",
-    "imageSha256": "a9dc87aded30ace7f186e17f3e41d5410b9bbf8a44927f32c2ee390c1cdf994e",
+    "imageSha256": "5c00fbfff01bd787a3488ec63672815c2dd8c699109b2b659ecc1648405252b2",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_7174-1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_7178.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_7177.jpg"
+    ]
   },
   {
     "id": "kutovyy-dyvan-leon-lyuks-2",
@@ -1149,17 +1468,22 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2650,
     "sleepWidth": 1450,
-    "image": "media/products/kutovyy-dyvan-leon-lyuks-2.jpg",
+    "image": "media/products/kutovyy-dyvan-leon-lyuks-2.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_9555-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2023/11/угол-Леон-люкс-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2023/11/угол-Леон-люкс-2-роз.jpg"
+      "media/products/gallery/c24719a8c4931dfcc3fa.webp",
+      "media/products/gallery/f2a7b97de34e0e541906.webp",
+      "media/products/gallery/471daf4ff1cfd3209501.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/IMG_9555-2.jpg?fit=1568%2C908&ssl=1?v=1717571406",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/IMG_9555-2.jpg?w=1200&ssl=1",
-    "imageSha256": "9e4e81f96bb8f30d026ceff2b5ac327419382c27f3be891cbd37135656023c35",
+    "imageSha256": "e33e03ba68de5ce36e1f023b5a37407032ef760f7159cde50a8abf9cd6990e95",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_9555-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2023/11/угол-Леон-люкс-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2023/11/угол-Леон-люкс-2-роз.jpg"
+    ]
   },
   {
     "id": "pryamyy-dyvan-tekhas",
@@ -1175,19 +1499,26 @@ window.MATRIX_CATALOG = [
     "depth": 1430,
     "sleepLength": 1960,
     "sleepWidth": 1430,
-    "image": "media/products/pryamyy-dyvan-tekhas.jpg",
+    "image": "media/products/pryamyy-dyvan-tekhas.webp",
     "images": [
+      "media/products/gallery/3f60e578a4881ef34c3c.webp",
+      "media/products/gallery/4885713b85961f05507c.webp",
+      "media/products/gallery/8f85dd434c355729312b.webp",
+      "media/products/gallery/78225c20d7f196eea65f.webp",
+      "media/products/gallery/b1ae8459a40207c69fa0.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A2%D0%B5%D1%85%D0%B0%D1%81.jpg?fit=1568%2C1045&ssl=1?v=1700577192",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A2%D0%B5%D1%85%D0%B0%D1%81.jpg?w=1200&ssl=1",
+    "imageSha256": "0890e4aba2b6d160397455d0eb2827d9c62358900ebc362ae20aeb713933fc61",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/11/Д.Техас.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/Д.Техас-разлож.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_6093.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_6087.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_6097.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A2%D0%B5%D1%85%D0%B0%D1%81.jpg?fit=1568%2C1045&ssl=1?v=1700577192",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A2%D0%B5%D1%85%D0%B0%D1%81.jpg?w=1200&ssl=1",
-    "imageSha256": "d12ac64796644d785a6e175a348c7b9c03386f53f0a86116df940ca243e28343",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "kutovyy-dyvan-prestizh-200",
@@ -1203,20 +1534,28 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2700,
     "sleepWidth": 1470,
-    "image": "media/products/kutovyy-dyvan-prestizh-200.jpg",
+    "image": "media/products/kutovyy-dyvan-prestizh-200.webp",
     "images": [
+      "media/products/gallery/d73acb4cda18791a5e26.webp",
+      "media/products/gallery/215870ac978855c746bb.webp",
+      "media/products/gallery/b9c53582336494576144.webp",
+      "media/products/gallery/86c3acb7f4b7965368a2.webp",
+      "media/products/gallery/6f0587ef52236b5dbfc1.webp",
+      "media/products/gallery/56e9dacd9fabf6ac30fc.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A3%D0%93-2.jpg?fit=1568%2C595&ssl=1?v=1700577278",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A3%D0%93-2.jpg?w=1200&ssl=1",
+    "imageSha256": "6a195f0d64d8d958d0222fb19c9ac700cb1d1a97c630ca690ae1b6b79ccc891c",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2023/09/Престиж-200-УГ-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-200-разл.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/FullSizeRender-25.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/FullSizeRender-26.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_5941.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/престиж200.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A3%D0%93-2.jpg?fit=1568%2C595&ssl=1?v=1700577278",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A3%D0%93-2.jpg?w=1200&ssl=1",
-    "imageSha256": "a580fce0eb77b5753bcdb7b7dae5a3be4207a9981c57fffdc3e0202a6c54a24b",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "dyvan-pryamyy-prestizh",
@@ -1232,20 +1571,26 @@ window.MATRIX_CATALOG = [
     "depth": 1000,
     "sleepLength": 1970,
     "sleepWidth": 1470,
-    "image": "media/products/dyvan-pryamyy-prestizh.jpg",
+    "image": "media/products/dyvan-pryamyy-prestizh.webp",
     "images": [
+      "media/products/gallery/d2e25d8245fff0ef33da.webp",
+      "media/products/gallery/b60aba084c443bb4a4d8.webp",
+      "media/products/gallery/abc4223c68f2c937c84f.webp",
+      "media/products/gallery/33fa2e63baf6ab7d2554.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%94.jpg?fit=1568%2C628&ssl=1?v=1700577250",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%94.jpg?w=1200&ssl=1",
+    "imageSha256": "6003df9b449b1052d9e3e221920a260947236fbb3a0eb5070a6faf4fa5560d5a",
+    "sourcePriceText": "",
+    "flags": [],
+    "dimensionSource": "manufacturer",
+    "sleepingAreaSource": "manufacturer",
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2019/04/Престиж-Д.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/04/Ñ®¢†≠-è‡•·‚®¶.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/04/Ñ®¢†≠-è‡•·‚®¶_‡.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/04/диван-Престиж-2.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%94.jpg?fit=1568%2C628&ssl=1?v=1700577250",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%94.jpg?w=1200&ssl=1",
-    "imageSha256": "f3aafbb84be3db5716416690b35bb731f694bb893082e8f68188185d659ddc52",
-    "sourcePriceText": "",
-    "flags": [],
-    "dimensionSource": "manufacturer",
-    "sleepingAreaSource": "manufacturer"
+    ]
   },
   {
     "id": "pryamyy-dyvan-dzhaz",
@@ -1261,8 +1606,22 @@ window.MATRIX_CATALOG = [
     "depth": 970,
     "sleepLength": 1970,
     "sleepWidth": 1470,
-    "image": "media/products/pryamyy-dyvan-dzhaz.jpg",
+    "image": "media/products/pryamyy-dyvan-dzhaz.webp",
     "images": [
+      "media/products/gallery/17a5b8821ad81c9f2a41.webp",
+      "media/products/gallery/50cabd9d931344425055.webp",
+      "media/products/gallery/666c5bb39a4c630debb0.webp",
+      "media/products/gallery/bd1af374ed9ce60ee53a.webp",
+      "media/products/gallery/b6071e99662554c60365.webp",
+      "media/products/gallery/bc585d6986db93e4c8e6.webp",
+      "media/products/gallery/3cf3dadd5b75f0463d61.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B6%D0%B0%D0%B7-%D0%94.jpg?fit=1568%2C798&ssl=1?v=1700577262",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B6%D0%B0%D0%B7-%D0%94.jpg?w=1200&ssl=1",
+    "imageSha256": "f7df63bf13c050c4cad12f97f9428bec792450766f563049f7b0acb87f441353",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Джаз-Д.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Джаз-разл-Д.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_8378.jpg",
@@ -1270,12 +1629,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_8379.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Джаз.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Джаз_разлож.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B6%D0%B0%D0%B7-%D0%94.jpg?fit=1568%2C798&ssl=1?v=1700577262",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B6%D0%B0%D0%B7-%D0%94.jpg?w=1200&ssl=1",
-    "imageSha256": "3c353e211c84711a4d51619e8bca3057a5a8e0a40a0a2f6ce946e2822dbe0da4",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "dyvan-pryamyy-leon-lyuks",
@@ -1291,17 +1645,21 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": 1970,
     "sleepWidth": 1470,
-    "image": "media/products/dyvan-pryamyy-leon-lyuks.jpg",
+    "image": "media/products/dyvan-pryamyy-leon-lyuks.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2023/09/Леон-Люкс-Д.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2023/09/леон-люкс-Д.разлож.jpg"
+      "media/products/gallery/8b9ec6df4be511645481.webp",
+      "media/products/gallery/53e29071df575d5c1017.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/%D0%9B%D0%B5%D0%BE%D0%BD-%D0%9B%D1%8E%D0%BA%D1%81-%D0%94.jpg?fit=1568%2C627&ssl=1?v=1700577230",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/%D0%9B%D0%B5%D0%BE%D0%BD-%D0%9B%D1%8E%D0%BA%D1%81-%D0%94.jpg?w=1200&ssl=1",
-    "imageSha256": "9b45eb341769073eea7af61a3f0ca4bbcfa54cf268ed0466e3411aab9302969a",
+    "imageSha256": "f9e6de473f5e676b22f2422574b2728c2fb8366679566d3cee435aa9ae825b0a",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2023/09/Леон-Люкс-Д.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2023/09/леон-люкс-Д.разлож.jpg"
     ]
   },
   {
@@ -1318,20 +1676,28 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2650,
     "sleepWidth": 1450,
-    "image": "media/products/kutovyy-dyvan-leon-lyuks-200.jpg",
+    "image": "media/products/kutovyy-dyvan-leon-lyuks-200.webp",
     "images": [
+      "media/products/gallery/2d44b7aa450f73e9f53f.webp",
+      "media/products/gallery/23161749d98dbcab316b.webp",
+      "media/products/gallery/a3979afdd714843bbf00.webp",
+      "media/products/gallery/b67d84e772e9e7c63ebb.webp",
+      "media/products/gallery/e42b39719267c9d5eca3.webp",
+      "media/products/gallery/a109cd049b645b829909.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A21-2.jpg?fit=1568%2C624&ssl=1?v=1700577260",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A21-2.jpg?w=1200&ssl=1",
+    "imageSha256": "67b37f6eb9c0fefd34d00258a8ced10abfc83a3300f4a4e098abbc553f42f2ce",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-200-Т1-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-200-Т1-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж200-Т.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/FullSizeRender-8.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_3883.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Копия-IMG_0335.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A21-2.jpg?fit=1568%2C624&ssl=1?v=1700577260",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A21-2.jpg?w=1200&ssl=1",
-    "imageSha256": "c41ad9c55b06edb3f5235ffa06fa2b810db2c07ff1035c40adf2348a7c438eb9",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "kutovyy-dyvan-prestizh-200m",
@@ -1347,18 +1713,24 @@ window.MATRIX_CATALOG = [
     "depth": 1900,
     "sleepLength": 2750,
     "sleepWidth": 1470,
-    "image": "media/products/kutovyy-dyvan-prestizh-200m.jpg",
+    "image": "media/products/kutovyy-dyvan-prestizh-200m.webp",
     "images": [
+      "media/products/gallery/b223e0e2e9768163f3b3.webp",
+      "media/products/gallery/4df7fcfd3769d14579b0.webp",
+      "media/products/gallery/7b1a2826abf8e1c50888.webp",
+      "media/products/gallery/54fb8c2a8a26cbb5c6f5.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200%D0%9C-2.jpg?fit=1568%2C484&ssl=1?v=1700577248",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200%D0%9C-2.jpg?w=1200&ssl=1",
+    "imageSha256": "ca18eb1a71d3dd89484c277c29e37451700220db776ce903b4fd0c133756865c",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-200М-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-200М-разл.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/ПрестижМ200.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/ПрестижМ200_разлож.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200%D0%9C-2.jpg?fit=1568%2C484&ssl=1?v=1700577248",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200%D0%9C-2.jpg?w=1200&ssl=1",
-    "imageSha256": "811eb152af21586a8ba6806dc76d12f866a087494ada749a825ef2c1e0988c0f",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "kutovyy-pryamyy-boston-4",
@@ -1374,8 +1746,30 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/kutovyy-pryamyy-boston-4.jpg",
+    "image": "media/products/kutovyy-pryamyy-boston-4.webp",
     "images": [
+      "media/products/gallery/f115b01265cd719ee910.webp",
+      "media/products/gallery/9c7fa42157ad196de575.webp",
+      "media/products/gallery/a01f95ee4669f121aead.webp",
+      "media/products/gallery/2c89d19ea520a1a1d478.webp",
+      "media/products/gallery/c92dfa2c80e3eacc61db.webp",
+      "media/products/gallery/7f488162a6a70f2a4a2c.webp",
+      "media/products/gallery/42643e96d32223f133b2.webp",
+      "media/products/gallery/5df291445b766ef88759.webp",
+      "media/products/gallery/80b99762152295b3be60.webp",
+      "media/products/gallery/ce4a0661a361ef4a1f66.webp",
+      "media/products/gallery/96daacab4d9dd67aef17.webp",
+      "media/products/gallery/b5d1683b80b29e6e2372.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D1%81%D1%82%D0%BE%D0%BD-42.jpg?fit=1568%2C561&ssl=1?v=1700577252",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D1%81%D1%82%D0%BE%D0%BD-42.jpg?w=1200&ssl=1",
+    "imageSha256": "18b1171debca381bf44e6a7825a6dc61e8a9a9b5dc7b760b488714d261b8a352",
+    "sourcePriceText": "",
+    "flags": [
+      "dimensions_require_confirmation",
+      "category_requires_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Бостон-4-2.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Бостон-42.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Бостон-4-разл.jpg",
@@ -1388,14 +1782,6 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_0431.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_0440.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_0443.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D1%81%D1%82%D0%BE%D0%BD-42.jpg?fit=1568%2C561&ssl=1?v=1700577252",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D1%81%D1%82%D0%BE%D0%BD-42.jpg?w=1200&ssl=1",
-    "imageSha256": "e05c37d4dcfd9e0dd54abfc4b879861612d21bcee34ff33fc541c4e22a8e200c",
-    "sourcePriceText": "",
-    "flags": [
-      "dimensions_require_confirmation",
-      "category_requires_confirmation"
     ]
   },
   {
@@ -1412,20 +1798,26 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/pryamyy-kutovyy-prestizh-b-4.jpg",
+    "image": "media/products/pryamyy-kutovyy-prestizh-b-4.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/ПрестижБ4-3.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/ПрестижБ4_-1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/è‡•·‚®¶-Å4.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/è‡®·‚®¶-Å4.jpg"
+      "media/products/gallery/0128de6af229c066f634.webp",
+      "media/products/gallery/ff135b6bdca9fa9c3216.webp",
+      "media/products/gallery/8dd50264fda3bbf17900.webp",
+      "media/products/gallery/c83f378ad6d8b089cbf8.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%914-3.jpg?fit=1568%2C562&ssl=1?v=1700577245",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%914-3.jpg?w=1200&ssl=1",
-    "imageSha256": "4a8c68bf2b1087b6dc435fd87c8aa34ec7880ad25784c4cd6cc486f4dab0dd14",
+    "imageSha256": "cdcb3ebd8acc62ed64cbc57e1d31171fe3a7828619a981598ede9acf4871c661",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation",
       "category_requires_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/ПрестижБ4-3.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/ПрестижБ4_-1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/è‡•·‚®¶-Å4.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/è‡®·‚®¶-Å4.jpg"
     ]
   },
   {
@@ -1442,17 +1834,22 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2720,
     "sleepWidth": 1470,
-    "image": "media/products/kutovyy-dyvan-prestizh-p.jpg",
+    "image": "media/products/kutovyy-dyvan-prestizh-p.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-П-2-1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-П-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/пРЕСТИЖ-П.jpg"
+      "media/products/gallery/b7277d7887f94ae0b16e.webp",
+      "media/products/gallery/971cf605951686ce85f8.webp",
+      "media/products/gallery/f3f14fe68bb9f1362ecf.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%9F.jpg?fit=1568%2C660&ssl=1?v=1700577344",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%9F.jpg?w=1200&ssl=1",
-    "imageSha256": "7414ce7cee9e864d3cfa6a0b42d5096479420d94ee797f2c82b2d5592a99c09d",
+    "imageSha256": "1e31ff08f424c04c70aca798e8782a6e166879c7d52275c9b61a4cdf3fd220ea",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-П-2-1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-П-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/пРЕСТИЖ-П.jpg"
+    ]
   },
   {
     "id": "pryamyy-kutovyy-prestizh-p-b4",
@@ -1468,8 +1865,26 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/pryamyy-kutovyy-prestizh-p-b4.jpg",
+    "image": "media/products/pryamyy-kutovyy-prestizh-p-b4.webp",
     "images": [
+      "media/products/gallery/36e4bfed47e0e52d669f.webp",
+      "media/products/gallery/0a43dd339eb4f0d29c6d.webp",
+      "media/products/gallery/e38a5884e831e0a9fc37.webp",
+      "media/products/gallery/987eb1c47f0f81ac0312.webp",
+      "media/products/gallery/ed3bdf0c023c769be2c8.webp",
+      "media/products/gallery/0e1f03fceff2f42831c1.webp",
+      "media/products/gallery/75b8b481f4c276bafa64.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%9F%D0%914_-3.jpg?fit=1568%2C547&ssl=1?v=1700577254",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%9F%D0%914_-3.jpg?w=1200&ssl=1",
+    "imageSha256": "c544ab31506fea0a514c6f3d19943c061600fd9e54b309a69d6632089f2bcaac",
+    "sourcePriceText": "",
+    "flags": [
+      "dimensions_require_confirmation",
+      "sleeping_dimensions_require_confirmation",
+      "category_requires_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2019/06/ПрестижПБ4_-3.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/ПрестижПБ4-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/ПрестижПБ4_разлож-1.jpg",
@@ -1477,15 +1892,6 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_7316.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_7322.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_7326.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%9F%D0%914_-3.jpg?fit=1568%2C547&ssl=1?v=1700577254",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%9F%D0%914_-3.jpg?w=1200&ssl=1",
-    "imageSha256": "6e705286778803e413ee3dc50479fd53b373e3a509f0b2768f99a52dd27d0ec8",
-    "sourcePriceText": "",
-    "flags": [
-      "dimensions_require_confirmation",
-      "sleeping_dimensions_require_confirmation",
-      "category_requires_confirmation"
     ]
   },
   {
@@ -1502,18 +1908,22 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/prestizh-pm.jpg",
+    "image": "media/products/prestizh-pm.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/ПрестижПМ-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/ПрестижПМ-разл-1.jpg"
+      "media/products/gallery/ba33e2a7f39c428fa14b.webp",
+      "media/products/gallery/d07bc6889926b3e0b84e.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%9F%D0%9C-2.jpg?fit=1568%2C495&ssl=1?v=1700577258",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%9F%D0%9C-2.jpg?w=1200&ssl=1",
-    "imageSha256": "aa1e3391ecf287df9280b729714dac2e893ae397cb08510b03a5a31ec9a6a1dc",
+    "imageSha256": "31746d704d73326a13058f5f1d3feb05cfca4862b7a3a51310995433d97f0115",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation",
       "category_requires_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/ПрестижПМ-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/ПрестижПМ-разл-1.jpg"
     ]
   },
   {
@@ -1530,18 +1940,23 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": 2000,
     "sleepWidth": 1470,
-    "image": "media/products/kutovyy-dyvan-prestizh-m-b4.jpg",
+    "image": "media/products/kutovyy-dyvan-prestizh-m-b4.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-М-Б4-1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-М-Б4-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-М-Б41-1.jpg"
+      "media/products/gallery/12dfbc7d343601350f9b.webp",
+      "media/products/gallery/e2ec92b1e0b995e3c526.webp",
+      "media/products/gallery/68a75b8d51ee3760b3c6.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%9C-%D0%914-1.jpg?fit=1568%2C500&ssl=1?v=1700577247",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%9C-%D0%914-1.jpg?w=1200&ssl=1",
-    "imageSha256": "1e5f895bed2f0f0905599f256eb4871e8b0fd2ae28aee8b8aa9abbc5865f2c3d",
+    "imageSha256": "8d79811e84fbeb2af2c94fe61ddf0077b98ba58c4dcb6829dfb347e09d5f3947",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-М-Б4-1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-М-Б4-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-М-Б41-1.jpg"
     ]
   },
   {
@@ -1558,17 +1973,21 @@ window.MATRIX_CATALOG = [
     "depth": 1050,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/dyvan-lizhko-real-2.jpg",
+    "image": "media/products/dyvan-lizhko-real-2.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Реал-2-Главная-3.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Реал-2-1.jpg"
+      "media/products/gallery/452eb276f1cc9c60f78b.webp",
+      "media/products/gallery/7fa607c7431ae70bdcc7.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A0%D0%B5%D0%B0%D0%BB-2-%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-3.jpg?fit=1568%2C710&ssl=1?v=1700577257",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A0%D0%B5%D0%B0%D0%BB-2-%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-3.jpg?w=1200&ssl=1",
-    "imageSha256": "73422cd4655cc9c577118231c91a17b65818c25581da6a18c3de1d3872e83ff2",
+    "imageSha256": "bf56ed4c0cc50740cdc6df545d8605faa9b383b26fc3ab1bb82288e03ff0c8b4",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Реал-2-Главная-3.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Реал-2-1.jpg"
     ]
   },
   {
@@ -1585,17 +2004,21 @@ window.MATRIX_CATALOG = [
     "depth": 1000,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/dyvan-povorotnyy-real-t.jpg",
+    "image": "media/products/dyvan-povorotnyy-real-t.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Реал-Т1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Реал-Т.jpg"
+      "media/products/gallery/492eb48114e936981f39.webp",
+      "media/products/gallery/8f7515a65323c6f39fe2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A0%D0%B5%D0%B0%D0%BB-%D0%A21.jpg?fit=1568%2C613&ssl=1?v=1700577506",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A0%D0%B5%D0%B0%D0%BB-%D0%A21.jpg?w=1200&ssl=1",
-    "imageSha256": "951dd82b4f48b75d4ab2bbc23027d3f4127d0c78255c22aaf94363418f5e143e",
+    "imageSha256": "e52e4118ce0dcfe417bb4aa2ef988e05f971144fe55a9db3ca8b636922256e11",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Реал-Т1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Реал-Т.jpg"
     ]
   },
   {
@@ -1612,17 +2035,21 @@ window.MATRIX_CATALOG = [
     "depth": 1000,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/dyvan-povorotnyy-real.jpg",
+    "image": "media/products/dyvan-povorotnyy-real.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Диван-Реал.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Диван-реал_р.jpg"
+      "media/products/gallery/0ab9523d55be8a5b0050.webp",
+      "media/products/gallery/6d622dcaa8878206b754.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B8%D0%B2%D0%B0%D0%BD-%D0%A0%D0%B5%D0%B0%D0%BB.jpg?fit=1568%2C509&ssl=1?v=1700577450",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B8%D0%B2%D0%B0%D0%BD-%D0%A0%D0%B5%D0%B0%D0%BB.jpg?w=1200&ssl=1",
-    "imageSha256": "8a66fd867722b4d4d12a2c3a05e0b7b13e3c452f8c71f78291cff82c14f9dd40",
+    "imageSha256": "3722d7d47a2660ba7be601c8211d3b6ecad9ca17884cd6bd50edb70b9dea2098",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Диван-Реал.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Диван-реал_р.jpg"
     ]
   },
   {
@@ -1639,17 +2066,21 @@ window.MATRIX_CATALOG = [
     "depth": 1600,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/povorotnyy-dyvan-barselona.jpg",
+    "image": "media/products/povorotnyy-dyvan-barselona.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Угол-Барселона-4.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Угол-Барселона_р-2.jpg"
+      "media/products/gallery/41299c7f32ff41afedfe.webp",
+      "media/products/gallery/87e2dc90bfcdd8d16363.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A3%D0%B3%D0%BE%D0%BB-%D0%91%D0%B0%D1%80%D1%81%D0%B5%D0%BB%D0%BE%D0%BD%D0%B0-4.jpg?fit=1568%2C681&ssl=1?v=1700577243",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A3%D0%B3%D0%BE%D0%BB-%D0%91%D0%B0%D1%80%D1%81%D0%B5%D0%BB%D0%BE%D0%BD%D0%B0-4.jpg?w=1200&ssl=1",
-    "imageSha256": "7aebabfa744ff320dc749fd8a6574f18c57366684df34d2849d20d462c8427ea",
+    "imageSha256": "48a8d53726e499e731eff8a5dc15cb128697aea241f99283ba8982453e60864f",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Угол-Барселона-4.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Угол-Барселона_р-2.jpg"
     ]
   },
   {
@@ -1666,20 +2097,27 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/dyvan-povorotnyy-bond.jpg",
+    "image": "media/products/dyvan-povorotnyy-bond.webp",
     "images": [
+      "media/products/gallery/5019a85ef09118187ffe.webp",
+      "media/products/gallery/8e7dc3a2badf5195290c.webp",
+      "media/products/gallery/6c0d53c34f58668b1316.webp",
+      "media/products/gallery/1ffc159635eed1b40740.webp",
+      "media/products/gallery/22dd1a270365c62b09a2.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D0%BD%D0%B41-1.jpg?fit=1568%2C624&ssl=1?v=1700577241",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D0%BD%D0%B41-1.jpg?w=1200&ssl=1",
+    "imageSha256": "385cd484320c0ddfa0c00e68a71b29c06eaacadb743ac3aaaacb7d4c7e182005",
+    "sourcePriceText": "",
+    "flags": [
+      "category_requires_confirmation"
+    ],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Бонд1-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/Бонд-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_6225.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_6220.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/06/IMG_6209.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D0%BD%D0%B41-1.jpg?fit=1568%2C624&ssl=1?v=1700577241",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D0%BD%D0%B41-1.jpg?w=1200&ssl=1",
-    "imageSha256": "9be09e57a049481cd6433f8d69323e0aed323244fc1ba00fba056ac0a757bc74",
-    "sourcePriceText": "",
-    "flags": [
-      "category_requires_confirmation"
     ]
   },
   {
@@ -1696,18 +2134,23 @@ window.MATRIX_CATALOG = [
     "depth": 2200,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/povorotnyy-dyvan-berlin.jpg",
+    "image": "media/products/povorotnyy-dyvan-berlin.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/04/Берлин-УГ.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Босон_р-УГ.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Берлин-2-2.jpg"
+      "media/products/gallery/65fa5fbaaaad627f658f.webp",
+      "media/products/gallery/56861b6c31e346b4a3aa.webp",
+      "media/products/gallery/79f7cdc6d987cf994d48.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD-%D0%A3%D0%93.jpg?fit=1568%2C653&ssl=1?v=1700577233",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD-%D0%A3%D0%93.jpg?w=1200&ssl=1",
-    "imageSha256": "06080f44af89898eafa75d1e5eb700c91ea1a0d97178a73620fab1cf86a8d755",
+    "imageSha256": "ed4e076b8f47e15094fdb84a14de17695bc5f7dd2cfac295c11a70cb45d25591",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/04/Берлин-УГ.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Босон_р-УГ.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Берлин-2-2.jpg"
     ]
   },
   {
@@ -1724,18 +2167,23 @@ window.MATRIX_CATALOG = [
     "depth": 2200,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/povorotnyy-dyvan-berlin-2.jpg",
+    "image": "media/products/povorotnyy-dyvan-berlin-2.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Берлин-21-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Берлин-2-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/05/Босон_р-УГ.jpg"
+      "media/products/gallery/8183f65fa2954cba7bd3.webp",
+      "media/products/gallery/79f7cdc6d987cf994d48.webp",
+      "media/products/gallery/56861b6c31e346b4a3aa.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD-21-2.jpg?fit=1568%2C540&ssl=1?v=1700577264",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD-21-2.jpg?w=1200&ssl=1",
-    "imageSha256": "bfd57ef9f129727329460c87646a21f644552fe4b35d76088cc88046bc91abb9",
+    "imageSha256": "b7b210c584ed18ca6eb2d272cccd09dfd05567d5182e3420233dbd28a16147cc",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Берлин-21-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Берлин-2-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/05/Босон_р-УГ.jpg"
     ]
   },
   {
@@ -1752,20 +2200,28 @@ window.MATRIX_CATALOG = [
     "depth": 1650,
     "sleepLength": 2100,
     "sleepWidth": 1500,
-    "image": "media/products/kutovyy-dyvan-prado.jpg",
+    "image": "media/products/kutovyy-dyvan-prado.webp",
     "images": [
+      "media/products/gallery/439eb539440940b33a64.webp",
+      "media/products/gallery/03d6c1dc66803ed9f66e.webp",
+      "media/products/gallery/b288962a3e20c523fa00.webp",
+      "media/products/gallery/3e3733d718551802a3b7.webp",
+      "media/products/gallery/bcb3d22390e8a9ed07b8.webp",
+      "media/products/gallery/ff0c0c4acad889369802.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B0%D0%B4%D0%BE-%D0%A3%D0%93.jpg?fit=1568%2C887&ssl=1?v=1700577232",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B0%D0%B4%D0%BE-%D0%A3%D0%93.jpg?w=1200&ssl=1",
+    "imageSha256": "359c5f409c691c5c448853beab67b30263c15a42b4f063cf323cab63168fce49",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2019/04/Прадо-УГ.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/04/Прадо_р-УГ.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/04/IMG_0528.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/04/IMG_0509.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/04/IMG_0516.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2019/04/IMG_0537.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B0%D0%B4%D0%BE-%D0%A3%D0%93.jpg?fit=1568%2C887&ssl=1?v=1700577232",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B0%D0%B4%D0%BE-%D0%A3%D0%93.jpg?w=1200&ssl=1",
-    "imageSha256": "2fae1f2f9cf2aa0dd6f2e7eec0fc6cdf79d06294017b64567c4576234963f2c1",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "pryamyy-dyvan-verado",
@@ -1781,17 +2237,22 @@ window.MATRIX_CATALOG = [
     "depth": 1060,
     "sleepLength": 2000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-verado.jpg",
+    "image": "media/products/pryamyy-dyvan-verado.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/ДиванВерадо-3.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/ДиванВерадо_угол-1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/ДиванВерадо_разлож-1.jpg"
+      "media/products/gallery/fe867a3bc4642b5558cd.webp",
+      "media/products/gallery/9ca6631cd019d37ab294.webp",
+      "media/products/gallery/ae000297955a9abf7a05.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B8%D0%B2%D0%B0%D0%BD%D0%92%D0%B5%D1%80%D0%B0%D0%B4%D0%BE-3.jpg?fit=1568%2C611&ssl=1?v=1700577237",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B8%D0%B2%D0%B0%D0%BD%D0%92%D0%B5%D1%80%D0%B0%D0%B4%D0%BE-3.jpg?w=1200&ssl=1",
-    "imageSha256": "43c5d385a4f1aabf0c615882ef8d11db912f0c54882f442343c4b80a573e884a",
+    "imageSha256": "89fa9a03349b1963144b2703c8cec33095cf7fd804f8150d982d6812d2c95bd0",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/ДиванВерадо-3.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/ДиванВерадо_угол-1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/ДиванВерадо_разлож-1.jpg"
+    ]
   },
   {
     "id": "kutovyy-dyvan-prestizh-140",
@@ -1807,17 +2268,22 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2050,
     "sleepWidth": 1470,
-    "image": "media/products/kutovyy-dyvan-prestizh-140.jpg",
+    "image": "media/products/kutovyy-dyvan-prestizh-140.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж140-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж140_разлож-1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/è‡•·‚®¶-130.jpg"
+      "media/products/gallery/eff9bb2bb3063258aa48.webp",
+      "media/products/gallery/063ceda88307504571ad.webp",
+      "media/products/gallery/2ee475a97849999d83c3.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6140-2.jpg?fit=1568%2C572&ssl=1?v=1700577235",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6140-2.jpg?w=1200&ssl=1",
-    "imageSha256": "7cf471a32f9ed4243d0ead5c458a23bb0f801ce8b1680ba8038c1234b43666a7",
+    "imageSha256": "a764871a24fb2381d978b4a7c51b60bf6e4100e1be5b8665255e0a5e5fe07dd2",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж140-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж140_разлож-1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/è‡•·‚®¶-130.jpg"
+    ]
   },
   {
     "id": "kutovyy-dyvan-leon-lyuks-140",
@@ -1833,17 +2299,21 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2000,
     "sleepWidth": 1450,
-    "image": "media/products/kutovyy-dyvan-leon-lyuks-140.jpg",
+    "image": "media/products/kutovyy-dyvan-leon-lyuks-140.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-140-Т-1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-140-Т.jpg"
+      "media/products/gallery/5cac4c909365221bf6bb.webp",
+      "media/products/gallery/8cd23e70c0a141a8183a.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-140-%D0%A2-1.jpg?fit=1568%2C643&ssl=1?v=1700577470",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-140-%D0%A2-1.jpg?w=1200&ssl=1",
-    "imageSha256": "25d16211a557b14901444e0f91af4f452596279fa2d19458964e6217c643afa5",
+    "imageSha256": "c8d9774e6c84fb833c4a4ddf9ffa33716bfbd8b35cf9078e215bbd88c3121fa5",
     "sourcePriceText": "",
     "flags": [],
-    "dimensionSource": "manufacturer"
+    "dimensionSource": "manufacturer",
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-140-Т-1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Престиж-140-Т.jpg"
+    ]
   },
   {
     "id": "pryamyy-dyvan-sihma",
@@ -1859,8 +2329,22 @@ window.MATRIX_CATALOG = [
     "depth": 920,
     "sleepLength": 1930,
     "sleepWidth": 1420,
-    "image": "media/products/pryamyy-dyvan-sihma.jpg",
+    "image": "media/products/pryamyy-dyvan-sihma.webp",
     "images": [
+      "media/products/gallery/7c3adb8819b155f5fd3f.webp",
+      "media/products/gallery/fda0f95ab674a914184c.webp",
+      "media/products/gallery/31e92e93c196bbd52cdc.webp",
+      "media/products/gallery/d09a53a392820240f04d.webp",
+      "media/products/gallery/1acb2c1bf9f16125c7fc.webp",
+      "media/products/gallery/dcae3855c1deeb188a9a.webp",
+      "media/products/gallery/4cdfd894a6bbd5cd7852.webp"
+    ],
+    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94-%D0%A1%D1%96%D0%B3%D0%BC%D0%B0.jpg?fit=1568%2C1045&ssl=1?v=1700577286",
+    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94-%D0%A1%D1%96%D0%B3%D0%BC%D0%B0.jpg?w=1200&ssl=1",
+    "imageSha256": "e26c29e89e635fee0549e6f2caaf3264cbb550d7335ffc5afd157ba4b99f420d",
+    "sourcePriceText": "",
+    "flags": [],
+    "sourceImages": [
       "https://matrix-mebli.com/wp-content/uploads/2022/08/Д-Сігма.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/Д-Сігмаа.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/FullSizeRender-17.jpg",
@@ -1868,12 +2352,7 @@ window.MATRIX_CATALOG = [
       "https://matrix-mebli.com/wp-content/uploads/2022/08/FullSizeRender-19.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/изображение_viber_2022-04-27_14-52-54-651-1.jpg",
       "https://matrix-mebli.com/wp-content/uploads/2022/08/изображение_viber_2022-04-27_14-52-55-481-e1678432410812.jpg"
-    ],
-    "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94-%D0%A1%D1%96%D0%B3%D0%BC%D0%B0.jpg?fit=1568%2C1045&ssl=1?v=1700577286",
-    "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94-%D0%A1%D1%96%D0%B3%D0%BC%D0%B0.jpg?w=1200&ssl=1",
-    "imageSha256": "24d72de0f87cc24818736c8e93ceaf714443c15f7cd6923548de4ea92b2df356",
-    "sourcePriceText": "",
-    "flags": []
+    ]
   },
   {
     "id": "pryamyy-dyvan-leon-t",
@@ -1889,16 +2368,20 @@ window.MATRIX_CATALOG = [
     "depth": 930,
     "sleepLength": 1930,
     "sleepWidth": 1350,
-    "image": "media/products/pryamyy-dyvan-leon-t.jpg",
+    "image": "media/products/pryamyy-dyvan-leon-t.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Д.Леон-Т.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/леон-Т.jpg"
+      "media/products/gallery/252a9db6dba4dde3be8a.webp",
+      "media/products/gallery/225f82678a8a34127889.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94.%D0%9B%D0%B5%D0%BE%D0%BD-%D0%A2.jpg?fit=1568%2C757&ssl=1?v=1700577450",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94.%D0%9B%D0%B5%D0%BE%D0%BD-%D0%A2.jpg?w=1200&ssl=1",
-    "imageSha256": "5f8b26f4370dce38234c4e8c3c9646414b1d8efed4e3403b90ceae27a49d5978",
+    "imageSha256": "7568b95b64cd8d1e103ac3bc6a369881563b0a6e54b4fc084bf97e63e88ef12e",
     "sourcePriceText": "",
-    "flags": []
+    "flags": [],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Д.Леон-Т.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/леон-Т.jpg"
+    ]
   },
   {
     "id": "pryamyy-dyvan-leon",
@@ -1914,18 +2397,22 @@ window.MATRIX_CATALOG = [
     "depth": 930,
     "sleepLength": 1930,
     "sleepWidth": 1350,
-    "image": "media/products/pryamyy-dyvan-leon.jpg",
+    "image": "media/products/pryamyy-dyvan-leon.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Д.Леон1.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Д.Леон.jpg"
+      "media/products/gallery/24a111cb232f6857bcfe.webp",
+      "media/products/gallery/16007e7af5ca8f9a279a.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94.%D0%9B%D0%B5%D0%BE%D0%BD1.jpg?fit=1568%2C700&ssl=1?v=1700577448",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94.%D0%9B%D0%B5%D0%BE%D0%BD1.jpg?w=1200&ssl=1",
-    "imageSha256": "84bdef8806480d00dce88d115f67d626b97754c0cd7a3ddf53fda5d15f5e5373",
+    "imageSha256": "9bae93221cb4babbd8d4808ca042edcaab09aef3390faab3ef1de4e3f1d90fd9",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
-    "sleepingAreaSource": "manufacturer"
+    "sleepingAreaSource": "manufacturer",
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Д.Леон1.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Д.Леон.jpg"
+    ]
   },
   {
     "id": "delta",
@@ -1941,18 +2428,23 @@ window.MATRIX_CATALOG = [
     "depth": 790,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/delta.jpg",
+    "image": "media/products/delta.webp",
     "images": [
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/дельта-2.jpg",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/Снимок-экрана-2019-06-06-в-15.34.29.png",
-      "https://matrix-mebli.com/wp-content/uploads/2019/06/12-1.jpg"
+      "media/products/gallery/548ecf2d333b53fe4a22.webp",
+      "media/products/gallery/33a31820359486693da6.webp",
+      "media/products/gallery/2a9a73ff8d8a9cd2523a.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%B4%D0%B5%D0%BB%D1%8C%D1%82%D0%B0-2.jpg?fit=1568%2C783&ssl=1?v=1700577239",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%B4%D0%B5%D0%BB%D1%8C%D1%82%D0%B0-2.jpg?w=1200&ssl=1",
-    "imageSha256": "2692c80c2d0c28defc99410f5a62d6ba1ad8834ee425ea20f5012f5fe3210e08",
+    "imageSha256": "b31576c66f320ccc727ecf5ef7d38d15f860c6473d55206566e2e95f3f30e42d",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
+    ],
+    "sourceImages": [
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/дельта-2.jpg",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/Снимок-экрана-2019-06-06-в-15.34.29.png",
+      "https://matrix-mebli.com/wp-content/uploads/2019/06/12-1.jpg"
     ]
   }
 ];

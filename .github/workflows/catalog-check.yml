@@ -19,4 +19,6 @@ jobs:
       - run: pip install -r scripts/import/requirements.txt
       - run: python scripts/import/test_discontinued_import.py
       - run: python scripts/import/test_dimensions.py
+      - run: python scripts/import/test_product_media.py
+      - run: python scripts/media/check_watermarks.py
       - run: node --check preview/catalog.js && node --check preview/app.js

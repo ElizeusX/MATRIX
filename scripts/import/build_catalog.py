@@ -4,11 +4,12 @@ Requires Python 3.10+, lxml. Run from the repository root:
   python scripts/import/build_catalog.py --cache ../source
 The cache contains listing.json, product-NNN.html and photos.json from the crawl.
 """
-import argparse, json, re, shutil
+import argparse, hashlib, json, re, shutil
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import unquote, urlsplit, quote
 from lxml import html
+from product_media import apply_media
 
 ROOT = Path(__file__).resolve().parents[2]
 DISCONTINUED_SLUGS = {p['slug'] for p in json.loads((ROOT/'data/discontinued-products.json').read_text())['products']}
@@ -41,6 +42,8 @@ def apply_dimension_override(product):
  return product
 
 def build(cache):
+ media_path=ROOT/'data/product-watermarks.json'
+ media_manifest=json.loads(media_path.read_text()) if media_path.exists() else {}
  listing=json.loads((cache/'listing.json').read_text());photos=json.loads((cache/'photos.json').read_text());products=[];product_photos=[]
  for i,item in enumerate(listing):
   title=clean(item['title']);lower=title.lower()
@@ -69,7 +72,7 @@ def build(cache):
   price=texts(doc,'//div[@class="price-block"]')
   p=dict(id=slug,slug=slug,uk=title,en=title,category=category,sourceUrl=item['url'],description=description,dimensions=size,sleepingArea=sleep,width=width,depth=depth,sleepLength=length,sleepWidth=sw,image=f'media/products/{slug}.jpg',images=images,sourceImage=photos[i]['source_url'],downloadUrl=photos[i]['download_url'],imageSha256=photos[i]['sha256'],sourcePriceText=price,flags=flags)
   if slug in TITLE_OVERRIDES:p.update(uk=TITLE_OVERRIDES[slug],en=TITLE_OVERRIDES[slug])
-  products.append(apply_dimension_override(p))
+  products.append(apply_media(apply_dimension_override(p),media_manifest))
   product_photos.append(photos[i])
  assert len({p['slug'] for p in products})==len(products),'Duplicate slugs'
  payload=dict(source='https://matrix-mebli.com',retrievedAt=datetime.now(timezone.utc).date().isoformat(),catalogPages=int(re.search(r'max_page_furniture\s*=\s*(\d+)',(cache/'catalog.html').read_text()).group(1)),products=products)
@@ -82,7 +85,11 @@ def build(cache):
   original=Path(photo['path'])
   if not original.exists():original=cache/'images'/f'{photo["index"]:03}.jpg'
   for base in [ROOT/'preview',ROOT/'apps/web/public']:
-   shutil.copyfile(original,base/p['image'])
+   if p['image'].endswith('.webp'):
+    output=base/p['image']
+    assert output.exists() and hashlib.sha256(output.read_bytes()).hexdigest()==p['imageSha256'],f'Missing reviewed media: {output}'
+   else:
+    shutil.copyfile(original,base/p['image'])
  write_seed(products)
  print(f'{len(products)} products, {sum(len(p["images"]) for p in products)} gallery references, {sum(bool(p["description"]) for p in products)} descriptions')
 
