@@ -3,7 +3,7 @@
 front is +Z; chaise -1 = left in the front view. All heights are estimates.
 Missing/ambiguous W/D stay estimates and never become catalog facts or AR sizes.
 No random silhouettes or random fabric colors. Each row was reviewed against
-preview/media/products/<slug>.jpg. Fabrics are original procedural approximations.
+the catalog photo path. Fabrics are original procedural approximations.
 """
 # slug | form | back style | seat count | chaise | photo fabric | estimated H mm | features
 ROWS = '''
@@ -90,11 +90,14 @@ ESTIMATED_WD = {
 }
 
 def profiles():
+    import json
+    from pathlib import Path
+    photos={p["slug"]:p["image"] for p in json.loads((Path(__file__).resolve().parents[2]/"data/catalog.json").read_text())["products"]}
     result = {}
     for row in ROWS.strip().splitlines():
         slug, form, back, count, chaise, color, height, features = row.strip().split('|')
         assert slug not in result, slug
         result[slug] = dict(form=form, back=back, count=int(count), chaise=chaise,
             color=color, height=int(height), features=features.split(','),
-            reference='media/products/'+slug+'.jpg')
+            reference=photos[slug])
     return result

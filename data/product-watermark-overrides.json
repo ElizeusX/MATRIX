@@ -1,0 +1,60 @@
+{
+  "primary": {
+    "lizhko-soft": {
+      "box": [
+        12,
+        103,
+        615,
+        132
+      ],
+      "reason": "Visually confirmed faint legacy mark on the bed; fixed-size stamp spans almost the full photograph."
+    }
+  },
+  "gallery": {
+    "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_5542.jpg": {
+      "box": [
+        476,
+        979,
+        617,
+        132
+      ],
+      "reason": "Visually confirmed faint centered legacy logo; low contrast against bed slats or light fabric."
+    },
+    "https://matrix-mebli.com/wp-content/uploads/2023/07/FullSizeRender.jpg": {
+      "box": [
+        476,
+        486,
+        617,
+        132
+      ],
+      "reason": "Visually confirmed faint centered legacy logo; low contrast against bed slats or light fabric."
+    },
+    "https://matrix-mebli.com/wp-content/uploads/2023/07/Ліжко-Мілана-1.jpg": {
+      "box": [
+        476,
+        456,
+        617,
+        132
+      ],
+      "reason": "Visually confirmed faint centered legacy logo; low contrast against bed slats or light fabric."
+    },
+    "https://matrix-mebli.com/wp-content/uploads/2023/07/IMG_8442.jpg": {
+      "box": [
+        476,
+        503,
+        617,
+        132
+      ],
+      "reason": "Visually confirmed faint centered legacy logo; low contrast against bed slats or light fabric."
+    },
+    "https://matrix-mebli.com/wp-content/uploads/2023/11/IMG_5975.jpg": {
+      "box": [
+        476,
+        434,
+        617,
+        132
+      ],
+      "reason": "Visually confirmed faint centered legacy logo; low contrast against bed slats or light fabric."
+    }
+  }
+}

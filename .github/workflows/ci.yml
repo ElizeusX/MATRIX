@@ -47,7 +47,8 @@ jobs:
       - run: cd apps/web && npm run lint && npm run build
 
   pilot:
-    runs-on: ubuntu-latest
+    # Playwright 1.56.1 supports this image; ubuntu-latest now uses 26.04.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

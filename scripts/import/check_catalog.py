@@ -16,9 +16,13 @@ js=(ROOT/'preview/catalog.js').read_text().split('window.MATRIX_CATALOG = ',1)[1
 assert json.loads(js)==products
 for p in products:
  assert p['images'] and p['sourceUrl'].startswith('https://matrix-mebli.com/furniture/')
- assert all('/wp-content/uploads/' in u for u in p['images'])
+ assert len(p['images'])==len(p['sourceImages'])
+ assert all('/wp-content/uploads/' in u for u in p['sourceImages'])
+ assert all(u.startswith('media/products/gallery/') for u in p['images'])
+ for photo in p['images']:
+  assert (ROOT/'preview'/photo).read_bytes()==(ROOT/'apps/web/public'/photo).read_bytes()
  for base in [ROOT/'preview',ROOT/'apps/web/public']:
-  data=(base/p['image']).read_bytes();assert data.startswith(b'\xff\xd8')
+  data=(base/p['image']).read_bytes();assert data.startswith(b'RIFF') and data[8:12]==b'WEBP'
   assert hashlib.sha256(data).hexdigest()==p['imageSha256']
  assert not p['sourcePriceText'],'Price handling must be reviewed before importing priced products'
 elli=next(p for p in products if p['slug']=='elli')
@@ -36,4 +40,4 @@ for slug in retired:
 migration=(ROOT/'database/migrations/005_discontinued_products.sql').read_text()
 assert set(re.findall(r"'([^']+)'",migration))==retired
 assert 'published = FALSE' in migration and 'available = FALSE' in migration
-print(f'PASS: {len(products)} unique products, {2*len(products)} local photo copies, exact source variants, JSON/JS parity, safe SQL seed, 10 retired products excluded')
+print(f'PASS: {len(products)} unique products, {2*len(products)} primary photo copies plus local galleries, exact source variants, JSON/JS parity, safe SQL seed, 10 retired products excluded')
