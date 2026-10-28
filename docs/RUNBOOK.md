@@ -14,6 +14,34 @@ docker compose up -d --build api web
 Use localhost ports 3000 (web) and 8080 (API). Default database is bound only to localhost.
 For source-mode API run: `set -a; . ./.env; set +a; cd services/api; go mod tidy; go run ./cmd/server`.
 
+## Discontinued products
+
+The active catalog contains 66 models. Ten retired sofas are listed in
+`data/discontinued-products.json` and excluded from future imports and 3D builds.
+For an existing database, apply the retirement migration before deploying:
+
+```sh
+docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database/migrations/005_discontinued_products.sql
+```
+
+It unpublishes these models and disables ordering while retaining product records
+and historical order references. Fresh databases use the updated 66-product seed.
+
+Nine models also have manufacturer-confirmed dimensions in
+`data/dimension-overrides.json`. These override the older source on reimport,
+including the displayed alternatives in parentheses. Numeric 3D/AR dimensions
+use the primary configuration; height remains estimated. For an existing database
+with migrations 003 and 004 applied, also run:
+
+```sh
+docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database/migrations/006_manufacturer_dimensions.sql
+docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database/migrations/007_rename_neo_196.sql
+```
+
+This corrects dimensions without changing prices or publication. Approved 3D
+assets whose width/depth differ are returned to review. Corrected generated
+assets have dimension-specific filenames to refresh cached geometry.
+
 ## Administrator
 With Go installed and DATABASE_URL loaded from repo-root `.env`:
 ```sh

@@ -16,4 +16,7 @@ jobs:
         with:
           node-version: '22'
       - run: python scripts/import/check_catalog.py
+      - run: pip install -r scripts/import/requirements.txt
+      - run: python scripts/import/test_discontinued_import.py
+      - run: python scripts/import/test_dimensions.py
       - run: node --check preview/catalog.js && node --check preview/app.js

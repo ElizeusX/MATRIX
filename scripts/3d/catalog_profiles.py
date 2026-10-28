@@ -45,20 +45,13 @@ terri|daybed|grid|6|none|#7a8385|1000|mattress
 pryamyy-dyvan-verado-3|straight|loose|3|none|#a5a397|900|none
 kutovyy-dyvan-leon-lyuks-2|corner|headrest|2|left|#a29b8d|940|wood
 pryamyy-dyvan-tekhas|straight|loose|2|none|#77717e|890|none
-kutovyy-dyvan-fellini|corner|tuft|3|right|#c5beb0|950|cap
-pryamyy-dyvan-fellini|straight|tuft|2|none|#b4b6ae|950|cap
-kutovyy-dyvan-venera|corner|loose|2|left|#626c65|940|round,feet
-pryamyy-dyvan-venera|straight|loose|2|none|#a49142|940|round,feet
 kutovyy-dyvan-prestizh-200|corner|tuft|3|left|#ab8833|950|wood
  dyvan-pryamyy-prestizh|straight|tuft|2|none|#b59134|950|wood
 pryamyy-dyvan-dzhaz|straight|tuft|2|none|#b7b24d|930|armless
  dyvan-pryamyy-leon-lyuks|straight|loose|3|none|#965f4e|950|wood,channels
 kutovyy-dyvan-leon-lyuks-200|corner|tuft|3|right|#999096|950|wood
-kutovyy-dyvan-london-5|corner|tuft|2|left|#425880|960|drawers
 kutovyy-dyvan-prestizh-200m|corner|headrest|3|left|#b3b3b0|950|round
 kutovyy-pryamyy-boston-4|straight|loose|2|none|#698397|950|shelf,wood,contrast
-kutovyy-dyvan-atlanta-t|corner|tuft|3|right|#65879c|950|trim
-kutovyy-dyvan-vehas-t|corner|tuft|2|left|#666166|930|wood
 pryamyy-kutovyy-prestizh-b-4|corner|tuft|2|right|#b3b2a1|940|none
 kutovyy-dyvan-prestizh-p|u|tuft|3|both|#685e91|940|none
 pryamyy-kutovyy-prestizh-p-b4|corner|tuft|3|left|#7c8073|940|wood
@@ -72,9 +65,6 @@ povorotnyy-dyvan-barselona|corner|tuft|2|right|#4b6b87|930|wood,pillows
 povorotnyy-dyvan-berlin|corner|tuft|3|right|#655079|950|none
 povorotnyy-dyvan-berlin-2|corner|grid|3|right|#654784|950|none
 kutovyy-dyvan-prado|corner|grid|2|right|#4d6188|950|armless,return-back
-pryamyy-dyvan-monako|straight|headrest|2|none|#b5b6ac|960|round
-kutovyy-dyvan-monako-2|corner|headrest|2|right|#a0a29b|960|round
-kutovyy-dyvan-monako-3|corner|headrest|3|right|#b5b6ac|960|round
 pryamyy-dyvan-verado|straight|tuft|3|none|#7a8b42|920|feet
 kutovyy-dyvan-prestizh-140|corner|tuft|2|left|#536c98|950|wood
 kutovyy-dyvan-leon-lyuks-140|corner|tuft|2|left|#b7b7b0|950|wood
@@ -86,18 +76,17 @@ pryamyy-dyvan-leon|straight|tuft|2|none|#77718c|940|none
 
 # Chosen visual configurations only. These values NEVER overwrite source records.
 ESTIMATED_WD = {
- 'hilton-p': (3500,1800), 'lira-2': (1800,2150), 'elli': (2410,1100),
- 'lizhko-soft-2': (1750,2150), 'pryamyy-dyvan-neo-3': (3520,1080),
- 'dyvan-pryamyy-khit': (2400,1000), 'lizhko-faro': (1800,2180),
+ 'lira-2': (1800,2150), 'elli': (2410,1100),
+ 'lizhko-soft-2': (1750,2150),
+ 'lizhko-faro': (1800,2180),
  'lizhko-bali': (1800,2150), 'lizhko-milana': (1800,2150),
  'lizhko-lira': (1800,2150), 'lizhko-soft': (1750,2150),
  'lizhko-skay': (2150,1000), 'lizhko-skay-z-pidyomnym-mekhanizmom': (2150,1000),
- 'terri': (2150,1000), 'dyvan-pryamyy-prestizh': (2400,1000),
+ 'terri': (2150,1000),
  'dyvan-pryamyy-leon-lyuks': (2400,1000), 'kutovyy-pryamyy-boston-4': (2550,1000),
  'pryamyy-kutovyy-prestizh-b-4': (2400,1500),
  'pryamyy-kutovyy-prestizh-p-b4': (3000,1500), 'prestizh-pm': (3260,1900),
  'kutovyy-dyvan-prestizh-m-b4': (2400,1900), 'dyvan-povorotnyy-bond': (2600,1600),
- 'kutovyy-dyvan-leon-lyuks-140': (2450,1500),
 }
 
 def profiles():

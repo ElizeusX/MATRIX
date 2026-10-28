@@ -44,6 +44,10 @@ def inspect(slug, record):
     assert manifest['height_mm'] is None and manifest['geometry_verified'] is False
     known=record.get('width') is not None and record.get('depth') is not None
     assert manifest['width_mm']==record.get('width') and manifest['depth_mm']==record.get('depth')
+    if record.get('dimensionSource')=='manufacturer':
+        tag=f"-v2-{record['width']}x{record['depth']}"
+        assert manifest['glb_url']==f'models/{slug}{tag}-draft.glb'
+        assert manifest['usdz_url']==f'models/{slug}{tag}-estimated.usdz'
     assert manifest['enabled_ar']==manifest['preview_ar']==known
     assert manifest['dimensions_estimated']==(not known)
     if known:

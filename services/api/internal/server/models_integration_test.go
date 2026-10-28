@@ -26,7 +26,7 @@ func TestModelLifecyclePostgres(t *testing.T){
  if dsn==""{t.Skip("MATRIX_TEST_DATABASE_URL not configured")}
  db,err:=sql.Open("postgres",dsn);if err!=nil{t.Fatal(err)}
  defer db.Close()
- for _,file:=range []string{"001_init.sql","002_operations.sql","003_product_3d.sql","004_3d_photo_sources.sql"}{
+ for _,file:=range []string{"001_init.sql","002_operations.sql","003_product_3d.sql","004_3d_photo_sources.sql","005_discontinued_products.sql","006_manufacturer_dimensions.sql","007_rename_neo_196.sql"}{
   raw,err:=os.ReadFile(filepath.Join("..","..","..","..","database","migrations",file))
   if err!=nil{t.Fatal(err)}
   if _,err:=db.Exec(string(raw));err!=nil{t.Fatalf("migration %s: %v",file,err)}

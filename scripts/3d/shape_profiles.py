@@ -2,7 +2,7 @@
 
 These controls describe the pictured configuration; they are not manufacturer CAD.
 Counts distinguish back pillows, continuous seat modules, and stitch channels.
-All 75 slugs select a family explicitly; there is no automatic generic sofa fallback.
+All 65 active non-pilot slugs select a family explicitly; there is no automatic generic sofa fallback.
 """
 FAMILIES={
  # arm width / height, feet, seat top/thickness, regular depth, back type, radius
@@ -80,20 +80,13 @@ terri|bed|1|0|0
 pryamyy-dyvan-verado-3|verado3|3|3|0
 kutovyy-dyvan-leon-lyuks-2|leonlux|2|3|1.00
 pryamyy-dyvan-tekhas|texas|1|2|0
-kutovyy-dyvan-fellini|fellini|2|3|1.00
-pryamyy-dyvan-fellini|fellini|1|2|0
-kutovyy-dyvan-venera|venera|2|2|.94
-pryamyy-dyvan-venera|venera|2|2|0
 kutovyy-dyvan-prestizh-200|prestizh|2|4|1.00
 dyvan-pryamyy-prestizh|prestizh|1|3|0
 pryamyy-dyvan-dzhaz|jazz|1|2|0
 dyvan-pryamyy-leon-lyuks|leonlux|1|3|0
 kutovyy-dyvan-leon-lyuks-200|prestizh|2|4|.98
-kutovyy-dyvan-london-5|london|2|3|.96
 kutovyy-dyvan-prestizh-200m|round-prestizh|2|3|1.05
 kutovyy-pryamyy-boston-4|boston|1|2|0
-kutovyy-dyvan-atlanta-t|atlanta|2|4|.96
-kutovyy-dyvan-vehas-t|prestizh|2|3|.94
 pryamyy-kutovyy-prestizh-b-4|prestizh|2|2|.94
 kutovyy-dyvan-prestizh-p|prestizh|3|3|.96
 pryamyy-kutovyy-prestizh-p-b4|prestizh|2|3|1.00
@@ -107,9 +100,6 @@ dyvan-povorotnyy-bond|rotating|2|2|.95
 povorotnyy-dyvan-berlin|berlin|2|3|1.10
 povorotnyy-dyvan-berlin-2|berlin|2|3|1.10
 kutovyy-dyvan-prado|prado|2|2|.90
-pryamyy-dyvan-monako|monako|2|2|0
-kutovyy-dyvan-monako-2|monako|2|2|1.02
-kutovyy-dyvan-monako-3|monako|3|3|1.02
 pryamyy-dyvan-verado|verado|2|2|0
 kutovyy-dyvan-prestizh-140|prestizh|2|3|.96
 kutovyy-dyvan-leon-lyuks-140|prestizh|2|2|.96
@@ -124,8 +114,6 @@ OVERRIDES={
  'smart':dict(shelves=True,cap_color='#cac4af'),
  'pryamyy-dyvan-loft':dict(accent=2),
  'dyvan-pryamyy-khit':dict(arm=.20),
- 'kutovyy-dyvan-fellini':dict(accent=2,palette={'secondary':'#d0c7b5','back':'#d1cab9'},cap_color='#c5c5bd'),
- 'pryamyy-dyvan-fellini':dict(palette={'body':'#8d9aac','secondary':'#b7b4a6','back':'#d6d6c8'},cap_color='#c1c1ba'),
  'kutovyy-pryamyy-boston-4':dict(palette={'secondary':'#b3b3ab','back':'#c8c7be'}),
  'pryamyy-dyvan-verado':dict(wood=False),
  'dyvan-lizhko-real-2':dict(tall_back=True,back_span=.70),

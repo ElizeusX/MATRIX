@@ -82,7 +82,7 @@ def fabric():
     return out
 
 
-def export(model, folder, slug, profile, extras, textures):
+def export(model, folder, slug, profile, extras, textures, asset_tag=''):
     folder=pathlib.Path(folder);folder.mkdir(parents=True,exist_ok=True)
     buf=bytearray();views=[];access=[];meshes=[]
     def view(raw,target=None):
@@ -124,7 +124,7 @@ def export(model, folder, slug, profile, extras, textures):
         samplers=[dict(magFilter=9729,minFilter=9987,wrapS=10497,wrapT=10497)])
     j=json.dumps(doc,separators=(',',':')).encode();j+=b' '*(-len(j)%4);buf+=b'\0'*(-len(buf)%4)
     glb=struct.pack('<III',0x46546c67,2,28+len(j)+len(buf))+struct.pack('<II',len(j),0x4e4f534a)+j+struct.pack('<II',len(buf),0x004e4942)+buf
-    (folder/f'{slug}-v2-draft.glb').write_bytes(glb)
+    (folder/f'{slug}-v2{asset_tag}-draft.glb').write_bytes(glb)
     if extras['dimensions_estimated']:return len(glb)
     # Matching vertices, Y-up/metres, embedded texture and aligned uncompressed USDZ.
     usd=['#usda 1.0\n(defaultPrim="Furniture"\nmetersPerUnit=1\nupAxis="Y")\ndef Xform "Furniture" {',
@@ -174,7 +174,7 @@ def export(model, folder, slug, profile, extras, textures):
     if not layer.ImportFromString('\n'.join(usd)):raise RuntimeError(slug+' USD import failed')
     with tempfile.TemporaryDirectory() as tmp:
         crate=pathlib.Path(tmp)/'furniture.usdc';layer.Export(str(crate));usdbytes=crate.read_bytes()
-    with zipfile.ZipFile(folder/f'{slug}-v2-estimated.usdz','w',compression=zipfile.ZIP_STORED) as z:
+    with zipfile.ZipFile(folder/f'{slug}-v2{asset_tag}-estimated.usdz','w',compression=zipfile.ZIP_STORED) as z:
         for name,data in [('furniture.usdc',usdbytes),('fabric.png',textures[0])]:
             info=zipfile.ZipInfo(name);padding=(-(z.fp.tell()+30+len(name)+4))%64
             info.extra=struct.pack('<HH',0x1986,padding)+b'\0'*padding;z.writestr(info,data)

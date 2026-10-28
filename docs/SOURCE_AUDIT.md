@@ -6,6 +6,19 @@ All **10 catalog pages / 76 unique products** were fetched and compared with
 https://matrix-mebli.com/wp-sitemap-posts-furniture-1.xml. Both sets contain the
 same 76 product URLs. Individual product pages were fetched for every record.
 
+## Manufacturer update — 2026-10-28
+
+Ten discontinued sofas were removed at the manufacturer’s request. The active
+snapshot now contains 66 products, 66 primary photos and 360 gallery references.
+`data/discontinued-products.json` records their exact slugs; the importer excludes
+them even if they remain on the source site. The counts below describe the original
+2026-10-24 crawl.
+
+Nine active models received manufacturer-supplied dimension corrections on the
+same date. `data/dimension-overrides.json` records these values and takes priority
+over older source text during reimport. Unspecified sleeping dimensions remain
+unchanged; alternatives in parentheses are displayed in full.
+
 ## Imported data
 
 - 76 original Ukrainian product names, source URLs and source dimension strings.
@@ -17,7 +30,7 @@ same 76 product URLs. Individual product pages were fetched for every record.
 - Every primary photo has its original URL, download URL and SHA-256 checksum.
 - No public prices were found in product price blocks. Availability is unknown.
 
-The complete snapshot is `data/catalog.json`. `preview/catalog.js` and
+The active snapshot is `data/catalog.json`. `preview/catalog.js` and
 `apps/web/lib/source-catalog.json` are generated copies for the two frontends.
 Names and descriptions remain in their source language, including in the English
 interface, until editorial translations are supplied.
@@ -34,13 +47,13 @@ models remain `unspecified` and are visible under All models.
 
 ## Integration
 
-The static preview uses all 76 models, local primary photos, remote gallery
+The static preview uses all 66 active models, local primary photos, remote gallery
 thumbnails, original descriptions, dimensions and a manufacturer-page link.
 The Next.js catalog/detail pages use the same snapshot when no live catalog is
 returned, and match photos to live products by slug. Live API prices and order
 eligibility continue to be authoritative.
 
-The SQL seed adds all 76 draft products and primary-media records. On existing
+The SQL seed adds all 66 active draft products and primary-media records. On existing
 products it only fills missing source URLs and descriptions; it does not overwrite
 merchant prices, publication, availability or existing descriptions. Existing
 nine slugs are preserved. Running the SQL twice does not duplicate records.
