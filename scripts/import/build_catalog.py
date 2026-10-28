@@ -15,6 +15,9 @@ DISCONTINUED_SLUGS = {p['slug'] for p in json.loads((ROOT/'data/discontinued-pro
 DIMENSION_OVERRIDES = json.loads((ROOT/'data/dimension-overrides.json').read_text())['products']
 LETTERS = dict(zip('абвгґдеєжзиіїйклмнопрстуфхцчшщьюя', ['a','b','v','h','g','d','e','ye','zh','z','y','i','yi','y','k','l','m','n','o','p','r','s','t','u','f','kh','ts','ch','sh','shch','','yu','ya']))
 ALIASES = {'Кутовий диван Хілтон-2': 'hilton-2', 'Кутовий диван Хілтон-П': 'hilton-p', 'Прямий диван Моллі': 'molly', 'Ліра-2': 'lira-2', 'Прямий диван Ельдорадо-2': 'eldorado-2', 'Прямий диван Ельдорадо': 'eldorado', 'Прямий диван Еллі': 'elli', 'Кутовий диван Смарт': 'smart', 'Прямий диван Рубін': 'rubin'}
+# Keep product identity and existing 3D/photo links when the manufacturer renames it.
+ALIASES['Прямий диван Нео 196'] = 'pryamyy-dyvan-neo-230'
+TITLE_OVERRIDES = {'pryamyy-dyvan-neo-230': 'Прямий диван Нео 196'}
 
 def translit(text):
  return ''.join(LETTERS.get(c,c) for c in text.lower())
@@ -65,6 +68,7 @@ def build(cache):
   if category=='unspecified':flags.append('category_requires_confirmation')
   price=texts(doc,'//div[@class="price-block"]')
   p=dict(id=slug,slug=slug,uk=title,en=title,category=category,sourceUrl=item['url'],description=description,dimensions=size,sleepingArea=sleep,width=width,depth=depth,sleepLength=length,sleepWidth=sw,image=f'media/products/{slug}.jpg',images=images,sourceImage=photos[i]['source_url'],downloadUrl=photos[i]['download_url'],imageSha256=photos[i]['sha256'],sourcePriceText=price,flags=flags)
+  if slug in TITLE_OVERRIDES:p.update(uk=TITLE_OVERRIDES[slug],en=TITLE_OVERRIDES[slug])
   products.append(apply_dimension_override(p))
   product_photos.append(photos[i])
  assert len({p['slug'] for p in products})==len(products),'Duplicate slugs'

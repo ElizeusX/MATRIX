@@ -46,6 +46,7 @@ with migrations 003 and 004 applied, also run:
 
 ```sh
 docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database/migrations/006_manufacturer_dimensions.sql
+docker compose exec -T db psql -v ON_ERROR_STOP=1 -U matrix -d matrix < database/migrations/007_rename_neo_196.sql
 ```
 
 This corrects dimensions without changing prices or publication. Approved 3D

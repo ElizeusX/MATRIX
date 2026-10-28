@@ -307,8 +307,8 @@ window.MATRIX_CATALOG = [
   {
     "id": "pryamyy-dyvan-neo-230",
     "slug": "pryamyy-dyvan-neo-230",
-    "uk": "Прямий диван Нео 230",
-    "en": "Прямий диван Нео 230",
+    "uk": "Прямий диван Нео 196",
+    "en": "Прямий диван Нео 196",
     "category": "straight-sofas",
     "sourceUrl": "https://matrix-mebli.com/furniture/%d0%bf%d1%80%d1%8f%d0%bc%d0%b8%d0%b9-%d0%b4%d0%b8%d0%b2%d0%b0%d0%bd-%d0%bd%d0%b5%d0%be-230/",
     "description": "",

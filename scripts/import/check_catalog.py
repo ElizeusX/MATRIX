@@ -9,6 +9,8 @@ assert len(products)==66
 assert len({p['slug'] for p in products})==len(products)
 assert len({p['sourceUrl'] for p in products})==len(products)
 assert retired.isdisjoint(p['slug'] for p in products)
+neo=next(p for p in products if p['slug']=='pryamyy-dyvan-neo-230')
+assert neo['uk']==neo['en']=='Прямий диван Нео 196'
 assert json.loads((ROOT/'apps/web/lib/source-catalog.json').read_text())==snapshot
 js=(ROOT/'preview/catalog.js').read_text().split('window.MATRIX_CATALOG = ',1)[1].removesuffix(';\n')
 assert json.loads(js)==products
