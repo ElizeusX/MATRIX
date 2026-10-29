@@ -1,8 +1,8 @@
 const paths = {
-  sofa: "M7 15v-5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5M7 15H5a2 2 0 0 0-2 2v7h26v-7a2 2 0 0 0-2-2h-2M7 15v5h18v-5M5 24v3m22-3v3M16 12v.5",
+  sofa: "M15 19V10a4 4 0 0 1 4-4h38a4 4 0 0 1 4 4v9M14 20c-3-3-7-1-7 4v13a4 4 0 0 0 4 4h54a4 4 0 0 0 4-4V24c0-5-4-7-7-4l-5 6H19l-5-6ZM12 41v4m52-4v4M38 15v2",
   corner:
-    "m3 13 6-6h17a3 3 0 0 1 3 3v11H13v6H3V13Zm0 0h26M13 13v14m0-6h16M5 27v2m22-8v3",
-  bed: "M6 16V9a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v7M5 16h22a2 2 0 0 1 2 2v7H3v-7a2 2 0 0 1 2-2ZM8 16v-3a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3m4 0v-3a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3M5 25v3m22-3v3",
+    "M4 21v-1a5 5 0 0 1 2-4L16 8a9 9 0 0 1 6-2h43a6 6 0 0 1 6 5l2 10v13a3 3 0 0 1-3 3H27v6a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V21Zm0 0h69M27 21v16m41 0v4",
+  bed: "M16 24V10a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4v14M14 25h48a4 4 0 0 1 4 4v11H10V29a4 4 0 0 1 4-4ZM21 24v-3c0-3 2-5 5-5h3c4 0 6 3 7 8m4 0c1-5 3-8 7-8h3c3 0 5 2 5 5v3M14 40v5m48-5v5",
   search: "M22 13a9 9 0 1 1-9-9h4l5 5v4Zm-2 7 8 8M8 13q0-5 5-5",
   bag: "M7 11h18l3 17H4l3-17Zm5 3V8a4 4 0 0 1 8 0v6M11 22l5-4 5 4",
   cube: "m16 6 9 5v10l-9 5-9-5V11l9-5Zm0 10 9-5m-9 5-9-5m9 5v10M3 10V4h6m14 0h6v6M3 23v6h6m14 0h6v-6",
@@ -14,13 +14,14 @@ const paths = {
   fullscreen: "M4 12V4h8m8 0h8v8M4 20v8h8m8 0h8v-8M12 16h8m-4-4v8",
 } as const;
 export function FurnitureIcon({ kind }: { kind: keyof typeof paths }) {
+  const isFurniture = kind === "sofa" || kind === "corner" || kind === "bed";
   return (
     <svg
       className="matrix-icon"
-      viewBox="0 0 32 32"
+      viewBox={isFurniture ? "0 0 76 48" : "0 0 32 32"}
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.4"
+      strokeWidth={isFurniture ? 2.6 : 1.4}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"

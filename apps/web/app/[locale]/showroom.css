@@ -253,8 +253,8 @@ body {
   background: #e9ddc9;
 }
 .showroomCategories svg {
-  width: 40px;
-  height: 34px;
+  width: 48px;
+  height: 32px;
 }
 .categoryArrow {
   margin-left: auto;
@@ -768,7 +768,7 @@ body {
     text-align: center;
     white-space: normal;
   }
-  .showroomCategories svg { width: 32px; height: 28px; }
+  .showroomCategories svg { width: 40px; height: 28px; }
   .showroomCategories .categoryArrow { display: none; }
   .homeCollection { padding-top: 30px; }
   .localeHeader { height: 68px; }
