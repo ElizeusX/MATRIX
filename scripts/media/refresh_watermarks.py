@@ -97,12 +97,12 @@ def restore(image,box,model):
 
 def brand(image):
  logo=Image.open(LOGO).convert('RGBA')
- width=max(80,round(image.width*.15));height=round(width*logo.height/logo.width)
- if height>image.height*.24:
-  height=round(image.height*.24);width=round(height*logo.width/logo.height)
+ width=max(80,round(image.width*.30));height=round(width*logo.height/logo.width)
+ if height>image.height*.34:
+  height=round(image.height*.34);width=round(height*logo.width/logo.height)
  logo=logo.resize((width,height),Image.Resampling.LANCZOS)
- logo.putalpha(logo.getchannel('A').point(lambda a:round(a*.72)))
- gap=max(8,round(image.width*.02));x=image.width-width-gap;y=image.height-height-gap
+ logo.putalpha(logo.getchannel('A').point(lambda a:round(a*.28)))
+ x=round((image.width-width)/2);y=round((image.height-height)/2)
  result=image.convert('RGBA');result.alpha_composite(logo,(x,y))
  return result.convert('RGB'),[x,y,x+width,y+height]
 
@@ -128,21 +128,23 @@ def process(job,model,threshold):
  mask_bounds=brand_bounds=None
  if detected:
   result,mask_bounds=restore(image,box,model)
-  result,brand_bounds=brand(result)
-  output=output.with_suffix('.webp')
-  output.parent.mkdir(parents=True,exist_ok=True)
-  result.save(output,'WEBP',lossless=True,method=4,exact=True)
-  decoded=np.array(Image.open(output).convert('RGB'));original=np.array(image)
-  outside=np.ones(original.shape[:2],bool)
-  for x1,y1,x2,y2 in [mask_bounds,brand_bounds]:outside[y1:y2,x1:x2]=False
-  assert np.array_equal(decoded[outside],original[outside]),'Lossless output changed outside pixels'
  else:
-  output=output.with_suffix(path.suffix)
-  output.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,output)
+  result=image
+ # Every photograph gets the glass watermark, including new unstamped sources.
+ result,brand_bounds=brand(result)
+ output=output.with_suffix('.webp')
+ output.parent.mkdir(parents=True,exist_ok=True)
+ result.save(output,'WEBP',lossless=True,method=4,exact=True)
+ decoded=np.array(Image.open(output).convert('RGB'));original=np.array(image)
+ outside=np.ones(original.shape[:2],bool)
+ for bounds in [mask_bounds,brand_bounds]:
+  if bounds:
+   x1,y1,x2,y2=bounds;outside[y1:y2,x1:x2]=False
+ assert np.array_equal(decoded[outside],original[outside]),'Lossless output changed outside pixels'
  rel=output.relative_to(BASES[0]).as_posix()
  destination=BASES[1]/rel;destination.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(output,destination)
  return key,dict(sourceUrl=source,sourceSha256=sha(path),path=rel,sha256=sha(output),size=list(image.size),
-                 replaced=detected,confidence=round(score,4),manualOverride=bool(override),fit=box,legacyBounds=mask_bounds,brandBounds=brand_bounds)
+                 replaced=detected,branded=True,confidence=round(score,4),manualOverride=bool(override),fit=box,legacyBounds=mask_bounds,brandBounds=brand_bounds,style='centered-glass-v2')
 
 def write_catalog(snapshot):
  text=json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n'
@@ -158,30 +160,31 @@ def main():
  args.cache.mkdir(parents=True,exist_ok=True)
  snapshot=json.loads((ROOT/'data/catalog.json').read_text())
  old=json.loads(MANIFEST.read_text()) if MANIFEST.exists() else {}
- manifest=dict(version=1,logo='media/matrix-product-watermark.png',logoSha256=sha(LOGO),modelSha256=MODEL_SHA256,primary={},gallery={})
+ manifest=dict(version=2,logo='media/matrix-product-watermark.png',logoSha256=sha(LOGO),modelSha256=MODEL_SHA256,
+               style=dict(name='centered-glass-v2',position='center',opacity=.28,widthRatio=.30,maxHeightRatio=.34,material='colorless translucent glass'),primary={},gallery={})
  jobs=[]
  for p in snapshot['products']:
   key=p['slug'];cache=args.cache/f'primary-{key}.jpg'
   previous=old.get('primary',{}).get(key)
-  if previous and not previous.get('needsReprocess') and previous['replaced'] and p['image']==previous['path'] and not args.force and (BASES[0]/previous['path']).exists() and sha(BASES[0]/previous['path'])==previous['sha256']:
+  if old.get('version')==2 and old.get('logoSha256')==sha(LOGO) and previous and not previous.get('needsReprocess') and previous.get('branded',previous['replaced']) and p['image']==previous['path'] and not args.force and (BASES[0]/previous['path']).exists() and sha(BASES[0]/previous['path'])==previous['sha256']:
    manifest['primary'][key]=previous;continue
   if previous and p['image']!=previous['path']:
    shutil.copyfile(BASES[0]/p['image'],cache)
   if not cache.exists():
    assert not previous,'Original cache required to force a rebuild'
    shutil.copyfile(BASES[0]/p['image'],cache)
-  jobs.append((('primary',key),p['sourceImage'],cache,BASES[0]/f'media/products/{key}.jpg'))
+  jobs.append((('primary',key),p['sourceImage'],cache,BASES[0]/f'media/products/{key}-glass-v2.jpg'))
  urls=list(dict.fromkeys(u for p in snapshot['products'] for u in p.get('sourceImages',p['images'])))
  pending=[]
  for url in urls:
   digest=hashlib.sha256(url.encode()).hexdigest()[:20];cache=args.cache/f'{digest}.jpg'
   previous=old.get('gallery',{}).get(url)
-  if previous and not previous.get('needsReprocess') and previous['replaced'] and not args.force and (BASES[0]/previous['path']).exists() and sha(BASES[0]/previous['path'])==previous['sha256']:
+  if old.get('version')==2 and old.get('logoSha256')==sha(LOGO) and previous and not previous.get('needsReprocess') and previous.get('branded',previous['replaced']) and not args.force and (BASES[0]/previous['path']).exists() and sha(BASES[0]/previous['path'])==previous['sha256']:
    manifest['gallery'][url]=previous;continue
   pending.append((url,cache,digest))
  with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
   list(pool.map(lambda v:download(v[0],v[1]),pending))
- for url,cache,digest in pending:jobs.append((('gallery',url),url,cache,BASES[0]/f'media/products/gallery/{digest}.jpg'))
+ for url,cache,digest in pending:jobs.append((('gallery',url),url,cache,BASES[0]/f'media/products/gallery/{digest}-glass-v2.jpg'))
  # Save each completed item: interruption/resume does not repeat completed edits.
  with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
   futures=[pool.submit(process,j,args.model,args.threshold) for j in jobs]
@@ -193,6 +196,10 @@ def main():
  MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
  for p in snapshot['products']:
   apply_media(p,manifest)
+  # A forced rebuild can produce a new hash from the same original source.
+  # This batch owns that output, so refresh its primary mapping explicitly.
+  primary=manifest['primary'][p['slug']]
+  p['image']=primary['path'];p['imageSha256']=primary['sha256']
   if p['image'].endswith('.webp'):
    for base in BASES:(base/f'media/products/{p["slug"]}.jpg').unlink(missing_ok=True)
  write_catalog(snapshot)
