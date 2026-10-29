@@ -2,7 +2,7 @@
   "basis": "Visual proportions and construction read from the named primary catalog photographs; not measured manufacturer dimensions.",
   "products": {
     "kutovyy-dyvan-neo-2": {
-      "photo": "media/products/kutovyy-dyvan-neo-2.webp",
+      "photo": "media/products/kutovyy-dyvan-neo-2-glass-v2.webp",
       "counts": {
         "seat_shell_": 2,
         "back_shell_": 2,
@@ -20,7 +20,7 @@
       "observation": "Two uninterrupted upholstered seat/front shells. Stitching compresses each shell; there are no separate narrow strip cushions or detached headrests."
     },
     "hilton-p": {
-      "photo": "media/products/hilton-p.webp",
+      "photo": "media/products/hilton-p-glass-v2.webp",
       "counts": {
         "seat_shell_": 3,
         "back_shell_": 4,
@@ -29,7 +29,7 @@
       "observation": "Long chaise on the left and a shorter right-hand seating return with inward-facing back cushions; the two ends are not equal ottomans."
     },
     "pryamyy-dyvan-loft": {
-      "photo": "media/products/pryamyy-dyvan-loft.webp",
+      "photo": "media/products/pryamyy-dyvan-loft-glass-v2.webp",
       "counts": {
         "seat_shell_": 2,
         "back_shell_": 2,
@@ -48,7 +48,7 @@
       "observation": "Two tall upholstered front modules with edge welts, not thin cushions above a second plinth. Two large loose back pillows and two yellow throws."
     },
     "lizhko-faro": {
-      "photo": "media/products/lizhko-faro.webp",
+      "photo": "media/products/lizhko-faro-glass-v2.webp",
       "counts": {
         "headboard_shell": 1,
         "bowed_slat_": 36
@@ -56,7 +56,7 @@
       "observation": "One upholstered patterned headboard and two half-width banks of timber slats divided by a centre support."
     },
     "delta": {
-      "photo": "media/products/delta.webp",
+      "photo": "media/products/delta-glass-v2.webp",
       "counts": {
         "continuous_chaise_seat": 1,
         "low_lavender_sweep": 1,
