@@ -14,17 +14,17 @@ window.MATRIX_CATALOG = [
     "depth": 1800,
     "sleepLength": 2100,
     "sleepWidth": 1300,
-    "image": "media/products/hilton-2.webp",
+    "image": "media/products/hilton-2-glass-v2.webp",
     "images": [
-      "media/products/gallery/e3ddca3af4a372a1b414.webp",
-      "media/products/gallery/05a12dc45c5ab6ef4790.webp",
-      "media/products/gallery/87a28f9e17ae135551df.webp",
-      "media/products/gallery/4c0388e303c118e9f77f.webp",
-      "media/products/gallery/a395dfda723b1aec15cc.webp"
+      "media/products/gallery/e3ddca3af4a372a1b414-glass-v2.webp",
+      "media/products/gallery/05a12dc45c5ab6ef4790-glass-v2.webp",
+      "media/products/gallery/87a28f9e17ae135551df-glass-v2.webp",
+      "media/products/gallery/4c0388e303c118e9f77f-glass-v2.webp",
+      "media/products/gallery/a395dfda723b1aec15cc-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/1E965FA7-7848-451E-A14D-DF038AF46929.jpg?fit=1536%2C1024&ssl=1?v=1757673576",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/1E965FA7-7848-451E-A14D-DF038AF46929.jpg?w=1200&ssl=1",
-    "imageSha256": "7fe47ea780b3995c14fc2e413bd761e0da412e6a94aae5cbaa23933a25353a05",
+    "imageSha256": "47801f45f7101dea4e2be6054e1c0cd83c6d770c7d395de43c3478efe1fe558e",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -49,14 +49,14 @@ window.MATRIX_CATALOG = [
     "depth": 2040,
     "sleepLength": 2700,
     "sleepWidth": 1300,
-    "image": "media/products/hilton-p.webp",
+    "image": "media/products/hilton-p-glass-v2.webp",
     "images": [
-      "media/products/gallery/c4e5229963eddb35903c.webp",
-      "media/products/gallery/b4f18beae97e31c8787e.webp"
+      "media/products/gallery/c4e5229963eddb35903c-glass-v2.webp",
+      "media/products/gallery/b4f18beae97e31c8787e-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/C6E5A053-B1AD-4FD8-AAF1-152E101A2CCF.jpg?fit=1536%2C1024&ssl=1?v=1757674247",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/C6E5A053-B1AD-4FD8-AAF1-152E101A2CCF.jpg?w=1200&ssl=1",
-    "imageSha256": "aea37ae16987f7dfa1a3faa1e81823f02feb53086643a423430df7e89ade384f",
+    "imageSha256": "aa181f8a59d1468fe31c5e256a6f24903e3ab4832f4658a14553e32ed7fdb0f2",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
@@ -80,14 +80,14 @@ window.MATRIX_CATALOG = [
     "depth": 1150,
     "sleepLength": 2000,
     "sleepWidth": 1600,
-    "image": "media/products/molly.webp",
+    "image": "media/products/molly-glass-v2.webp",
     "images": [
-      "media/products/gallery/6a3eb3e3e035baa18958.webp",
-      "media/products/gallery/33f35e1c30397a1e3d76.webp"
+      "media/products/gallery/6a3eb3e3e035baa18958-glass-v2.webp",
+      "media/products/gallery/33f35e1c30397a1e3d76-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/4047E1D4-C3C4-4879-9978-AC15C063FCFF.jpg?fit=1536%2C1024&ssl=1?v=1757670130",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/4047E1D4-C3C4-4879-9978-AC15C063FCFF.jpg?w=1200&ssl=1",
-    "imageSha256": "f4c19720bf5df16a41cb34faea4219cc045eef81284d56d2437591c369b0988a",
+    "imageSha256": "88a8014fa11cadf7e223116030bf57f0f71ca71323cd97a4e2883364c1fc5edf",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
@@ -111,13 +111,13 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lira-2.webp",
+    "image": "media/products/lira-2-glass-v2.webp",
     "images": [
-      "media/products/gallery/e46b3026b577b5dcbec6.webp"
+      "media/products/gallery/e46b3026b577b5dcbec6-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/5E6ECDBD-E94D-4722-89C4-588529D7F991.jpg?fit=1536%2C736&ssl=1?v=1757669742",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2025/09/5E6ECDBD-E94D-4722-89C4-588529D7F991.jpg?w=1200&ssl=1",
-    "imageSha256": "452e0d0740524f64d7a42ce3a70a6793f2cdb15aaa88eb8270f857af2b218d9b",
+    "imageSha256": "2fdc8e3f92cf5045ecccd2a6773cf60e2e047a6c3393f86e9b4ab3e33468cbe7",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation",
@@ -141,18 +141,18 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 1980,
     "sleepWidth": 1600,
-    "image": "media/products/eldorado-2.webp",
+    "image": "media/products/eldorado-2-glass-v2.webp",
     "images": [
-      "media/products/gallery/9ff4e3de98fe4895b121.webp",
-      "media/products/gallery/8cc198cd438e02ef1e54.webp",
-      "media/products/gallery/c4b6c4e4b285a5dc146c.webp",
-      "media/products/gallery/cdf1eed305fafdb822fa.webp",
-      "media/products/gallery/f7f4907d287ef02a1581.webp",
-      "media/products/gallery/b30696595454f67c9304.webp"
+      "media/products/gallery/9ff4e3de98fe4895b121-glass-v2.webp",
+      "media/products/gallery/8cc198cd438e02ef1e54-glass-v2.webp",
+      "media/products/gallery/c4b6c4e4b285a5dc146c-glass-v2.webp",
+      "media/products/gallery/cdf1eed305fafdb822fa-glass-v2.webp",
+      "media/products/gallery/f7f4907d287ef02a1581-glass-v2.webp",
+      "media/products/gallery/b30696595454f67c9304-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6659.jpg?fit=1290%2C770&ssl=1?v=1718105762",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6659.jpg?w=1200&ssl=1",
-    "imageSha256": "14548775fd9ea84be5dfc030c2cb0fa2e0ca6469127678c71a3b1789213f35f1",
+    "imageSha256": "636b5b062a854097af4eba53e25b4857f89780b4b7f5c0f014908903d5e00017",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -178,16 +178,16 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 1980,
     "sleepWidth": 1600,
-    "image": "media/products/eldorado.webp",
+    "image": "media/products/eldorado-glass-v2.webp",
     "images": [
-      "media/products/gallery/17cf6497da83cd4e8c78.webp",
-      "media/products/gallery/b0b30d5e21164ce8eb3f.webp",
-      "media/products/gallery/ad86aef303c6bd2ceead.webp",
-      "media/products/gallery/5ed8a23e3c9e75a26a91.webp"
+      "media/products/gallery/17cf6497da83cd4e8c78-glass-v2.webp",
+      "media/products/gallery/b0b30d5e21164ce8eb3f-glass-v2.webp",
+      "media/products/gallery/ad86aef303c6bd2ceead-glass-v2.webp",
+      "media/products/gallery/5ed8a23e3c9e75a26a91-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6355.jpg?fit=1290%2C993&ssl=1?v=1717569723",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6355.jpg?w=1200&ssl=1",
-    "imageSha256": "726852a671deaf70575081246234c06950f31a3fdf1f18d216d52a703b5c0e89",
+    "imageSha256": "8a15343b310ee80c1126e80d2866fa78c5fa98d3c90df340fca7f9810d113e57",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -211,25 +211,25 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": 1980,
     "sleepWidth": 1600,
-    "image": "media/products/elli.webp",
+    "image": "media/products/elli-glass-v2.webp",
     "images": [
-      "media/products/gallery/71b42a9d06b0cecfdeea.webp",
-      "media/products/gallery/2b469e2bb40c8940ec92.webp",
-      "media/products/gallery/8f10f39d568acf6c4711.webp",
-      "media/products/gallery/25b2a0a8d23d166c1ef8.webp",
-      "media/products/gallery/bfad07e663c5a79c12e1.webp",
-      "media/products/gallery/5e19d153736908cee66b.webp",
-      "media/products/gallery/717e31801ca370241703.webp",
-      "media/products/gallery/f27255f25f7aa1d920a7.webp",
-      "media/products/gallery/c3493de5d37311ef2882.webp",
-      "media/products/gallery/2e41258c7bbeb65d4257.webp",
-      "media/products/gallery/f6e03c8c57713f0d9fde.webp",
-      "media/products/gallery/56d3dc4f541e594114f1.webp",
-      "media/products/gallery/1e951b708bf837215353.webp"
+      "media/products/gallery/71b42a9d06b0cecfdeea-glass-v2.webp",
+      "media/products/gallery/2b469e2bb40c8940ec92-glass-v2.webp",
+      "media/products/gallery/8f10f39d568acf6c4711-glass-v2.webp",
+      "media/products/gallery/25b2a0a8d23d166c1ef8-glass-v2.webp",
+      "media/products/gallery/bfad07e663c5a79c12e1-glass-v2.webp",
+      "media/products/gallery/5e19d153736908cee66b-glass-v2.webp",
+      "media/products/gallery/717e31801ca370241703-glass-v2.webp",
+      "media/products/gallery/f27255f25f7aa1d920a7-glass-v2.webp",
+      "media/products/gallery/c3493de5d37311ef2882-glass-v2.webp",
+      "media/products/gallery/2e41258c7bbeb65d4257-glass-v2.webp",
+      "media/products/gallery/f6e03c8c57713f0d9fde-glass-v2.webp",
+      "media/products/gallery/56d3dc4f541e594114f1-glass-v2.webp",
+      "media/products/gallery/1e951b708bf837215353-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6354.jpg?fit=1290%2C979&ssl=1?v=1717569367",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6354.jpg?w=1200&ssl=1",
-    "imageSha256": "7b5984ee13ac5d558f606ef8d0eae5ba2c83b60b66cdfe31be99ff85c3b4a746",
+    "imageSha256": "b17abcead2058bd18e87812a3747868f7e789a34f5df4385f8f306911bf5e914",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation"
@@ -264,25 +264,25 @@ window.MATRIX_CATALOG = [
     "depth": 1650,
     "sleepLength": 1980,
     "sleepWidth": 1600,
-    "image": "media/products/smart.webp",
+    "image": "media/products/smart-glass-v2.webp",
     "images": [
-      "media/products/gallery/f054aaf4e5f74962dc44.webp",
-      "media/products/gallery/cff80056346fc4885f21.webp",
-      "media/products/gallery/1cea0d5b66f63c9cfb17.webp",
-      "media/products/gallery/db30ea87b9c866147747.webp",
-      "media/products/gallery/e7d2f94a8e687a49ae76.webp",
-      "media/products/gallery/46e8f9e0ca3110fd7c4f.webp",
-      "media/products/gallery/15e336aa725bea3c6ef2.webp",
-      "media/products/gallery/3e74e357f94e01440c30.webp",
-      "media/products/gallery/6ae6b192e761b86dcb8c.webp",
-      "media/products/gallery/62acc03a47f52ed1a39d.webp",
-      "media/products/gallery/172b4c3afb6df54b4cd2.webp",
-      "media/products/gallery/85c33b3e011e14aca901.webp",
-      "media/products/gallery/b4dfd58d2bf3d93b29b9.webp"
+      "media/products/gallery/f054aaf4e5f74962dc44-glass-v2.webp",
+      "media/products/gallery/cff80056346fc4885f21-glass-v2.webp",
+      "media/products/gallery/1cea0d5b66f63c9cfb17-glass-v2.webp",
+      "media/products/gallery/db30ea87b9c866147747-glass-v2.webp",
+      "media/products/gallery/e7d2f94a8e687a49ae76-glass-v2.webp",
+      "media/products/gallery/46e8f9e0ca3110fd7c4f-glass-v2.webp",
+      "media/products/gallery/15e336aa725bea3c6ef2-glass-v2.webp",
+      "media/products/gallery/3e74e357f94e01440c30-glass-v2.webp",
+      "media/products/gallery/6ae6b192e761b86dcb8c-glass-v2.webp",
+      "media/products/gallery/62acc03a47f52ed1a39d-glass-v2.webp",
+      "media/products/gallery/172b4c3afb6df54b4cd2-glass-v2.webp",
+      "media/products/gallery/85c33b3e011e14aca901-glass-v2.webp",
+      "media/products/gallery/b4dfd58d2bf3d93b29b9-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6339.jpg?fit=1275%2C839&ssl=1?v=1717568060",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6339.jpg?w=1200&ssl=1",
-    "imageSha256": "6335d0b1a03c5d2f23e1403bc7813766cd6060b50ec695ae4390c72c6c6cfd7a",
+    "imageSha256": "36e1f8d6eb4063b1fc7cbffb42827161bf4968e1a1c348457c9aae542e1e8bfe",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -315,17 +315,17 @@ window.MATRIX_CATALOG = [
     "depth": 1350,
     "sleepLength": 2000,
     "sleepWidth": 1600,
-    "image": "media/products/pryamyy-dyvan-malibu-2.webp",
+    "image": "media/products/pryamyy-dyvan-malibu-2-glass-v2.webp",
     "images": [
-      "media/products/gallery/df37f5bbab80fc218425.webp",
-      "media/products/gallery/df5c26541ac29ada8c6e.webp",
-      "media/products/gallery/a4342d7dda4b12058f39.webp",
-      "media/products/gallery/64378ca1445c9dfded14.webp",
-      "media/products/gallery/9c3b4e92936081b947ad.webp"
+      "media/products/gallery/df37f5bbab80fc218425-glass-v2.webp",
+      "media/products/gallery/df5c26541ac29ada8c6e-glass-v2.webp",
+      "media/products/gallery/a4342d7dda4b12058f39-glass-v2.webp",
+      "media/products/gallery/64378ca1445c9dfded14-glass-v2.webp",
+      "media/products/gallery/9c3b4e92936081b947ad-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6351.jpg?fit=1290%2C983&ssl=1?v=1717566375",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6351.jpg?w=1200&ssl=1",
-    "imageSha256": "4048b9a6347afee1081bad7772cf85cf865214c6afe01d0c7806db75ebb467ab",
+    "imageSha256": "37a8450edd0dbeefab06aaa313db09bbef543ecaf6620217886bdc7de5c3fce4",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -350,26 +350,26 @@ window.MATRIX_CATALOG = [
     "depth": 1350,
     "sleepLength": 2000,
     "sleepWidth": 1600,
-    "image": "media/products/pryamyy-dyvan-malibu.webp",
+    "image": "media/products/pryamyy-dyvan-malibu-glass-v2.webp",
     "images": [
-      "media/products/gallery/a432fd1976c8271e243f.webp",
-      "media/products/gallery/922d0a53460b8ba46cb2.webp",
-      "media/products/gallery/d10b8b93caa748ddcaa9.webp",
-      "media/products/gallery/9aacac07f617eaab324e.webp",
-      "media/products/gallery/51131d8374224c7ea37e.webp",
-      "media/products/gallery/348a39be66d0ae5b4414.webp",
-      "media/products/gallery/cd946c542ebd277599e1.webp",
-      "media/products/gallery/10685315e062fd9b1e8a.webp",
-      "media/products/gallery/b0f54a686cb756fae6b5.webp",
-      "media/products/gallery/a7d5a6bd01a26a8fa793.webp",
-      "media/products/gallery/059ac1cc53ff4ede1ea5.webp",
-      "media/products/gallery/b10e938640b7e1c8b2bf.webp",
-      "media/products/gallery/2c94973d1c3edff9c27e.webp",
-      "media/products/gallery/6e6f5e6b585e512d4324.webp"
+      "media/products/gallery/a432fd1976c8271e243f-glass-v2.webp",
+      "media/products/gallery/922d0a53460b8ba46cb2-glass-v2.webp",
+      "media/products/gallery/d10b8b93caa748ddcaa9-glass-v2.webp",
+      "media/products/gallery/9aacac07f617eaab324e-glass-v2.webp",
+      "media/products/gallery/51131d8374224c7ea37e-glass-v2.webp",
+      "media/products/gallery/348a39be66d0ae5b4414-glass-v2.webp",
+      "media/products/gallery/cd946c542ebd277599e1-glass-v2.webp",
+      "media/products/gallery/10685315e062fd9b1e8a-glass-v2.webp",
+      "media/products/gallery/b0f54a686cb756fae6b5-glass-v2.webp",
+      "media/products/gallery/a7d5a6bd01a26a8fa793-glass-v2.webp",
+      "media/products/gallery/059ac1cc53ff4ede1ea5-glass-v2.webp",
+      "media/products/gallery/b10e938640b7e1c8b2bf-glass-v2.webp",
+      "media/products/gallery/2c94973d1c3edff9c27e-glass-v2.webp",
+      "media/products/gallery/6e6f5e6b585e512d4324-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/02/IMG_4977.jpg?fit=1568%2C988&ssl=1?v=1708435812",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/02/IMG_4977.jpg?w=1200&ssl=1",
-    "imageSha256": "4644e44be483f4735d3f56c8ae0308629b8af9d2039fb8c447b30ff6f82d5d03",
+    "imageSha256": "7e8c8777ad49885e987ae89ca6b7d8585d1a9cb0c039c1f4ff2e276a5178cc6e",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -403,14 +403,14 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 2000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-neo-230.webp",
+    "image": "media/products/pryamyy-dyvan-neo-230-glass-v2.webp",
     "images": [
-      "media/products/gallery/85c60b30556729367e6a.webp",
-      "media/products/gallery/6c22dac0c9b008102a5c.webp"
+      "media/products/gallery/85c60b30556729367e6a-glass-v2.webp",
+      "media/products/gallery/6c22dac0c9b008102a5c-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6356.jpg?fit=1290%2C1058&ssl=1?v=1717570432",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6356.jpg?w=1200&ssl=1",
-    "imageSha256": "8f97136083f0dd04e6707a1ed3f2125a48f54c18966c5700bed5131a99b34854",
+    "imageSha256": "b6245e411e311fa8c100a39d0777b353c1d099d9c30a657b210ee3feda3039f1",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -432,15 +432,15 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 3000,
     "sleepWidth": 1550,
-    "image": "media/products/pryamyy-dyvan-rubin-3.webp",
+    "image": "media/products/pryamyy-dyvan-rubin-3-glass-v2.webp",
     "images": [
-      "media/products/gallery/d228d9258ce3f57a22cd.webp",
-      "media/products/gallery/734313e32c91135c3c19.webp",
-      "media/products/gallery/91efa900a957519981db.webp"
+      "media/products/gallery/d228d9258ce3f57a22cd-glass-v2.webp",
+      "media/products/gallery/734313e32c91135c3c19-glass-v2.webp",
+      "media/products/gallery/91efa900a957519981db-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6353.jpg?fit=1290%2C753&ssl=1?v=1717567502",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/06/IMG_6353.jpg?w=1200&ssl=1",
-    "imageSha256": "4944a97724bde6400718d80d3035fcd5348e3a3565bf57562db18418f385b7ba",
+    "imageSha256": "90d2a986a9b45acfffbc29625786816dba2c3a72a323d1b7ba944d2c1edb030a",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -463,13 +463,13 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-soft-2.webp",
+    "image": "media/products/lizhko-soft-2-glass-v2.webp",
     "images": [
-      "media/products/gallery/48acfb52f8ae9e7c0a02.webp"
+      "media/products/gallery/48acfb52f8ae9e7c0a02-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/02/IMG_4018.jpg?fit=1568%2C1096&ssl=1?v=1707376654",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2024/02/IMG_4018.jpg?w=1200&ssl=1",
-    "imageSha256": "501f26e88184707662d33544e402d74bda7215a00223f0b61bc96dd146d56852",
+    "imageSha256": "d46bd640836bced903653bbf464cebe96c7c64f3f14f161092e6fb8780af96d2",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
@@ -492,29 +492,29 @@ window.MATRIX_CATALOG = [
     "depth": 1580,
     "sleepLength": 2420,
     "sleepWidth": 1520,
-    "image": "media/products/kutovyy-dyvan-neapol.webp",
+    "image": "media/products/kutovyy-dyvan-neapol-glass-v2.webp",
     "images": [
-      "media/products/gallery/79689d6faffab682a069.webp",
-      "media/products/gallery/f8ee085eb7f0e17637fa.webp",
-      "media/products/gallery/51ebfc8d3abb86f74512.webp",
-      "media/products/gallery/6c6ebb7c60fa70392556.webp",
-      "media/products/gallery/5eacbed21e0cdf90bf42.webp",
-      "media/products/gallery/58577974a105db2d4f7f.webp",
-      "media/products/gallery/1dcb9d709beb2b2d0274.webp",
-      "media/products/gallery/8ef1bf9841f8a44a89a7.webp",
-      "media/products/gallery/39360d931a1a89dc6d43.webp",
-      "media/products/gallery/ee688f80aeba3812eb45.webp",
-      "media/products/gallery/393dd1799dcbee7b6dd9.webp",
-      "media/products/gallery/0f9f4392d572cd8222db.webp",
-      "media/products/gallery/cc36b6fc9d06a4b5d64b.webp",
-      "media/products/gallery/9c1d4f46f886c5e615fb.webp",
-      "media/products/gallery/6d798f0efc7d5d09af2a.webp",
-      "media/products/gallery/9848bf33623bd8123e14.webp",
-      "media/products/gallery/03f87f778607a9b98562.webp"
+      "media/products/gallery/79689d6faffab682a069-glass-v2.webp",
+      "media/products/gallery/f8ee085eb7f0e17637fa-glass-v2.webp",
+      "media/products/gallery/51ebfc8d3abb86f74512-glass-v2.webp",
+      "media/products/gallery/6c6ebb7c60fa70392556-glass-v2.webp",
+      "media/products/gallery/5eacbed21e0cdf90bf42-glass-v2.webp",
+      "media/products/gallery/58577974a105db2d4f7f-glass-v2.webp",
+      "media/products/gallery/1dcb9d709beb2b2d0274-glass-v2.webp",
+      "media/products/gallery/8ef1bf9841f8a44a89a7-glass-v2.webp",
+      "media/products/gallery/39360d931a1a89dc6d43-glass-v2.webp",
+      "media/products/gallery/ee688f80aeba3812eb45-glass-v2.webp",
+      "media/products/gallery/393dd1799dcbee7b6dd9-glass-v2.webp",
+      "media/products/gallery/0f9f4392d572cd8222db-glass-v2.webp",
+      "media/products/gallery/cc36b6fc9d06a4b5d64b-glass-v2.webp",
+      "media/products/gallery/9c1d4f46f886c5e615fb-glass-v2.webp",
+      "media/products/gallery/6d798f0efc7d5d09af2a-glass-v2.webp",
+      "media/products/gallery/9848bf33623bd8123e14-glass-v2.webp",
+      "media/products/gallery/03f87f778607a9b98562-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/12/IMG_2868.jpg?fit=1568%2C1112&ssl=1?v=1705409533",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/12/IMG_2868.jpg?w=1200&ssl=1",
-    "imageSha256": "d5cc846475880a9e363668e477ee5d4b9f986276fee5bcd56bab416f23d4fd52",
+    "imageSha256": "ec143326bf75a93e595127f9244e5b6ea1288229a198237f7df6408abadf091e",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -551,24 +551,24 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/pryamyy-dyvan-lili.webp",
+    "image": "media/products/pryamyy-dyvan-lili-glass-v2.webp",
     "images": [
-      "media/products/gallery/bd6ae8136cff3fb1e634.webp",
-      "media/products/gallery/893c387adb0af644ce84.webp",
-      "media/products/gallery/aedac10a74e354e17774.webp",
-      "media/products/gallery/6c56df1dc388c91282a1.webp",
-      "media/products/gallery/2be7040a2a0151127252.webp",
-      "media/products/gallery/44f2f0c454d7e592691c.webp",
-      "media/products/gallery/eece47c83f6680bba481.webp",
-      "media/products/gallery/cef34701540d6a8968d8.webp",
-      "media/products/gallery/c8e5e5470b04f9337311.webp",
-      "media/products/gallery/d88ad426aaa8ff8b7965.webp",
-      "media/products/gallery/5010d4bd91de9051d1ef.webp",
-      "media/products/gallery/8bd09c40d27ee090486c.webp"
+      "media/products/gallery/bd6ae8136cff3fb1e634-glass-v2.webp",
+      "media/products/gallery/893c387adb0af644ce84-glass-v2.webp",
+      "media/products/gallery/aedac10a74e354e17774-glass-v2.webp",
+      "media/products/gallery/6c56df1dc388c91282a1-glass-v2.webp",
+      "media/products/gallery/2be7040a2a0151127252-glass-v2.webp",
+      "media/products/gallery/44f2f0c454d7e592691c-glass-v2.webp",
+      "media/products/gallery/eece47c83f6680bba481-glass-v2.webp",
+      "media/products/gallery/cef34701540d6a8968d8-glass-v2.webp",
+      "media/products/gallery/c8e5e5470b04f9337311-glass-v2.webp",
+      "media/products/gallery/d88ad426aaa8ff8b7965-glass-v2.webp",
+      "media/products/gallery/5010d4bd91de9051d1ef-glass-v2.webp",
+      "media/products/gallery/8bd09c40d27ee090486c-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9B%D1%96%D0%BB%D1%96-1.jpg?fit=1568%2C765&ssl=1?v=1700577291",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9B%D1%96%D0%BB%D1%96-1.jpg?w=1200&ssl=1",
-    "imageSha256": "18305a6ac5294b8c60d072ef63b6ed7bcfee56bb343e7bbc580d5fb6b837055d",
+    "imageSha256": "1dd0e53b48ebc346c423e7f90185fc8d9aeaed623052d25835b748907a25ff81",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
@@ -602,21 +602,21 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 2000,
     "sleepWidth": 1550,
-    "image": "media/products/rubin.webp",
+    "image": "media/products/rubin-glass-v2.webp",
     "images": [
-      "media/products/gallery/1d18e7e30319c6147279.webp",
-      "media/products/gallery/aa5b9d212a95e1ff0dfb.webp",
-      "media/products/gallery/a143834369406edab3f0.webp",
-      "media/products/gallery/799b759f47ea36c01072.webp",
-      "media/products/gallery/a4f3dcc3a6931309efa6.webp",
-      "media/products/gallery/5ae11a535edcdb417ad2.webp",
-      "media/products/gallery/edc45d5efcdd4d7558c9.webp",
-      "media/products/gallery/3e6b79b79096cc85696a.webp",
-      "media/products/gallery/8eea78322565c9811818.webp"
+      "media/products/gallery/1d18e7e30319c6147279-glass-v2.webp",
+      "media/products/gallery/aa5b9d212a95e1ff0dfb-glass-v2.webp",
+      "media/products/gallery/a143834369406edab3f0-glass-v2.webp",
+      "media/products/gallery/799b759f47ea36c01072-glass-v2.webp",
+      "media/products/gallery/a4f3dcc3a6931309efa6-glass-v2.webp",
+      "media/products/gallery/5ae11a535edcdb417ad2-glass-v2.webp",
+      "media/products/gallery/edc45d5efcdd4d7558c9-glass-v2.webp",
+      "media/products/gallery/3e6b79b79096cc85696a-glass-v2.webp",
+      "media/products/gallery/8eea78322565c9811818-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A0%D1%83%D0%B1%D1%96%D0%BD-1.jpg?fit=1568%2C790&ssl=1?v=1700577187",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A0%D1%83%D0%B1%D1%96%D0%BD-1.jpg?w=1200&ssl=1",
-    "imageSha256": "ef265a034bc68d9082d87329fe7801eab946e7b8ff34ad33357ae77e69a25399",
+    "imageSha256": "98dd9c1135570fcb0fa7c60c18ba1e6eb9b772304fbf5cefda0af9eca5d8a671",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -645,21 +645,21 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 2000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-neo.webp",
+    "image": "media/products/pryamyy-dyvan-neo-glass-v2.webp",
     "images": [
-      "media/products/gallery/0fd75ab155d1511f40ad.webp",
-      "media/products/gallery/f4a996f4dd83e4534481.webp",
-      "media/products/gallery/9e21afe0255ca6d1745b.webp",
-      "media/products/gallery/23b39165328d507298b1.webp",
-      "media/products/gallery/ec5975f6f171f540224c.webp",
-      "media/products/gallery/4113182d10681632e49d.webp",
-      "media/products/gallery/77a3a0daa6468096de41.webp",
-      "media/products/gallery/8e6e6e9dc3e2376604e9.webp",
-      "media/products/gallery/4489b04ef31a758b077f.webp"
+      "media/products/gallery/0fd75ab155d1511f40ad-glass-v2.webp",
+      "media/products/gallery/f4a996f4dd83e4534481-glass-v2.webp",
+      "media/products/gallery/9e21afe0255ca6d1745b-glass-v2.webp",
+      "media/products/gallery/23b39165328d507298b1-glass-v2.webp",
+      "media/products/gallery/ec5975f6f171f540224c-glass-v2.webp",
+      "media/products/gallery/4113182d10681632e49d-glass-v2.webp",
+      "media/products/gallery/77a3a0daa6468096de41-glass-v2.webp",
+      "media/products/gallery/8e6e6e9dc3e2376604e9-glass-v2.webp",
+      "media/products/gallery/4489b04ef31a758b077f-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE.jpg?fit=1568%2C1045&ssl=1?v=1700577284",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE.jpg?w=1200&ssl=1",
-    "imageSha256": "f5029f27c9221e9767d6abfceef726b35e3499e68cad4cd2739b80401287a707",
+    "imageSha256": "e82154967b2dadf21e66cdde565192b6ea0457b7138d581abfb5d9cc74b72322",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -688,26 +688,26 @@ window.MATRIX_CATALOG = [
     "depth": 1630,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/kutovyy-dyvan-neo-2.webp",
+    "image": "media/products/kutovyy-dyvan-neo-2-glass-v2.webp",
     "images": [
-      "media/products/gallery/6dd53d04c11d2b918a37.webp",
-      "media/products/gallery/81d4ef6952f926018f92.webp",
-      "media/products/gallery/e09a079391ecd837a9a3.webp",
-      "media/products/gallery/c0f6a733f43b49760b31.webp",
-      "media/products/gallery/b19966b7a98c2a0f34e5.webp",
-      "media/products/gallery/461b1a0ea9aa0e942c43.webp",
-      "media/products/gallery/e444cd24dd31c2693954.webp",
-      "media/products/gallery/5868cb609b6ec74642ff.webp",
-      "media/products/gallery/04c229ef221468f71e98.webp",
-      "media/products/gallery/11a45a4192d8de52517d.webp",
-      "media/products/gallery/8ae1fd141a7c4621f816.webp",
-      "media/products/gallery/cbb02bdaf2aff699ae7a.webp",
-      "media/products/gallery/3da1799e6fb6bf9a07ae.webp",
-      "media/products/gallery/ac0d0e40c270c989d4d1.webp"
+      "media/products/gallery/6dd53d04c11d2b918a37-glass-v2.webp",
+      "media/products/gallery/81d4ef6952f926018f92-glass-v2.webp",
+      "media/products/gallery/e09a079391ecd837a9a3-glass-v2.webp",
+      "media/products/gallery/c0f6a733f43b49760b31-glass-v2.webp",
+      "media/products/gallery/b19966b7a98c2a0f34e5-glass-v2.webp",
+      "media/products/gallery/461b1a0ea9aa0e942c43-glass-v2.webp",
+      "media/products/gallery/e444cd24dd31c2693954-glass-v2.webp",
+      "media/products/gallery/5868cb609b6ec74642ff-glass-v2.webp",
+      "media/products/gallery/04c229ef221468f71e98-glass-v2.webp",
+      "media/products/gallery/11a45a4192d8de52517d-glass-v2.webp",
+      "media/products/gallery/8ae1fd141a7c4621f816-glass-v2.webp",
+      "media/products/gallery/cbb02bdaf2aff699ae7a-glass-v2.webp",
+      "media/products/gallery/3da1799e6fb6bf9a07ae-glass-v2.webp",
+      "media/products/gallery/ac0d0e40c270c989d4d1-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D1%83%D0%B3-%D0%9D%D0%B5%D0%BE-2%D0%B0.jpg?fit=1568%2C1045&ssl=1?v=1700577283",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D1%83%D0%B3-%D0%9D%D0%B5%D0%BE-2%D0%B0.jpg?w=1200&ssl=1",
-    "imageSha256": "598459fc5a0a7d31da0cdc25a452e13d3b173e651764d2c5b593ac8ed006db07",
+    "imageSha256": "14bb67d1fcb27c3df2e9030e2fb6a5e4b17350f434b350a9207dd7000e24cef7",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
@@ -744,16 +744,16 @@ window.MATRIX_CATALOG = [
     "depth": 1630,
     "sleepLength": 3000,
     "sleepWidth": 1520,
-    "image": "media/products/kutovyy-dyvan-neo-3.webp",
+    "image": "media/products/kutovyy-dyvan-neo-3-glass-v2.webp",
     "images": [
-      "media/products/gallery/c2eb717bc06146f8de6b.webp",
-      "media/products/gallery/a51db49ffbd7979049ae.webp",
-      "media/products/gallery/4a32caeb68719352e003.webp",
-      "media/products/gallery/979dab65d7152648ee70.webp"
+      "media/products/gallery/c2eb717bc06146f8de6b-glass-v2.webp",
+      "media/products/gallery/a51db49ffbd7979049ae-glass-v2.webp",
+      "media/products/gallery/4a32caeb68719352e003-glass-v2.webp",
+      "media/products/gallery/979dab65d7152648ee70-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/10/%D0%A3%D0%B3-%D0%9D%D0%B5%D0%BE-3.jpg?fit=1568%2C1045&ssl=1?v=1700577215",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/10/%D0%A3%D0%B3-%D0%9D%D0%B5%D0%BE-3.jpg?w=1200&ssl=1",
-    "imageSha256": "d3353affc3a4253cff5c5eb87ad08bebf9d585b9bb1ad106f467e9842ade01fe",
+    "imageSha256": "d9e42410bed5bb08a44ab5d3e04e73801dd40988d6847df5d044f9ef1ea618e9",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
@@ -779,18 +779,18 @@ window.MATRIX_CATALOG = [
     "depth": 1080,
     "sleepLength": 3000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-neo-3.webp",
+    "image": "media/products/pryamyy-dyvan-neo-3-glass-v2.webp",
     "images": [
-      "media/products/gallery/6acdef592834ddd0656c.webp",
-      "media/products/gallery/918270b0c783c03bd07e.webp",
-      "media/products/gallery/0c12dac9b0c6012623da.webp",
-      "media/products/gallery/e54b8c609d99b880e1e9.webp",
-      "media/products/gallery/8ca6bf81f2a6bcab1773.webp",
-      "media/products/gallery/b8e5be06a9cb7804ea33.webp"
+      "media/products/gallery/6acdef592834ddd0656c-glass-v2.webp",
+      "media/products/gallery/918270b0c783c03bd07e-glass-v2.webp",
+      "media/products/gallery/0c12dac9b0c6012623da-glass-v2.webp",
+      "media/products/gallery/e54b8c609d99b880e1e9-glass-v2.webp",
+      "media/products/gallery/8ca6bf81f2a6bcab1773-glass-v2.webp",
+      "media/products/gallery/b8e5be06a9cb7804ea33-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE-3.jpg?fit=1568%2C1045&ssl=1?v=1700577280",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%94-%D0%9D%D0%B5%D0%BE-3.jpg?w=1200&ssl=1",
-    "imageSha256": "e093da5ea6c4c67a19c66bcd2cc1eb61fe03190d7060320d7cff8a00a60c852b",
+    "imageSha256": "35643c0c1cae0c582a889efb617aa69210260899dc20213ba9b0096c3dcedd51",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
@@ -818,17 +818,17 @@ window.MATRIX_CATALOG = [
     "depth": 1670,
     "sleepLength": 2100,
     "sleepWidth": 1600,
-    "image": "media/products/kutovyy-dyvan-elehant.webp",
+    "image": "media/products/kutovyy-dyvan-elehant-glass-v2.webp",
     "images": [
-      "media/products/gallery/ed92c99462e797253552.webp",
-      "media/products/gallery/cd2aef527f73a3d672cd.webp",
-      "media/products/gallery/fbeaa07dc250b20b8313.webp",
-      "media/products/gallery/88d673ef9bc36561b2f8.webp",
-      "media/products/gallery/16d702b683e7aeab425d.webp"
+      "media/products/gallery/ed92c99462e797253552-glass-v2.webp",
+      "media/products/gallery/cd2aef527f73a3d672cd-glass-v2.webp",
+      "media/products/gallery/fbeaa07dc250b20b8313-glass-v2.webp",
+      "media/products/gallery/88d673ef9bc36561b2f8-glass-v2.webp",
+      "media/products/gallery/16d702b683e7aeab425d-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%A3%D0%B3.%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82-260.jpg?fit=1568%2C1045&ssl=1?v=1700577189",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%A3%D0%B3.%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82-260.jpg?w=1200&ssl=1",
-    "imageSha256": "f1201fd81f0fe2d793a32c8505df658cf2af505a3225af55eb2e8fe204f6e77d",
+    "imageSha256": "df2962d25e5094a4a563de713749b94675663f361816c01b070a1446b529e95e",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -853,22 +853,22 @@ window.MATRIX_CATALOG = [
     "depth": 1090,
     "sleepLength": 1980,
     "sleepWidth": 1600,
-    "image": "media/products/pryamyy-dyvan-elehant.webp",
+    "image": "media/products/pryamyy-dyvan-elehant-glass-v2.webp",
     "images": [
-      "media/products/gallery/2770b089e8cc7d15fab4.webp",
-      "media/products/gallery/84f97beccf631399b41b.webp",
-      "media/products/gallery/21bf214617a548fd8ab8.webp",
-      "media/products/gallery/61b9c868a50071e0cedb.webp",
-      "media/products/gallery/8f5bac25ef251af698f4.webp",
-      "media/products/gallery/82b898ecc97e5ff3c345.webp",
-      "media/products/gallery/55b7a94c47892105336e.webp",
-      "media/products/gallery/219ffeb54836b28212b6.webp",
-      "media/products/gallery/13cd0a54787f61c78873.webp",
-      "media/products/gallery/da9735170f3d15ec1cfd.webp"
+      "media/products/gallery/2770b089e8cc7d15fab4-glass-v2.webp",
+      "media/products/gallery/84f97beccf631399b41b-glass-v2.webp",
+      "media/products/gallery/21bf214617a548fd8ab8-glass-v2.webp",
+      "media/products/gallery/61b9c868a50071e0cedb-glass-v2.webp",
+      "media/products/gallery/8f5bac25ef251af698f4-glass-v2.webp",
+      "media/products/gallery/82b898ecc97e5ff3c345-glass-v2.webp",
+      "media/products/gallery/55b7a94c47892105336e-glass-v2.webp",
+      "media/products/gallery/219ffeb54836b28212b6-glass-v2.webp",
+      "media/products/gallery/13cd0a54787f61c78873-glass-v2.webp",
+      "media/products/gallery/da9735170f3d15ec1cfd-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94-%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82.jpg?fit=1568%2C744&ssl=1?v=1700577191",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94-%D0%95%D0%BB%D0%B5%D0%B3%D0%B0%D0%BD%D1%82.jpg?w=1200&ssl=1",
-    "imageSha256": "fe26c27608ade9359278c27acccf74811663697ad318608b4d56db1f304c116d",
+    "imageSha256": "18a82f1303089a727087a37a2f87a8c1de08882dfc1c558c772d12268eb38c3c",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -898,16 +898,16 @@ window.MATRIX_CATALOG = [
     "depth": 1060,
     "sleepLength": 2000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-loft.webp",
+    "image": "media/products/pryamyy-dyvan-loft-glass-v2.webp",
     "images": [
-      "media/products/gallery/c84fe782f6e6de075d43.webp",
-      "media/products/gallery/d31ea928d000df242220.webp",
-      "media/products/gallery/8e1e7ccfed8bce06a9cb.webp",
-      "media/products/gallery/f31c6cb5fa231cdd5e99.webp"
+      "media/products/gallery/c84fe782f6e6de075d43-glass-v2.webp",
+      "media/products/gallery/d31ea928d000df242220-glass-v2.webp",
+      "media/products/gallery/8e1e7ccfed8bce06a9cb-glass-v2.webp",
+      "media/products/gallery/f31c6cb5fa231cdd5e99-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94.%D0%BB%D0%BE%D1%84%D1%82-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-3.jpg?fit=1568%2C666&ssl=1?v=1700577272",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94.%D0%BB%D0%BE%D1%84%D1%82-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-3.jpg?w=1200&ssl=1",
-    "imageSha256": "5270453755bbbaad8a151f96c685561006decc59cc37cc4ece1416c7c7e0ab12",
+    "imageSha256": "bce51d111a28d15c6475f884c2b6f8ba15f403625b3888a19e7fab8d56df9a58",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -931,14 +931,14 @@ window.MATRIX_CATALOG = [
     "depth": 1550,
     "sleepLength": 2000,
     "sleepWidth": 1550,
-    "image": "media/products/kutovyy-dyvan-loft-2.webp",
+    "image": "media/products/kutovyy-dyvan-loft-2-glass-v2.webp",
     "images": [
-      "media/products/gallery/0d3bc3f98d5480358758.webp",
-      "media/products/gallery/35c10f7ab3a9d1bbcd50.webp"
+      "media/products/gallery/0d3bc3f98d5480358758-glass-v2.webp",
+      "media/products/gallery/35c10f7ab3a9d1bbcd50-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%A3%D0%B3-%D0%9B%D0%BE%D1%84%D1%82-2.jpg?fit=1568%2C1045&ssl=1?v=1700577287",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%A3%D0%B3-%D0%9B%D0%BE%D1%84%D1%82-2.jpg?w=1200&ssl=1",
-    "imageSha256": "bee2d652f90e3c2424fe494d27b76a713c314b73a77c63472364fa93181f4e94",
+    "imageSha256": "630aaf792508de6a405100389804128f04da96e157f27397578b2c86f56b17bf",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -960,15 +960,15 @@ window.MATRIX_CATALOG = [
     "depth": 1550,
     "sleepLength": 3000,
     "sleepWidth": 1520,
-    "image": "media/products/kutovyy-dyvan-loft.webp",
+    "image": "media/products/kutovyy-dyvan-loft-glass-v2.webp",
     "images": [
-      "media/products/gallery/7a04a1f15e4646544a1a.webp",
-      "media/products/gallery/f94619c280ac85b0fe9f.webp",
-      "media/products/gallery/724c75abc60ec568c24f.webp"
+      "media/products/gallery/7a04a1f15e4646544a1a-glass-v2.webp",
+      "media/products/gallery/f94619c280ac85b0fe9f-glass-v2.webp",
+      "media/products/gallery/724c75abc60ec568c24f-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%A3%D0%B3.%D0%9B%D0%BE%D1%84%D1%82-2.jpg?fit=1568%2C490&ssl=1?v=1700577276",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%A3%D0%B3.%D0%9B%D0%BE%D1%84%D1%82-2.jpg?w=1200&ssl=1",
-    "imageSha256": "ca9c148811870cd0a449fee31320cea7b033cf13294d8d646922f785bc685673",
+    "imageSha256": "36819338dce450d3944632a62154dd275d6fe0cdb7de2f3d761ec298cf6cf453",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -991,14 +991,14 @@ window.MATRIX_CATALOG = [
     "depth": 1060,
     "sleepLength": 3000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-loft-3.webp",
+    "image": "media/products/pryamyy-dyvan-loft-3-glass-v2.webp",
     "images": [
-      "media/products/gallery/51835296f3c8a15dd482.webp",
-      "media/products/gallery/09dae05565bb58668783.webp"
+      "media/products/gallery/51835296f3c8a15dd482-glass-v2.webp",
+      "media/products/gallery/09dae05565bb58668783-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94.%D0%9B%D0%BE%D1%84%D1%82-3-4.jpg?fit=1568%2C537&ssl=1?v=1700577277",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94.%D0%9B%D0%BE%D1%84%D1%82-3-4.jpg?w=1200&ssl=1",
-    "imageSha256": "1c017ae2e15d983b680bb5e13db85dd119d8501169d6444adb8ec57c5d46697b",
+    "imageSha256": "175671fa79873240a6caf04d6c65cdd30930f1ef875945e6ded209209ffa330e",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -1020,20 +1020,20 @@ window.MATRIX_CATALOG = [
     "depth": 1550,
     "sleepLength": 2420,
     "sleepWidth": 1520,
-    "image": "media/products/kutovyy-dyvan-bliss.webp",
+    "image": "media/products/kutovyy-dyvan-bliss-glass-v2.webp",
     "images": [
-      "media/products/gallery/1c2c70d0a708fb4973d1.webp",
-      "media/products/gallery/bb76bb87dcbe238eaf82.webp",
-      "media/products/gallery/3089964433a7389d2f4c.webp",
-      "media/products/gallery/a553582c8196ad08d187.webp",
-      "media/products/gallery/82d2df017c721b80f3c5.webp",
-      "media/products/gallery/31bf10f2b3aa9c6e5304.webp",
-      "media/products/gallery/3bc7432f0534c2212bd1.webp",
-      "media/products/gallery/50b8e35b0983c3c19e03.webp"
+      "media/products/gallery/1c2c70d0a708fb4973d1-glass-v2.webp",
+      "media/products/gallery/bb76bb87dcbe238eaf82-glass-v2.webp",
+      "media/products/gallery/3089964433a7389d2f4c-glass-v2.webp",
+      "media/products/gallery/a553582c8196ad08d187-glass-v2.webp",
+      "media/products/gallery/82d2df017c721b80f3c5-glass-v2.webp",
+      "media/products/gallery/31bf10f2b3aa9c6e5304-glass-v2.webp",
+      "media/products/gallery/3bc7432f0534c2212bd1-glass-v2.webp",
+      "media/products/gallery/50b8e35b0983c3c19e03-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2023-07-07-%D0%B2-13.46.44.jpg?fit=1568%2C629&ssl=1?v=1700577294",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA-%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0-2023-07-07-%D0%B2-13.46.44.jpg?w=1200&ssl=1",
-    "imageSha256": "e325adae0897c7d89f84e601e020726d57ddf808216d8a0f363804e2496d3606",
+    "imageSha256": "d1670fbbf2e309252a853f9d2e8672828c509834b7b2f8bb51add9ad893b38b2",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -1061,25 +1061,25 @@ window.MATRIX_CATALOG = [
     "depth": 1030,
     "sleepLength": 1970,
     "sleepWidth": 1500,
-    "image": "media/products/dyvan-pryamyy-khit.webp",
+    "image": "media/products/dyvan-pryamyy-khit-glass-v2.webp",
     "images": [
-      "media/products/gallery/412f4b864d2fdedf2991.webp",
-      "media/products/gallery/5d51f49c875e4bafbd17.webp",
-      "media/products/gallery/6524a6df53d54b8c4be1.webp",
-      "media/products/gallery/584e730addf0c9cec0a4.webp",
-      "media/products/gallery/50984d1f1eed228172a9.webp",
-      "media/products/gallery/ea9c984e57f5b7bc3e7b.webp",
-      "media/products/gallery/c25109a445c0c75c4c96.webp",
-      "media/products/gallery/6f09cd09efa807e36ca6.webp",
-      "media/products/gallery/a80307a568dd0f524810.webp",
-      "media/products/gallery/1bc0be4582c57a976e67.webp",
-      "media/products/gallery/277996b4a42cd6f58570.webp",
-      "media/products/gallery/d8192b2fc5d83056a229.webp",
-      "media/products/gallery/1dc11fcd0f955a324379.webp"
+      "media/products/gallery/412f4b864d2fdedf2991-glass-v2.webp",
+      "media/products/gallery/5d51f49c875e4bafbd17-glass-v2.webp",
+      "media/products/gallery/6524a6df53d54b8c4be1-glass-v2.webp",
+      "media/products/gallery/584e730addf0c9cec0a4-glass-v2.webp",
+      "media/products/gallery/50984d1f1eed228172a9-glass-v2.webp",
+      "media/products/gallery/ea9c984e57f5b7bc3e7b-glass-v2.webp",
+      "media/products/gallery/c25109a445c0c75c4c96-glass-v2.webp",
+      "media/products/gallery/6f09cd09efa807e36ca6-glass-v2.webp",
+      "media/products/gallery/a80307a568dd0f524810-glass-v2.webp",
+      "media/products/gallery/1bc0be4582c57a976e67-glass-v2.webp",
+      "media/products/gallery/277996b4a42cd6f58570-glass-v2.webp",
+      "media/products/gallery/d8192b2fc5d83056a229-glass-v2.webp",
+      "media/products/gallery/1dc11fcd0f955a324379-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/IMG_8586.jpg?fit=1568%2C994&ssl=1?v=1700577161",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/IMG_8586.jpg?w=1200&ssl=1",
-    "imageSha256": "a76fccb7c6b83be9e235ee629ec4dcbbfbb68bd24024d3355d100ad3414296ba",
+    "imageSha256": "51c706feb00f9f60efd6f14add261364cebf0324e57275cbfb4ccb7abb7407a6",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
@@ -1114,19 +1114,19 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-faro.webp",
+    "image": "media/products/lizhko-faro-glass-v2.webp",
     "images": [
-      "media/products/gallery/207ceb28a82c1b95ba12.webp",
-      "media/products/gallery/2183db48bdaa2a007539.webp",
-      "media/products/gallery/1be064024a12b9c261b7.webp",
-      "media/products/gallery/2f8e573d07b466927922.webp",
-      "media/products/gallery/55d0d79bd00fe61ea6ac.webp",
-      "media/products/gallery/7fdc187401ca4ec7cb8a.webp",
-      "media/products/gallery/22393af36211b47d895a.webp"
+      "media/products/gallery/207ceb28a82c1b95ba12-glass-v2.webp",
+      "media/products/gallery/2183db48bdaa2a007539-glass-v2.webp",
+      "media/products/gallery/1be064024a12b9c261b7-glass-v2.webp",
+      "media/products/gallery/2f8e573d07b466927922-glass-v2.webp",
+      "media/products/gallery/55d0d79bd00fe61ea6ac-glass-v2.webp",
+      "media/products/gallery/7fdc187401ca4ec7cb8a-glass-v2.webp",
+      "media/products/gallery/22393af36211b47d895a-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%A4%D0%B0%D1%80%D0%BE-1-9.jpg?fit=1568%2C1045&ssl=1?v=1700577266",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%A4%D0%B0%D1%80%D0%BE-1-9.jpg?w=1200&ssl=1",
-    "imageSha256": "498bb1d76f226217fa0ebff71bddfef619e38e49d059abe634d6fa122ec8ab8b",
+    "imageSha256": "20eb73fa285a88ec6286c3028f586623cf1474267b70ff203c64d01f07034536",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
@@ -1155,21 +1155,21 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-bali.webp",
+    "image": "media/products/lizhko-bali-glass-v2.webp",
     "images": [
-      "media/products/gallery/daac9c60e2526b1340d7.webp",
-      "media/products/gallery/80b243b4d22e221ec153.webp",
-      "media/products/gallery/29c032dc72b5c53c16cc.webp",
-      "media/products/gallery/7eaafc8be2b3472a397a.webp",
-      "media/products/gallery/6af74bc3b873dcb71c13.webp",
-      "media/products/gallery/813baa763bb7300d4230.webp",
-      "media/products/gallery/826ca2703733de3c070f.webp",
-      "media/products/gallery/2b779b0965450fd6bc3e.webp",
-      "media/products/gallery/9138ba8894f6ee7780a7.webp"
+      "media/products/gallery/daac9c60e2526b1340d7-glass-v2.webp",
+      "media/products/gallery/80b243b4d22e221ec153-glass-v2.webp",
+      "media/products/gallery/29c032dc72b5c53c16cc-glass-v2.webp",
+      "media/products/gallery/7eaafc8be2b3472a397a-glass-v2.webp",
+      "media/products/gallery/6af74bc3b873dcb71c13-glass-v2.webp",
+      "media/products/gallery/813baa763bb7300d4230-glass-v2.webp",
+      "media/products/gallery/826ca2703733de3c070f-glass-v2.webp",
+      "media/products/gallery/2b779b0965450fd6bc3e-glass-v2.webp",
+      "media/products/gallery/9138ba8894f6ee7780a7-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%91%D0%B0%D0%BB%D1%96-12.jpg?fit=990%2C609&ssl=1?v=1700577293",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%91%D0%B0%D0%BB%D1%96-12.jpg?w=1200&ssl=1",
-    "imageSha256": "b376416e6eed2252657cc1370da4e718aa947574e8ddcf7889f1468564827ddb",
+    "imageSha256": "24b0b40f442ac73ab9e10e7c8dd86d8b2b4be217fc7f22c59c5160760b185928",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
@@ -1200,16 +1200,16 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-milana.webp",
+    "image": "media/products/lizhko-milana-glass-v2.webp",
     "images": [
-      "media/products/gallery/00a03091fb841d2f6553.webp",
-      "media/products/gallery/32c12751b1e284def336.webp",
-      "media/products/gallery/d8a0b21e393c39ea9db8.webp",
-      "media/products/gallery/4597854afaba867370d9.webp"
+      "media/products/gallery/00a03091fb841d2f6553-glass-v2.webp",
+      "media/products/gallery/32c12751b1e284def336-glass-v2.webp",
+      "media/products/gallery/d8a0b21e393c39ea9db8-glass-v2.webp",
+      "media/products/gallery/4597854afaba867370d9-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%9C%D1%96%D0%BB%D0%B0%D0%BD%D0%B0.jpg?fit=1280%2C662&ssl=1?v=1700577309",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%9C%D1%96%D0%BB%D0%B0%D0%BD%D0%B0.jpg?w=1200&ssl=1",
-    "imageSha256": "5811d359c50cc64b48068a03fa239ddc43b45a666be6408056ed24f6b8f90891",
+    "imageSha256": "3a99d293a449ea30cf43716c44d15cae11532b0491c872c7a870315422a3e424",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
@@ -1235,14 +1235,14 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-lira.webp",
+    "image": "media/products/lizhko-lira-glass-v2.webp",
     "images": [
-      "media/products/gallery/24a9f0e3e65e061bcb86.webp",
-      "media/products/gallery/12ce8cac7d7396336593.webp"
+      "media/products/gallery/24a9f0e3e65e061bcb86-glass-v2.webp",
+      "media/products/gallery/12ce8cac7d7396336593-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%9B%D1%96%D1%80%D0%B0-6.jpg?fit=800%2C466&ssl=1?v=1700577311",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%9B%D1%96%D1%80%D0%B0-6.jpg?w=1200&ssl=1",
-    "imageSha256": "b8ddcebb630b6d9ca73b4003536da98537862b357fd82d3ca3eb18a6eb5720d7",
+    "imageSha256": "495e44355352c20714280fe64a4377d33ef0c8888ecfa2f1620bff713183c946",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
@@ -1266,15 +1266,15 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-soft.webp",
+    "image": "media/products/lizhko-soft-glass-v2.webp",
     "images": [
-      "media/products/gallery/93c101ac05717062fb9d.webp",
-      "media/products/gallery/5bac5974d8a4b2269801.webp",
-      "media/products/gallery/8f3dd41d1fbb78e65570.webp"
+      "media/products/gallery/93c101ac05717062fb9d-glass-v2.webp",
+      "media/products/gallery/5bac5974d8a4b2269801-glass-v2.webp",
+      "media/products/gallery/8f3dd41d1fbb78e65570-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%A1%D0%BE%D1%84%D1%82-1.jpg?fit=640%2C338&ssl=1?v=1700577312",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D0%A1%D0%BE%D1%84%D1%82-1.jpg?w=1200&ssl=1",
-    "imageSha256": "7866b615e023597c314c63495de96a7d2fcd11175193008a8903ce91230950c9",
+    "imageSha256": "cbb22acfa4cec3e5c25caebefb660494e033993a4cf439a12ce2bfcbb4a7e204",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
@@ -1299,23 +1299,23 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-skay.webp",
+    "image": "media/products/lizhko-skay-glass-v2.webp",
     "images": [
-      "media/products/gallery/e7f70edb9845f899fbc5.webp",
-      "media/products/gallery/3dd74311bc9ce0e3f335.webp",
-      "media/products/gallery/bb1fc9f8a443b432666b.webp",
-      "media/products/gallery/ab8fdcdd4717c3e70d14.webp",
-      "media/products/gallery/269ec59e1c3fc49ee432.webp",
-      "media/products/gallery/67c8b9f30f8c440478cc.webp",
-      "media/products/gallery/5a7a2d8b9db6daa84a13.webp",
-      "media/products/gallery/e6909c2f06d24f251be2.webp",
-      "media/products/gallery/2d10a3ad82407f7e0c92.webp",
-      "media/products/gallery/1a9c8db69d0e259a1f5b.webp",
-      "media/products/gallery/d95b95d8139e5b8d611a.webp"
+      "media/products/gallery/e7f70edb9845f899fbc5-glass-v2.webp",
+      "media/products/gallery/3dd74311bc9ce0e3f335-glass-v2.webp",
+      "media/products/gallery/bb1fc9f8a443b432666b-glass-v2.webp",
+      "media/products/gallery/ab8fdcdd4717c3e70d14-glass-v2.webp",
+      "media/products/gallery/269ec59e1c3fc49ee432-glass-v2.webp",
+      "media/products/gallery/67c8b9f30f8c440478cc-glass-v2.webp",
+      "media/products/gallery/5a7a2d8b9db6daa84a13-glass-v2.webp",
+      "media/products/gallery/e6909c2f06d24f251be2-glass-v2.webp",
+      "media/products/gallery/2d10a3ad82407f7e0c92-glass-v2.webp",
+      "media/products/gallery/1a9c8db69d0e259a1f5b-glass-v2.webp",
+      "media/products/gallery/d95b95d8139e5b8d611a-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?fit=1568%2C804&ssl=1?v=1700577184",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?w=1200&ssl=1",
-    "imageSha256": "9d1fab40f62b8b367235064a8bc6c27f6036cf295fbf61643b160845fe0d0b75",
+    "imageSha256": "5770014e1a78ef92adee8af7cd9457d68df2768d1903ebd530958027d995c700",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
@@ -1348,21 +1348,21 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/lizhko-skay-z-pidyomnym-mekhanizmom.webp",
+    "image": "media/products/lizhko-skay-z-pidyomnym-mekhanizmom-glass-v2.webp",
     "images": [
-      "media/products/gallery/f67c498e4a76e5c2497d.webp",
-      "media/products/gallery/69167e0852196b66972b.webp",
-      "media/products/gallery/5276a0763d6bffde01f9.webp",
-      "media/products/gallery/bcef88cece43c0ef9496.webp",
-      "media/products/gallery/9cbfc811dd55eb495b00.webp",
-      "media/products/gallery/d3b3cd765d8b03883017.webp",
-      "media/products/gallery/f4ef8336efb8ea9fbe48.webp",
-      "media/products/gallery/2a712d31bf99cbd6179e.webp",
-      "media/products/gallery/b3830354536fdcd5fb18.webp"
+      "media/products/gallery/f67c498e4a76e5c2497d-glass-v2.webp",
+      "media/products/gallery/69167e0852196b66972b-glass-v2.webp",
+      "media/products/gallery/5276a0763d6bffde01f9-glass-v2.webp",
+      "media/products/gallery/bcef88cece43c0ef9496-glass-v2.webp",
+      "media/products/gallery/9cbfc811dd55eb495b00-glass-v2.webp",
+      "media/products/gallery/d3b3cd765d8b03883017-glass-v2.webp",
+      "media/products/gallery/f4ef8336efb8ea9fbe48-glass-v2.webp",
+      "media/products/gallery/2a712d31bf99cbd6179e-glass-v2.webp",
+      "media/products/gallery/b3830354536fdcd5fb18-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%D0%BF%D0%BE%D0%B4-%D0%BC%D0%B0%D1%82%D1%80%D0%B0%D1%81-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?fit=1568%2C842&ssl=1?v=1700577185",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%9B%D1%96%D0%B6%D0%BA%D0%BE-%D1%81%D0%BA%D0%B0%D0%B9-%D0%BF%D0%BE%D0%B4-%D0%BC%D0%B0%D1%82%D1%80%D0%B0%D1%81-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.jpg?w=1200&ssl=1",
-    "imageSha256": "fadcee908795e2ff6528ebd4dca569ec119dd5974047db81694880ba33c26856",
+    "imageSha256": "c2599f0fe924d160a67fb98c925f0a566048536c2e83ea7d9b163bbd9ea7ccf8",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation"
@@ -1393,20 +1393,20 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/terri.webp",
+    "image": "media/products/terri-glass-v2.webp",
     "images": [
-      "media/products/gallery/892674bb1c0b1b9bf5b0.webp",
-      "media/products/gallery/51dca83d905e79a3097c.webp",
-      "media/products/gallery/829b9046fcbc6f2314d9.webp",
-      "media/products/gallery/77aaf3f2ace327af0492.webp",
-      "media/products/gallery/c16d9fc88b0eb7c8da49.webp",
-      "media/products/gallery/cb0772f484335a0cf122.webp",
-      "media/products/gallery/fcec8f9daa3daf296942.webp",
-      "media/products/gallery/e30533d0c9a27925b80c.webp"
+      "media/products/gallery/892674bb1c0b1b9bf5b0-glass-v2.webp",
+      "media/products/gallery/51dca83d905e79a3097c-glass-v2.webp",
+      "media/products/gallery/829b9046fcbc6f2314d9-glass-v2.webp",
+      "media/products/gallery/77aaf3f2ace327af0492-glass-v2.webp",
+      "media/products/gallery/c16d9fc88b0eb7c8da49-glass-v2.webp",
+      "media/products/gallery/cb0772f484335a0cf122-glass-v2.webp",
+      "media/products/gallery/fcec8f9daa3daf296942-glass-v2.webp",
+      "media/products/gallery/e30533d0c9a27925b80c-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%A2%D0%B5%D1%80%D1%80%D1%96.jpg?fit=800%2C380&ssl=1?v=1700577311",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/07/%D0%A2%D0%B5%D1%80%D1%80%D1%96.jpg?w=1200&ssl=1",
-    "imageSha256": "ebc386021df2464e8aeccf09a4d0f5ced6e1f41dffbc9458a1767b566aaffaca",
+    "imageSha256": "8d5ec03077c70b5835cfc60a630130c609df310676b6158e90d481327745a62f",
     "sourcePriceText": "",
     "flags": [
       "sleeping_dimensions_require_confirmation",
@@ -1437,15 +1437,15 @@ window.MATRIX_CATALOG = [
     "depth": 1060,
     "sleepLength": 3000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-verado-3.webp",
+    "image": "media/products/pryamyy-dyvan-verado-3-glass-v2.webp",
     "images": [
-      "media/products/gallery/6941b2994d10cf332705.webp",
-      "media/products/gallery/94150064a2362c8a5222.webp",
-      "media/products/gallery/314f560dc63b79ce2bc1.webp"
+      "media/products/gallery/6941b2994d10cf332705-glass-v2.webp",
+      "media/products/gallery/94150064a2362c8a5222-glass-v2.webp",
+      "media/products/gallery/314f560dc63b79ce2bc1-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/IMG_7174.jpg?fit=1568%2C1109&ssl=1?v=1700577162",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/IMG_7174.jpg?w=1200&ssl=1",
-    "imageSha256": "5c00fbfff01bd787a3488ec63672815c2dd8c699109b2b659ecc1648405252b2",
+    "imageSha256": "2d002e9ec8234c9f195f02d8409b3bec3db0867282551277f20671346bd4dbcf",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -1468,15 +1468,15 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2650,
     "sleepWidth": 1450,
-    "image": "media/products/kutovyy-dyvan-leon-lyuks-2.webp",
+    "image": "media/products/kutovyy-dyvan-leon-lyuks-2-glass-v2.webp",
     "images": [
-      "media/products/gallery/c24719a8c4931dfcc3fa.webp",
-      "media/products/gallery/f2a7b97de34e0e541906.webp",
-      "media/products/gallery/471daf4ff1cfd3209501.webp"
+      "media/products/gallery/c24719a8c4931dfcc3fa-glass-v2.webp",
+      "media/products/gallery/f2a7b97de34e0e541906-glass-v2.webp",
+      "media/products/gallery/471daf4ff1cfd3209501-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/IMG_9555-2.jpg?fit=1568%2C908&ssl=1?v=1717571406",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/IMG_9555-2.jpg?w=1200&ssl=1",
-    "imageSha256": "e33e03ba68de5ce36e1f023b5a37407032ef760f7159cde50a8abf9cd6990e95",
+    "imageSha256": "88679fe3fe17dbfefaa3070e64e3b1eabebbb5aa1aa18cb01e39264b36b7bb3d",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -1499,17 +1499,17 @@ window.MATRIX_CATALOG = [
     "depth": 1430,
     "sleepLength": 1960,
     "sleepWidth": 1430,
-    "image": "media/products/pryamyy-dyvan-tekhas.webp",
+    "image": "media/products/pryamyy-dyvan-tekhas-glass-v2.webp",
     "images": [
-      "media/products/gallery/3f60e578a4881ef34c3c.webp",
-      "media/products/gallery/4885713b85961f05507c.webp",
-      "media/products/gallery/8f85dd434c355729312b.webp",
-      "media/products/gallery/78225c20d7f196eea65f.webp",
-      "media/products/gallery/b1ae8459a40207c69fa0.webp"
+      "media/products/gallery/3f60e578a4881ef34c3c-glass-v2.webp",
+      "media/products/gallery/4885713b85961f05507c-glass-v2.webp",
+      "media/products/gallery/8f85dd434c355729312b-glass-v2.webp",
+      "media/products/gallery/78225c20d7f196eea65f-glass-v2.webp",
+      "media/products/gallery/b1ae8459a40207c69fa0-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A2%D0%B5%D1%85%D0%B0%D1%81.jpg?fit=1568%2C1045&ssl=1?v=1700577192",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/11/%D0%94.%D0%A2%D0%B5%D1%85%D0%B0%D1%81.jpg?w=1200&ssl=1",
-    "imageSha256": "0890e4aba2b6d160397455d0eb2827d9c62358900ebc362ae20aeb713933fc61",
+    "imageSha256": "d5838e6169985046ecf31e9122956b7d18469d542887b2f334c544be856f40dc",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -1534,18 +1534,18 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2700,
     "sleepWidth": 1470,
-    "image": "media/products/kutovyy-dyvan-prestizh-200.webp",
+    "image": "media/products/kutovyy-dyvan-prestizh-200-glass-v2.webp",
     "images": [
-      "media/products/gallery/d73acb4cda18791a5e26.webp",
-      "media/products/gallery/215870ac978855c746bb.webp",
-      "media/products/gallery/b9c53582336494576144.webp",
-      "media/products/gallery/86c3acb7f4b7965368a2.webp",
-      "media/products/gallery/6f0587ef52236b5dbfc1.webp",
-      "media/products/gallery/56e9dacd9fabf6ac30fc.webp"
+      "media/products/gallery/d73acb4cda18791a5e26-glass-v2.webp",
+      "media/products/gallery/215870ac978855c746bb-glass-v2.webp",
+      "media/products/gallery/b9c53582336494576144-glass-v2.webp",
+      "media/products/gallery/86c3acb7f4b7965368a2-glass-v2.webp",
+      "media/products/gallery/6f0587ef52236b5dbfc1-glass-v2.webp",
+      "media/products/gallery/56e9dacd9fabf6ac30fc-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A3%D0%93-2.jpg?fit=1568%2C595&ssl=1?v=1700577278",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A3%D0%93-2.jpg?w=1200&ssl=1",
-    "imageSha256": "6a195f0d64d8d958d0222fb19c9ac700cb1d1a97c630ca690ae1b6b79ccc891c",
+    "imageSha256": "653366afa0775c8f110672464c64b235bfe7075bfb654ed19f28739e50a9fdd9",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -1571,16 +1571,16 @@ window.MATRIX_CATALOG = [
     "depth": 1000,
     "sleepLength": 1970,
     "sleepWidth": 1470,
-    "image": "media/products/dyvan-pryamyy-prestizh.webp",
+    "image": "media/products/dyvan-pryamyy-prestizh-glass-v2.webp",
     "images": [
-      "media/products/gallery/d2e25d8245fff0ef33da.webp",
-      "media/products/gallery/b60aba084c443bb4a4d8.webp",
-      "media/products/gallery/abc4223c68f2c937c84f.webp",
-      "media/products/gallery/33fa2e63baf6ab7d2554.webp"
+      "media/products/gallery/d2e25d8245fff0ef33da-glass-v2.webp",
+      "media/products/gallery/b60aba084c443bb4a4d8-glass-v2.webp",
+      "media/products/gallery/abc4223c68f2c937c84f-glass-v2.webp",
+      "media/products/gallery/33fa2e63baf6ab7d2554-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%94.jpg?fit=1568%2C628&ssl=1?v=1700577250",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%94.jpg?w=1200&ssl=1",
-    "imageSha256": "6003df9b449b1052d9e3e221920a260947236fbb3a0eb5070a6faf4fa5560d5a",
+    "imageSha256": "2d94bcdbca925febe61a79fc5eeb9d620126b8e2782969b47957464170379342",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
@@ -1606,19 +1606,19 @@ window.MATRIX_CATALOG = [
     "depth": 970,
     "sleepLength": 1970,
     "sleepWidth": 1470,
-    "image": "media/products/pryamyy-dyvan-dzhaz.webp",
+    "image": "media/products/pryamyy-dyvan-dzhaz-glass-v2.webp",
     "images": [
-      "media/products/gallery/17a5b8821ad81c9f2a41.webp",
-      "media/products/gallery/50cabd9d931344425055.webp",
-      "media/products/gallery/666c5bb39a4c630debb0.webp",
-      "media/products/gallery/bd1af374ed9ce60ee53a.webp",
-      "media/products/gallery/b6071e99662554c60365.webp",
-      "media/products/gallery/bc585d6986db93e4c8e6.webp",
-      "media/products/gallery/3cf3dadd5b75f0463d61.webp"
+      "media/products/gallery/17a5b8821ad81c9f2a41-glass-v2.webp",
+      "media/products/gallery/50cabd9d931344425055-glass-v2.webp",
+      "media/products/gallery/666c5bb39a4c630debb0-glass-v2.webp",
+      "media/products/gallery/bd1af374ed9ce60ee53a-glass-v2.webp",
+      "media/products/gallery/b6071e99662554c60365-glass-v2.webp",
+      "media/products/gallery/bc585d6986db93e4c8e6-glass-v2.webp",
+      "media/products/gallery/3cf3dadd5b75f0463d61-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B6%D0%B0%D0%B7-%D0%94.jpg?fit=1568%2C798&ssl=1?v=1700577262",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B6%D0%B0%D0%B7-%D0%94.jpg?w=1200&ssl=1",
-    "imageSha256": "f7df63bf13c050c4cad12f97f9428bec792450766f563049f7b0acb87f441353",
+    "imageSha256": "96524173ff6aaeb1d744fbaa49ec4360bbe2362d9c6db776326122a117f80839",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -1645,14 +1645,14 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": 1970,
     "sleepWidth": 1470,
-    "image": "media/products/dyvan-pryamyy-leon-lyuks.webp",
+    "image": "media/products/dyvan-pryamyy-leon-lyuks-glass-v2.webp",
     "images": [
-      "media/products/gallery/8b9ec6df4be511645481.webp",
-      "media/products/gallery/53e29071df575d5c1017.webp"
+      "media/products/gallery/8b9ec6df4be511645481-glass-v2.webp",
+      "media/products/gallery/53e29071df575d5c1017-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/%D0%9B%D0%B5%D0%BE%D0%BD-%D0%9B%D1%8E%D0%BA%D1%81-%D0%94.jpg?fit=1568%2C627&ssl=1?v=1700577230",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2023/09/%D0%9B%D0%B5%D0%BE%D0%BD-%D0%9B%D1%8E%D0%BA%D1%81-%D0%94.jpg?w=1200&ssl=1",
-    "imageSha256": "f9e6de473f5e676b22f2422574b2728c2fb8366679566d3cee435aa9ae825b0a",
+    "imageSha256": "308dbc881f9136c3cf2c925b727c65e5c04ca48c8f121c5e8bcc8ba26a6ed52c",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation"
@@ -1676,18 +1676,18 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2650,
     "sleepWidth": 1450,
-    "image": "media/products/kutovyy-dyvan-leon-lyuks-200.webp",
+    "image": "media/products/kutovyy-dyvan-leon-lyuks-200-glass-v2.webp",
     "images": [
-      "media/products/gallery/2d44b7aa450f73e9f53f.webp",
-      "media/products/gallery/23161749d98dbcab316b.webp",
-      "media/products/gallery/a3979afdd714843bbf00.webp",
-      "media/products/gallery/b67d84e772e9e7c63ebb.webp",
-      "media/products/gallery/e42b39719267c9d5eca3.webp",
-      "media/products/gallery/a109cd049b645b829909.webp"
+      "media/products/gallery/2d44b7aa450f73e9f53f-glass-v2.webp",
+      "media/products/gallery/23161749d98dbcab316b-glass-v2.webp",
+      "media/products/gallery/a3979afdd714843bbf00-glass-v2.webp",
+      "media/products/gallery/b67d84e772e9e7c63ebb-glass-v2.webp",
+      "media/products/gallery/e42b39719267c9d5eca3-glass-v2.webp",
+      "media/products/gallery/a109cd049b645b829909-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A21-2.jpg?fit=1568%2C624&ssl=1?v=1700577260",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200-%D0%A21-2.jpg?w=1200&ssl=1",
-    "imageSha256": "67b37f6eb9c0fefd34d00258a8ced10abfc83a3300f4a4e098abbc553f42f2ce",
+    "imageSha256": "e52a39c874a2f5b190f5df72ae44ff891a54e4517326b674f3dcf06a2877b141",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -1713,16 +1713,16 @@ window.MATRIX_CATALOG = [
     "depth": 1900,
     "sleepLength": 2750,
     "sleepWidth": 1470,
-    "image": "media/products/kutovyy-dyvan-prestizh-200m.webp",
+    "image": "media/products/kutovyy-dyvan-prestizh-200m-glass-v2.webp",
     "images": [
-      "media/products/gallery/b223e0e2e9768163f3b3.webp",
-      "media/products/gallery/4df7fcfd3769d14579b0.webp",
-      "media/products/gallery/7b1a2826abf8e1c50888.webp",
-      "media/products/gallery/54fb8c2a8a26cbb5c6f5.webp"
+      "media/products/gallery/b223e0e2e9768163f3b3-glass-v2.webp",
+      "media/products/gallery/4df7fcfd3769d14579b0-glass-v2.webp",
+      "media/products/gallery/7b1a2826abf8e1c50888-glass-v2.webp",
+      "media/products/gallery/54fb8c2a8a26cbb5c6f5-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200%D0%9C-2.jpg?fit=1568%2C484&ssl=1?v=1700577248",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-200%D0%9C-2.jpg?w=1200&ssl=1",
-    "imageSha256": "ca18eb1a71d3dd89484c277c29e37451700220db776ce903b4fd0c133756865c",
+    "imageSha256": "6f054541465d6c51658bdc68b63bbda13710f279edccd392ca5d408d145c5c1b",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -1746,24 +1746,24 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/kutovyy-pryamyy-boston-4.webp",
+    "image": "media/products/kutovyy-pryamyy-boston-4-glass-v2.webp",
     "images": [
-      "media/products/gallery/f115b01265cd719ee910.webp",
-      "media/products/gallery/9c7fa42157ad196de575.webp",
-      "media/products/gallery/a01f95ee4669f121aead.webp",
-      "media/products/gallery/2c89d19ea520a1a1d478.webp",
-      "media/products/gallery/c92dfa2c80e3eacc61db.webp",
-      "media/products/gallery/7f488162a6a70f2a4a2c.webp",
-      "media/products/gallery/42643e96d32223f133b2.webp",
-      "media/products/gallery/5df291445b766ef88759.webp",
-      "media/products/gallery/80b99762152295b3be60.webp",
-      "media/products/gallery/ce4a0661a361ef4a1f66.webp",
-      "media/products/gallery/96daacab4d9dd67aef17.webp",
-      "media/products/gallery/b5d1683b80b29e6e2372.webp"
+      "media/products/gallery/f115b01265cd719ee910-glass-v2.webp",
+      "media/products/gallery/9c7fa42157ad196de575-glass-v2.webp",
+      "media/products/gallery/a01f95ee4669f121aead-glass-v2.webp",
+      "media/products/gallery/2c89d19ea520a1a1d478-glass-v2.webp",
+      "media/products/gallery/c92dfa2c80e3eacc61db-glass-v2.webp",
+      "media/products/gallery/7f488162a6a70f2a4a2c-glass-v2.webp",
+      "media/products/gallery/42643e96d32223f133b2-glass-v2.webp",
+      "media/products/gallery/5df291445b766ef88759-glass-v2.webp",
+      "media/products/gallery/80b99762152295b3be60-glass-v2.webp",
+      "media/products/gallery/ce4a0661a361ef4a1f66-glass-v2.webp",
+      "media/products/gallery/96daacab4d9dd67aef17-glass-v2.webp",
+      "media/products/gallery/b5d1683b80b29e6e2372-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D1%81%D1%82%D0%BE%D0%BD-42.jpg?fit=1568%2C561&ssl=1?v=1700577252",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D1%81%D1%82%D0%BE%D0%BD-42.jpg?w=1200&ssl=1",
-    "imageSha256": "18b1171debca381bf44e6a7825a6dc61e8a9a9b5dc7b760b488714d261b8a352",
+    "imageSha256": "c70a27090c05fb5202e959ddd9901fbba7772d0ac471be56580073e7836973ec",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation",
@@ -1798,16 +1798,16 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/pryamyy-kutovyy-prestizh-b-4.webp",
+    "image": "media/products/pryamyy-kutovyy-prestizh-b-4-glass-v2.webp",
     "images": [
-      "media/products/gallery/0128de6af229c066f634.webp",
-      "media/products/gallery/ff135b6bdca9fa9c3216.webp",
-      "media/products/gallery/8dd50264fda3bbf17900.webp",
-      "media/products/gallery/c83f378ad6d8b089cbf8.webp"
+      "media/products/gallery/0128de6af229c066f634-glass-v2.webp",
+      "media/products/gallery/ff135b6bdca9fa9c3216-glass-v2.webp",
+      "media/products/gallery/8dd50264fda3bbf17900-glass-v2.webp",
+      "media/products/gallery/c83f378ad6d8b089cbf8-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%914-3.jpg?fit=1568%2C562&ssl=1?v=1700577245",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%914-3.jpg?w=1200&ssl=1",
-    "imageSha256": "cdcb3ebd8acc62ed64cbc57e1d31171fe3a7828619a981598ede9acf4871c661",
+    "imageSha256": "336cdf60767034ddde4de45d6c96997e25d731ee74bc867e24595a52ad72c3ea",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation",
@@ -1834,15 +1834,15 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2720,
     "sleepWidth": 1470,
-    "image": "media/products/kutovyy-dyvan-prestizh-p.webp",
+    "image": "media/products/kutovyy-dyvan-prestizh-p-glass-v2.webp",
     "images": [
-      "media/products/gallery/b7277d7887f94ae0b16e.webp",
-      "media/products/gallery/971cf605951686ce85f8.webp",
-      "media/products/gallery/f3f14fe68bb9f1362ecf.webp"
+      "media/products/gallery/b7277d7887f94ae0b16e-glass-v2.webp",
+      "media/products/gallery/971cf605951686ce85f8-glass-v2.webp",
+      "media/products/gallery/f3f14fe68bb9f1362ecf-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%9F.jpg?fit=1568%2C660&ssl=1?v=1700577344",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%9F.jpg?w=1200&ssl=1",
-    "imageSha256": "1e31ff08f424c04c70aca798e8782a6e166879c7d52275c9b61a4cdf3fd220ea",
+    "imageSha256": "a71424fad7bc8c1265ba385866811de4c493c090ef11368fe5c4724d008f3c5e",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -1865,19 +1865,19 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/pryamyy-kutovyy-prestizh-p-b4.webp",
+    "image": "media/products/pryamyy-kutovyy-prestizh-p-b4-glass-v2.webp",
     "images": [
-      "media/products/gallery/36e4bfed47e0e52d669f.webp",
-      "media/products/gallery/0a43dd339eb4f0d29c6d.webp",
-      "media/products/gallery/e38a5884e831e0a9fc37.webp",
-      "media/products/gallery/987eb1c47f0f81ac0312.webp",
-      "media/products/gallery/ed3bdf0c023c769be2c8.webp",
-      "media/products/gallery/0e1f03fceff2f42831c1.webp",
-      "media/products/gallery/75b8b481f4c276bafa64.webp"
+      "media/products/gallery/36e4bfed47e0e52d669f-glass-v2.webp",
+      "media/products/gallery/0a43dd339eb4f0d29c6d-glass-v2.webp",
+      "media/products/gallery/e38a5884e831e0a9fc37-glass-v2.webp",
+      "media/products/gallery/987eb1c47f0f81ac0312-glass-v2.webp",
+      "media/products/gallery/ed3bdf0c023c769be2c8-glass-v2.webp",
+      "media/products/gallery/0e1f03fceff2f42831c1-glass-v2.webp",
+      "media/products/gallery/75b8b481f4c276bafa64-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%9F%D0%914_-3.jpg?fit=1568%2C547&ssl=1?v=1700577254",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%9F%D0%914_-3.jpg?w=1200&ssl=1",
-    "imageSha256": "c544ab31506fea0a514c6f3d19943c061600fd9e54b309a69d6632089f2bcaac",
+    "imageSha256": "de0daa6b94ada61b4204fc9f6adced3bfd6d227b00c2dd46e26060d698d6d8f4",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation",
@@ -1908,14 +1908,14 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/prestizh-pm.webp",
+    "image": "media/products/prestizh-pm-glass-v2.webp",
     "images": [
-      "media/products/gallery/ba33e2a7f39c428fa14b.webp",
-      "media/products/gallery/d07bc6889926b3e0b84e.webp"
+      "media/products/gallery/ba33e2a7f39c428fa14b-glass-v2.webp",
+      "media/products/gallery/d07bc6889926b3e0b84e-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%9F%D0%9C-2.jpg?fit=1568%2C495&ssl=1?v=1700577258",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6%D0%9F%D0%9C-2.jpg?w=1200&ssl=1",
-    "imageSha256": "31746d704d73326a13058f5f1d3feb05cfca4862b7a3a51310995433d97f0115",
+    "imageSha256": "6e71f55e398d9afe25b61f886cae048f0ba93f4e088e6f1b304db80916962d93",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation",
@@ -1940,15 +1940,15 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": 2000,
     "sleepWidth": 1470,
-    "image": "media/products/kutovyy-dyvan-prestizh-m-b4.webp",
+    "image": "media/products/kutovyy-dyvan-prestizh-m-b4-glass-v2.webp",
     "images": [
-      "media/products/gallery/12dfbc7d343601350f9b.webp",
-      "media/products/gallery/e2ec92b1e0b995e3c526.webp",
-      "media/products/gallery/68a75b8d51ee3760b3c6.webp"
+      "media/products/gallery/12dfbc7d343601350f9b-glass-v2.webp",
+      "media/products/gallery/e2ec92b1e0b995e3c526-glass-v2.webp",
+      "media/products/gallery/68a75b8d51ee3760b3c6-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%9C-%D0%914-1.jpg?fit=1568%2C500&ssl=1?v=1700577247",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-%D0%9C-%D0%914-1.jpg?w=1200&ssl=1",
-    "imageSha256": "8d79811e84fbeb2af2c94fe61ddf0077b98ba58c4dcb6829dfb347e09d5f3947",
+    "imageSha256": "d773996d95b0c90d76db0f738fac304e572ce3245bd20b132b68c5d1c8e0ec24",
     "sourcePriceText": "",
     "flags": [
       "dimensions_require_confirmation"
@@ -1973,14 +1973,14 @@ window.MATRIX_CATALOG = [
     "depth": 1050,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/dyvan-lizhko-real-2.webp",
+    "image": "media/products/dyvan-lizhko-real-2-glass-v2.webp",
     "images": [
-      "media/products/gallery/452eb276f1cc9c60f78b.webp",
-      "media/products/gallery/7fa607c7431ae70bdcc7.webp"
+      "media/products/gallery/452eb276f1cc9c60f78b-glass-v2.webp",
+      "media/products/gallery/7fa607c7431ae70bdcc7-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A0%D0%B5%D0%B0%D0%BB-2-%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-3.jpg?fit=1568%2C710&ssl=1?v=1700577257",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A0%D0%B5%D0%B0%D0%BB-2-%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-3.jpg?w=1200&ssl=1",
-    "imageSha256": "bf56ed4c0cc50740cdc6df545d8605faa9b383b26fc3ab1bb82288e03ff0c8b4",
+    "imageSha256": "9a86e83a4723419f516fb3543718084c5ddcf833d81bfa43a874fcb28ddb30b7",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
@@ -2004,14 +2004,14 @@ window.MATRIX_CATALOG = [
     "depth": 1000,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/dyvan-povorotnyy-real-t.webp",
+    "image": "media/products/dyvan-povorotnyy-real-t-glass-v2.webp",
     "images": [
-      "media/products/gallery/492eb48114e936981f39.webp",
-      "media/products/gallery/8f7515a65323c6f39fe2.webp"
+      "media/products/gallery/492eb48114e936981f39-glass-v2.webp",
+      "media/products/gallery/8f7515a65323c6f39fe2-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A0%D0%B5%D0%B0%D0%BB-%D0%A21.jpg?fit=1568%2C613&ssl=1?v=1700577506",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A0%D0%B5%D0%B0%D0%BB-%D0%A21.jpg?w=1200&ssl=1",
-    "imageSha256": "e52e4118ce0dcfe417bb4aa2ef988e05f971144fe55a9db3ca8b636922256e11",
+    "imageSha256": "f9dc29bf0d0cf032a02cf3cf6de6eccf95462b5c23474cb24f0cb014b338d5f8",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
@@ -2035,14 +2035,14 @@ window.MATRIX_CATALOG = [
     "depth": 1000,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/dyvan-povorotnyy-real.webp",
+    "image": "media/products/dyvan-povorotnyy-real-glass-v2.webp",
     "images": [
-      "media/products/gallery/0ab9523d55be8a5b0050.webp",
-      "media/products/gallery/6d622dcaa8878206b754.webp"
+      "media/products/gallery/0ab9523d55be8a5b0050-glass-v2.webp",
+      "media/products/gallery/6d622dcaa8878206b754-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B8%D0%B2%D0%B0%D0%BD-%D0%A0%D0%B5%D0%B0%D0%BB.jpg?fit=1568%2C509&ssl=1?v=1700577450",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B8%D0%B2%D0%B0%D0%BD-%D0%A0%D0%B5%D0%B0%D0%BB.jpg?w=1200&ssl=1",
-    "imageSha256": "3722d7d47a2660ba7be601c8211d3b6ecad9ca17884cd6bd50edb70b9dea2098",
+    "imageSha256": "98ade552460397b6143d2ca24b45ae887fc1e7187f33c63d3e032c096e7016a7",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
@@ -2066,14 +2066,14 @@ window.MATRIX_CATALOG = [
     "depth": 1600,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/povorotnyy-dyvan-barselona.webp",
+    "image": "media/products/povorotnyy-dyvan-barselona-glass-v2.webp",
     "images": [
-      "media/products/gallery/41299c7f32ff41afedfe.webp",
-      "media/products/gallery/87e2dc90bfcdd8d16363.webp"
+      "media/products/gallery/41299c7f32ff41afedfe-glass-v2.webp",
+      "media/products/gallery/87e2dc90bfcdd8d16363-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A3%D0%B3%D0%BE%D0%BB-%D0%91%D0%B0%D1%80%D1%81%D0%B5%D0%BB%D0%BE%D0%BD%D0%B0-4.jpg?fit=1568%2C681&ssl=1?v=1700577243",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%A3%D0%B3%D0%BE%D0%BB-%D0%91%D0%B0%D1%80%D1%81%D0%B5%D0%BB%D0%BE%D0%BD%D0%B0-4.jpg?w=1200&ssl=1",
-    "imageSha256": "48a8d53726e499e731eff8a5dc15cb128697aea241f99283ba8982453e60864f",
+    "imageSha256": "057e7577bf92006a52e7c793a5284c1d0a86452244360727a5df3aaeb8391a06",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
@@ -2097,17 +2097,17 @@ window.MATRIX_CATALOG = [
     "depth": null,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/dyvan-povorotnyy-bond.webp",
+    "image": "media/products/dyvan-povorotnyy-bond-glass-v2.webp",
     "images": [
-      "media/products/gallery/5019a85ef09118187ffe.webp",
-      "media/products/gallery/8e7dc3a2badf5195290c.webp",
-      "media/products/gallery/6c0d53c34f58668b1316.webp",
-      "media/products/gallery/1ffc159635eed1b40740.webp",
-      "media/products/gallery/22dd1a270365c62b09a2.webp"
+      "media/products/gallery/5019a85ef09118187ffe-glass-v2.webp",
+      "media/products/gallery/8e7dc3a2badf5195290c-glass-v2.webp",
+      "media/products/gallery/6c0d53c34f58668b1316-glass-v2.webp",
+      "media/products/gallery/1ffc159635eed1b40740-glass-v2.webp",
+      "media/products/gallery/22dd1a270365c62b09a2-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D0%BD%D0%B41-1.jpg?fit=1568%2C624&ssl=1?v=1700577241",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%91%D0%BE%D0%BD%D0%B41-1.jpg?w=1200&ssl=1",
-    "imageSha256": "385cd484320c0ddfa0c00e68a71b29c06eaacadb743ac3aaaacb7d4c7e182005",
+    "imageSha256": "fe5b9cdf9dd9db79e640f77ad132f9b0279eb2f7bec21a5d35e0e481c4ee5012",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
@@ -2134,15 +2134,15 @@ window.MATRIX_CATALOG = [
     "depth": 2200,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/povorotnyy-dyvan-berlin.webp",
+    "image": "media/products/povorotnyy-dyvan-berlin-glass-v2.webp",
     "images": [
-      "media/products/gallery/65fa5fbaaaad627f658f.webp",
-      "media/products/gallery/56861b6c31e346b4a3aa.webp",
-      "media/products/gallery/79f7cdc6d987cf994d48.webp"
+      "media/products/gallery/65fa5fbaaaad627f658f-glass-v2.webp",
+      "media/products/gallery/56861b6c31e346b4a3aa-glass-v2.webp",
+      "media/products/gallery/79f7cdc6d987cf994d48-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD-%D0%A3%D0%93.jpg?fit=1568%2C653&ssl=1?v=1700577233",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD-%D0%A3%D0%93.jpg?w=1200&ssl=1",
-    "imageSha256": "ed4e076b8f47e15094fdb84a14de17695bc5f7dd2cfac295c11a70cb45d25591",
+    "imageSha256": "e3be78a2ebe97241f4cfb3d53e975accbc49dee4af98f41f4f5eb2e252b713fe",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
@@ -2167,15 +2167,15 @@ window.MATRIX_CATALOG = [
     "depth": 2200,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/povorotnyy-dyvan-berlin-2.webp",
+    "image": "media/products/povorotnyy-dyvan-berlin-2-glass-v2.webp",
     "images": [
-      "media/products/gallery/8183f65fa2954cba7bd3.webp",
-      "media/products/gallery/79f7cdc6d987cf994d48.webp",
-      "media/products/gallery/56861b6c31e346b4a3aa.webp"
+      "media/products/gallery/8183f65fa2954cba7bd3-glass-v2.webp",
+      "media/products/gallery/79f7cdc6d987cf994d48-glass-v2.webp",
+      "media/products/gallery/56861b6c31e346b4a3aa-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD-21-2.jpg?fit=1568%2C540&ssl=1?v=1700577264",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/05/%D0%91%D0%B5%D1%80%D0%BB%D0%B8%D0%BD-21-2.jpg?w=1200&ssl=1",
-    "imageSha256": "b7b210c584ed18ca6eb2d272cccd09dfd05567d5182e3420233dbd28a16147cc",
+    "imageSha256": "d3cf61725a7bc5c8d374723bbf6f25d63ea9a7c7007f0cfcd2d159cca99f791e",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
@@ -2200,18 +2200,18 @@ window.MATRIX_CATALOG = [
     "depth": 1650,
     "sleepLength": 2100,
     "sleepWidth": 1500,
-    "image": "media/products/kutovyy-dyvan-prado.webp",
+    "image": "media/products/kutovyy-dyvan-prado-glass-v2.webp",
     "images": [
-      "media/products/gallery/439eb539440940b33a64.webp",
-      "media/products/gallery/03d6c1dc66803ed9f66e.webp",
-      "media/products/gallery/b288962a3e20c523fa00.webp",
-      "media/products/gallery/3e3733d718551802a3b7.webp",
-      "media/products/gallery/bcb3d22390e8a9ed07b8.webp",
-      "media/products/gallery/ff0c0c4acad889369802.webp"
+      "media/products/gallery/439eb539440940b33a64-glass-v2.webp",
+      "media/products/gallery/03d6c1dc66803ed9f66e-glass-v2.webp",
+      "media/products/gallery/b288962a3e20c523fa00-glass-v2.webp",
+      "media/products/gallery/3e3733d718551802a3b7-glass-v2.webp",
+      "media/products/gallery/bcb3d22390e8a9ed07b8-glass-v2.webp",
+      "media/products/gallery/ff0c0c4acad889369802-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B0%D0%B4%D0%BE-%D0%A3%D0%93.jpg?fit=1568%2C887&ssl=1?v=1700577232",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/04/%D0%9F%D1%80%D0%B0%D0%B4%D0%BE-%D0%A3%D0%93.jpg?w=1200&ssl=1",
-    "imageSha256": "359c5f409c691c5c448853beab67b30263c15a42b4f063cf323cab63168fce49",
+    "imageSha256": "3e9971c90394da2d9992179b5161d0efb533233530d737d4bbb7d18e3ce1ad7d",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -2237,15 +2237,15 @@ window.MATRIX_CATALOG = [
     "depth": 1060,
     "sleepLength": 2000,
     "sleepWidth": 1520,
-    "image": "media/products/pryamyy-dyvan-verado.webp",
+    "image": "media/products/pryamyy-dyvan-verado-glass-v2.webp",
     "images": [
-      "media/products/gallery/fe867a3bc4642b5558cd.webp",
-      "media/products/gallery/9ca6631cd019d37ab294.webp",
-      "media/products/gallery/ae000297955a9abf7a05.webp"
+      "media/products/gallery/fe867a3bc4642b5558cd-glass-v2.webp",
+      "media/products/gallery/9ca6631cd019d37ab294-glass-v2.webp",
+      "media/products/gallery/ae000297955a9abf7a05-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B8%D0%B2%D0%B0%D0%BD%D0%92%D0%B5%D1%80%D0%B0%D0%B4%D0%BE-3.jpg?fit=1568%2C611&ssl=1?v=1700577237",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94%D0%B8%D0%B2%D0%B0%D0%BD%D0%92%D0%B5%D1%80%D0%B0%D0%B4%D0%BE-3.jpg?w=1200&ssl=1",
-    "imageSha256": "89fa9a03349b1963144b2703c8cec33095cf7fd804f8150d982d6812d2c95bd0",
+    "imageSha256": "38e7822fda2a0d2cd111447d15620f1a6c806df81b53f99713a7cb6862d12f9c",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -2268,15 +2268,15 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2050,
     "sleepWidth": 1470,
-    "image": "media/products/kutovyy-dyvan-prestizh-140.webp",
+    "image": "media/products/kutovyy-dyvan-prestizh-140-glass-v2.webp",
     "images": [
-      "media/products/gallery/eff9bb2bb3063258aa48.webp",
-      "media/products/gallery/063ceda88307504571ad.webp",
-      "media/products/gallery/2ee475a97849999d83c3.webp"
+      "media/products/gallery/eff9bb2bb3063258aa48-glass-v2.webp",
+      "media/products/gallery/063ceda88307504571ad-glass-v2.webp",
+      "media/products/gallery/2ee475a97849999d83c3-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6140-2.jpg?fit=1568%2C572&ssl=1?v=1700577235",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6140-2.jpg?w=1200&ssl=1",
-    "imageSha256": "a764871a24fb2381d978b4a7c51b60bf6e4100e1be5b8665255e0a5e5fe07dd2",
+    "imageSha256": "10498c614f560e5a1ffee8e1a101bce01cc8af4729a08061409b4e0400d6cf41",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -2299,14 +2299,14 @@ window.MATRIX_CATALOG = [
     "depth": 1500,
     "sleepLength": 2000,
     "sleepWidth": 1450,
-    "image": "media/products/kutovyy-dyvan-leon-lyuks-140.webp",
+    "image": "media/products/kutovyy-dyvan-leon-lyuks-140-glass-v2.webp",
     "images": [
-      "media/products/gallery/5cac4c909365221bf6bb.webp",
-      "media/products/gallery/8cd23e70c0a141a8183a.webp"
+      "media/products/gallery/5cac4c909365221bf6bb-glass-v2.webp",
+      "media/products/gallery/8cd23e70c0a141a8183a-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-140-%D0%A2-1.jpg?fit=1568%2C643&ssl=1?v=1700577470",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%9F%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%B6-140-%D0%A2-1.jpg?w=1200&ssl=1",
-    "imageSha256": "c8d9774e6c84fb833c4a4ddf9ffa33716bfbd8b35cf9078e215bbd88c3121fa5",
+    "imageSha256": "2b2cb716873803c77fb3d23a68e488d8525f0bcbc54598abda2921a6ff9233d9",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
@@ -2329,19 +2329,19 @@ window.MATRIX_CATALOG = [
     "depth": 920,
     "sleepLength": 1930,
     "sleepWidth": 1420,
-    "image": "media/products/pryamyy-dyvan-sihma.webp",
+    "image": "media/products/pryamyy-dyvan-sihma-glass-v2.webp",
     "images": [
-      "media/products/gallery/7c3adb8819b155f5fd3f.webp",
-      "media/products/gallery/fda0f95ab674a914184c.webp",
-      "media/products/gallery/31e92e93c196bbd52cdc.webp",
-      "media/products/gallery/d09a53a392820240f04d.webp",
-      "media/products/gallery/1acb2c1bf9f16125c7fc.webp",
-      "media/products/gallery/dcae3855c1deeb188a9a.webp",
-      "media/products/gallery/4cdfd894a6bbd5cd7852.webp"
+      "media/products/gallery/7c3adb8819b155f5fd3f-glass-v2.webp",
+      "media/products/gallery/fda0f95ab674a914184c-glass-v2.webp",
+      "media/products/gallery/31e92e93c196bbd52cdc-glass-v2.webp",
+      "media/products/gallery/d09a53a392820240f04d-glass-v2.webp",
+      "media/products/gallery/1acb2c1bf9f16125c7fc-glass-v2.webp",
+      "media/products/gallery/dcae3855c1deeb188a9a-glass-v2.webp",
+      "media/products/gallery/4cdfd894a6bbd5cd7852-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94-%D0%A1%D1%96%D0%B3%D0%BC%D0%B0.jpg?fit=1568%2C1045&ssl=1?v=1700577286",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2022/08/%D0%94-%D0%A1%D1%96%D0%B3%D0%BC%D0%B0.jpg?w=1200&ssl=1",
-    "imageSha256": "e26c29e89e635fee0549e6f2caaf3264cbb550d7335ffc5afd157ba4b99f420d",
+    "imageSha256": "a27ebc930fcda26a5f664443c7c65caae52e98b41805da41862d078f197bd61c",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -2368,14 +2368,14 @@ window.MATRIX_CATALOG = [
     "depth": 930,
     "sleepLength": 1930,
     "sleepWidth": 1350,
-    "image": "media/products/pryamyy-dyvan-leon-t.webp",
+    "image": "media/products/pryamyy-dyvan-leon-t-glass-v2.webp",
     "images": [
-      "media/products/gallery/252a9db6dba4dde3be8a.webp",
-      "media/products/gallery/225f82678a8a34127889.webp"
+      "media/products/gallery/252a9db6dba4dde3be8a-glass-v2.webp",
+      "media/products/gallery/225f82678a8a34127889-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94.%D0%9B%D0%B5%D0%BE%D0%BD-%D0%A2.jpg?fit=1568%2C757&ssl=1?v=1700577450",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94.%D0%9B%D0%B5%D0%BE%D0%BD-%D0%A2.jpg?w=1200&ssl=1",
-    "imageSha256": "7568b95b64cd8d1e103ac3bc6a369881563b0a6e54b4fc084bf97e63e88ef12e",
+    "imageSha256": "c395b792323ae652a5fdc9dc38ca7cb302ca1850c145ec94c8621341a7e312ef",
     "sourcePriceText": "",
     "flags": [],
     "sourceImages": [
@@ -2397,14 +2397,14 @@ window.MATRIX_CATALOG = [
     "depth": 930,
     "sleepLength": 1930,
     "sleepWidth": 1350,
-    "image": "media/products/pryamyy-dyvan-leon.webp",
+    "image": "media/products/pryamyy-dyvan-leon-glass-v2.webp",
     "images": [
-      "media/products/gallery/24a111cb232f6857bcfe.webp",
-      "media/products/gallery/16007e7af5ca8f9a279a.webp"
+      "media/products/gallery/24a111cb232f6857bcfe-glass-v2.webp",
+      "media/products/gallery/16007e7af5ca8f9a279a-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94.%D0%9B%D0%B5%D0%BE%D0%BD1.jpg?fit=1568%2C700&ssl=1?v=1700577448",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%94.%D0%9B%D0%B5%D0%BE%D0%BD1.jpg?w=1200&ssl=1",
-    "imageSha256": "9bae93221cb4babbd8d4808ca042edcaab09aef3390faab3ef1de4e3f1d90fd9",
+    "imageSha256": "7f2226446251c4aa2707e4f01e320ddfa290a8eba3fc301fb9ae32e0ff43d0e5",
     "sourcePriceText": "",
     "flags": [],
     "dimensionSource": "manufacturer",
@@ -2428,15 +2428,15 @@ window.MATRIX_CATALOG = [
     "depth": 790,
     "sleepLength": null,
     "sleepWidth": null,
-    "image": "media/products/delta.webp",
+    "image": "media/products/delta-glass-v2.webp",
     "images": [
-      "media/products/gallery/548ecf2d333b53fe4a22.webp",
-      "media/products/gallery/33a31820359486693da6.webp",
-      "media/products/gallery/2a9a73ff8d8a9cd2523a.webp"
+      "media/products/gallery/548ecf2d333b53fe4a22-glass-v2.webp",
+      "media/products/gallery/33a31820359486693da6-glass-v2.webp",
+      "media/products/gallery/2a9a73ff8d8a9cd2523a-glass-v2.webp"
     ],
     "sourceImage": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%B4%D0%B5%D0%BB%D1%8C%D1%82%D0%B0-2.jpg?fit=1568%2C783&ssl=1?v=1700577239",
     "downloadUrl": "https://i0.wp.com/matrix-mebli.com/wp-content/uploads/2019/06/%D0%B4%D0%B5%D0%BB%D1%8C%D1%82%D0%B0-2.jpg?w=1200&ssl=1",
-    "imageSha256": "b31576c66f320ccc727ecf5ef7d38d15f860c6473d55206566e2e95f3f30e42d",
+    "imageSha256": "9367f5287f5f4e9d3e9a1ba463d833d5f4bd184f85959d5856ebbb9f8286e0df",
     "sourcePriceText": "",
     "flags": [
       "category_requires_confirmation"
