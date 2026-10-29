@@ -717,10 +717,12 @@ html {
   align-items: center;
   gap: 22px;
   border: 0;
-  border-radius: 30px;
+  border-radius: 999px;
   background: #fff;
   padding: 17px 25px;
-  font-size: 15px;
+  font: 400 16px / 1.35 Arial, Helvetica, sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
   transition:
     background 0.2s,
     transform 0.2s;
@@ -734,8 +736,8 @@ html {
   color: var(--ink);
 }
 .showroom-category svg {
-  width: 32px;
-  height: 28px;
+  width: 48px;
+  height: 32px;
 }
 .inventory {
   padding: 32px 5% 65px;
@@ -1395,7 +1397,7 @@ html {
     text-align: center;
     white-space: normal;
   }
-  .showroom-category svg { width: 28px; height: 28px; }
+  .showroom-category svg { width: 40px; height: 28px; }
   .showroom-category .category-arrow { display: none; }
   .story .underlined-link { position: static; width: auto; margin-top: 24px; }
   .inventory { padding-top: 30px; }
@@ -1519,3 +1521,4 @@ html {
     animation: matrix-hero-photo 4.8s cubic-bezier(.22, .61, .36, 1) backwards;
   }
 }
+

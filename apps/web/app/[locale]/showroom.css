@@ -234,10 +234,12 @@ body {
   display: flex;
   align-items: center;
   gap: 22px;
-  border-radius: 30px;
+  border-radius: 999px;
   background: #fff;
   padding: 17px 25px;
-  font-size: 15px;
+  font: 400 16px / 1.35 Arial, Helvetica, sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
   transition:
     background 0.2s,
     transform 0.2s;
@@ -251,8 +253,8 @@ body {
   background: #e9ddc9;
 }
 .showroomCategories svg {
-  width: 32px;
-  height: 28px;
+  width: 48px;
+  height: 32px;
 }
 .categoryArrow {
   margin-left: auto;
@@ -766,7 +768,7 @@ body {
     text-align: center;
     white-space: normal;
   }
-  .showroomCategories svg { width: 28px; height: 28px; }
+  .showroomCategories svg { width: 40px; height: 28px; }
   .showroomCategories .categoryArrow { display: none; }
   .homeCollection { padding-top: 30px; }
   .localeHeader { height: 68px; }
@@ -822,3 +824,4 @@ body {
 @media (max-width: 580px) {
   .brand-logo { width: 100px; }
 }
+

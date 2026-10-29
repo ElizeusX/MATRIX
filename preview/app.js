@@ -16,7 +16,7 @@ const translations = {
     explore:"Переглянути каталог",heroAside:"Дизайн-превʼю",artNote:"Інтер’єрна візуалізація",
     tickerOne:"СПОКІЙНА ЕСТЕТИКА",tickerTwo:"СТВОРЕНО ДЛЯ ЖИТТЯ",
     collectionTitle:"Знайдіть своє.",collectionIntro:"Дивани та ліжка MATRIX: фотографії, розміри й деталі кожної моделі.",
-    catCorner:"Кутові дивани",catStraight:"Прямі дивани",catBeds:"Ліжка",catUnspecified:"Категорія уточнюється",
+    switchSofas:"Дивани",catCorner:"Кутові дивани",catStraight:"Прямі дивани",catBeds:"Ліжка",catUnspecified:"Категорія уточнюється",
     productsTitle:"Колекція MATRIX",productsIntro:"Фотографії та характеристики моделей із каталогу виробника.",
     all:"Усі моделі",empty:"Нічого не знайдено. Спробуйте інший запит.",
     catalogFootnote:"Всі товари без підтвердженої ціни. Замовлення не приймаються.",
@@ -51,7 +51,7 @@ const translations = {
     explore:"Explore catalog",heroAside:"Design preview",artNote:"Illustrative showroom interior",
     tickerOne:"QUIET AESTHETICS",tickerTwo:"MADE FOR LIVING",
     collectionTitle:"Find your own.",collectionIntro:"Explore MATRIX sofas and beds with product photographs, dimensions and details.",
-    catCorner:"Corner sofas",catStraight:"Straight sofas",catBeds:"Beds",catUnspecified:"Category unconfirmed",
+    switchSofas:"Sofas",catCorner:"Corner sofas",catStraight:"Straight sofas",catBeds:"Beds",catUnspecified:"Category unconfirmed",
     productsTitle:"Product collection",productsIntro:"Product photographs and specifications from the manufacturer’s catalog.",
     all:"All models",empty:"Nothing found. Try a different search.",
     catalogFootnote:"Prices have not been confirmed. Orders are not accepted.",
@@ -360,5 +360,6 @@ for(const d of [dialog,savedDialog]){
  d.addEventListener("click",e=>{if(e.target===d)d.close()});
 }
 updateLanguage();
+
 
 
