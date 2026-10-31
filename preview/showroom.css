@@ -224,7 +224,7 @@ body {
   border: 1px solid #fff;
   background: #f4f1ecef;
   backdrop-filter: blur(15px);
-  border-radius: 35px;
+  border-radius: 999px;
   box-shadow: 0 8px 22px #40301d06;
 }
 .showroom-categories > a {
