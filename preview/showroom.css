@@ -891,6 +891,83 @@ html {
 .story-copy .eyebrow {
   color: #a08560;
 }
+.contact-location {
+  margin-top: 54px;
+  border: 1px solid #dedfd9;
+  background: #f8f8f5;
+}
+.contact-location-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 30px;
+}
+.contact-location-details {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+.contact-location-pin {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  color: #435446;
+}
+.contact-location h3 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #626c60;
+}
+.contact-location address {
+  font-size: 15px;
+  font-style: normal;
+  line-height: 1.6;
+  color: #2f3d32;
+}
+.contact-directions {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 1px solid #435446;
+  background: #435446;
+  color: #fff;
+  font-size: 13px;
+}
+.contact-directions:hover {
+  background: #2f3d32;
+}
+.contact-directions .matrix-icon {
+  width: 22px;
+  height: 22px;
+}
+.contact-map {
+  display: block;
+  width: 100%;
+  height: 360px;
+  border: 0;
+  border-top: 1px solid #dedfd9;
+}
+@media (max-width: 580px) {
+  .contact-location { margin-top: 36px; }
+  .contact-location-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    padding: 24px 20px;
+  }
+  .contact-location-details { align-items: flex-start; gap: 14px; }
+  .contact-location address { font-size: 14px; }
+  .contact-map { height: 300px; }
+}
 .contact {
   padding-top: 75px;
   padding-bottom: 75px;
@@ -1517,4 +1594,3 @@ html {
     animation: matrix-hero-photo 4.8s cubic-bezier(.22, .61, .36, 1) backwards;
   }
 }
-

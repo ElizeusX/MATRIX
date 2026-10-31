@@ -24,6 +24,8 @@ const translations = {
     storyText:"Предмети, з якими проживають щоденні моменти. У цьому превʼю ми показуємо напрям дизайну майбутнього магазину MATRIX — без вигаданих цін і характеристик.",
     storyCTA:"Зв’язатися з нами",contactTitle:"Ваш дім. Ваш MATRIX.",
     contactText:"Потрібна консультація? Зв’яжіться з виробником. Демоверсія не приймає замовлень.",
+    addressLabel:"Наша адреса",address:"м. Черкаси, проспект Хіміків, 66/1, Україна",
+    mapDirections:"Прокласти маршрут",mapTitle:"MATRIX на карті — Черкаси, проспект Хіміків, 66/1",
     footerLine:"Дизайн-превʼю майбутнього магазину",backTop:"Нагору ↑",
     missing:"Ціна й наявність уточнюються. Онлайн-замовлення недоступне.",
     toFavorites:"Додати в обране ♡",removeFavorites:"Прибрати з обраного ♥",
@@ -59,6 +61,8 @@ const translations = {
     storyText:"Furniture accompanies everyday moments. This preview shows the direction of MATRIX's future online store, without invented prices or specifications.",
     storyCTA:"Contact us",contactTitle:"Your home. Your MATRIX.",
     contactText:"Need advice? Contact the manufacturer. This demonstration does not accept orders.",
+    addressLabel:"Our address",address:"66/1 Khimikiv Avenue, Cherkasy, Ukraine",
+    mapDirections:"Get directions",mapTitle:"MATRIX location — 66/1 Khimikiv Avenue, Cherkasy",
     footerLine:"Preview of the upcoming online store",backTop:"Back to top ↑",
     missing:"Price and availability are pending. Online ordering is disabled.",
     toFavorites:"Add to favorites ♡",removeFavorites:"Remove from favorites ♥",
@@ -279,6 +283,7 @@ function updateLanguage(){
    }
   }else {el.textContent=t(key).replace(/[↗♡♥]/g,"").trim();if(["consult","toFavorites","catalog3DDemo"].includes(key))el.insertAdjacentHTML("beforeend",window.matrixIcon(key==="toFavorites"?"heart":key==="catalog3DDemo"?"cube":"arrowRight"));}
  }
+ $("#contact-map").title=t("mapTitle");
  search.placeholder=t("search");search.setAttribute("aria-label",t("search"));
  $("#menu-toggle").setAttribute("aria-label",t($("#main-nav").classList.contains("open")?"menuClose":"menuOpen"));
  $("#favorites-trigger").setAttribute("aria-label",t("favoritesTitle"));
@@ -360,6 +365,3 @@ for(const d of [dialog,savedDialog]){
  d.addEventListener("click",e=>{if(e.target===d)d.close()});
 }
 updateLanguage();
-
-
-
