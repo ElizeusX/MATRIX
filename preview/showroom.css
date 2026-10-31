@@ -896,6 +896,8 @@ html {
 .contact-location {
   margin-top: 54px;
   border: 1px solid #dedfd9;
+  border-radius: 24px;
+  overflow: hidden;
   background: #f8f8f5;
 }
 .contact-location-header {
@@ -935,8 +937,9 @@ html {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center;
+  text-align: center;
+  gap: 0;
   min-height: 48px;
   margin-top: 0;
   border: 0;
@@ -944,10 +947,6 @@ html {
 .contact-directions:focus-visible {
   outline: 2px solid #846332;
   outline-offset: 3px;
-}
-.contact-directions .matrix-icon {
-  width: 22px;
-  height: 22px;
 }
 .contact-map {
   display: block;
@@ -957,7 +956,7 @@ html {
   border-top: 1px solid #dedfd9;
 }
 @media (max-width: 580px) {
-  .contact-location { margin-top: 36px; }
+  .contact-location { margin-top: 36px; border-radius: 18px; }
   .contact-location-header {
     flex-direction: column;
     align-items: stretch;
