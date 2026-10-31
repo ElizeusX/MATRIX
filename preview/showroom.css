@@ -159,7 +159,8 @@ body {
   color: #77716a;
   margin: 0;
 }
-.underlined-link {
+.underlined-link,
+.contact-directions {
   display: inline-flex;
   align-items: center;
   gap: 40px;
@@ -174,7 +175,8 @@ body {
     transform 0.2s,
     box-shadow 0.2s;
 }
-.underlined-link:hover {
+.underlined-link:hover,
+.contact-directions:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px #40301d30;
 }
@@ -936,14 +938,12 @@ html {
   justify-content: space-between;
   gap: 20px;
   min-height: 48px;
-  padding: 12px 18px;
-  border: 1px solid #435446;
-  background: #435446;
-  color: #fff;
-  font-size: 13px;
+  margin-top: 0;
+  border: 0;
 }
-.contact-directions:hover {
-  background: #2f3d32;
+.contact-directions:focus-visible {
+  outline: 2px solid #846332;
+  outline-offset: 3px;
 }
 .contact-directions .matrix-icon {
   width: 22px;
