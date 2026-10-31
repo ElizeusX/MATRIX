@@ -195,10 +195,7 @@ body {
   backdrop-filter: blur(6px);
   font-size: 10px;
   text-align: center;
-  transition: transform 0.2s;
-}
-.hero-ar:hover {
-  transform: scale(1.04);
+  pointer-events: none;
 }
 .hero-ar svg {
   width: 26px;
@@ -1361,7 +1358,6 @@ html {
     text-align: left;
     box-shadow: 0 4px 16px #40301d12;
   }
-  .hero-ar > span:first-child, .hero-ar > span:last-child { display: none; }
   .hero-ar svg { width: 25px; height: 25px; }
   .showroom-caption {
     left: 12px;
