@@ -7,7 +7,7 @@ const paths = {
   bag: "M7 11h18l3 17H4l3-17Zm5 3V8a4 4 0 0 1 8 0v6M11 22l5-4 5 4",
   cube: "m16 6 9 5v10l-9 5-9-5V11l9-5Zm0 10 9-5m-9 5-9-5m9 5v10M3 10V4h6m14 0h6v6M3 23v6h6m14 0h6v-6",
   heart: "M16 27 5 16C-2 8 9-1 16 9c7-10 18-1 11 7L16 27Zm-8-15q0-4 4-4",
-  arrow: "M3 16h25M21 8l8 8-8 8M6 12v8",
+  arrow: "M4 16h24m-8-8 8 8-8 8",
   close: "M8 8 24 24M24 8 8 24",
   menu: "M4 8h24M4 16h18M4 24h24M27 14v4",
   reset: "M6 12a11 11 0 1 1 1 12M6 4v8h8M16 10v7l5 3",
@@ -21,7 +21,7 @@ export function FurnitureIcon({ kind }: { kind: keyof typeof paths }) {
       viewBox={isFurniture ? "0 0 76 48" : "0 0 32 32"}
       fill="none"
       stroke="currentColor"
-      strokeWidth={isFurniture ? 2.6 : 1.4}
+      strokeWidth={isFurniture ? 2.6 : kind === "arrow" ? 1.6 : 1.4}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
