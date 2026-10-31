@@ -58,7 +58,8 @@ html,body{background:#fff}
 .story-graphic p{color:#697669}
 .story-copy .eyebrow{color:#667b68}
 .story-copy>p:not(.eyebrow){color:#6d756d}
-.story .underlined-link.light{color:var(--ink)}
+.story .underlined-link.light{color:#fff}
+.story .underlined-link.light:hover{opacity:1}
 .footer{background:#fff;border-top:1px solid #e9eae7}
 .product-dialog,.favorites-dialog,.dialog-copy,.dialog-photo{background:#fff}
 .dialog-main-photo,.gallery-thumbs,.gallery-thumbs button{background:#fff}
