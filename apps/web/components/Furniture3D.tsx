@@ -42,6 +42,7 @@ const round=(n:number)=>Math.round(n/10);
 export default function Furniture3D({model,locale,initiallyOpen=false}:{model:FurnitureModel;locale:"uk"|"en";initiallyOpen?:boolean}){
  const draft=model.status==="draft";
  const unknown=draft&&model.dimensions_estimated===true;
+ const estimatedBed=unknown&&model.preview_ar_basis==="estimated_bed_configuration";
  const initialOrbit=draft&&model.camera_orbit&&/^-?\d+deg \d+deg auto$/.test(model.camera_orbit)?model.camera_orbit:"-25deg 75deg auto";
  const width=model.width_mm??(draft?model.estimated_width_mm:0);
  const depth=model.depth_mm??(draft?model.estimated_depth_mm:0);
@@ -49,11 +50,11 @@ export default function Furniture3D({model,locale,initiallyOpen=false}:{model:Fu
  const t={...copy[locale],...(draft?(locale==="uk"?{
   status:"Чернетка за фото · розміри не підтверджено",
   placement:"Приблизне AR: висота оцінена за пропорціями фото. Геометрія і тканина не затверджені.",
-  disclaimer:unknown?"Ширина, глибина та висота невідомі або неоднозначні. Усі розміри моделі приблизні. AR вимкнено.":`Висота виробу невідома: використано приблизно ${Math.round(height/10)} см. Форма і тканина опрацьовані за фото. Не використовуйте AR для точних замірів; уточніть розміри у виробника.`
+  disclaimer:estimatedBed?`Приблизне AR ліжка: ширина ≈ ${round(width)} см, глибина ≈ ${round(depth)} см, висота ≈ ${round(height)} см. Усі габарити обраної конфігурації оцінені за фото. Не використовуйте для точних замірів; уточніть розміри у виробника.`:unknown?"Ширина, глибина та висота невідомі або неоднозначні. Усі розміри моделі приблизні. AR вимкнено.":`Висота виробу невідома: використано приблизно ${Math.round(height/10)} см. Форма і тканина опрацьовані за фото. Не використовуйте AR для точних замірів; уточніть розміри у виробника.`
  }:{
   status:"Photo-guided draft · dimensions unverified",
   placement:"Estimated AR: height follows photo proportions. Geometry and fabric are unverified.",
-  disclaimer:unknown?"Width, depth and height are missing or ambiguous. All model dimensions are estimates. AR is disabled.":`Product height is unknown: this preview uses approximately ${Math.round(height/10)} cm. Shape and fabric follow photos. Do not use AR for accurate measurements; confirm dimensions with the manufacturer.`
+  disclaimer:estimatedBed?`Estimated bed AR: width ≈ ${round(width)} cm, depth ≈ ${round(depth)} cm, height ≈ ${round(height)} cm. All dimensions of this configuration are estimated from photos. Do not use for precise measurements; confirm dimensions with the manufacturer.`:unknown?"Width, depth and height are missing or ambiguous. All model dimensions are estimates. AR is disabled.":`Product height is unknown: this preview uses approximately ${Math.round(height/10)} cm. Shape and fabric follow photos. Do not use AR for accurate measurements; confirm dimensions with the manufacturer.`
  }):{})};
  const [open,setOpen]=useState(initiallyOpen);
  const [registered,setRegistered]=useState(false);
@@ -104,7 +105,7 @@ export default function Furniture3D({model,locale,initiallyOpen=false}:{model:Fu
   node.addEventListener("error",failed);
   return ()=>{node.removeEventListener("load",loaded);node.removeEventListener("ar-status",arStatus);node.removeEventListener("error",failed)};
  },[open,registered,model.glb_url,width,depth,height,t.badScale,t.failure]);
- const arEligible=ready&&validatedSource===model.glb_url&&!badScale&&model.enabled_ar&&!!model.usdz_url&&(!draft||(model.preview_ar&&!unknown&&!!model.height_estimate_source));
+ const arEligible=ready&&validatedSource===model.glb_url&&!badScale&&model.enabled_ar&&!!model.usdz_url&&(!draft||(model.preview_ar&&(!unknown||estimatedBed)&&!!model.height_estimate_source));
  useEffect(()=>{
   const node=viewer.current;let alive=true;
   if(!node||!arEligible){setARSupport(false);return;}

@@ -43,4 +43,5 @@ jobs:
           node --check preview/ar-launcher.js
           node scripts/3d/test_ar_policy.cjs
           node scripts/3d/test_product_ar.cjs
+          node scripts/3d/test_web_ar_models.cjs
 

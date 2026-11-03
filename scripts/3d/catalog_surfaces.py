@@ -82,7 +82,7 @@ def fabric():
     return out
 
 
-def export(model, folder, slug, profile, extras, textures, asset_tag=''):
+def export(model, folder, slug, profile, extras, textures, asset_tag='', estimated_bed_ar=False):
     folder=pathlib.Path(folder);folder.mkdir(parents=True,exist_ok=True)
     buf=bytearray();views=[];access=[];meshes=[]
     def view(raw,target=None):
@@ -125,7 +125,7 @@ def export(model, folder, slug, profile, extras, textures, asset_tag=''):
     j=json.dumps(doc,separators=(',',':')).encode();j+=b' '*(-len(j)%4);buf+=b'\0'*(-len(buf)%4)
     glb=struct.pack('<III',0x46546c67,2,28+len(j)+len(buf))+struct.pack('<II',len(j),0x4e4f534a)+j+struct.pack('<II',len(buf),0x004e4942)+buf
     (folder/f'{slug}-v2{asset_tag}-draft.glb').write_bytes(glb)
-    if extras['dimensions_estimated']:return len(glb)
+    if extras['dimensions_estimated'] and not estimated_bed_ar:return len(glb)
     # Matching vertices, Y-up/metres, embedded texture and aligned uncompressed USDZ.
     usd=['#usda 1.0\n(defaultPrim="Furniture"\nmetersPerUnit=1\nupAxis="Y")\ndef Xform "Furniture" {',
          'custom string reviewStatus = "DRAFT_UNVERIFIED_HEIGHT_ESTIMATED_PREVIEW_ONLY"']

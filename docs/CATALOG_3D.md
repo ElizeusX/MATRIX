@@ -24,8 +24,12 @@ for the added models. USD uses woven diffuse texture; glTF also has normal/sheen
 
 - 47 added products have usable numeric catalog width/depth; height is estimated
   from the authored profile. Together with Hilton-2, 48 offer estimated AR.
+  Ten bed/daybed profiles also offer estimated AR using their existing authored
+  configuration sizes, for 58 AR previews in total.
 - 18 added products have absent/ambiguous source dimensions. Visual configuration
-  estimates are stored separately, shown with ≈ labels, and never enable AR.
+  estimates are stored separately and shown with ≈ labels. Only the ten beds
+  explicitly opt in with `preview_ar_basis: estimated_bed_configuration` and a
+  recorded width/depth estimate source; the other eight remain 3D only.
 - Every added manifest stays `status: draft`, `geometry_verified: false`,
   `height_mm: null`. Estimates do not grant approval or precise room measuring.
 - Browser AR requires a matching loaded mesh, enabled estimated-preview flag,
@@ -73,3 +77,16 @@ are not a manufacturer accuracy certification.
 New asset names contain `-v2-` so an existing browser/AR cache cannot display the old
 geometry after deployment. The manifest selects the matching GLB and USDZ revision.
 Dimensions and AR approval status are unchanged.
+
+## Estimated bed AR
+
+All ten double-bed/daybed profiles (including Lira-2 and Terri) now export an AR
+manifest pointing to the existing matching GLB/USDZ pair. Their catalog width and
+depth stay null. The product dialog, dedicated viewer and Next.js component show
+that all dimensions are estimates, including the displayed configuration size.
+These previews do not promise a precise fit or manufacturer-approved geometry.
+
+The policy validates the loaded mesh against the estimated width/depth/height
+before enabling native Scene Viewer or Quick Look, with fixed scale and floor
+placement. Missing estimate provenance, invalid sizes, missing USDZ and scale
+mismatches keep AR disabled. Unsupported devices retain interactive 3D viewing.

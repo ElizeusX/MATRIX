@@ -15,6 +15,17 @@ assert(estimated(pilot));assert(!approved(pilot));assert.equal(pilot.height_mm,n
 assert(eligible(pilot,dimensions));
 for(const change of [{preview_ar:false},{estimated_height_mm:null},{estimated_height_mm:NaN},{height_estimate_source:''},{rights_confirmed:false},{height_mm:980},{usdz_url:''}])assert(!eligible({...pilot,...change},dimensions));
 assert(!eligible(pilot,{...dimensions,y:.85}));
+const bed={...pilot,slug:'lizhko-faro',width_mm:null,depth_mm:null,dimensions_estimated:true,
+ estimated_width_mm:1800,estimated_depth_mm:2180,estimated_height_mm:1150,
+ preview_ar_basis:'estimated_bed_configuration',width_depth_estimate_source:'Authored photo configuration',
+ glb_url:'models/lizhko-faro-v2-draft.glb',usdz_url:'models/lizhko-faro-v2-estimated.usdz'};
+const bedSize={x:1.8,y:1.15,z:2.18};
+assert(estimated(bed));assert(available(bed));assert(eligible(bed,bedSize));assert(!approved(bed));
+for(const change of [{preview_ar_basis:undefined},{width_depth_estimate_source:''},{estimated_width_mm:0},{estimated_depth_mm:NaN},{height_estimate_source:''},{preview_ar:false},{enabled_ar:false},{rights_confirmed:false},{usdz_url:''}]){
+ assert(!available({...bed,...change}));assert(!eligible({...bed,...change},bedSize));
+}
+assert(!eligible(bed,{...bedSize,x:1.6}));
+assert(!eligible({...pilot,dimensions_estimated:true},dimensions),'other unknown-size products remain 3D only');
 console.log('PASS: AR approval policy, approved and explicit estimated preview, missing estimates, mismatch, rights, asset URLs');
 
 
