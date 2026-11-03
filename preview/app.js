@@ -10,14 +10,10 @@ const products = Object.freeze(window.MATRIX_CATALOG);
 const translations = {
   uk: {
     skip:"До основного вмісту", preview:"Дизайн-превʼю • Ціни та замовлення вимкнено",
-    navCollection:"Каталог",nav3D:"3D / AR",catalog3DInfo:"Для кожної моделі доступна 3D-чернетка за фото. Для моделей з шириною та глибиною є приблизне AR. Висоту не підтверджено; пропорції і тканини потребують перевірки.",catalog3DDemo:"Спробувати 3D ↗",navStory:"Філософія",navContact:"Контакти",
-    heroEyebrow:"МЕБЛІ З ХАРАКТЕРОМ",heroLine1:"Меблі, що",heroLine2:"пасують вашому стилю",
+    navCollection:"Каталог",navStory:"Філософія",navContact:"Контакти",heroLine1:"Меблі, що",heroLine2:"пасують вашому стилю",
     heroDescription:"Створюємо простір для комфортного та впевненого життя",
-    explore:"Переглянути каталог",heroAside:"Дизайн-превʼю",artNote:"Інтер’єрна візуалізація",
-    tickerOne:"СПОКІЙНА ЕСТЕТИКА",tickerTwo:"СТВОРЕНО ДЛЯ ЖИТТЯ",
-    collectionTitle:"Знайдіть своє.",collectionIntro:"Дивани та ліжка MATRIX: фотографії, розміри й деталі кожної моделі.",
+    explore:"Переглянути каталог",artNote:"Інтер’єрна візуалізація",
     switchSofas:"Дивани",catCorner:"Кутові дивани",catStraight:"Прямі дивани",catBeds:"Ліжка",catUnspecified:"Категорія уточнюється",
-    productsTitle:"Колекція MATRIX",productsIntro:"Фотографії та характеристики моделей із каталогу виробника.",
     all:"Усі моделі",empty:"Нічого не знайдено. Спробуйте інший запит.",
     catalogFootnote:"Всі товари без підтвердженої ціни. Замовлення не приймаються.",
     storyTitle:"Місце для ваших історій.",
@@ -32,8 +28,7 @@ const translations = {
     consult:"Запитати про модель ↗",favoritesTitle:"Обрані моделі",
     favoritesNote:"Список зберігається лише на цьому пристрої. Це не кошик і не замовлення.",
     favoriteEmpty:"Ви ще не додали жодної моделі.",category:"Категорія",
-    dimensions:"Габарити",sleepArea:"Спальне місце",mm:"мм",pending:"Уточнюється",
-    photoDemo:"Концепт · не фото виробу",details:"Переглянути модель",open3D:"Переглянути в 3D",
+    dimensions:"Габарити",sleepArea:"Спальне місце",mm:"мм",pending:"Уточнюється",details:"Переглянути модель",
     search:"Пошук моделі",menuOpen:"Відкрити меню",menuClose:"Закрити меню",
     close:"Закрити",heart:"Додати в обране",count:"моделей",
     openAR:"Переглянути у своїй кімнаті AR / 3D",arLoading:"Готуємо AR…",
@@ -48,14 +43,10 @@ const translations = {
   },
   en: {
     skip:"Skip to main content",preview:"Design preview • Prices & ordering disabled",
-    navCollection:"Catalog",nav3D:"3D / AR",catalog3DInfo:"Every product has a photo-guided 3D draft. Products with catalog width and depth offer estimated AR. Heights are unconfirmed; proportions and fabrics need review.",catalog3DDemo:"Try 3D ↗",navStory:"Our approach",navContact:"Contact",
-    heroEyebrow:"FURNITURE WITH CHARACTER",heroLine1:"Furniture that",heroLine2:"fits your style",
+    navCollection:"Catalog",navStory:"Our approach",navContact:"Contact",heroLine1:"Furniture that",heroLine2:"fits your style",
     heroDescription:"Creating space for a comfortable, confident life.",
-    explore:"Explore catalog",heroAside:"Design preview",artNote:"Illustrative showroom interior",
-    tickerOne:"QUIET AESTHETICS",tickerTwo:"MADE FOR LIVING",
-    collectionTitle:"Find your own.",collectionIntro:"Explore MATRIX sofas and beds with product photographs, dimensions and details.",
+    explore:"Explore catalog",artNote:"Illustrative showroom interior",
     switchSofas:"Sofas",catCorner:"Corner sofas",catStraight:"Straight sofas",catBeds:"Beds",catUnspecified:"Category unconfirmed",
-    productsTitle:"Product collection",productsIntro:"Product photographs and specifications from the manufacturer’s catalog.",
     all:"All models",empty:"Nothing found. Try a different search.",
     catalogFootnote:"Prices have not been confirmed. Orders are not accepted.",
     storyTitle:"Room for your stories.",
@@ -70,8 +61,7 @@ const translations = {
     consult:"Ask about this model ↗",favoritesTitle:"Saved models",
     favoritesNote:"This list is saved on this device only. It is not a cart or an order.",
     favoriteEmpty:"No saved models yet.",category:"Category",
-    dimensions:"Overall dimensions",sleepArea:"Sleeping area",mm:"mm",pending:"Unconfirmed",
-    photoDemo:"Concept · not a product photo",details:"View product",open3D:"View in 3D",
+    dimensions:"Overall dimensions",sleepArea:"Sleeping area",mm:"mm",pending:"Unconfirmed",details:"View product",
     search:"Search models",menuOpen:"Open menu",menuClose:"Close menu",
     close:"Close",heart:"Add to favorites",count:"models",
     openAR:"View in your room AR / 3D",arLoading:"Preparing AR…",
@@ -276,7 +266,6 @@ function updateLanguage(){
  for(const el of document.querySelectorAll("[data-i18n]")){
   const key=el.dataset.i18n;
   if(key==="storyTitle"||key==="contactTitle"){
-   const text=t(key).split(" ");
    if(key==="contactTitle"){
     el.replaceChildren(document.createTextNode(state.locale==="uk"?"Ваш дім.":"Your home."),document.createElement("br"));
     const em=document.createElement("em");em.textContent=state.locale==="uk"?"Ваш MATRIX.":"Your MATRIX.";el.append(em);
@@ -284,7 +273,7 @@ function updateLanguage(){
     el.replaceChildren(document.createTextNode(state.locale==="uk"?"Місце для ":"Room for "));
     const em=document.createElement("em");em.textContent=state.locale==="uk"?"ваших історій.":"your stories.";el.append(em);
    }
-  }else {el.textContent=t(key).replace(/[↗♡♥]/g,"").trim();if(["consult","toFavorites","catalog3DDemo"].includes(key))el.insertAdjacentHTML("beforeend",window.matrixIcon(key==="toFavorites"?"heart":key==="catalog3DDemo"?"cube":"arrowRight"));}
+  }else {el.textContent=t(key).replace(/[↗♡♥]/g,"").trim();if(["consult","toFavorites"].includes(key))el.insertAdjacentHTML("beforeend",window.matrixIcon(key==="toFavorites"?"heart":"arrow"));}
  }
  $("#contact-map").title=t("mapTitle");
  search.placeholder=t("search");search.setAttribute("aria-label",t("search"));

@@ -29,7 +29,6 @@ const i18n={
   browse:"Повернутися до каталогу",footer:"3D-концепти · без замовлень та AR",
   reference:"Фото виробника · порівняйте з 3D-чернеткою",
   headingUnavailable:"Товар із підтвердженими габаритами не знайдено",
-  titleFallback:"Концепт"
  },
  en:{
   back:"Catalog",home:"Home",pre:"PHOTO-GUIDED 3D · PRODUCT DRAFT",
@@ -47,7 +46,6 @@ const i18n={
   browse:"Back to catalog",footer:"3D concepts · no purchases or AR",
   reference:"Manufacturer photo · compare with the 3D draft",
   headingUnavailable:"No suitable product dimensions found",
-  titleFallback:"Concept"
  }
 };
 const pilot = chosen?.slug === "hilton-2";

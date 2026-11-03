@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """Independent export checks: actual vertices, asset identity and paired USD scale."""
 import json
-import pathlib
 import struct
 import zipfile
 import numpy as np
 from pxr import Usd, UsdGeom
 from catalog_profiles import profiles
 from shape_profiles import shapes
-from build_catalog_models import ROOT, OUT
+from build_catalog_models import ROOT
 
 
 def inspect(slug, record):

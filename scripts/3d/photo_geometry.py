@@ -2,7 +2,6 @@
 import math
 import numpy as np
 from upholstery_shapes import UpholsteryModel
-from shape_profiles import shapes
 
 
 def layout(profile,s,w,d):

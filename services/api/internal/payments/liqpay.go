@@ -7,7 +7,6 @@ import (
  "errors"
  "net/http"
  "net/url"
- "strings"
  "time"
 
  "golang.org/x/crypto/sha3"
@@ -65,4 +64,3 @@ func(l LiqPay)FetchStatus(orderID string)(Status,error){
  if status.OrderID!=orderID{return Status{},errors.New("payment order mismatch")}
  return status,nil
 }
-func IsPaidStatus(status string)bool{return strings.EqualFold(status,"success")||strings.EqualFold(status,"sandbox")}

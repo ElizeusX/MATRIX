@@ -13,7 +13,6 @@ import (
  "path/filepath"
  "regexp"
  "strings"
- "time"
 
  "github.com/ElizeusX/MATRIX/services/api/internal/model3d"
 )
@@ -284,5 +283,3 @@ func (s *Server) updateProductDimensions(w http.ResponseWriter,r *http.Request){
  if err:=tx.Commit();err!=nil{fail(w,503,"database unavailable");return}
  jsonReply(w,200,map[string]string{"product":slug,"status":"dimensions_updated; models require review"})
 }
-
-var _ =time.Now

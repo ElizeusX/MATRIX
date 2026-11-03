@@ -16,7 +16,7 @@ class Model:
         # Tessellated upholstery panels: rounded edge transitions, crowned faces,
         # slight broad compression near the edge, rather than flat box primitives.
         half=np.array(size)/2; core=half-radius
-        verts=[]; norms=[]; uv=[]; faces=[]
+        verts=[]; uv=[]; faces=[]
         n=getattr(self, "segments", 16)
         for axis in range(3):
             axes=[a for a in range(3) if a!=axis]
