@@ -46,7 +46,10 @@ async function assertProductCards(page, width, locale) {
   assert.equal((await badge.textContent()).trim(), '3D / AR');
   assert(await badge.evaluate(el => el.tagName === 'SPAN' && !el.hasAttribute('tabindex') && !el.closest('a,button')));
   assert.equal(await badge.evaluate(el => getComputedStyle(el).pointerEvents), 'none');
-  assert.equal(await page.locator('.product-card[data-slug="lira-2"] .product-ar-badge').count(), 0, '3D-only product has no AR badge');
+  const bed = page.locator('.product-card[data-slug="lira-2"]');
+  await bed.scrollIntoViewIfNeeded();
+  await bed.locator('.product-ar-badge').waitFor({ state: 'visible' });
+  assert.equal(await page.locator('.product-card[data-slug="elli"] .product-ar-badge').count(), 0, 'other 3D-only products have no AR badge');
   const outer = await card.boundingBox();
   const target = await button.boundingBox();
   assert(Math.abs(outer.width - target.width) <= 2 && Math.abs(outer.height - target.height) <= 2, `details target covers the whole card: ${JSON.stringify({ outer, target })}`);
@@ -145,7 +148,7 @@ async function assertProductCards(page, width, locale) {
       }
       await page.locator('[data-category="corner-sofas"]').click();
       assert.equal(await page.locator('.filter.active').getAttribute('data-filter'), 'corner-sofas');
-      assert.equal(await page.locator('.hero-ar').getAttribute('href'), '3d.html?product=hilton-2');
+      assert(await page.locator('.hero-ar').evaluate(el => el.tagName === 'DIV' && !el.hasAttribute('tabindex')), 'homepage AR badge remains passive');
       assert.deepEqual(errors, []);
       await page.close();
     }

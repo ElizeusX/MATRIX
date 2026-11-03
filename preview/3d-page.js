@@ -215,7 +215,7 @@ async function openViewer(){
 }
 function renderApproval(){
  if(!policy.viewable(manifest))return;
- const approved=policy.approved(manifest),missing=manifest.dimensions_estimated===true;
+ const approved=policy.approved(manifest),missing=manifest.dimensions_estimated===true,estimatedBed=policy.estimatedBed(manifest);
  const estimate=lang==="uk"?"ОЦІНКА · НЕ ПІДТВЕРДЖЕНО":"ESTIMATE · UNCONFIRMED";
  const format=n=>(n/10).toLocaleString(lang==="uk"?"uk-UA":"en-US");
  $("measure-height").textContent=(approved?"":"≈ ")+format(manifest.height_mm??manifest.estimated_height_mm);
@@ -228,14 +228,16 @@ function renderApproval(){
   (lang==="uk"?"ЧЕРНЕТКА · "+(ar?"ПРИБЛИЗНЕ AR":"3D ЗА ФОТО"):"DRAFT · "+(ar?"ESTIMATED AR":"PHOTO-GUIDED 3D"));
  $("announcement").textContent=approved?"MATRIX / 3D & AR":(lang==="uk"?"3D ЗА ФОТО · РОЗМІРИ ПОТРЕБУЮТЬ ПЕРЕВІРКИ":"PHOTO-GUIDED 3D · DIMENSIONS NEED REVIEW");
  $("footer-note").textContent=$("announcement").textContent;
- $("ar-title").textContent=ar?(lang==="uk"?"Переглянути у своїй кімнаті":"View in your room"):(lang==="uk"?"AR потребує розмірів":"AR needs dimensions");
+ $("specs-heading").textContent=missing?(lang==="uk"?"Приблизні розміри конфігурації":"Estimated configuration dimensions"):text("specs");
+ $("ar-title").textContent=(policy.available(manifest)&&!scaleMismatch)?(lang==="uk"?"Переглянути у своїй кімнаті":"View in your room"):(lang==="uk"?"AR потребує розмірів":"AR needs dimensions");
  $("ar-button-label").textContent=lang==="uk"?"Переглянути у своїй кімнаті AR / 3D":"View in your room AR / 3D";
- $("ar-description").textContent=missing?(lang==="uk"?"Ширина та глибина невідомі або неоднозначні. Доступний тільки 3D-перегляд.":"Width and depth are missing or ambiguous. 3D viewing is available."):
+ $("ar-description").textContent=missing&&!estimatedBed?(lang==="uk"?"Ширина та глибина невідомі або неоднозначні. Доступний тільки 3D-перегляд.":"Width and depth are missing or ambiguous. 3D viewing is available."):
   modelNode?.canActivateAR?(lang==="uk"?"Наведіть камеру на підлогу. Переміщуйте та повертайте меблі жестами.":"Aim at the floor. Move and rotate the furniture with gestures."):
   (lang==="uk"?"AR не підтримується цим пристроєм. 3D-перегляд доступний.":"This device does not support AR. 3D remains available.");
  const h=format(manifest.estimated_height_mm??manifest.height_mm);
  $("warning-description").textContent=scaleMismatch?(lang==="uk"?"Габарити файлу не відповідають даним. AR заблоковано.":"File dimensions do not match the manifest. AR blocked."):
   approved?(lang==="uk"?"AR може мати похибки. Перед покупкою перевірте простір рулеткою.":"AR can be inaccurate. Measure your room before buying."):
+  estimatedBed?(lang==="uk"?"Приблизне AR ліжка: усі габарити цієї конфігурації оцінені за фото. Ширина ≈ "+format(manifest.estimated_width_mm)+" см, глибина ≈ "+format(manifest.estimated_depth_mm)+" см, висота ≈ "+h+" см. Тканина і конструкція не підтверджені. Не використовуйте для точних замірів; уточніть розміри у виробника.":"Estimated bed AR: all dimensions of this configuration are estimated from photos. Width ≈ "+format(manifest.estimated_width_mm)+" cm, depth ≈ "+format(manifest.estimated_depth_mm)+" cm, height ≈ "+h+" cm. Fabric and construction are unverified. Do not use for precise measurements; confirm sizes with the manufacturer."):
   missing?(lang==="uk"?"Розміри виробу відсутні або неоднозначні: усі габарити цієї 3D-моделі приблизні. Конфігурацію обрано за фото. Тканина і конструкція не підтверджені виробником. AR вимкнено.":"Product dimensions are missing or ambiguous: all dimensions of this 3D model are estimates. Configuration follows the photo. Fabric and construction are unverified. AR is disabled."):
   (lang==="uk"?"Висота виробу відсутня: використано приблизно "+h+" см за пропорціями фото. Геометрія і тканина не затверджені. Не використовуйте AR для точних замірів. Перед покупкою уточніть розміри у виробника.":"Product height is unknown: this preview uses an estimated "+h+" cm from photo proportions. Geometry and fabric are unverified. Do not use AR for accurate measurements. Confirm dimensions with the manufacturer before buying.");
  $("ar-disabled").setAttribute("aria-describedby","warning-description ar-description");

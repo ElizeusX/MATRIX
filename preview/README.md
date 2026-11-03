@@ -24,9 +24,11 @@ No manufacturer watermarks or photo pixels are embedded in the models.
 
 These remain **photo-guided drafts**, not scans or manufacturer-approved replicas.
 All heights are estimated. **48 products** (including Hilton-2) have usable catalog
-width/depth and matching GLB/USDZ exports for explicitly estimated AR. The other
-**18** have missing or ambiguous width/depth: all dimensions are labeled estimates,
-and AR stays disabled. Source catalog values are never repaired or overwritten
+width/depth and matching GLB/USDZ exports for explicitly estimated AR. All **ten
+beds/daybeds** also support estimated AR using one representative configuration,
+with width, depth and height clearly labeled as estimates (58 AR previews total).
+The remaining **eight** products with missing or ambiguous width/depth keep AR
+disabled. Source catalog values are never repaired or overwritten
 with estimates. Beds show one representative visual configuration, not every size.
 
 ```sh

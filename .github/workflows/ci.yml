@@ -45,6 +45,7 @@ jobs:
       - run: pip install -r scripts/3d/requirements.txt
       - run: python scripts/3d/build_catalog_models.py --sync-web
       - run: cd apps/web && npm run lint && npm run build
+      - run: node scripts/3d/test_web_ar_models.cjs
 
   pilot:
     # Playwright 1.56.1 supports this image; ubuntu-latest now uses 26.04.

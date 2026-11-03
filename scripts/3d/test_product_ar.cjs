@@ -46,6 +46,19 @@ function fixture(options={}){
 }
 
 (async()=>{
+ const beds=fs.readdirSync('preview/model-manifests').filter(name=>name.endsWith('.json'))
+  .map(name=>JSON.parse(fs.readFileSync('preview/model-manifests/'+name)))
+  .filter(m=>m.preview_ar_basis==='estimated_bed_configuration');
+ assert.equal(beds.length,10,'all double-bed and daybed profiles must offer estimated AR');
+ for(const manifest of beds){
+  const size={x:manifest.estimated_width_mm/1000,y:manifest.estimated_height_mm/1000,z:manifest.estimated_depth_mm/1000};
+  const f=fixture({manifest,size});await f.launcher.prepare(manifest.slug);await f.load();
+  assert.equal(f.state.phase,'ready',manifest.slug);assert.equal(f.viewer.attrs['ios-src'],manifest.usdz_url);
+  f.click();assert.equal(f.launched,1,manifest.slug);
+  const mismatch=fixture({manifest,size:{...size,z:size.z+.2}});
+  await mismatch.launcher.prepare(manifest.slug);await mismatch.load();assert.equal(mismatch.state.phase,'mismatch');
+  mismatch.click();assert.equal(mismatch.launched,0);f.launcher.reset();mismatch.launcher.reset();
+ }
  for(const manifest of [{...draft},{...draft,status:'approved',geometry_verified:true,height_mm:980}]){
   const f=fixture({manifest});await f.launcher.prepare('hilton-2');
   assert.equal(f.state.phase,'loading');assert(!('ar' in f.viewer.attrs));

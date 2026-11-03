@@ -155,8 +155,9 @@ human-approved, rights-cleared models with verified width/depth/height.
 ## Catalog 3D expansion
 
 All 66 active products now have individual photo-guided 3D drafts (65 new models plus
-the Hilton-2 pilot). 48 support explicitly estimated AR; 18 with missing or
-ambiguous dimensions offer 3D only. Heights, geometry and fabrics remain
+the Hilton-2 pilot). 58 support explicitly estimated AR, including all ten
+bed/daybed profiles with clearly labeled estimated configuration sizes; eight
+other products with missing or ambiguous dimensions offer 3D only. Heights, geometry and fabrics remain
 unverified and are labeled accordingly. See [catalog 3D](docs/CATALOG_3D.md)
 for reproduction, deployment and validation. Docker Compose builds these assets
 automatically; local Next.js development should first run the generation commands

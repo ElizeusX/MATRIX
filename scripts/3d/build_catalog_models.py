@@ -34,6 +34,8 @@ def generate(output=OUT, sync_web=False, slugs=None):
         w,d=(p['width'],p['depth']) if known else ESTIMATED_WD[slug]
         assert 300<=w<=8000 and 300<=d<=6000
         h=profile['height']
+        estimated_bed=not known and profile['shape']['family']=='bed'
+        can_ar=known or estimated_bed
         m=build_photo_model(profile,w/1000,d/1000,h/1000)
         m.finish((w/1000,h/1000,d/1000))
         extras=dict(product_slug=slug,approval='DRAFT_ONLY',accurate_AR=False,geometry_verified=False,
@@ -43,21 +45,24 @@ def generate(output=OUT, sync_web=False, slugs=None):
             method='Authored photo-guided surfaces, not a scan or measured replica; original procedural fabric')
         # Dimension changes get distinct asset URLs so browsers cannot reuse old scale.
         asset_tag=f'-{w}x{d}' if p.get('dimensionSource')=='manufacturer' else ''
-        size=export(m,output,slug,profile,extras,tex,asset_tag=asset_tag)
-        manifest=dict(slug=slug,status='draft',enabled_3d=True,enabled_ar=known,
+        size=export(m,output,slug,profile,extras,tex,asset_tag=asset_tag,estimated_bed_ar=estimated_bed)
+        manifest=dict(slug=slug,status='draft',enabled_3d=True,enabled_ar=can_ar,
             geometry_verified=False,rights_confirmed=True,
             rights_basis='Original authored geometry and procedural textures; no photo pixels embedded',
             width_mm=p.get('width'),depth_mm=p.get('depth'),height_mm=None,
             estimated_width_mm=w,estimated_depth_mm=d,estimated_height_mm=h,
-            dimensions_estimated=not known,preview_ar=known,
+            dimensions_estimated=not known,preview_ar=can_ar,
             height_estimate_source='Authored photo profile proportions; not a manufacturer measurement',
             shape_revision=2,camera_orbit=('-25deg 65deg auto' if profile['shape']['family']=='bed' else '-12deg 78deg auto' if profile['shape']['family']=='venera' else '-20deg 78deg auto'),glb_url=f'models/{slug}-v2{asset_tag}-draft.glb',reference_photo=profile['reference'],
             blockers=['manufacturer_height','geometry_approval','device_ar_review'])
-        if known:manifest['usdz_url']=f'models/{slug}-v2{asset_tag}-estimated.usdz'
-        else:manifest['blockers'].append('manufacturer_width_depth')
+        if can_ar:manifest['usdz_url']=f'models/{slug}-v2{asset_tag}-estimated.usdz'
+        if not known:manifest['blockers'].append('manufacturer_width_depth')
+        if estimated_bed:
+            manifest['preview_ar_basis']='estimated_bed_configuration'
+            manifest['width_depth_estimate_source']='Authored bed configuration from catalog photos; overall dimensions are not manufacturer measurements'
         (manifests/f'{slug}.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
-        count+=1;ar_count+=known
-        print(f'{slug}: {len(m.parts)} parts, {size//1024} KiB, '+('estimated AR' if known else '3D only; W/D estimated'),flush=True)
+        count+=1;ar_count+=can_ar
+        print(f'{slug}: {len(m.parts)} parts, {size//1024} KiB, '+('estimated AR; all dimensions estimated' if estimated_bed else 'estimated AR' if known else '3D only; W/D estimated'),flush=True)
     if sync_web:
         for source,dest in [(output,ROOT/'apps/web/public/models'),(manifests,ROOT/'apps/web/public/model-manifests')]:
             dest.mkdir(parents=True,exist_ok=True)

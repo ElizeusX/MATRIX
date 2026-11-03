@@ -40,6 +40,7 @@ const translations = {
     inline3D:"Модель у 3D",inline3DLoading:"Завантажуємо 3D-модель…",inline3DFailed:"Не вдалося завантажити 3D. Закрийте та відкрийте модель, щоб спробувати знову.",inline3DUnavailable:"3D-модель поки недоступна.",inline3DHint:"Обертайте одним пальцем, наближайте двома.",reset3D:"Скинути вигляд",
     arReady:"Наведіть камеру на підлогу та розмістіть меблі. AR є приблизною візуалізацією.",
     arEstimate:"Висоту не підтверджено: використано приблизно {height} см. Не використовуйте AR для точних замірів.",
+    arBedEstimate:"Усі габарити цієї конфігурації ліжка приблизні: ширина ≈ {width} см, глибина ≈ {depth} см, висота ≈ {height} см. Не використовуйте AR для точних замірів; уточніть розміри у виробника.",
     arUnsupported:"AR не підтримується цим пристроєм або браузером. Спробуйте Safari на iPhone чи Chrome на сумісному Android. Обертати модель можна у 3D під фотографіями.",
     arUnavailable:"Для цієї моделі AR недоступне.",
     arMismatch:"Габарити 3D-файлу не відповідають даним моделі. AR недоступне.",
@@ -77,6 +78,7 @@ const translations = {
     inline3D:"3D model",inline3DLoading:"Loading 3D model…",inline3DFailed:"Could not load 3D. Close and reopen the product to try again.",inline3DUnavailable:"A 3D model is not available yet.",inline3DHint:"Drag to rotate, pinch to zoom.",reset3D:"Reset view",
     arReady:"Aim at the floor and place the furniture. AR is an approximate visualization.",
     arEstimate:"Height is unconfirmed: this preview uses approximately {height} cm. Do not use AR for precise measurements.",
+    arBedEstimate:"All dimensions of this bed configuration are estimates: width ≈ {width} cm, depth ≈ {depth} cm, height ≈ {height} cm. Do not use AR for precise measurements; confirm sizes with the manufacturer.",
     arUnsupported:"This device or browser does not support AR. Try Safari on iPhone or Chrome on a compatible Android. Rotate the 3D model below the photographs.",
     arUnavailable:"AR is unavailable for this model.",
     arMismatch:"The 3D file dimensions do not match the model data. AR is unavailable.",
@@ -109,7 +111,8 @@ function renderProductAR(){
  button.disabled=phase!=="ready";
  button.setAttribute("aria-busy",String(phase==="loading"));
  let message=t(({idle:"arLoading",loading:"arLoading",ready:"arReady",unsupported:"arUnsupported",unavailable:"arUnavailable",mismatch:"arMismatch",error:"arFailed",failed:"arFailed"})[phase]);
- if(manifest&&window.MATRIX_AR_POLICY.estimated(manifest))message+=" "+t("arEstimate").replace("{height}",String(manifest.estimated_height_mm/10));
+ if(manifest&&window.MATRIX_AR_POLICY.estimated(manifest))message+=" "+t(window.MATRIX_AR_POLICY.estimatedBed(manifest)?"arBedEstimate":"arEstimate")
+  .replace("{width}",String(manifest.estimated_width_mm/10)).replace("{depth}",String(manifest.estimated_depth_mm/10)).replace("{height}",String(manifest.estimated_height_mm/10));
  reason.textContent=message;
  const placeholder=$("#dialog-3d-placeholder");
  placeholder.hidden=loaded;

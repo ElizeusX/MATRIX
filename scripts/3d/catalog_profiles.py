@@ -1,7 +1,8 @@
 """Authored observations of local catalog photos, not measured construction data.
 
 front is +Z; chaise -1 = left in the front view. All heights are estimates.
-Missing/ambiguous W/D stay estimates and never become catalog facts or AR sizes.
+Missing/ambiguous W/D stay estimates and never become catalog facts. Beds may
+use an explicitly labeled estimated configuration for approximate AR placement.
 No random silhouettes or random fabric colors. Each row was reviewed against
 the catalog photo path. Fabrics are original procedural approximations.
 """

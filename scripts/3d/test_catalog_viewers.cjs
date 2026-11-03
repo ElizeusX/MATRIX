@@ -8,7 +8,7 @@ const fs=require('node:fs');
  try {
   fs.mkdirSync('artifacts/3d',{recursive:true});
   for(const viewport of [{width:390,height:844},{width:1440,height:1000}]){
-   for(const slug of ['kutovyy-dyvan-neo-2','hilton-p','lizhko-faro','delta','pryamyy-dyvan-loft','molly','kutovyy-dyvan-elehant','rubin']){
+   for(const slug of ['kutovyy-dyvan-neo-2','hilton-p','lizhko-faro','lizhko-skay','delta','pryamyy-dyvan-loft','molly','kutovyy-dyvan-elehant','rubin']){
     const page=await browser.newPage({viewport,hasTouch:viewport.width<500});const errors=[];
     page.on('pageerror',e=>errors.push(e.message));
     await page.route('https://unpkg.com/@google/model-viewer@4.4.0/dist/model-viewer.min.js',r=>r.fulfill({path:path.resolve('apps/web/node_modules/@google/model-viewer/dist/model-viewer.min.js'),contentType:'text/javascript'}));

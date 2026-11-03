@@ -7,6 +7,7 @@ import zipfile
 import numpy as np
 from pxr import Usd, UsdGeom
 from catalog_profiles import profiles
+from shape_profiles import shapes
 from build_catalog_models import ROOT, OUT
 
 
@@ -48,9 +49,15 @@ def inspect(slug, record):
         tag=f"-v2-{record['width']}x{record['depth']}"
         assert manifest['glb_url']==f'models/{slug}{tag}-draft.glb'
         assert manifest['usdz_url']==f'models/{slug}{tag}-estimated.usdz'
-    assert manifest['enabled_ar']==manifest['preview_ar']==known
+    estimated_bed=not known and shapes()[slug]['family']=='bed'
+    can_ar=known or estimated_bed
+    assert manifest['enabled_ar']==manifest['preview_ar']==can_ar
     assert manifest['dimensions_estimated']==(not known)
-    if known:
+    if estimated_bed:
+        assert manifest['preview_ar_basis']=='estimated_bed_configuration'
+        assert manifest['width_depth_estimate_source'].strip()
+        assert 'manufacturer_width_depth' in manifest['blockers']
+    if can_ar:
         usdz=ROOT/'preview'/manifest['usdz_url']
         with zipfile.ZipFile(usdz) as z:
             for f in z.infolist():
@@ -64,7 +71,7 @@ def inspect(slug, record):
         usdpoints=np.concatenate([np.array(UsdGeom.Mesh(p).GetPointsAttr().Get()) for p in stage.Traverse() if p.IsA(UsdGeom.Mesh)])
         assert np.allclose(usdpoints,points,atol=1e-6),slug
     else:assert 'usdz_url' not in manifest
-    return len(data),known
+    return len(data),can_ar
 
 
 def main():
