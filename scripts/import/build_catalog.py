@@ -7,7 +7,6 @@ The cache contains listing.json, product-NNN.html and photos.json from the crawl
 import argparse, hashlib, json, re, shutil
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import unquote, urlsplit, quote
 from lxml import html
 from product_media import apply_media
 

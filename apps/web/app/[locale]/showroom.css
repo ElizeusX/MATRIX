@@ -13,44 +13,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-.brand-symbol {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 43px;
-  height: 40px;
-  font:
-    italic 900 44px Georgia,
-    serif;
-  letter-spacing: -9px;
-  padding-right: 8px;
-  color: #ad834e;
-  background: linear-gradient(
-    120deg,
-    #e9d7b0,
-    #8d632f 46%,
-    #e6c897 52%,
-    #9c733e
-  );
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.brand-type {
-  display: flex;
-  flex-direction: column;
-  font-size: 27px;
-  font-weight: 400;
-  letter-spacing: 5px;
-  line-height: 1.2;
-  color: #201f1b;
-}
-.brand-type small {
-  font-size: 5px;
-  letter-spacing: 2px;
-  margin-top: 4px;
-}
-.matrixBrand,
-.wordmark {
+
+.matrixBrand{
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -130,8 +94,7 @@ body {
   padding: 48px 5% 85px;
   max-width: 540px;
 }
-.heroPagination,
-.hero-pagination {
+.heroPagination{
   display: flex;
   align-items: center;
   gap: 17px;
@@ -140,8 +103,7 @@ body {
   letter-spacing: 3px;
   margin: 0 0 28px;
 }
-.heroPagination span,
-.hero-pagination span {
+.heroPagination span{
   width: 30px;
   height: 1px;
   background: #a89d8d;
@@ -320,26 +282,7 @@ body {
   margin: 0 16px 18px;
   color: #6d675f;
 }
-.home3d {
-  position: absolute;
-  right: 12px;
-  top: 45%;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  background: #fff;
-  border: 1px solid #ece4d7;
-  border-radius: 50%;
-  font-size: 9px;
-  box-shadow: 0 3px 10px #3c291810;
-}
-.home3d svg {
-  width: 19px;
-  height: 19px;
-}
+
 .homeStory {
   padding: 70px 7%;
   background: #f7f3ed;
@@ -455,21 +398,8 @@ body {
     padding: 0 5%;
     gap: 12px;
   }
-  .brand-type {
-    font-size: 21px;
-    letter-spacing: 3px;
-  }
-  .brand-type small {
-    font-size: 4px;
-    letter-spacing: 1.2px;
-  }
-  .brand-symbol {
-    flex-basis: 30px;
-    font-size: 36px;
-    height: 34px;
-  }
-  .matrixBrand,
-  .wordmark {
+
+  .matrixBrand{
     gap: 6px;
   }
   .localeHeader nav {
@@ -599,20 +529,7 @@ body {
     margin: 0 12px 24px;
     font-size: 11px;
   }
-  .home3d {
-    right: auto;
-    left: calc(52% - 39px);
-    top: auto;
-    bottom: 10px;
-    width: 32px;
-    height: 32px;
-  }
-  .home3d svg {
-    width: 15px;
-  }
-  .home3d span {
-    display: none;
-  }
+
   .homeStory {
     padding: 55px 7%;
   }
@@ -623,9 +540,7 @@ body {
     align-items: flex-start;
     gap: 24px;
   }
-  .storeFooter .brand-type {
-    font-size: 22px;
-  }
+
 }
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -638,7 +553,7 @@ body {
 }
 
 /* Custom MATRIX controls share a 32-unit drawing grid. */
-.matrix-icon{width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0}.menu-toggle .matrix-icon{width:24px;height:24px}.product-open .matrix-icon,.favorite-item .matrix-icon,.dialog-close .matrix-icon{width:21px;height:21px}.modal-heart .matrix-icon{width:20px;height:20px;margin-left:10px}.favorite-btn.selected .matrix-icon{fill:currentColor;fill-opacity:.16}.underlined-link>.matrix-icon,.category-arrow .matrix-icon{width:21px;height:21px}.dialog-close{display:flex;align-items:center;justify-content:center}
+.matrix-icon{width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0}
 
 /* Category links are navigation controls, not selected tabs. */
 .showroomCategories > a,
@@ -786,7 +701,7 @@ body {
 }
 
 /* Capability label only: the surrounding card remains the details target. */
-.product-ar-badge, .product-meta > .product-ar-badge {
+.product-ar-badge{
   display: flex;
   align-items: center;
   width: fit-content;
@@ -805,7 +720,6 @@ body {
   pointer-events: none;
 }
 .product-ar-badge .matrix-icon { width: 22px; height: 22px; }
-.product-meta > .product-ar-badge { margin-top: 0; }
 
 /* True alpha artwork blends with the navigation without color correction or cropping. */
 .brand-logo {
@@ -824,4 +738,3 @@ body {
 @media (max-width: 580px) {
   .brand-logo { width: 100px; }
 }
-

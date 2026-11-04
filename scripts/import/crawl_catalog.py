@@ -8,7 +8,7 @@ import argparse, concurrent.futures, hashlib, json, re, subprocess
 from pathlib import Path
 from urllib.parse import unquote, quote, urlsplit
 from lxml import html, etree
-from build_catalog import build, ROOT
+from build_catalog import build
 
 def crawl(cache):
  cache.mkdir(parents=True,exist_ok=True);(cache/'images').mkdir(exist_ok=True)

@@ -19,7 +19,6 @@ const copy={
   zoom:"Збільшити",reset:"Скинути вигляд",fullscreen:"На весь екран",exitFullscreen:"Закрити повний екран",
   dimensions:"Габарити",hideDimensions:"Приховати розміри",
   ar:"Переглянути у своїй кімнаті AR / 3D",unavailableAR:"AR недоступне в цьому браузері або на пристрої. 3D-перегляд працює окремо.",
-  placement:"У AR наведіть камеру на підлогу та розмістіть меблі. Розміри перевірено за даними виробника.",
   disclaimer:"AR — приблизна візуалізація. Перед покупкою виміряйте кімнату рулеткою. Виявлення зіткнень зі стінами не гарантується.",
   failure:"Не вдалося відкрити 3D. Перевірте інтернет і підтримку WebGL 2 у браузері.",
   badScale:"3D-модель не відповідає підтвердженим габаритам. AR заблоковано до перевірки.",
@@ -31,7 +30,6 @@ const copy={
   zoom:"Zoom in",reset:"Reset view",fullscreen:"Full screen",exitFullscreen:"Exit full screen",
   dimensions:"Dimensions",hideDimensions:"Hide dimensions",
   ar:"View in your room AR / 3D",unavailableAR:"AR isn't supported by this device or browser. The 3D viewer is still available.",
-  placement:"In AR, aim your camera at the floor and position the furniture. Dimensions were verified against manufacturer measurements.",
   disclaimer:"AR positioning is approximate. Check the room with a tape measure before purchasing. Collision detection is not guaranteed.",
   failure:"Could not open 3D. Check your connection and browser WebGL 2 support.",
   badScale:"Rendered model dimensions differ from the verified product data. AR is disabled pending review.",
@@ -49,11 +47,9 @@ export default function Furniture3D({model,locale,initiallyOpen=false}:{model:Fu
  const height=model.height_mm??(draft?model.estimated_height_mm:0);
  const t={...copy[locale],...(draft?(locale==="uk"?{
   status:"Чернетка за фото · розміри не підтверджено",
-  placement:"Приблизне AR: висота оцінена за пропорціями фото. Геометрія і тканина не затверджені.",
   disclaimer:estimatedBed?`Приблизне AR ліжка: ширина ≈ ${round(width)} см, глибина ≈ ${round(depth)} см, висота ≈ ${round(height)} см. Усі габарити обраної конфігурації оцінені за фото. Не використовуйте для точних замірів; уточніть розміри у виробника.`:unknown?"Ширина, глибина та висота невідомі або неоднозначні. Усі розміри моделі приблизні. AR вимкнено.":`Висота виробу невідома: використано приблизно ${Math.round(height/10)} см. Форма і тканина опрацьовані за фото. Не використовуйте AR для точних замірів; уточніть розміри у виробника.`
  }:{
   status:"Photo-guided draft · dimensions unverified",
-  placement:"Estimated AR: height follows photo proportions. Geometry and fabric are unverified.",
   disclaimer:estimatedBed?`Estimated bed AR: width ≈ ${round(width)} cm, depth ≈ ${round(depth)} cm, height ≈ ${round(height)} cm. All dimensions of this configuration are estimated from photos. Do not use for precise measurements; confirm dimensions with the manufacturer.`:unknown?"Width, depth and height are missing or ambiguous. All model dimensions are estimates. AR is disabled.":`Product height is unknown: this preview uses approximately ${Math.round(height/10)} cm. Shape and fabric follow photos. Do not use AR for accurate measurements; confirm dimensions with the manufacturer.`
  }):{})};
  const [open,setOpen]=useState(initiallyOpen);
@@ -65,7 +61,6 @@ export default function Furniture3D({model,locale,initiallyOpen=false}:{model:Fu
  const [arSupport,setARSupport]=useState(false);
  const [showDimensions,setShowDimensions]=useState(true);
  const [full,setFull]=useState(false);
- const container=useRef<HTMLDivElement>(null);
  const viewer=useRef<ViewerElement>(null);
  useEffect(()=>{
   if(!open)return;
@@ -123,7 +118,7 @@ export default function Furniture3D({model,locale,initiallyOpen=false}:{model:Fu
  return <section className="matrix3d" aria-labelledby="matrix3d-title">
   <div className="matrix3d-heading"><div><span className="matrix3d-overline">MATRIX / 3D & AR</span><h2 id="matrix3d-title">{t.heading}</h2><p>{t.intro}</p></div><span className="matrix3d-verified">{t.status}</span></div>
   {!open?<button className="matrix3d-primary" type="button" onClick={()=>setOpen(true)}>{t.start}<span aria-hidden="true">↗</span></button>:
-  <div ref={container} className={`matrix3d-stage ${full?"matrix3d-full":""}`}>
+  <div className={`matrix3d-stage ${full?"matrix3d-full":""}`}>
    <div className="matrix3d-topbar">
     <span className="matrix3d-verified">MATRIX / 3D</span>
     <button type="button" onClick={close} aria-label={t.close}>{t.close}<FurnitureIcon kind="close"/></button>
